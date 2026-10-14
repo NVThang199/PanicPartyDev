@@ -77,7 +77,7 @@ func _physics_process(delta):
 		move_and_slide()
 		# Sync to all peers only if node is in tree
 		if is_node_ready():
-			sync_state.rpc_unreliable(position, model.rotation.y if model else 0.0, current_anim)
+			sync_state.rpc(position, model.rotation.y if model else 0.0, current_anim)
 
 @rpc("any_peer", "unreliable")
 func sync_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
