@@ -41,38 +41,53 @@ func _physics_process(delta):
 	_ensure_nodes()
 	if multiplayer.multiplayer_peer == null:
 		return
-	if not is_multiplayer_authority():
+	
+	var has_authority = is_multiplayer_authority()
+	
+	if has_authority:
+		if not is_on_floor():
+			velocity.y -= gravity * delta
+
+		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		if input_dir == Vector2.ZERO:
+			if Input.is_key_pressed(KEY_W):
+				input_dir.y -= 1
+			if Input.is_key_pressed(KEY_S):
+				input_dir.y += 1
+			if Input.is_key_pressed(KEY_A):
+				input_dir.x -= 1
+			if Input.is_key_pressed(KEY_D):
+				input_dir.x += 1
+			input_dir = input_dir.normalized()
+
+		var direction = Vector3(input_dir.x, 0, input_dir.y)
+
+		if direction != Vector3.ZERO:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+			if model:
+				var target_rotation = atan2(direction.x, direction.z)
+				model.rotation.y = lerp_angle(model.rotation.y, target_rotation, ROTATION_SPEED * delta)
+			play_anim("movement/Walking_A")
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
+			play_anim("general/Idle_A")
+
+		move_and_slide()
+		# Sync to all peers only if node is in tree
+		if is_node_ready():
+			sync_state.rpc_unreliable(position, model.rotation.y if model else 0.0, current_anim)
+
+@rpc("any_peer", "unreliable")
+func sync_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
+	if is_multiplayer_authority():
 		return
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-
-	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	if input_dir == Vector2.ZERO:
-		if Input.is_key_pressed(KEY_W):
-			input_dir.y -= 1
-		if Input.is_key_pressed(KEY_S):
-			input_dir.y += 1
-		if Input.is_key_pressed(KEY_A):
-			input_dir.x -= 1
-		if Input.is_key_pressed(KEY_D):
-			input_dir.x += 1
-		input_dir = input_dir.normalized()
-
-	var direction = Vector3(input_dir.x, 0, input_dir.y)
-
-	if direction != Vector3.ZERO:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-		if model:
-			var target_rotation = atan2(direction.x, direction.z)
-			model.rotation.y = lerp_angle(model.rotation.y, target_rotation, ROTATION_SPEED * delta)
-		play_anim("movement/Walking_A")
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-		play_anim("general/Idle_A")
-
-	move_and_slide()
+	position = new_pos
+	if model:
+		model.rotation.y = rot_y
+	if anim_name and anim_name != current_anim:
+		play_anim(anim_name)
 
 func play_anim(anim_name: String):
 	_ensure_nodes()
