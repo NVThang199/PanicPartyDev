@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://bmainmenu001"]
+
+[ext_resource type="Script" uid="uid://eygj7d12j4ca" path="res://scripts/ui/main_menu.gd" id="1_menu"]
+[ext_resource type="Script" uid="uid://bfkvwoo7erevw" path="res://scripts/ui/button_effects_config.gd" id="2_fx"]
+[ext_resource type="Texture2D" uid="uid://dxshhb785n13s" path="res://assets/ui/menu_art.png" id="3_bg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0l6lq"]
+font_size = 35
+
+[node name="MainMenu" type="CanvasLayer" unique_id=1997708704]
+script = ExtResource("1_menu")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2146993397]
+self_modulate = Color(0.29954752, 0.29954743, 0.29954743, 1)
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("3_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Title" type="Label" parent="." unique_id=2108023123]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 140.0
+grow_horizontal = 2
+text = "Party Panic"
+label_settings = SubResource("LabelSettings_0l6lq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1845926929]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -60.0
+offset_right = 110.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="StartButton" type="Button" parent="Buttons" unique_id=477008727]
+layout_mode = 2
+text = "Start"
+
+[node name="ButtonEffects" type="Node" parent="Buttons/StartButton" unique_id=2023101042]
+script = ExtResource("2_fx")
+font_size = 24
+ease_type = 2
+trans_type = 2
+
+[node name="CreditsButton" type="Button" parent="Buttons" unique_id=1290501338]
+layout_mode = 2
+text = "Credits"
+
+[node name="ButtonEffects2" type="Node" parent="Buttons/CreditsButton" unique_id=1394212698]
+script = ExtResource("2_fx")
+font_size = 24
+ease_type = 2
+trans_type = 2
+
+[node name="ExitButton" type="Button" parent="Buttons" unique_id=1764940728]
+layout_mode = 2
+text = "Exit"
+
+[node name="ButtonEffects3" type="Node" parent="Buttons/ExitButton" unique_id=25927002]
+script = ExtResource("2_fx")
+font_size = 24
+ease_type = 2
+trans_type = 2
+
+[node name="Credits" type="AcceptDialog" parent="." unique_id=876026547]
+oversampling_override = 1.0
+title = "Credits"
+initial_position = 1
+size = Vector2i(420, 140)
+dialog_text = "Party Panic
+Developed with Godot Engine
+Free assets by KayKit"
+
+[connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/CreditsButton" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_pressed"]

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://hud_scene"]
+
+[ext_resource type="Script" path="res://scripts/ui/character_switcher.gd" id="1_character_switcher"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_character_switcher")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 50.0
+
+[node name="OptionButton" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 160.0
+offset_bottom = 41.0

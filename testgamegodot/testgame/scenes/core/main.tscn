@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://test3d"]
+
+[ext_resource type="Script" uid="uid://ceuqqq3clw6qn" path="res://scripts/core/main.gd" id="1_main_script"]
+[ext_resource type="PackedScene" uid="uid://iqi1e25qulnn" path="res://scenes/players/player.tscn" id="2_player_scene"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="3_hud_scene"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(32, 0.2, 32)
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+size = Vector3(32, 0.2, 32)
+
+[node name="Main3D" type="Node3D" unique_id=1693924833]
+script = ExtResource("1_main_script")
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=2139890537]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1687245490]
+shape = SubResource("BoxShape3D_floor")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1740177398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.088285446, 0.013224125, -0.016033173)
+mesh = SubResource("BoxMesh_floor")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1934731168]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 0)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=2234567890]
+
+[node name="StatusLabel" type="Label" parent="UI" unique_id=2234567891]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.1
+offset_left = 10.0
+offset_top = 10.0
+text = "Status: Waiting..."
+
+[node name="HostButton" type="Button" parent="UI" unique_id=2234567892]
+anchor_left = 0.0
+anchor_top = 0.1
+anchor_right = 0.15
+anchor_bottom = 0.2
+offset_left = 10.0
+offset_top = 50.0
+text = "HOST"
+
+[node name="QuitButton" type="Button" parent="UI" unique_id=2234567893]
+anchor_left = 0.0
+anchor_top = 0.1
+anchor_right = 0.15
+anchor_bottom = 0.2
+offset_left = 10.0
+offset_top = 90.0
+text = "QUIT"

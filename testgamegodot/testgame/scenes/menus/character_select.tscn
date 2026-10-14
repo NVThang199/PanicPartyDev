@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://clcpi403tv4lo"]
+
+[ext_resource type="Script" uid="uid://kmdefvrvxscr" path="res://scripts/ui/character_select.gd" id="1_script"]
+
+[sub_resource type="Environment" id="Environment_preview"]
+background_mode = 1
+background_color = Color(0.08, 0.1, 0.16, 1)
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 4.0
+
+[node name="CharacterSelect" type="Control" unique_id=407765612]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1210176443]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.04, 0.05, 0.09, 1)
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1045173825]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 32
+
+[node name="Content" type="VBoxContainer" parent="Margin" unique_id=279994131]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Margin/Content" unique_id=105001914]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "CHOOSE YOUR CHARACTER"
+horizontal_alignment = 1
+
+[node name="Body" type="HBoxContainer" parent="Margin/Content" unique_id=1756814741]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="LeftPanel" type="VBoxContainer" parent="Margin/Content/Body" unique_id=505814308]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Instruction" type="Label" parent="Margin/Content/Body/LeftPanel" unique_id=682650461]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Select a character"
+horizontal_alignment = 1
+
+[node name="CharacterButtons" type="VBoxContainer" parent="Margin/Content/Body/LeftPanel" unique_id=1280480422]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="PreviewPanel" type="PanelContainer" parent="Margin/Content/Body" unique_id=217385993]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PreviewViewportContainer" type="SubViewportContainer" parent="Margin/Content/Body/PreviewPanel" unique_id=1310988802]
+layout_mode = 2
+stretch = true
+
+[node name="PreviewViewport" type="SubViewport" parent="Margin/Content/Body/PreviewPanel/PreviewViewportContainer" unique_id=1573405503]
+handle_input_locally = false
+size = Vector2i(794, 454)
+render_target_update_mode = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Margin/Content/Body/PreviewPanel/PreviewViewportContainer/PreviewViewport" unique_id=71203931]
+environment = SubResource("Environment_preview")
+
+[node name="Camera3D" type="Camera3D" parent="Margin/Content/Body/PreviewPanel/PreviewViewportContainer/PreviewViewport" unique_id=1143166834]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 1.5, 8)
+current = true
+
+[node name="Light" type="OmniLight3D" parent="Margin/Content/Body/PreviewPanel/PreviewViewportContainer/PreviewViewport" unique_id=1983094656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 4)
+light_color = Color(1, 0.97, 0.9, 1)
+light_energy = 4.0
+omni_range = 16.0
+
+[node name="Footer" type="HBoxContainer" parent="Margin/Content" unique_id=1188042194]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Margin/Content/Footer" unique_id=1270365140]
+custom_minimum_size = Vector2(170, 48)
+layout_mode = 2
+text = "Back"
+
+[node name="SelectedLabel" type="Label" parent="Margin/Content/Footer" unique_id=1225477472]
+custom_minimum_size = Vector2(220, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Knight"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="Margin/Content/Footer" unique_id=650304665]
+custom_minimum_size = Vector2(170, 48)
+layout_mode = 2
+text = "Confirm"
+
+[connection signal="pressed" from="Margin/Content/Footer/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Margin/Content/Footer/ConfirmButton" to="." method="_on_confirm_pressed"]
