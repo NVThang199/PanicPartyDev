@@ -22,6 +22,7 @@ func _ensure_nodes():
 
 func _ready():
 	_ensure_nodes()
+	$Camera3D.current = is_multiplayer_authority()
 	if anim_player:
 		if not anim_player.has_animation_library("movement"):
 			var move_lib = load("res://assets/animations/movement_animations.res")
