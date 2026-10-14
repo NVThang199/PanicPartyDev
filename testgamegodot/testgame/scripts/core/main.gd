@@ -18,7 +18,9 @@ func on_host_created() -> void:
 
 func on_client_connected() -> void:
 	$UI/StatusLabel.text = "Connected - ID: %d" % multiplayer.get_unique_id()
-	# Client requests host to sync existing players
+	await get_tree().process_frame
+	if multiplayer.multiplayer_peer == null or multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
+		return
 	request_player_list.rpc_id(1)
 
 func _on_peer_connected(peer_id: int) -> void:

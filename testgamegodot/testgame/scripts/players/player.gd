@@ -67,25 +67,12 @@ func _physics_process(delta):
 			var target_rotation = atan2(direction.x, direction.z)
 			model.rotation.y = lerp_angle(model.rotation.y, target_rotation, ROTATION_SPEED * delta)
 		play_anim("movement/Walking_A")
-		rpc("_sync_animation", "movement/Walking_A")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		play_anim("general/Idle_A")
-		rpc("_sync_animation", "general/Idle_A")
 
 	move_and_slide()
-	rpc("_sync_transform", position, model.rotation.y if model else 0.0)
-
-@rpc("any_peer", "unreliable")
-func _sync_transform(new_pos: Vector3, rot_y: float) -> void:
-	position = new_pos
-	if model:
-		model.rotation.y = rot_y
-
-@rpc("any_peer")
-func _sync_animation(anim_name: String) -> void:
-	play_anim(anim_name)
 
 func play_anim(anim_name: String):
 	_ensure_nodes()
