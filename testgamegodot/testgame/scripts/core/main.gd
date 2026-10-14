@@ -27,9 +27,9 @@ func _on_peer_connected(peer_id: int) -> void:
 	if not multiplayer.is_server():
 		return
 	print("Peer connected: ", peer_id)
-	# Host waits 1 frame for client to be ready, then spawns new peer
 	await get_tree().process_frame
-	spawn_player_rpc.rpc(peer_id)
+	# Broadcast host player to new client
+	spawn_player_rpc.rpc_id(peer_id, multiplayer.get_unique_id())
 
 @rpc("any_peer", "reliable")
 func request_player_list() -> void:
@@ -37,14 +37,11 @@ func request_player_list() -> void:
 		return
 	var caller_id := multiplayer.get_remote_sender_id()
 	print("Client %d requesting player list" % caller_id)
-	# Send all existing players to the requesting client
+	# Send all existing players to requesting client
 	for peer_id in players:
 		spawn_player_rpc.rpc_id(caller_id, peer_id)
-	# Then spawn the requester
-	await get_tree().process_frame
-	spawn_player_rpc.rpc_id(caller_id, caller_id)
 
-@rpc("authority", "call_local", "reliable")
+@rpc("authority", "reliable")
 func spawn_player_rpc(peer_id: int) -> void:
 	if peer_id in players:
 		return
