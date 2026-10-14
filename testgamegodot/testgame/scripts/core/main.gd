@@ -18,17 +18,35 @@ func on_host_created() -> void:
 
 func on_client_connected() -> void:
 	$UI/StatusLabel.text = "Connected - ID: %d" % multiplayer.get_unique_id()
+	# Client requests host to sync existing players
+	request_player_list.rpc_id(1)
 
 func _on_peer_connected(peer_id: int) -> void:
 	if not multiplayer.is_server():
 		return
-	# Host spawns new peer on all clients
+	print("Peer connected: ", peer_id)
+	# Host waits 1 frame for client to be ready, then spawns new peer
+	await get_tree().process_frame
 	spawn_player_rpc.rpc(peer_id)
+
+@rpc("any_peer", "reliable")
+func request_player_list() -> void:
+	if not multiplayer.is_server():
+		return
+	var caller_id := multiplayer.get_remote_sender_id()
+	print("Client %d requesting player list" % caller_id)
+	# Send all existing players to the requesting client
+	for peer_id in players:
+		spawn_player_rpc.rpc_id(caller_id, peer_id)
+	# Then spawn the requester
+	await get_tree().process_frame
+	spawn_player_rpc.rpc_id(caller_id, caller_id)
 
 @rpc("authority", "call_local", "reliable")
 func spawn_player_rpc(peer_id: int) -> void:
 	if peer_id in players:
 		return
+	print("Spawning player: ", peer_id)
 	var player := PLAYER_SCENE.instantiate()
 	player.name = str(peer_id)
 	player.position = Vector3((players.size() % 4) * 2.0, 0.1, (players.size() / 4) * 2.0)
@@ -40,7 +58,7 @@ func spawn_player_local(peer_id: int) -> void:
 		return
 	var player := PLAYER_SCENE.instantiate()
 	player.name = str(peer_id)
-	player.position = Vector3((players.size() % 4) * 2.0, 0.1, (players.size() / 4) * 2.0)
+	player.position = Vector3(0, 0.1, 0)
 	add_child(player)
 	players[peer_id] = player
 
@@ -48,6 +66,7 @@ func remove_player(peer_id: int) -> void:
 	if peer_id in players:
 		players[peer_id].queue_free()
 		players.erase(peer_id)
+		print("Removed player: ", peer_id)
 
 func _on_host_pressed() -> void:
 	Networking.host_lobby()
