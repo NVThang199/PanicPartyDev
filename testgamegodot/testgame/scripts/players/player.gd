@@ -9,6 +9,9 @@ var gravity = 9.8
 
 var current_anim: String = ""
 
+func _enter_tree() -> void:
+	set_multiplayer_authority(name.to_int())
+
 func _ensure_nodes():
 	if not model:
 		model = get_node_or_null("Model")
