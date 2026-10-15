@@ -15,19 +15,6 @@ func _ensure_nodes():
 	if not anim_player:
 		anim_player = get_node_or_null("AnimationPlayer")
 
-@rpc("any_peer", "unreliable")
-func sync_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
-	if multiplayer.is_server():
-		var sender_id := multiplayer.get_remote_sender_id()
-		if sender_id != get_multiplayer_authority():
-			return
-		_apply_state(new_pos, rot_y, anim_name)
-		for peer_id in multiplayer.get_peers():
-			if peer_id != sender_id:
-				sync_state.rpc_id(peer_id, new_pos, rot_y, anim_name)
-	else:
-		_apply_state(new_pos, rot_y, anim_name)
-
 func _apply_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
 	position = new_pos
 	if model:
@@ -35,13 +22,10 @@ func _apply_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
 	if anim_name and anim_name != current_anim:
 		play_anim(anim_name)
 
-func sync_state_rpc(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
-	if multiplayer.is_server():
-		_apply_state(new_pos, rot_y, anim_name)
-		for peer_id in multiplayer.get_peers():
-			sync_state.rpc_id(peer_id, new_pos, rot_y, anim_name)
-	else:
-		sync_state.rpc_id(1, new_pos, rot_y, anim_name)
+#ponytail: broadcast RPC - server relays for all peers
+@rpc("any_peer", "reliable")
+func sync_state_all(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
+	_apply_state(new_pos, rot_y, anim_name)
 
 func _physics_process(delta):
 	_ensure_nodes()
@@ -82,7 +66,7 @@ func _physics_process(delta):
 
 		move_and_slide()
 		
-		sync_state_rpc(position, model.rotation.y if model else 0.0, current_anim)
+		sync_state_all.rpc(position, model.rotation.y if model else 0.0, current_anim)
 
 func _ready():
 	_ensure_nodes()
