@@ -66,7 +66,7 @@ func _physics_process(delta):
 			play_anim("general/Idle_A")
 
 		move_and_slide()
-		if multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
+		if multiplayer.multiplayer_peer != null:
 			var rot_y: float = model.rotation.y if model else 0.0
 			sync_state_to_peer.rpc(position, rot_y, current_anim)
 

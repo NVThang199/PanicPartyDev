@@ -40,6 +40,7 @@ func spawn_player_rpc(peer_id: int, character_path: String = "") -> void:
 		return
 	var old_node := get_node_or_null(str(peer_id))
 	if old_node:
+		remove_child(old_node)
 		old_node.queue_free()
 	print("[DEBUG] Spawning player: %d with character: %s (I am peer %d)" % [peer_id, character_path, multiplayer.get_unique_id()])
 	var idx = players.size()
@@ -47,6 +48,7 @@ func spawn_player_rpc(peer_id: int, character_path: String = "") -> void:
 	player.name = str(peer_id)
 	player.position = Vector3((idx % 4) * 2.0, 0.1, (idx / 4.0) * 2.0)
 	add_child(player)
+	player.name = str(peer_id)
 	player.set_multiplayer_authority(peer_id)
 	if character_path:
 		player.switch_character(character_path)
@@ -58,17 +60,32 @@ func spawn_player_rpc(peer_id: int, character_path: String = "") -> void:
 
 func clear_all_players() -> void:
 	for pid in players:
-		if is_instance_valid(players[pid]):
-			players[pid].queue_free()
+		var p: Node = players[pid]
+		if is_instance_valid(p):
+			if p.get_parent():
+				p.get_parent().remove_child(p)
+			p.queue_free()
 	players.clear()
 	player_characters.clear()
+	for child in get_children():
+		if child is CharacterBody3D and child.name != "Floor":
+			remove_child(child)
+			child.queue_free()
 
 func remove_player(peer_id: int) -> void:
 	player_characters.erase(peer_id)
 	if peer_id in players:
-		players[peer_id].queue_free()
+		var p: Node = players[peer_id]
+		if is_instance_valid(p):
+			if p.get_parent():
+				p.get_parent().remove_child(p)
+			p.queue_free()
 		players.erase(peer_id)
 		print("Removed player: ", peer_id)
+	var node := get_node_or_null(str(peer_id))
+	if node:
+		remove_child(node)
+		node.queue_free()
 
 func on_host_created() -> void:
 	$UI/StatusLabel.text = "Hosting - ID: %d" % multiplayer.get_unique_id()
@@ -98,6 +115,7 @@ func _on_peer_connected(peer_id: int) -> void:
 	print("Peer connected: ", peer_id)
 
 func _on_host_pressed() -> void:
+	clear_all_players()
 	Networking.host_lobby()
 
 func _on_quit_pressed() -> void:
