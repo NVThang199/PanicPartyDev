@@ -75,16 +75,17 @@ func _physics_process(delta):
 			play_anim("general/Idle_A")
 
 		move_and_slide()
+		
+		sync_state.rpc(position, model.rotation.y if model else 0, current_anim)
 
 @rpc("any_peer", "unreliable")
 func sync_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
-	if is_multiplayer_authority():
-		return
-	position = new_pos
-	if model:
-		model.rotation.y = rot_y
-	if anim_name and anim_name != current_anim:
-		play_anim(anim_name)
+	if not is_multiplayer_authority():
+		position = new_pos
+		if model:
+			model.rotation.y = rot_y
+		if anim_name and anim_name != current_anim:
+			play_anim(anim_name)
 
 func play_anim(anim_name: String):
 	_ensure_nodes()
