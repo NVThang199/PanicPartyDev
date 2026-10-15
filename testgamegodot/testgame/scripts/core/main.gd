@@ -52,10 +52,6 @@ func spawn_player_rpc(peer_id: int, character_path: String = "") -> void:
 	player.set_multiplayer_authority(peer_id)
 	if character_path:
 		player.switch_character(character_path)
-	if peer_id == multiplayer.get_unique_id():
-		var camera := player.get_node("Camera3D") if player.has_node("Camera3D") else null
-		if camera:
-			camera.current = true
 	players[peer_id] = player
 
 func clear_all_players() -> void:
