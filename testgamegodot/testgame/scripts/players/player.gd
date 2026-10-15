@@ -2,8 +2,8 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const ROTATION_SPEED = 10.0
-const PUSH_RANGE = 2.0
-const PUSH_COOLDOWN_TIME = 1.5
+const PUSH_RANGE = 2.2
+const PUSH_COOLDOWN_TIME = 0.0
 var gravity = 9.8
 
 @onready var model: Node3D = $Model
@@ -63,12 +63,12 @@ func apply_knockback(push_dir: Vector3) -> void:
 		return
 	if not multiplayer.is_server() and multiplayer.get_remote_sender_id() != 1:
 		return
+	knockback_velocity = push_dir.normalized() * 8.5
 	if is_knocked_down:
 		return
 	is_knocked_down = true
 	is_pushing = false
 	velocity = Vector3.ZERO
-	knockback_velocity = push_dir.normalized() * 5.0
 	play_anim("simulation/Sit_Floor_Down")
 	if anim_player:
 		await anim_player.animation_finished
@@ -110,7 +110,7 @@ func perform_push() -> void:
 		return
 	is_pushing = true
 	push_cooldown = PUSH_COOLDOWN_TIME
-	play_anim("combat/Melee_Unarmed_Attack_Kick")
+	play_anim("combat/Melee_Unarmed_Attack_Kick", true)
 	
 	var target = _find_push_target()
 	if target:
@@ -137,7 +137,8 @@ func perform_push() -> void:
 	else:
 		await get_tree().create_timer(1.0).timeout
 	is_pushing = false
-	if not is_knocked_down:
+	push_cooldown = 0.0
+	if not is_knocked_down and current_anim == "combat/Melee_Unarmed_Attack_Kick":
 		play_anim("general/Idle_A")
 
 func _physics_process(delta):
@@ -218,11 +219,13 @@ func _ready():
 				anim_player.add_animation_library("simulation", sim_lib)
 	play_anim("general/Idle_A")
 
-func play_anim(anim_name: String):
+func play_anim(anim_name: String, force_restart: bool = false):
 	_ensure_nodes()
-	if anim_player and current_anim != anim_name and anim_player.has_animation(anim_name):
-		anim_player.play(anim_name)
-		current_anim = anim_name
+	if anim_player and anim_player.has_animation(anim_name):
+		if current_anim != anim_name or force_restart:
+			anim_player.stop()
+			anim_player.play(anim_name)
+			current_anim = anim_name
 
 func switch_character(glb_path: String):
 	_ensure_nodes()
