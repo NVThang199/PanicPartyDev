@@ -63,7 +63,7 @@ func apply_knockback(push_dir: Vector3) -> void:
 		return
 	if not multiplayer.is_server() and multiplayer.get_remote_sender_id() != 1:
 		return
-	knockback_velocity = push_dir.normalized() * 8.5
+	knockback_velocity = push_dir.normalized() * 5.0
 	if is_knocked_down:
 		return
 	is_knocked_down = true
