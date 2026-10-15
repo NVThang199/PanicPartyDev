@@ -3,6 +3,7 @@ extends Node3D
 const PLAYER_SCENE = preload("res://scenes/players/player.tscn")
 
 var players: Dictionary = {}
+var player_characters: Dictionary = {}
 
 func _ready() -> void:
 	Networking.host_created.connect(on_host_created)
@@ -16,50 +17,43 @@ func _ready() -> void:
 	set_physics_process(true)
 
 @rpc("any_peer", "reliable")
-func request_player_list() -> void:
+func register_player(character_path: String) -> void:
 	if not multiplayer.is_server():
 		return
 	var caller_id := multiplayer.get_remote_sender_id()
-	print("[HOST] Client %d requesting player list. Current players: %s" % [caller_id, players.keys()])
-	for peer_id in players:
-		print("[HOST] Sending spawn for player %d to client %d" % [peer_id, caller_id])
-		spawn_player_rpc.rpc_id(caller_id, peer_id)
+	if caller_id in player_characters:
+		return
+	player_characters[caller_id] = character_path
+	print("[HOST] Registered player %d with %s" % [caller_id, character_path])
+	
+	for pid in player_characters:
+		if pid != caller_id:
+			spawn_player_rpc.rpc_id(caller_id, pid, player_characters[pid])
+	
+	spawn_player_rpc.rpc(caller_id, character_path)
 
 @rpc("authority", "call_local", "reliable")
-func spawn_player_rpc(peer_id: int) -> void:
+func spawn_player_rpc(peer_id: int, character_path: String = "") -> void:
 	if peer_id in players:
 		print("[DEBUG] Player %d already spawned, skipping" % peer_id)
 		return
-	print("[DEBUG] Spawning player: %d (I am peer %d, server: %s)" % [peer_id, multiplayer.get_unique_id(), multiplayer.is_server()])
+	print("[DEBUG] Spawning player: %d with character: %s (I am peer %d)" % [peer_id, character_path, multiplayer.get_unique_id()])
 	var idx = players.size()
 	var player := PLAYER_SCENE.instantiate()
 	player.name = str(peer_id)
 	player.position = Vector3((idx % 4) * 2.0, 0.1, (idx / 4.0) * 2.0)
 	add_child(player)
-	await get_tree().process_frame
 	player.set_multiplayer_authority(peer_id)
-	print("[DEBUG] Set player %d authority to %d" % [peer_id, peer_id])
+	if character_path:
+		player.switch_character(character_path)
 	if peer_id == multiplayer.get_unique_id():
 		var camera := player.get_node("Camera3D") if player.has_node("Camera3D") else null
 		if camera:
 			camera.current = true
 	players[peer_id] = player
 
-func spawn_player_local(peer_id: int) -> void:
-	if peer_id in players:
-		return
-	var player := PLAYER_SCENE.instantiate()
-	player.name = str(peer_id)
-	player.position = Vector3(0, 0.1, 0)
-	add_child(player)
-	await get_tree().process_frame
-	player.set_multiplayer_authority(peer_id)
-	var camera := player.get_node("Camera3D") if player.has_node("Camera3D") else null
-	if camera:
-		camera.current = true
-	players[peer_id] = player
-
 func remove_player(peer_id: int) -> void:
+	player_characters.erase(peer_id)
 	if peer_id in players:
 		players[peer_id].queue_free()
 		players.erase(peer_id)
@@ -67,24 +61,23 @@ func remove_player(peer_id: int) -> void:
 
 func on_host_created() -> void:
 	$UI/StatusLabel.text = "Hosting - ID: %d" % multiplayer.get_unique_id()
-	spawn_player_local(multiplayer.get_unique_id())
+	player_characters[1] = GameSession.selected_character
+	spawn_player_rpc(1, GameSession.selected_character)
 
 func on_client_connected() -> void:
 	$UI/StatusLabel.text = "Connected - ID: %d" % multiplayer.get_unique_id()
-	print("[CLIENT] Connected as peer %d, waiting for server signal..." % multiplayer.get_unique_id())
+	print("[CLIENT] Connected as peer %d, registering..." % multiplayer.get_unique_id())
 
 func _on_connected_to_server() -> void:
-	print("[CLIENT] connected_to_server fired, requesting player list")
-	request_player_list.rpc_id(1)
+	print("[CLIENT] connected_to_server fired, sending character")
+	register_player.rpc_id(1, GameSession.selected_character)
 
 func _on_peer_connected(peer_id: int) -> void:
 	if not multiplayer.is_server():
+		if peer_id == 1:
+			register_player.rpc_id(1, GameSession.selected_character)
 		return
 	print("Peer connected: ", peer_id)
-	await get_tree().process_frame
-	for existing_id in players:
-		spawn_player_rpc.rpc_id(peer_id, existing_id)
-	spawn_player_rpc.rpc(peer_id)
 
 func _on_host_pressed() -> void:
 	Networking.host_lobby()

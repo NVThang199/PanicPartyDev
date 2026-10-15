@@ -82,10 +82,7 @@ func _ready():
 			var gen_lib = load("res://assets/animations/general_animations.res")
 			if gen_lib:
 				anim_player.add_animation_library("general", gen_lib)
-	if GameSession.selected_character:
-		switch_character(GameSession.selected_character)
-	else:
-		play_anim("general/Idle_A")
+	play_anim("general/Idle_A")
 
 func play_anim(anim_name: String):
 	_ensure_nodes()
