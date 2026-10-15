@@ -44,14 +44,16 @@ func request_player_list() -> void:
 @rpc("authority", "call_local", "reliable")
 func spawn_player_rpc(peer_id: int) -> void:
 	if peer_id in players:
+		print("[DEBUG] Player %d already spawned, skipping" % peer_id)
 		return
-	print("Spawning player: ", peer_id)
+	print("[DEBUG] Spawning player: %d (I am peer %d, server: %s)" % [peer_id, multiplayer.get_unique_id(), multiplayer.is_server()])
 	var idx = players.size()
 	var player := PLAYER_SCENE.instantiate()
 	player.name = str(peer_id)
 	player.position = Vector3((idx % 4) * 2.0, 0.1, (idx / 4.0) * 2.0)
 	add_child(player)
 	player.set_multiplayer_authority(peer_id)
+	print("[DEBUG] Set player %d authority to %d" % [peer_id, peer_id])
 	if peer_id == multiplayer.get_unique_id():
 		var camera := player.get_node("Camera3D") if player.has_node("Camera3D") else null
 		if camera:
