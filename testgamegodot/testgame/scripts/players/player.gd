@@ -45,9 +45,13 @@ func request_push(target_peer_id: int, push_dir: Vector3) -> void:
 	var sender_player = main_node.players.get(sender_id)
 	var target_player = main_node.players.get(target_peer_id)
 	if not sender_player or not target_player:
+		print("[PUSH] Cannot find sender %d or target %d" % [sender_id, target_peer_id])
 		return
-	if sender_player.global_position.distance_to(target_player.global_position) > PUSH_RANGE + 0.8:
+	var dist = sender_player.global_position.distance_to(target_player.global_position)
+	if dist > PUSH_RANGE + 1.5:
+		print("[PUSH] Distance check failed: dist=%.2f > %.2f" % [dist, PUSH_RANGE + 1.5])
 		return
+	print("[PUSH] Server applying push from %d to %d" % [sender_id, target_peer_id])
 	if target_peer_id == multiplayer.get_unique_id():
 		target_player.apply_knockback(push_dir)
 	else:
@@ -57,8 +61,7 @@ func request_push(target_peer_id: int, push_dir: Vector3) -> void:
 func apply_knockback(push_dir: Vector3) -> void:
 	if not is_multiplayer_authority():
 		return
-	var sender_id = multiplayer.get_remote_sender_id()
-	if sender_id != 0 and sender_id != 1:
+	if not multiplayer.is_server() and multiplayer.get_remote_sender_id() != 1:
 		return
 	if is_knocked_down:
 		return
@@ -118,6 +121,7 @@ func perform_push() -> void:
 			push_dir.y = 0.0
 		push_dir = push_dir.normalized()
 		var target_id = int(str(target.name))
+		print("[PUSH] perform_push found target %d (is_server=%s)" % [target_id, multiplayer.is_server()])
 		if multiplayer.is_server():
 			if target_id == multiplayer.get_unique_id():
 				target.apply_knockback(push_dir)
@@ -125,6 +129,8 @@ func perform_push() -> void:
 				target.apply_knockback.rpc_id(target_id, push_dir)
 		else:
 			request_push.rpc_id(1, target_id, push_dir)
+	else:
+		print("[PUSH] perform_push: No target found in front")
 			
 	if anim_player:
 		await anim_player.animation_finished
