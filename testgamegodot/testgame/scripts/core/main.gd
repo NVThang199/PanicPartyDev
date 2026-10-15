@@ -49,7 +49,7 @@ func spawn_player_rpc(peer_id: int) -> void:
 	var idx = players.size()
 	var player := PLAYER_SCENE.instantiate()
 	player.name = str(peer_id)
-	player.position = Vector3((idx % 4) * 2.0, 0.1, (idx / 4) * 2.0)
+	player.position = Vector3((idx % 4) * 2.0, 0.1, (idx / 4.0) * 2.0)
 	add_child(player)
 	players[peer_id] = player
 
