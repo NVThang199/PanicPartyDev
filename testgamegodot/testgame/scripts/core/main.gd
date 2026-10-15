@@ -11,28 +11,8 @@ func _ready() -> void:
 	multiplayer.peer_disconnected.connect(remove_player)
 	$UI/HostButton.pressed.connect(_on_host_pressed)
 	$UI/QuitButton.pressed.connect(_on_quit_pressed)
-
-func on_host_created() -> void:
-	$UI/StatusLabel.text = "Hosting - ID: %d" % multiplayer.get_unique_id()
-	spawn_player_local(multiplayer.get_unique_id())
-
-func on_client_connected() -> void:
-	$UI/StatusLabel.text = "Connected - ID: %d" % multiplayer.get_unique_id()
-	print("[CLIENT] Connected as peer %d, waiting for spawn..." % multiplayer.get_unique_id())
-	await get_tree().process_frame
-	if multiplayer.multiplayer_peer == null or multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
-		print("[CLIENT] Connection lost before requesting player list")
-		return
-	print("[CLIENT] Requesting player list from host (peer 1)")
-	request_player_list.rpc_id(1)
-
-func _on_peer_connected(peer_id: int) -> void:
-	if not multiplayer.is_server():
-		return
-	print("Peer connected: ", peer_id)
-	await get_tree().process_frame
-	# Spawn new client on all peers
-	spawn_player_rpc.rpc(peer_id)
+	
+	set_physics_process(true)
 
 @rpc("any_peer", "reliable")
 func request_player_list() -> void:
@@ -40,7 +20,6 @@ func request_player_list() -> void:
 		return
 	var caller_id := multiplayer.get_remote_sender_id()
 	print("[HOST] Client %d requesting player list. Current players: %s" % [caller_id, players.keys()])
-	# Send all existing players (including host) to requesting client
 	for peer_id in players:
 		print("[HOST] Sending spawn for player %d to client %d" % [peer_id, caller_id])
 		spawn_player_rpc.rpc_id(caller_id, peer_id)
@@ -84,6 +63,27 @@ func remove_player(peer_id: int) -> void:
 		players[peer_id].queue_free()
 		players.erase(peer_id)
 		print("Removed player: ", peer_id)
+
+func on_host_created() -> void:
+	$UI/StatusLabel.text = "Hosting - ID: %d" % multiplayer.get_unique_id()
+	spawn_player_local(multiplayer.get_unique_id())
+
+func on_client_connected() -> void:
+	$UI/StatusLabel.text = "Connected - ID: %d" % multiplayer.get_unique_id()
+	print("[CLIENT] Connected as peer %d, waiting for spawn..." % multiplayer.get_unique_id())
+	await get_tree().process_frame
+	if multiplayer.multiplayer_peer == null or multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
+		print("[CLIENT] Connection lost before requesting player list")
+		return
+	print("[CLIENT] Requesting player list from host (peer 1)")
+	request_player_list.rpc_id(1)
+
+func _on_peer_connected(peer_id: int) -> void:
+	if not multiplayer.is_server():
+		return
+	print("Peer connected: ", peer_id)
+	await get_tree().process_frame
+	spawn_player_rpc.rpc(peer_id)
 
 func _on_host_pressed() -> void:
 	Networking.host_lobby()

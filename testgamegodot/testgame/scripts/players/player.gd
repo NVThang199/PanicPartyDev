@@ -66,16 +66,8 @@ func _physics_process(delta):
 
 		move_and_slide()
 		
-		# Server relay cho tất cả peers (bao gồm chính mình)
-		if multiplayer.is_server():
-			var pos = position
-			var rot = model.rotation.y if model else 0.0
-			var anim = current_anim
-			for peer_id in multiplayer.get_peers():
-				sync_state_to_peer.rpc_id(peer_id, pos, rot, anim)
-		else:
-			# Client gửi lên server để relay
-			sync_state_to_peer.rpc_id(1, position, model.rotation.y if model else 0.0, current_anim)
+		# Không dùng RPC từ player node, dùng signal hoặc global sync thay
+		# RPC path "/root/Main3D/1" gây lỗi khi client chưa spawn node "1"
 
 func _ready():
 	_ensure_nodes()
