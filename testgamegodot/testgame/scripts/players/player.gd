@@ -9,33 +9,11 @@ var gravity = 9.8
 
 var current_anim: String = ""
 
-func _enter_tree() -> void:
-	var peer_id := name.to_int()
-	if peer_id > 0:
-		set_multiplayer_authority(peer_id)
-
 func _ensure_nodes():
 	if not model:
 		model = get_node_or_null("Model")
 	if not anim_player:
 		anim_player = get_node_or_null("AnimationPlayer")
-
-func _ready():
-	_ensure_nodes()
-	$Camera3D.current = is_multiplayer_authority()
-	if anim_player:
-		if not anim_player.has_animation_library("movement"):
-			var move_lib = load("res://assets/animations/movement_animations.res")
-			if move_lib:
-				anim_player.add_animation_library("movement", move_lib)
-		if not anim_player.has_animation_library("general"):
-			var gen_lib = load("res://assets/animations/general_animations.res")
-			if gen_lib:
-				anim_player.add_animation_library("general", gen_lib)
-	if GameSession.selected_character:
-		switch_character(GameSession.selected_character)
-	else:
-		play_anim("general/Idle_A")
 
 func _physics_process(delta):
 	_ensure_nodes()
@@ -78,14 +56,37 @@ func _physics_process(delta):
 		
 		sync_state.rpc(position, model.rotation.y if model else 0, current_anim)
 
-@rpc("any_peer", "unreliable")
-func sync_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
-	if not is_multiplayer_authority():
-		position = new_pos
-		if model:
-			model.rotation.y = rot_y
-		if anim_name and anim_name != current_anim:
-			play_anim(anim_name)
+func _on_multiplayer_peer_connected() -> void:
+	if is_multiplayer_authority():
+		for peer_id in multiplayer.get_peers():
+			if peer_id != multiplayer.get_unique_id():
+				sync_state.rpc_id(peer_id, position, model.rotation.y if model else 0, current_anim)
+
+func _enter_tree() -> void:
+	var peer_id := name.to_int()
+	if peer_id > 0:
+		set_multiplayer_authority(peer_id)
+
+func _ready():
+	_ensure_nodes()
+	$Camera3D.current = is_multiplayer_authority()
+	multiplayer.peer_connected.connect(_on_multiplayer_peer_connected)
+	if anim_player:
+		if not anim_player.has_animation_library("movement"):
+			var move_lib = load("res://assets/animations/movement_animations.res")
+			if move_lib:
+				anim_player.add_animation_library("movement", move_lib)
+		if not anim_player.has_animation_library("general"):
+			var gen_lib = load("res://assets/animations/general_animations.res")
+			if gen_lib:
+				anim_player.add_animation_library("general", gen_lib)
+	if GameSession.selected_character:
+		switch_character(GameSession.selected_character)
+	else:
+		play_anim("general/Idle_A")
+
+func _exit_tree() -> void:
+	multiplayer.peer_connected.disconnect(_on_multiplayer_peer_connected)
 
 func play_anim(anim_name: String):
 	_ensure_nodes()
