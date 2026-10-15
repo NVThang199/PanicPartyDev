@@ -100,6 +100,6 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=-1294967296]
-transform = Transform3D(1, 0, 0, 0, 0.81310076, 0.582123, 0, -0.582123, 0.81310076, 0.06544621, 7.0640316, 11.2700205)
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0.06544621, 8.62528, 7.8023815)
 current = true
-fov = 67.03883
+fov = 75.02472

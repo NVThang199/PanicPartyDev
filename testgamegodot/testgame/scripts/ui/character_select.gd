@@ -62,10 +62,12 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 
 func _on_confirm_pressed() -> void:
 	character_confirmed.emit(GameSession.selected_character)
-	if get_tree().current_scene == self:
-		get_tree().change_scene_to_file(GAME_SCENE)
+	var tree := get_tree()
+	if tree and tree.current_scene == self:
+		tree.change_scene_to_file(GAME_SCENE)
 
 func _on_back_pressed() -> void:
 	selection_cancelled.emit()
-	if get_tree().current_scene == self:
-		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+	var tree := get_tree()
+	if tree and tree.current_scene == self:
+		tree.change_scene_to_file("res://scenes/menus/main_menu.tscn")
