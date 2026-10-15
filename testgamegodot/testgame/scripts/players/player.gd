@@ -73,7 +73,6 @@ func _enter_tree() -> void:
 func _ready():
 	_ensure_nodes()
 	$Camera3D.current = is_multiplayer_authority()
-	multiplayer.peer_connected.connect(_on_multiplayer_peer_connected)
 	if anim_player:
 		if not anim_player.has_animation_library("movement"):
 			var move_lib = load("res://assets/animations/movement_animations.res")
@@ -87,9 +86,6 @@ func _ready():
 		switch_character(GameSession.selected_character)
 	else:
 		play_anim("general/Idle_A")
-
-func _exit_tree() -> void:
-	multiplayer.peer_connected.disconnect(_on_multiplayer_peer_connected)
 
 func play_anim(anim_name: String):
 	_ensure_nodes()
