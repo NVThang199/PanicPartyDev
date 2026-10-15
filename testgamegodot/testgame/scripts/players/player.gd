@@ -8,12 +8,23 @@ var gravity = 9.8
 
 @onready var model: Node3D = $Model
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var name_label: Label3D = $NameLabel
 
 var current_anim: String = ""
 var push_cooldown: float = 0.0
 var is_pushing: bool = false
 var is_knocked_down: bool = false
 var knockback_velocity: Vector3 = Vector3.ZERO
+var player_name: String = ""
+var steam_id: int = 0
+var ping_ms: int = 0
+
+func set_player_name(p_name: String) -> void:
+	player_name = p_name
+	if not name_label:
+		name_label = get_node_or_null("NameLabel")
+	if name_label:
+		name_label.text = p_name
 
 func _ensure_nodes():
 	if not model:
@@ -199,6 +210,10 @@ func _physics_process(delta):
 
 func _ready():
 	_ensure_nodes()
+	if not name_label:
+		name_label = get_node_or_null("NameLabel")
+	if name_label and player_name != "":
+		name_label.text = player_name
 	# Camera is managed by main.tscn, not here
 	if anim_player:
 		if not anim_player.has_animation_library("movement"):
