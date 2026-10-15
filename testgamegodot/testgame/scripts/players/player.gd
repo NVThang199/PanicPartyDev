@@ -75,7 +75,7 @@ func _physics_process(delta):
 
 func _ready():
 	_ensure_nodes()
-	if multiplayer.is_server():
+	if is_multiplayer_authority():
 		$Camera3D.current = true
 	if anim_player:
 		if not anim_player.has_animation_library("movement"):
