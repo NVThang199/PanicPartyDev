@@ -75,8 +75,7 @@ func _physics_process(delta):
 
 func _ready():
 	_ensure_nodes()
-	if is_multiplayer_authority():
-		$Camera3D.current = true
+	# Camera is managed by main.tscn, not here
 	if anim_player:
 		if not anim_player.has_animation_library("movement"):
 			var move_lib = load("res://assets/animations/movement_animations.res")
