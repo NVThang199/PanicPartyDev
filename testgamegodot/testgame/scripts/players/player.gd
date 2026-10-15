@@ -25,6 +25,8 @@ func _apply_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
 #ponytail: broadcast RPC - server relays for all peers
 @rpc("any_peer", "reliable")
 func sync_state_all(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
+	if not is_inside_tree():
+		return
 	_apply_state(new_pos, rot_y, anim_name)
 
 func _physics_process(delta):

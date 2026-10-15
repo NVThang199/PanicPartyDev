@@ -18,9 +18,12 @@ func on_host_created() -> void:
 
 func on_client_connected() -> void:
 	$UI/StatusLabel.text = "Connected - ID: %d" % multiplayer.get_unique_id()
+	print("[CLIENT] Connected as peer %d, waiting for spawn..." % multiplayer.get_unique_id())
 	await get_tree().process_frame
 	if multiplayer.multiplayer_peer == null or multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
+		print("[CLIENT] Connection lost before requesting player list")
 		return
+	print("[CLIENT] Requesting player list from host (peer 1)")
 	request_player_list.rpc_id(1)
 
 func _on_peer_connected(peer_id: int) -> void:
@@ -36,9 +39,10 @@ func request_player_list() -> void:
 	if not multiplayer.is_server():
 		return
 	var caller_id := multiplayer.get_remote_sender_id()
-	print("Client %d requesting player list" % caller_id)
+	print("[HOST] Client %d requesting player list. Current players: %s" % [caller_id, players.keys()])
 	# Send all existing players (including host) to requesting client
 	for peer_id in players:
+		print("[HOST] Sending spawn for player %d to client %d" % [peer_id, caller_id])
 		spawn_player_rpc.rpc_id(caller_id, peer_id)
 
 @rpc("authority", "call_local", "reliable")
@@ -52,6 +56,7 @@ func spawn_player_rpc(peer_id: int) -> void:
 	player.name = str(peer_id)
 	player.position = Vector3((idx % 4) * 2.0, 0.1, (idx / 4.0) * 2.0)
 	add_child(player)
+	await get_tree().process_frame
 	player.set_multiplayer_authority(peer_id)
 	print("[DEBUG] Set player %d authority to %d" % [peer_id, peer_id])
 	if peer_id == multiplayer.get_unique_id():
@@ -67,6 +72,7 @@ func spawn_player_local(peer_id: int) -> void:
 	player.name = str(peer_id)
 	player.position = Vector3(0, 0.1, 0)
 	add_child(player)
+	await get_tree().process_frame
 	player.set_multiplayer_authority(peer_id)
 	var camera := player.get_node("Camera3D") if player.has_node("Camera3D") else null
 	if camera:
