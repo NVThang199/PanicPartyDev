@@ -32,7 +32,7 @@ func _on_peer_disconnected(peer_id: int) -> void:
 	if multiplayer.multiplayer_peer != null and multiplayer.is_server():
 		print("Peer disconnected: ", peer_id)
 
-func host_lobby() -> void:
+func leave_current_session() -> void:
 	if peer != null:
 		peer.close()
 		multiplayer.multiplayer_peer = null
@@ -40,7 +40,10 @@ func host_lobby() -> void:
 	if current_lobby_id != 0:
 		Steam.leaveLobby(current_lobby_id)
 		current_lobby_id = 0
-		await get_tree().process_frame
+
+func host_lobby() -> void:
+	leave_current_session()
+	await get_tree().process_frame
 	Steam.createLobby(LOBBY_TYPE, MAX_MEMBERS)
 
 func on_lobby_created(_connect: int, lobby_id: int) -> void:
@@ -65,6 +68,9 @@ func on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response: 
 		return
 	if peer != null:
 		peer.close()
+		multiplayer.multiplayer_peer = null
+		peer = null
+		await get_tree().process_frame
 	peer = SteamMultiplayerPeer.new()
 	peer.server_relay = true
 	var error := peer.create_client(Steam.getLobbyOwner(lobby_id))
@@ -75,4 +81,9 @@ func on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response: 
 	client_connected.emit()
 
 func on_join_requested(lobby_id: int, _steam_id: int) -> void:
+	if current_lobby_id == lobby_id and peer != null and multiplayer.multiplayer_peer != null:
+		print("[NETWORKING] Already in lobby %d, ignoring duplicate join" % lobby_id)
+		return
+	leave_current_session()
+	await get_tree().process_frame
 	Steam.joinLobby(lobby_id)

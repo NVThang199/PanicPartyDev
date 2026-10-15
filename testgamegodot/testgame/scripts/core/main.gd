@@ -22,8 +22,8 @@ func register_player(character_path: String) -> void:
 	if not multiplayer.is_server():
 		return
 	var caller_id := multiplayer.get_remote_sender_id()
-	if caller_id in player_characters:
-		return
+	if caller_id in players:
+		remove_player(caller_id)
 	player_characters[caller_id] = character_path
 	print("[HOST] Registered player %d with %s" % [caller_id, character_path])
 	
