@@ -22,11 +22,9 @@ func _apply_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
 	if anim_name and anim_name != current_anim:
 		play_anim(anim_name)
 
-#ponytail: broadcast RPC - server relays for all peers
+#ponytail: server relays to all peers explicitly
 @rpc("any_peer", "reliable")
-func sync_state_all(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
-	if not is_inside_tree():
-		return
+func sync_state_to_peer(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
 	_apply_state(new_pos, rot_y, anim_name)
 
 func _physics_process(delta):
@@ -68,7 +66,16 @@ func _physics_process(delta):
 
 		move_and_slide()
 		
-		sync_state_all.rpc(position, model.rotation.y if model else 0.0, current_anim)
+		# Server relay cho tất cả peers (bao gồm chính mình)
+		if multiplayer.is_server():
+			var pos = position
+			var rot = model.rotation.y if model else 0.0
+			var anim = current_anim
+			for peer_id in multiplayer.get_peers():
+				sync_state_to_peer.rpc_id(peer_id, pos, rot, anim)
+		else:
+			# Client gửi lên server để relay
+			sync_state_to_peer.rpc_id(1, position, model.rotation.y if model else 0.0, current_anim)
 
 func _ready():
 	_ensure_nodes()
