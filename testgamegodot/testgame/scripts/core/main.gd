@@ -51,7 +51,7 @@ func spawn_player_rpc(peer_id: int) -> void:
 	player.name = str(peer_id)
 	player.position = Vector3((idx % 4) * 2.0, 0.1, (idx / 4.0) * 2.0)
 	add_child(player)
-	player.multiplayer_authority = peer_id
+	player.set_multiplayer_authority(peer_id)
 	if peer_id == multiplayer.get_unique_id():
 		var camera := player.get_node("Camera3D") if player.has_node("Camera3D") else null
 		if camera:
@@ -65,6 +65,7 @@ func spawn_player_local(peer_id: int) -> void:
 	player.name = str(peer_id)
 	player.position = Vector3(0, 0.1, 0)
 	add_child(player)
+	player.set_multiplayer_authority(peer_id)
 	players[peer_id] = player
 
 func remove_player(peer_id: int) -> void:
