@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const ROTATION_SPEED = 10.0
-const PUSH_RANGE = 1.6
+const PUSH_RANGE = 2.0
 const PUSH_COOLDOWN_TIME = 1.5
 var gravity = 9.8
 
@@ -48,11 +48,17 @@ func request_push(target_peer_id: int, push_dir: Vector3) -> void:
 		return
 	if sender_player.global_position.distance_to(target_player.global_position) > PUSH_RANGE + 0.8:
 		return
-	target_player.apply_knockback.rpc_id(target_peer_id, push_dir)
+	if target_peer_id == multiplayer.get_unique_id():
+		target_player.apply_knockback(push_dir)
+	else:
+		target_player.apply_knockback.rpc_id(target_peer_id, push_dir)
 
-@rpc("authority", "reliable")
+@rpc("any_peer", "call_local", "reliable")
 func apply_knockback(push_dir: Vector3) -> void:
 	if not is_multiplayer_authority():
+		return
+	var sender_id = multiplayer.get_remote_sender_id()
+	if sender_id != 0 and sender_id != 1:
 		return
 	if is_knocked_down:
 		return
@@ -73,7 +79,7 @@ func _find_push_target() -> Node:
 	var main_node = get_parent()
 	if not main_node or not ("players" in main_node):
 		return null
-	var forward = -model.global_transform.basis.z if model else -global_transform.basis.z
+	var forward = model.global_transform.basis.z if model else global_transform.basis.z
 	forward.y = 0.0
 	forward = forward.normalized()
 	
@@ -90,7 +96,7 @@ func _find_push_target() -> Node:
 		var dist = to_other.length()
 		if dist <= PUSH_RANGE and dist > 0.001:
 			var dir = to_other.normalized()
-			if forward.dot(dir) > 0.3:
+			if forward.dot(dir) > 0.1 or dist < 0.8:
 				if dist < min_dist:
 					min_dist = dist
 					closest_target = other
@@ -108,12 +114,15 @@ func perform_push() -> void:
 		var push_dir = (target.global_position - global_position)
 		push_dir.y = 0.0
 		if push_dir.length_squared() < 0.001:
-			push_dir = -model.global_transform.basis.z if model else -global_transform.basis.z
+			push_dir = model.global_transform.basis.z if model else global_transform.basis.z
 			push_dir.y = 0.0
 		push_dir = push_dir.normalized()
 		var target_id = int(str(target.name))
 		if multiplayer.is_server():
-			target.apply_knockback.rpc_id(target_id, push_dir)
+			if target_id == multiplayer.get_unique_id():
+				target.apply_knockback(push_dir)
+			else:
+				target.apply_knockback.rpc_id(target_id, push_dir)
 		else:
 			request_push.rpc_id(1, target_id, push_dir)
 			
