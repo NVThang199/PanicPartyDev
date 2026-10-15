@@ -55,6 +55,39 @@ func _process(delta: float) -> void:
 				request_ping.rpc_id(1, Time.get_ticks_msec())
 
 @rpc("any_peer", "unreliable")
+func sync_player_state(peer_id: int, pos: Vector3, rot_y: float, anim_name: String) -> void:
+	if peer_id == multiplayer.get_unique_id():
+		return
+	if peer_id in players and is_instance_valid(players[peer_id]):
+		players[peer_id]._apply_state(pos, rot_y, anim_name)
+
+@rpc("any_peer", "reliable")
+func request_push(target_peer_id: int, push_dir: Vector3) -> void:
+	if not multiplayer.is_server():
+		return
+	var sender_id = multiplayer.get_remote_sender_id()
+	var sender_player = players.get(sender_id)
+	var target_player = players.get(target_peer_id)
+	if not sender_player or not target_player:
+		print("[PUSH] Cannot find sender %d or target %d" % [sender_id, target_peer_id])
+		return
+	var dist = sender_player.global_position.distance_to(target_player.global_position)
+	if dist > 2.2 + 1.5:
+		print("[PUSH] Distance check failed: dist=%.2f > %.2f" % [dist, 2.2 + 1.5])
+		return
+	print("[PUSH] Server applying push from %d to %d" % [sender_id, target_peer_id])
+	if target_peer_id == multiplayer.get_unique_id():
+		target_player.apply_knockback(push_dir)
+	else:
+		apply_knockback_rpc.rpc_id(target_peer_id, push_dir)
+
+@rpc("authority", "reliable")
+func apply_knockback_rpc(push_dir: Vector3) -> void:
+	var my_id = multiplayer.get_unique_id()
+	if my_id in players and is_instance_valid(players[my_id]):
+		players[my_id].apply_knockback(push_dir)
+
+@rpc("any_peer", "unreliable")
 func request_ping(client_time: int) -> void:
 	if not multiplayer.is_server():
 		return

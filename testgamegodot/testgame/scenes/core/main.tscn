@@ -51,7 +51,7 @@ offset_left = 10.0
 offset_top = 90.0
 text = "MENU"
 
-[node name="TabOverlay" type="PanelContainer" parent="UI"]
+[node name="TabOverlay" type="PanelContainer" parent="UI" unique_id=1452381442]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -65,41 +65,41 @@ offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Margin" type="MarginContainer" parent="UI/TabOverlay"]
+[node name="Margin" type="MarginContainer" parent="UI/TabOverlay" unique_id=359929586]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 16
 
-[node name="VBox" type="VBoxContainer" parent="UI/TabOverlay/Margin"]
+[node name="VBox" type="VBoxContainer" parent="UI/TabOverlay/Margin" unique_id=728633289]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Header" type="HBoxContainer" parent="UI/TabOverlay/Margin/VBox"]
+[node name="Header" type="HBoxContainer" parent="UI/TabOverlay/Margin/VBox" unique_id=606899399]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="UI/TabOverlay/Margin/VBox/Header"]
+[node name="Title" type="Label" parent="UI/TabOverlay/Margin/VBox/Header" unique_id=1926801377]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
 text = "PLAYERS"
 
-[node name="PingHeader" type="Label" parent="UI/TabOverlay/Margin/VBox/Header"]
+[node name="PingHeader" type="Label" parent="UI/TabOverlay/Margin/VBox/Header" unique_id=837574454]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "PING"
 horizontal_alignment = 2
 
-[node name="HSeparator" type="HSeparator" parent="UI/TabOverlay/Margin/VBox"]
+[node name="HSeparator" type="HSeparator" parent="UI/TabOverlay/Margin/VBox" unique_id=1295661932]
 layout_mode = 2
 
-[node name="PlayerList" type="VBoxContainer" parent="UI/TabOverlay/Margin/VBox"]
+[node name="PlayerList" type="VBoxContainer" parent="UI/TabOverlay/Margin/VBox" unique_id=72118900]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=-1294967296]
-transform = Transform3D(0.99990726, -0.012110332, 0.006227566, 0, 0.45731288, 0.8893059, -0.013617735, -0.8892234, 0.45727047, -1.4901161e-08, 8.9603615, 7.1873884)
+transform = Transform3D(1, 0, 0, 0, 0.81310076, 0.582123, 0, -0.582123, 0.81310076, 0.06544621, 7.0640316, 11.2700205)
 current = true
-fov = 65.0
+fov = 67.03883

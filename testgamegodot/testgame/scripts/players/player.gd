@@ -39,41 +39,7 @@ func _apply_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
 	if anim_name and anim_name != current_anim:
 		play_anim(anim_name)
 
-@rpc("any_peer", "unreliable")
-func sync_state_to_peer(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
-	if is_multiplayer_authority():
-		return
-	_apply_state(new_pos, rot_y, anim_name)
-
-@rpc("any_peer", "reliable")
-func request_push(target_peer_id: int, push_dir: Vector3) -> void:
-	if not multiplayer.is_server():
-		return
-	var sender_id = multiplayer.get_remote_sender_id()
-	var main_node = get_parent()
-	if not main_node or not ("players" in main_node):
-		return
-	var sender_player = main_node.players.get(sender_id)
-	var target_player = main_node.players.get(target_peer_id)
-	if not sender_player or not target_player:
-		print("[PUSH] Cannot find sender %d or target %d" % [sender_id, target_peer_id])
-		return
-	var dist = sender_player.global_position.distance_to(target_player.global_position)
-	if dist > PUSH_RANGE + 1.5:
-		print("[PUSH] Distance check failed: dist=%.2f > %.2f" % [dist, PUSH_RANGE + 1.5])
-		return
-	print("[PUSH] Server applying push from %d to %d" % [sender_id, target_peer_id])
-	if target_peer_id == multiplayer.get_unique_id():
-		target_player.apply_knockback(push_dir)
-	else:
-		target_player.apply_knockback.rpc_id(target_peer_id, push_dir)
-
-@rpc("any_peer", "call_local", "reliable")
 func apply_knockback(push_dir: Vector3) -> void:
-	if not is_multiplayer_authority():
-		return
-	if not multiplayer.is_server() and multiplayer.get_remote_sender_id() != 1:
-		return
 	knockback_velocity = push_dir.normalized() * 5.0
 	if is_knocked_down:
 		return
@@ -133,13 +99,15 @@ func perform_push() -> void:
 		push_dir = push_dir.normalized()
 		var target_id = int(str(target.name))
 		print("[PUSH] perform_push found target %d (is_server=%s)" % [target_id, multiplayer.is_server()])
-		if multiplayer.is_server():
-			if target_id == multiplayer.get_unique_id():
-				target.apply_knockback(push_dir)
+		var main_node = get_parent()
+		if main_node:
+			if multiplayer.is_server():
+				if target_id == multiplayer.get_unique_id():
+					target.apply_knockback(push_dir)
+				else:
+					main_node.apply_knockback_rpc.rpc_id(target_id, push_dir)
 			else:
-				target.apply_knockback.rpc_id(target_id, push_dir)
-		else:
-			request_push.rpc_id(1, target_id, push_dir)
+				main_node.request_push.rpc_id(1, target_id, push_dir)
 	else:
 		print("[PUSH] perform_push: No target found in front")
 			
@@ -206,7 +174,9 @@ func _physics_process(delta):
 		move_and_slide()
 		if multiplayer.multiplayer_peer != null:
 			var rot_y: float = model.rotation.y if model else 0.0
-			sync_state_to_peer.rpc(position, rot_y, current_anim)
+			var main_node = get_parent()
+			if main_node and main_node.has_method("sync_player_state"):
+				main_node.sync_player_state.rpc(multiplayer.get_unique_id(), position, rot_y, current_anim)
 
 func _ready():
 	_ensure_nodes()
