@@ -29,8 +29,8 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=3000000000]
 transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 15, 0)
-projection = 1  # Orthogonal
-size = Vector2(20, 20)
+projection = 1
+size = 20.0
 current = true
 
 [node name="StatusLabel" type="Label" parent="UI" unique_id=2234567891]
