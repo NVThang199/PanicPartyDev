@@ -9,6 +9,7 @@ func _ready() -> void:
 	Networking.host_created.connect(on_host_created)
 	Networking.client_connected.connect(on_client_connected)
 	multiplayer.connected_to_server.connect(_on_connected_to_server)
+	multiplayer.server_disconnected.connect(_on_server_disconnected)
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(remove_player)
 	$UI/HostButton.pressed.connect(_on_host_pressed)
@@ -34,9 +35,12 @@ func register_player(character_path: String) -> void:
 
 @rpc("authority", "call_local", "reliable")
 func spawn_player_rpc(peer_id: int, character_path: String = "") -> void:
-	if peer_id in players:
+	if peer_id in players and is_instance_valid(players[peer_id]):
 		print("[DEBUG] Player %d already spawned, skipping" % peer_id)
 		return
+	var old_node := get_node_or_null(str(peer_id))
+	if old_node:
+		old_node.queue_free()
 	print("[DEBUG] Spawning player: %d with character: %s (I am peer %d)" % [peer_id, character_path, multiplayer.get_unique_id()])
 	var idx = players.size()
 	var player := PLAYER_SCENE.instantiate()
@@ -52,6 +56,13 @@ func spawn_player_rpc(peer_id: int, character_path: String = "") -> void:
 			camera.current = true
 	players[peer_id] = player
 
+func clear_all_players() -> void:
+	for pid in players:
+		if is_instance_valid(players[pid]):
+			players[pid].queue_free()
+	players.clear()
+	player_characters.clear()
+
 func remove_player(peer_id: int) -> void:
 	player_characters.erase(peer_id)
 	if peer_id in players:
@@ -61,16 +72,23 @@ func remove_player(peer_id: int) -> void:
 
 func on_host_created() -> void:
 	$UI/StatusLabel.text = "Hosting - ID: %d" % multiplayer.get_unique_id()
+	clear_all_players()
 	player_characters[1] = GameSession.selected_character
 	spawn_player_rpc(1, GameSession.selected_character)
 
 func on_client_connected() -> void:
 	$UI/StatusLabel.text = "Connected - ID: %d" % multiplayer.get_unique_id()
+	clear_all_players()
 	print("[CLIENT] Connected as peer %d, registering..." % multiplayer.get_unique_id())
 
 func _on_connected_to_server() -> void:
 	print("[CLIENT] connected_to_server fired, sending character")
 	register_player.rpc_id(1, GameSession.selected_character)
+
+func _on_server_disconnected() -> void:
+	print("[CLIENT] server_disconnected, cleaning up players")
+	$UI/StatusLabel.text = "Server disconnected"
+	clear_all_players()
 
 func _on_peer_connected(peer_id: int) -> void:
 	if not multiplayer.is_server():
