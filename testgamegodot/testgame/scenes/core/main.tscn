@@ -33,23 +33,23 @@ offset_left = 10.0
 offset_top = 10.0
 text = "Status: Waiting..."
 
-[node name="HostButton" type="Button" parent="UI" unique_id=-2060399404]
+[node name="InviteButton" type="Button" parent="UI" unique_id=-2060399404]
 anchors_preset = -1
 anchor_top = 0.1
 anchor_right = 0.15
 anchor_bottom = 0.2
 offset_left = 10.0
 offset_top = 50.0
-text = "HOST"
+text = "INVITE"
 
-[node name="QuitButton" type="Button" parent="UI" unique_id=-2060399403]
+[node name="LeaveButton" type="Button" parent="UI" unique_id=-2060399403]
 anchors_preset = -1
 anchor_top = 0.1
 anchor_right = 0.15
 anchor_bottom = 0.2
 offset_left = 10.0
 offset_top = 90.0
-text = "QUIT"
+text = "MENU"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=-1294967296]
 transform = Transform3D(0.99990726, -0.012110332, 0.006227566, 0, 0.45731288, 0.8893059, -0.013617735, -0.8892234, 0.45727047, -1.4901161e-08, 8.9603615, 7.1873884)

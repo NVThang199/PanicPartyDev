@@ -1,5 +1,8 @@
 extends Control
 
+signal character_confirmed(character_path: String)
+signal selection_cancelled()
+
 const GAME_SCENE := "res://scenes/core/main.tscn"
 const CHARACTERS := {
 	"Knight": "res://assets/characters/KayKit_Adventurers_2.0_FREE/Characters/gltf/Knight.glb",
@@ -29,7 +32,7 @@ func _select_character(character_name: String) -> void:
 		model.queue_free()
 	model = load(GameSession.selected_character).instantiate()
 	preview.add_child(model)
-	model.position = Vector3(0, -4, 0)
+	model.position = Vector3(0, -3.0, 0)
 	model.scale = Vector3.ONE * 3.0
 	
 	# Thêm AnimationPlayer và attach vào GLB model
@@ -58,7 +61,11 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 	return null
 
 func _on_confirm_pressed() -> void:
-	get_tree().change_scene_to_file(GAME_SCENE)
+	character_confirmed.emit(GameSession.selected_character)
+	if get_tree().current_scene == self:
+		get_tree().change_scene_to_file(GAME_SCENE)
 
 func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+	selection_cancelled.emit()
+	if get_tree().current_scene == self:
+		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")

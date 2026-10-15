@@ -1,9 +1,14 @@
 extends Node3D
 
 const PLAYER_SCENE = preload("res://scenes/players/player.tscn")
+const CHARACTER_SELECT_SCENE = preload("res://scenes/menus/character_select.tscn")
 
 var players: Dictionary = {}
 var player_characters: Dictionary = {}
+
+@onready var status_label: Label = $UI/StatusLabel
+@onready var invite_button: Button = $UI/InviteButton
+@onready var leave_button: Button = $UI/LeaveButton
 
 func _ready() -> void:
 	Networking.host_created.connect(on_host_created)
@@ -12,10 +17,40 @@ func _ready() -> void:
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(remove_player)
-	$UI/HostButton.pressed.connect(_on_host_pressed)
-	$UI/QuitButton.pressed.connect(_on_quit_pressed)
+	invite_button.pressed.connect(_on_invite_pressed)
+	leave_button.pressed.connect(_on_leave_pressed)
 	
+	invite_button.visible = false
 	set_physics_process(true)
+	
+	if GameSession.is_hosting:
+		GameSession.is_hosting = false
+		clear_all_players()
+		Networking.host_lobby()
+	elif multiplayer.multiplayer_peer != null and not multiplayer.is_server():
+		status_label.text = "Connected - ID: %d" % multiplayer.get_unique_id()
+		invite_button.visible = false
+		show_character_select()
+
+func show_character_select() -> void:
+	if $UI.has_node("CharacterSelect"):
+		return
+	var char_select = CHARACTER_SELECT_SCENE.instantiate()
+	char_select.name = "CharacterSelect"
+	$UI.add_child(char_select)
+	char_select.character_confirmed.connect(_on_character_confirmed)
+	char_select.selection_cancelled.connect(_on_leave_pressed)
+
+func _on_character_confirmed(character_path: String) -> void:
+	GameSession.selected_character = character_path
+	var char_select = $UI.get_node_or_null("CharacterSelect")
+	if char_select:
+		char_select.queue_free()
+	if multiplayer.is_server():
+		player_characters[1] = character_path
+		spawn_player_rpc.rpc(1, character_path)
+	else:
+		register_player.rpc_id(1, character_path)
 
 @rpc("any_peer", "reliable")
 func register_player(character_path: String) -> void:
@@ -84,35 +119,42 @@ func remove_player(peer_id: int) -> void:
 		node.queue_free()
 
 func on_host_created() -> void:
-	$UI/StatusLabel.text = "Hosting - ID: %d" % multiplayer.get_unique_id()
+	status_label.text = "Hosting - ID: %d" % multiplayer.get_unique_id()
+	invite_button.visible = true
 	clear_all_players()
-	player_characters[1] = GameSession.selected_character
-	spawn_player_rpc(1, GameSession.selected_character)
+	show_character_select()
 
 func on_client_connected() -> void:
-	$UI/StatusLabel.text = "Connected - ID: %d" % multiplayer.get_unique_id()
+	status_label.text = "Connected - ID: %d" % multiplayer.get_unique_id()
+	invite_button.visible = false
 	clear_all_players()
-	print("[CLIENT] Connected as peer %d, registering..." % multiplayer.get_unique_id())
+	show_character_select()
 
 func _on_connected_to_server() -> void:
-	print("[CLIENT] connected_to_server fired, sending character")
-	register_player.rpc_id(1, GameSession.selected_character)
+	print("[CLIENT] connected_to_server fired")
+	status_label.text = "Connected - ID: %d" % multiplayer.get_unique_id()
+	invite_button.visible = false
+	show_character_select()
 
 func _on_server_disconnected() -> void:
 	print("[CLIENT] server_disconnected, cleaning up players")
-	$UI/StatusLabel.text = "Server disconnected"
+	status_label.text = "Server disconnected"
 	clear_all_players()
 
 func _on_peer_connected(peer_id: int) -> void:
 	if not multiplayer.is_server():
-		if peer_id == 1:
-			register_player.rpc_id(1, GameSession.selected_character)
 		return
 	print("Peer connected: ", peer_id)
 
-func _on_host_pressed() -> void:
-	clear_all_players()
-	Networking.host_lobby()
+func _on_invite_pressed() -> void:
+	if not multiplayer.is_server():
+		return
+	if Networking.current_lobby_id != 0:
+		Steam.activateGameOverlayInviteDialog(Networking.current_lobby_id)
+	else:
+		print("[STEAM] No active lobby to invite")
 
-func _on_quit_pressed() -> void:
-	get_tree().quit()
+func _on_leave_pressed() -> void:
+	Networking.leave_current_session()
+	clear_all_players()
+	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")

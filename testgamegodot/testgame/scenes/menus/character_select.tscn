@@ -81,6 +81,7 @@ layout_mode = 2
 stretch = true
 
 [node name="PreviewViewport" type="SubViewport" parent="Margin/Content/Body/PreviewPanel/PreviewViewportContainer" unique_id=1573405503]
+own_world_3d = true
 handle_input_locally = false
 size = Vector2i(794, 454)
 render_target_update_mode = 4
@@ -89,7 +90,7 @@ render_target_update_mode = 4
 environment = SubResource("Environment_preview")
 
 [node name="Camera3D" type="Camera3D" parent="Margin/Content/Body/PreviewPanel/PreviewViewportContainer/PreviewViewport" unique_id=1143166834]
-transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 1.5, 8)
+transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.1736482, 0, -0.1736482, 0.9848077, 0, 1.2, 7.5)
 current = true
 
 [node name="Light" type="OmniLight3D" parent="Margin/Content/Body/PreviewPanel/PreviewViewportContainer/PreviewViewport" unique_id=1983094656]

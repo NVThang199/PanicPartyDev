@@ -79,6 +79,9 @@ func on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response: 
 		return
 	multiplayer.multiplayer_peer = peer
 	client_connected.emit()
+	var current = get_tree().current_scene
+	if current and current.scene_file_path != "res://scenes/core/main.tscn":
+		get_tree().change_scene_to_file("res://scenes/core/main.tscn")
 
 func on_join_requested(lobby_id: int, _steam_id: int) -> void:
 	if current_lobby_id == lobby_id and peer != null and multiplayer.multiplayer_peer != null:

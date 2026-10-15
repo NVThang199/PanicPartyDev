@@ -51,9 +51,19 @@ alignment = 1
 
 [node name="StartButton" type="Button" parent="Buttons" unique_id=477008727]
 layout_mode = 2
-text = "Start"
+text = "Host Server"
 
 [node name="ButtonEffects" type="Node" parent="Buttons/StartButton" unique_id=2023101042]
+script = ExtResource("2_fx")
+font_size = 24
+ease_type = 2
+trans_type = 2
+
+[node name="JoinButton" type="Button" parent="Buttons" unique_id=477008728]
+layout_mode = 2
+text = "Join Game"
+
+[node name="ButtonEffects" type="Node" parent="Buttons/JoinButton" unique_id=2023101043]
 script = ExtResource("2_fx")
 font_size = 24
 ease_type = 2
@@ -71,7 +81,7 @@ trans_type = 2
 
 [node name="ExitButton" type="Button" parent="Buttons" unique_id=1764940728]
 layout_mode = 2
-text = "Exit"
+text = "Quit Game"
 
 [node name="ButtonEffects3" type="Node" parent="Buttons/ExitButton" unique_id=25927002]
 script = ExtResource("2_fx")
@@ -88,6 +98,7 @@ dialog_text = "Party Panic
 Developed with Godot Engine
 Free assets by KayKit"
 
-[connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/StartButton" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Buttons/JoinButton" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="Buttons/CreditsButton" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_pressed"]
