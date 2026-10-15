@@ -17,12 +17,11 @@ func _ensure_nodes():
 
 @rpc("any_peer", "unreliable")
 func sync_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
-	if not is_multiplayer_authority():
-		position = new_pos
-		if model:
-			model.rotation.y = rot_y
-		if anim_name and anim_name != current_anim:
-			play_anim(anim_name)
+	position = new_pos
+	if model:
+		model.rotation.y = rot_y
+	if anim_name and anim_name != current_anim:
+		play_anim(anim_name)
 
 func sync_state_rpc(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
 	if not multiplayer.is_server():
@@ -70,12 +69,9 @@ func _physics_process(delta):
 
 		move_and_slide()
 		
-		sync_state_rpc(position, model.rotation.y if model else 0.0, current_anim)
-
-func _enter_tree() -> void:
-	var peer_id := name.to_int()
-	if peer_id > 0:
-		set_multiplayer_authority(peer_id)
+		for peer_id in multiplayer.get_peers():
+			if peer_id != multiplayer.get_unique_id():
+				sync_state.rpc_id(peer_id, position, model.rotation.y if model else 0.0, current_anim)
 
 func _ready():
 	_ensure_nodes()
