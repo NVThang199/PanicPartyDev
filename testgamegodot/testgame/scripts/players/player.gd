@@ -22,9 +22,10 @@ func _apply_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
 	if anim_name and anim_name != current_anim:
 		play_anim(anim_name)
 
-#ponytail: server relays to all peers explicitly
-@rpc("any_peer", "reliable")
+@rpc("any_peer", "unreliable")
 func sync_state_to_peer(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
+	if is_multiplayer_authority():
+		return
 	_apply_state(new_pos, rot_y, anim_name)
 
 func _physics_process(delta):
@@ -65,9 +66,9 @@ func _physics_process(delta):
 			play_anim("general/Idle_A")
 
 		move_and_slide()
-		
-		# Không dùng RPC từ player node, dùng signal hoặc global sync thay
-		# RPC path "/root/Main3D/1" gây lỗi khi client chưa spawn node "1"
+		if multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
+			var rot_y: float = model.rotation.y if model else 0.0
+			sync_state_to_peer.rpc(position, rot_y, current_anim)
 
 func _ready():
 	_ensure_nodes()
