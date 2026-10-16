@@ -58,18 +58,22 @@ mesh = SubResource("BoxMesh_floor")
 [node name="Wall_North" type="CollisionShape3D" parent="Floor" unique_id=983566032]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -8.5)
 shape = SubResource("BoxShape3D_lwqq7")
+debug_color = Color(0.3879037, 0.3935868, 1, 0.41960785)
 
 [node name="Wall_South" type="CollisionShape3D" parent="Floor" unique_id=1120800433]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 8.5)
 shape = SubResource("BoxShape3D_m8j4h")
+debug_color = Color(0.3879037, 0.3935868, 1, 0.41960785)
 
 [node name="Wall_East" type="CollisionShape3D" parent="Floor" unique_id=1924330318]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 2.5, 0)
 shape = SubResource("BoxShape3D_ralht")
+debug_color = Color(0.3879037, 0.3935868, 1, 0.41960785)
 
 [node name="Wall_West" type="CollisionShape3D" parent="Floor" unique_id=1698818139]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 2.5, 0)
 shape = SubResource("BoxShape3D_mgwo4")
+debug_color = Color(0.3879037, 0.3935868, 1, 0.41960785)
 
 [node name="wall_straight" parent="Floor" unique_id=993549169 instance=ExtResource("2_m8j4h")]
 transform = Transform3D(15.78292, 0, 0, 0, 14.348108, 0, 0, 0, 14.348108, 25.980268, -0.41317463, -25.864193)
@@ -195,7 +199,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.697844, 0.1, -6.8)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.604673, 0.1, -0.5939231)
 
 [node name="Tree_West" parent="Decorations/Tree_West" unique_id=783501831 instance=ExtResource("11_n74up")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.331668, 0.1, 7.961759)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2827282, 0.1, 7.961759)
 
 [node name="Tree_East" parent="Decorations" unique_id=1698009130 instance=ExtResource("12_lwqq7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.076414, 0.1, -1.075182)
