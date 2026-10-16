@@ -227,6 +227,7 @@ func _ready():
 			var hb_lib = load("res://assets/animations/hot_bomb_animations.res")
 			if hb_lib:
 				anim_player.add_animation_library("hot_bomb", hb_lib)
+	_setup_hand_socket()
 	play_anim("general/Idle_A")
 
 func play_anim(anim_name: String, force_restart: bool = false):
@@ -253,7 +254,31 @@ func switch_character(glb_path: String) -> void:
 	current_anim = ""
 	if is_inside_tree():
 		await get_tree().process_frame
+	_setup_hand_socket()
 	play_anim("general/Idle_A")
+
+func _setup_hand_socket() -> void:
+	if not model:
+		return
+	var skel: Skeleton3D = model.get_node_or_null("Rig_Medium/Skeleton3D")
+	if not skel:
+		return
+	var existing = skel.get_node_or_null("RightHandAttachment")
+	if not existing:
+		var ba = BoneAttachment3D.new()
+		ba.name = "RightHandAttachment"
+		ba.bone_name = "handslot.r"
+		skel.add_child(ba)
+
+func get_hand_socket() -> Node3D:
+	if model:
+		var ba = model.get_node_or_null("Rig_Medium/Skeleton3D/RightHandAttachment")
+		if ba:
+			return ba
+	_setup_hand_socket()
+	if model:
+		return model.get_node_or_null("Rig_Medium/Skeleton3D/RightHandAttachment")
+	return null
 
 # Hot Bomb Minigame Methods
 func pick_up_bomb(b: Node) -> void:
@@ -277,8 +302,13 @@ func throw_held_bomb() -> void:
 	play_anim("hot_bomb/Throw", true)
 
 	var minigame = get_parent()
-	if minigame and minigame.has_method("throw_bomb"):
-		minigame.throw_bomb(multiplayer.get_unique_id(), direction)
+	if minigame:
+		if multiplayer.is_server():
+			if minigame.has_method("throw_bomb"):
+				minigame.throw_bomb(multiplayer.get_unique_id(), direction)
+		else:
+			if minigame.has_method("request_throw_bomb"):
+				minigame.request_throw_bomb.rpc_id(1, direction)
 
 	is_holding_bomb = false
 	held_bomb = null

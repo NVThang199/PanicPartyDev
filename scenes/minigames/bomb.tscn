@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" path="res://assets/characters/KayKit_Adventurers_2.0_FREE/Assets/fbx/smokebomb.fbx" id="2_bomb_model"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_body"]
-radius = 0.45
+radius = 0.55
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_catch"]
-radius = 0.85
+radius = 1.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_explosion"]
 direction = Vector3(0, 1, 0)
@@ -31,7 +31,7 @@ collision_layer = 4
 script = ExtResource("1_bomb_script")
 
 [node name="Model" parent="." unique_id=78790842 instance=ExtResource("2_bomb_model")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+transform = Transform3D(2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1083504457]
 shape = SubResource("SphereShape3D_body")

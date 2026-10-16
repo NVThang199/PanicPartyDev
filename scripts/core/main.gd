@@ -72,8 +72,15 @@ func _ready() -> void:
 		GameSession.is_hosting = false
 		clear_all_players()
 		Networking.host_lobby()
+	elif multiplayer.multiplayer_peer != null and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
+		_restore_lobby_session()
 	elif multiplayer.multiplayer_peer != null and not multiplayer.is_server():
 		show_character_select()
+
+	get_tree().create_timer(3.0).timeout.connect(func():
+		if is_instance_valid(loading_overlay) and loading_overlay.visible and not $UI.has_node("CharacterSelect"):
+			loading_overlay.visible = false
+	)
 
 func _process(delta: float) -> void:
 	# ESC toggle pause menu
@@ -262,6 +269,55 @@ func _on_character_confirmed(character_path: String) -> void:
 		sync_ready_states.rpc({})
 	else:
 		register_player.rpc_id(1, character_path, my_name, my_steam_id)
+
+func _restore_lobby_session() -> void:
+	print("[LOBBY] Restoring lobby session after minigame...")
+	if loading_overlay:
+		var tween = create_tween()
+		tween.tween_property(loading_overlay, "modulate:a", 0.0, 0.3)
+		tween.tween_callback(func(): loading_overlay.visible = false)
+
+	if lobby_panel:
+		lobby_panel.visible = true
+	is_ready = false
+	if btn_ready:
+		btn_ready.text = "READY"
+		btn_ready.modulate = Color(1, 1, 1)
+
+	var my_name = Networking.get_local_player_name()
+	var my_steam_id = Networking.get_local_steam_id()
+	var char_path = GameSession.selected_character
+
+	if multiplayer.is_server():
+		if map_select_panel:
+			map_select_panel.visible = true
+		if btn_start:
+			btn_start.visible = true
+			btn_start.disabled = true
+
+		player_info.clear()
+		player_info[1] = {
+			"character": char_path,
+			"name": my_name,
+			"steam_id": my_steam_id,
+			"ping": 0,
+			"ready": false
+		}
+		spawn_player_rpc.rpc(1, char_path, my_name, my_steam_id)
+		sync_ready_states.rpc({})
+		notify_lobby_ready.rpc()
+	else:
+		if map_select_panel:
+			map_select_panel.visible = false
+		register_player.rpc_id(1, char_path, my_name, my_steam_id)
+
+@rpc("authority", "reliable")
+func notify_lobby_ready() -> void:
+	if not multiplayer.is_server():
+		var char_path = GameSession.selected_character
+		var my_name = Networking.get_local_player_name()
+		var my_steam_id = Networking.get_local_steam_id()
+		register_player.rpc_id(1, char_path, my_name, my_steam_id)
 
 @rpc("any_peer", "reliable")
 func register_player(character_path: String, player_name: String = "", steam_id: int = 0) -> void:

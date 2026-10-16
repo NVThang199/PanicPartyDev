@@ -21,7 +21,6 @@ SettingsManager="*res://scripts/systems/settings_manager.gd"
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
 GameSession="*res://scripts/systems/game_session.gd"
 Networking="*res://scripts/systems/networking.gd"
-SettingsManager="*res://scripts/systems/settings_manager.gd"
 
 [display]
 

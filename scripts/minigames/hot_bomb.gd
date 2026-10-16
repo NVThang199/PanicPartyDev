@@ -92,14 +92,25 @@ func spawn_bomb(holder_id: int) -> void:
 	bomb.bomb_exploded.connect(_on_bomb_exploded)
 
 	var holder = players.get(holder_id)
-	if holder and is_instance_valid(holder):
-		holder.pick_up_bomb(bomb)
-		bomb.attach_to_holder(holder, holder_id)
-	else:
+	if not holder or not is_instance_valid(holder):
 		add_child(bomb)
 		bomb.state = 2  # HOMING
 
 	current_bomb_holder = holder_id
+	sync_bomb_holder.rpc(holder_id)
+
+@rpc("authority", "call_local", "reliable")
+func sync_bomb_holder(holder_id: int) -> void:
+	if not bomb or not is_instance_valid(bomb):
+		bomb = BOMB_SCENE.instantiate()
+		bomb.name = "Bomb"
+		add_child(bomb)
+
+	current_bomb_holder = holder_id
+	var holder = players.get(holder_id)
+	if holder and is_instance_valid(holder):
+		holder.pick_up_bomb(bomb)
+		bomb.attach_to_holder(holder, holder_id)
 
 func _process(delta: float) -> void:
 	if state != GameState.PLAYING:
@@ -129,6 +140,22 @@ func sync_game_state() -> void:
 	# Lightweight state sync
 	pass
 
+@rpc("any_peer", "unreliable")
+func sync_player_state(peer_id: int, pos: Vector3, rot_y: float, anim_name: String) -> void:
+	if peer_id == multiplayer.get_unique_id():
+		return
+	if peer_id in players and is_instance_valid(players[peer_id]):
+		players[peer_id]._apply_state(pos, rot_y, anim_name)
+
+@rpc("any_peer", "call_local", "reliable")
+func request_throw_bomb(direction: Vector3) -> void:
+	if not multiplayer.is_server():
+		return
+	var sender_id = multiplayer.get_remote_sender_id()
+	if sender_id == 0:
+		sender_id = multiplayer.get_unique_id()
+	throw_bomb(sender_id, direction)
+
 func throw_bomb(thrower_id: int, direction: Vector3) -> void:
 	if not multiplayer.is_server() or not bomb:
 		return
@@ -140,18 +167,35 @@ func throw_bomb(thrower_id: int, direction: Vector3) -> void:
 	if thrower and thrower.has_method("release_bomb"):
 		thrower.release_bomb()
 
+	var throw_origin = (thrower.global_position + Vector3(0, 1.2, 0) + direction.normalized() * 1.0) if thrower else bomb.global_position
 	bomb.detach_from_holder()
+	bomb.global_position = throw_origin
+	if thrower:
+		bomb.add_collision_exception_with(thrower)
+	bomb.last_thrower_id = thrower_id
+	bomb.throw_grace_timer = 0.8
 	bomb.throw(direction)
 	current_bomb_holder = -1
 
-	throw_bomb_rpc.rpc(thrower_id, bomb.global_position, direction)
+	throw_bomb_rpc.rpc(thrower_id, throw_origin, direction)
 
 @rpc("authority", "call_local", "reliable")
-func throw_bomb_rpc(_thrower_id: int, origin: Vector3, direction: Vector3) -> void:
-	if bomb:
-		bomb.global_position = origin
-		bomb.throw_velocity = direction.normalized() * 10.0
-		bomb.state = 1  # THROWN
+func throw_bomb_rpc(thrower_id: int, origin: Vector3, direction: Vector3) -> void:
+	if not bomb or not is_instance_valid(bomb):
+		bomb = BOMB_SCENE.instantiate()
+		bomb.name = "Bomb"
+		add_child(bomb)
+
+	var thrower = players.get(thrower_id)
+	if thrower and thrower.has_method("release_bomb"):
+		thrower.release_bomb()
+
+	bomb.detach_from_holder()
+	bomb.global_position = origin
+	bomb.last_thrower_id = thrower_id
+	bomb.throw_grace_timer = 0.8
+	bomb.throw(direction)
+	current_bomb_holder = -1
 
 func _on_bomb_caught(catcher_id: int) -> void:
 	if not multiplayer.is_server():
@@ -161,14 +205,21 @@ func _on_bomb_caught(catcher_id: int) -> void:
 	var catcher = players.get(catcher_id)
 	if catcher and is_instance_valid(catcher):
 		catcher.pick_up_bomb(bomb)
-		bomb.attach_to_holder(catcher, catcher_id)
 
 	bomb_caught_rpc.rpc(catcher_id)
 
 @rpc("authority", "call_local", "reliable")
-func bomb_caught_rpc(_catcher_id: int) -> void:
-	# Visual feedback
-	pass
+func bomb_caught_rpc(catcher_id: int) -> void:
+	if not bomb or not is_instance_valid(bomb):
+		bomb = BOMB_SCENE.instantiate()
+		bomb.name = "Bomb"
+		add_child(bomb)
+
+	current_bomb_holder = catcher_id
+	var catcher = players.get(catcher_id)
+	if catcher and is_instance_valid(catcher):
+		catcher.pick_up_bomb(bomb)
+		bomb.attach_to_holder(catcher, catcher_id)
 
 func _on_bomb_exploded(holder_id: int) -> void:
 	if not multiplayer.is_server():
@@ -226,6 +277,7 @@ func get_alive_players() -> Array:
 func end_game_winner(winner_id: int) -> void:
 	state = GameState.ENDED
 	show_winner_banner.rpc(winner_id)
+	_start_auto_return()
 
 func end_game_timeout() -> void:
 	state = GameState.ENDED
@@ -234,6 +286,14 @@ func end_game_timeout() -> void:
 		show_winner_banner.rpc(alive[0])
 	else:
 		show_winner_banner.rpc(-1)
+	_start_auto_return()
+
+func _start_auto_return() -> void:
+	if not multiplayer.is_server():
+		return
+	await get_tree().create_timer(6.0).timeout
+	if state == GameState.ENDED and is_inside_tree():
+		return_to_lobby.rpc()
 
 @rpc("authority", "call_local", "reliable")
 func show_winner_banner(winner_id: int) -> void:
@@ -246,6 +306,18 @@ func show_winner_banner(winner_id: int) -> void:
 			winner_label.text = "DRAW!"
 
 func _on_return_pressed() -> void:
+	if multiplayer.is_server():
+		return_to_lobby.rpc()
+	else:
+		request_return_to_lobby.rpc_id(1)
+
+@rpc("any_peer", "call_local", "reliable")
+func request_return_to_lobby() -> void:
+	if multiplayer.is_server() and state == GameState.ENDED:
+		return_to_lobby.rpc()
+
+@rpc("authority", "call_local", "reliable")
+func return_to_lobby() -> void:
 	get_tree().change_scene_to_file("res://scenes/core/main.tscn")
 
 func _on_peer_disconnected(peer_id: int) -> void:
