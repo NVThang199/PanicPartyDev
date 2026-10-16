@@ -1,12 +1,43 @@
 [gd_scene format=3 uid="uid://test3d"]
 
 [ext_resource type="Script" uid="uid://ba88wk2u4fnrb" path="res://scripts/core/main.gd" id="1_main_script"]
+[ext_resource type="PackedScene" uid="uid://ct3e6oxcai07p" path="res://assets/terrains/nature/Tree_1_A_Color1.fbx" id="2_jpx65"]
+[ext_resource type="Environment" uid="uid://dnwhw8it7gpmp" path="res://default_env.tres" id="2_lwqq7"]
+[ext_resource type="PackedScene" uid="uid://cfeeu1f013ufq" path="res://assets/terrains/nature/Tree_2_A_Color1.fbx" id="3_fu2j5"]
+[ext_resource type="PackedScene" uid="uid://cipj3q5qtwfc0" path="res://assets/terrains/medieval/buildings/blue/building_barracks_blue.fbx" id="3_n74up"]
+[ext_resource type="PackedScene" uid="uid://dvh1fnixt4fhm" path="res://assets/terrains/nature/Rock_1_A_Color1.fbx" id="5_5xrq8"]
+[ext_resource type="PackedScene" uid="uid://bqx6clfwqc2ut" path="res://assets/terrains/nature/Bush_2_A_Color1.fbx" id="7_83agg"]
+[ext_resource type="PackedScene" uid="uid://0n08yw23ud0q" path="res://assets/terrains/nature/Rock_1_B_Color1.fbx" id="10_ns4lk"]
+[ext_resource type="PackedScene" uid="uid://bn17cjpcyoboh" path="res://assets/terrains/nature/Tree_1_B_Color1.fbx" id="11_n74up"]
+[ext_resource type="PackedScene" uid="uid://bc1p3qdhf0vn1" path="res://assets/terrains/nature/Tree_2_B_Color1.fbx" id="12_lwqq7"]
+[ext_resource type="PackedScene" uid="uid://c3p0axrcsyru1" path="res://assets/terrains/nature/Tree_1_C_Color1.fbx" id="13_m8j4h"]
+[ext_resource type="PackedScene" uid="uid://c7n21pe2sx1on" path="res://assets/terrains/nature/Tree_2_C_Color1.fbx" id="14_ralht"]
+[ext_resource type="PackedScene" uid="uid://78l61olum3n4" path="res://assets/terrains/nature/Bush_1_C_Color1.fbx" id="15_5r554"]
+[ext_resource type="PackedScene" uid="uid://c15nduws8syj3" path="res://assets/terrains/nature/Grass_1_D_Color1.fbx" id="15_ns4lk"]
+[ext_resource type="PackedScene" uid="uid://b2c8mimrgsfiv" path="res://assets/terrains/nature/Bush_1_D_Color1.fbx" id="16_uyqaj"]
+[ext_resource type="PackedScene" uid="uid://d0qljxgceadjh" path="res://assets/terrains/nature/Bush_2_B_Color1.fbx" id="17_wy8uk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
 size = Vector3(16, 0.2, 16)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lwqq7"]
+albedo_color = Color(0.2901961, 0.52156866, 0.13333334, 1)
+roughness = 0.85
+
 [sub_resource type="BoxMesh" id="BoxMesh_floor"]
-size = Vector3(16, 0.2, 16)
+size = Vector3(214.86862, 0.2, 179.6236)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lwqq7"]
+size = Vector3(16, 5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m8j4h"]
+size = Vector3(16, 5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ralht"]
+size = Vector3(1, 5, 18)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mgwo4"]
+size = Vector3(1, 5, 18)
 
 [node name="Main3D" type="Node3D" unique_id=1693924833]
 script = ExtResource("1_main_script")
@@ -17,11 +48,33 @@ script = ExtResource("1_main_script")
 shape = SubResource("BoxShape3D_floor")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1740177398]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.088285446, 0.013224125, -0.016033173)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.780663, 0.013223648, -71.58095)
+material_override = SubResource("StandardMaterial3D_lwqq7")
+lod_bias = 0.001
+gi_lightmap_texel_scale = 0.01
 mesh = SubResource("BoxMesh_floor")
 
+[node name="Wall_North" type="CollisionShape3D" parent="Floor" unique_id=983566032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -8.5)
+shape = SubResource("BoxShape3D_lwqq7")
+
+[node name="Wall_South" type="CollisionShape3D" parent="Floor" unique_id=1120800433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 8.5)
+shape = SubResource("BoxShape3D_m8j4h")
+
+[node name="Wall_East" type="CollisionShape3D" parent="Floor" unique_id=1924330318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 2.5, 0)
+shape = SubResource("BoxShape3D_ralht")
+
+[node name="Wall_West" type="CollisionShape3D" parent="Floor" unique_id=1698818139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 2.5, 0)
+shape = SubResource("BoxShape3D_mgwo4")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1934731168]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 0)
+transform = Transform3D(0.70710677, -0.4055799, 0.5792281, 0, 0.81915224, 0.57357657, -0.70710677, -0.4055799, 0.5792281, 0, 5, 0)
+light_color = Color(1, 0.9607843, 0.91764706, 1)
+light_energy = 1.2
+shadow_enabled = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=-2060399406]
 
@@ -100,6 +153,81 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=-1294967296]
-transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0.06544621, 8.62528, 7.8023815)
+transform = Transform3D(1, 0, 0, 0, 0.91030085, 0.41394728, 0, -0.41394728, 0.91030085, 0, 7.6406956, 13.32269)
+environment = ExtResource("2_lwqq7")
 current = true
-fov = 75.02472
+fov = 60.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=914881435]
+environment = ExtResource("2_lwqq7")
+
+[node name="Decorations" type="Node3D" parent="." unique_id=1704144862]
+
+[node name="building_barracks_blue" parent="Decorations" unique_id=589135025 instance=ExtResource("3_n74up")]
+transform = Transform3D(10.453958, 0, 0, 0, 10.453958, 0, 0, 0, 10.453958, 0.41694736, 0, -17.596272)
+
+[node name="Grass_1_D_Color1" parent="Decorations" unique_id=805504232 instance=ExtResource("15_ns4lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.228525, 0.14216973, 0.5590849)
+
+[node name="Grass_1_D_Color2" parent="Decorations/Grass_1_D_Color1" unique_id=11764765 instance=ExtResource("15_ns4lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.657982, 0.14216973, 0.5590849)
+
+[node name="Tree_NE" parent="Decorations" unique_id=332572481 instance=ExtResource("3_fu2j5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28205, 0.1, -6.867364)
+
+[node name="Rock_North" parent="Decorations" unique_id=64635084 instance=ExtResource("5_5xrq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.124798, 0.1, -7)
+
+[node name="Tree_NorthMid" parent="Decorations" unique_id=510987770 instance=ExtResource("3_fu2j5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0137444, 0.1, 3.5691042)
+
+[node name="Tree_NorthMid2" parent="Decorations" unique_id=1181711329 instance=ExtResource("2_jpx65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.190473, 0.1, -6.8)
+
+[node name="Rock_NW" parent="Decorations" unique_id=1433032237 instance=ExtResource("5_5xrq8")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -6.8, 0.1, -3)
+
+[node name="Rock_NE" parent="Decorations" unique_id=1095351720 instance=ExtResource("10_ns4lk")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.8, 0.1, -3)
+
+[node name="Tree_West" parent="Decorations" unique_id=972405262 instance=ExtResource("11_n74up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.1, -0.5939231)
+
+[node name="Tree_West" parent="Decorations/Tree_West" unique_id=783501831 instance=ExtResource("11_n74up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32917023, 0.1, 7.961759)
+
+[node name="Tree_East" parent="Decorations" unique_id=1698009130 instance=ExtResource("12_lwqq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.1, -1.075182)
+
+[node name="Rock_CenterNorth" parent="Decorations" unique_id=1224145226 instance=ExtResource("5_5xrq8")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.7529163, 0.1, -6.8)
+
+[node name="Tree_BackLeft2" parent="Decorations" unique_id=987569180 instance=ExtResource("13_m8j4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.876601, 0.1, -6.7617927)
+
+[node name="Tree_BackRight2" parent="Decorations" unique_id=1320415772 instance=ExtResource("14_ralht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.1, -7.5)
+
+[node name="Bush_NW_Corner" parent="Decorations" unique_id=1349487661 instance=ExtResource("15_5r554")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.1, -5)
+
+[node name="Bush_NE_Corner" parent="Decorations" unique_id=292846599 instance=ExtResource("16_uyqaj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.1, -5)
+
+[node name="Rock_Big_Left" parent="Decorations" unique_id=1526258516 instance=ExtResource("5_5xrq8")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -7.2, 0.1, 2)
+
+[node name="Rock_Big_Right" parent="Decorations" unique_id=1875375496 instance=ExtResource("10_ns4lk")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 7.2, 0.1, 2)
+
+[node name="Bush_Left_Front" parent="Decorations" unique_id=1681673936 instance=ExtResource("7_83agg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0.1, 4.5)
+
+[node name="Bush_Right_Front" parent="Decorations" unique_id=1663603579 instance=ExtResource("17_wy8uk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0.1, 5.7928553)
+
+[node name="Tree_NorthCenter2" parent="Decorations" unique_id=1863540236 instance=ExtResource("3_fu2j5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0804505, 0.1, 5.36043)
+
+[node name="Tree_NorthCenter3" parent="Decorations" unique_id=1272527187 instance=ExtResource("11_n74up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.067353, 0.1, 7.055129)

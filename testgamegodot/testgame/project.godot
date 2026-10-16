@@ -69,6 +69,7 @@ jump={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_environment="res://default_env.tres"
 
 [steam]
 
