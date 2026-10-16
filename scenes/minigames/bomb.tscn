@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://hotbomb001"]
+
+[ext_resource type="Script" path="res://scripts/minigames/bomb.gd" id="1_bomb_script"]
+[ext_resource type="PackedScene" path="res://assets/characters/KayKit_Adventurers_2.0_FREE/Assets/fbx/smokebomb.fbx" id="2_bomb_model"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_body"]
+radius = 0.45
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_catch"]
+radius = 0.85
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_explosion"]
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+scale_min = 0.4
+scale_max = 0.8
+color = Color(1, 0.4, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spark"]
+shading_mode = 0
+albedo_color = Color(1, 0.5, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_particle"]
+material = SubResource("StandardMaterial3D_spark")
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="Bomb" type="CharacterBody3D" unique_id=1650919701]
+collision_layer = 4
+script = ExtResource("1_bomb_script")
+
+[node name="Model" parent="." unique_id=78790842 instance=ExtResource("2_bomb_model")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1083504457]
+shape = SubResource("SphereShape3D_body")
+
+[node name="CatchArea" type="Area3D" parent="." unique_id=498656582]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CatchArea" unique_id=1165537974]
+shape = SubResource("SphereShape3D_catch")
+
+[node name="ExplosionParticles" type="GPUParticles3D" parent="." unique_id=1849489366]
+emitting = false
+amount = 40
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_explosion")
+draw_pass_1 = SubResource("BoxMesh_particle")

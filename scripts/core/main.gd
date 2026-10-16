@@ -2,17 +2,27 @@ extends Node3D
 
 const PLAYER_SCENE = preload("res://scenes/players/player.tscn")
 const CHARACTER_SELECT_SCENE = preload("res://scenes/menus/character_select.tscn")
+const SETTINGS_SCENE = preload("res://scenes/menus/settings_menu.tscn")
 
 var players: Dictionary = {}
 var player_info: Dictionary = {}
 
 @onready var status_label: Label = $UI/StatusLabel
-@onready var invite_button: Button = $UI/InviteButton
 @onready var leave_button: Button = $UI/LeaveButton
 @onready var tab_overlay: PanelContainer = $UI/TabOverlay
 @onready var player_list_vbox: VBoxContainer = $UI/TabOverlay/Margin/VBox/PlayerList
+@onready var pause_menu: PanelContainer = $UI/PauseMenu
+@onready var loading_overlay: ColorRect = $UI/LoadingOverlay
+@onready var map_select_panel: PanelContainer = $UI/MapSelectPanel
+@onready var btn_lobby_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnLobby
+@onready var btn_hotbomb_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnHotBomb
+@onready var lobby_panel: PanelContainer = $UI/LobbyPanel
+@onready var btn_ready: Button = $UI/LobbyPanel/Margin/HBox/BtnReady
+@onready var btn_start: Button = $UI/LobbyPanel/Margin/HBox/BtnStart
 
 var ping_timer: float = 0.0
+var is_ready: bool = false
+var selected_map: String = "Lobby"
 
 func _ready() -> void:
 	Networking.host_created.connect(on_host_created)
@@ -22,12 +32,39 @@ func _ready() -> void:
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(remove_player)
-	invite_button.pressed.connect(_on_invite_pressed)
 	leave_button.pressed.connect(_on_leave_pressed)
-	
+
+	if btn_lobby_map:
+		btn_lobby_map.pressed.connect(_on_map_selected.bind("Lobby"))
+	if btn_hotbomb_map:
+		btn_hotbomb_map.pressed.connect(_on_map_selected.bind("HotBomb"))
+	if btn_ready:
+		btn_ready.pressed.connect(_on_ready_pressed)
+	if btn_start:
+		btn_start.pressed.connect(_on_start_pressed)
+
 	status_label.visible = false
-	invite_button.visible = false
+	leave_button.visible = false
 	tab_overlay.visible = false
+
+	if map_select_panel:
+		map_select_panel.visible = false
+	if lobby_panel:
+		lobby_panel.visible = false
+
+	if loading_overlay:
+		loading_overlay.visible = true
+	if pause_menu:
+		pause_menu.visible = false
+		var btn_settings = pause_menu.get_node_or_null("Margin/VBox/BtnSettings")
+		if btn_settings:
+			btn_settings.pressed.connect(_on_pause_settings_pressed)
+		var btn_invite = pause_menu.get_node_or_null("Margin/VBox/BtnInvite")
+		if btn_invite:
+			btn_invite.pressed.connect(_on_pause_invite_pressed)
+		var btn_menu = pause_menu.get_node_or_null("Margin/VBox/BtnMenu")
+		if btn_menu:
+			btn_menu.pressed.connect(_on_pause_menu_pressed)
 	set_physics_process(true)
 	set_process(true)
 	
@@ -36,10 +73,15 @@ func _ready() -> void:
 		clear_all_players()
 		Networking.host_lobby()
 	elif multiplayer.multiplayer_peer != null and not multiplayer.is_server():
-		invite_button.visible = false
 		show_character_select()
 
 func _process(delta: float) -> void:
+	# ESC toggle pause menu
+	if Input.is_action_just_pressed("ui_cancel"):
+		if pause_menu:
+			pause_menu.visible = not pause_menu.visible
+
+	# TAB toggle player list
 	if Input.is_action_just_pressed("ui_focus_next") or Input.is_key_pressed(KEY_TAB):
 		if not tab_overlay.visible:
 			tab_overlay.visible = true
@@ -144,6 +186,13 @@ func update_tab_overlay() -> void:
 			name_lbl.modulate = Color(0.4, 0.9, 1.0)
 		row.add_child(name_lbl)
 		
+		var is_p_ready: bool = info.get("ready", false)
+		var ready_lbl := Label.new()
+		ready_lbl.text = "[READY]" if is_p_ready else "[NOT READY]"
+		ready_lbl.modulate = Color(0.3, 0.9, 0.3) if is_p_ready else Color(0.7, 0.7, 0.7)
+		ready_lbl.add_theme_font_size_override("font_size", 14)
+		row.add_child(ready_lbl)
+
 		var ping_lbl := Label.new()
 		if pid == 1:
 			ping_lbl.text = "HOST"
@@ -185,6 +234,20 @@ func _on_character_confirmed(character_path: String) -> void:
 	var char_select = $UI.get_node_or_null("CharacterSelect")
 	if char_select:
 		char_select.queue_free()
+	if loading_overlay:
+		var tween = create_tween()
+		tween.tween_property(loading_overlay, "modulate:a", 0.0, 0.3)
+		tween.tween_callback(func(): loading_overlay.visible = false)
+
+	# Show map/ready UI
+	if map_select_panel:
+		map_select_panel.visible = true
+	if lobby_panel:
+		lobby_panel.visible = true
+	if btn_start and multiplayer.is_server():
+		btn_start.visible = true
+		btn_start.disabled = true
+
 	var my_name = Networking.get_local_player_name()
 	var my_steam_id = Networking.get_local_steam_id()
 	if multiplayer.is_server():
@@ -192,9 +255,11 @@ func _on_character_confirmed(character_path: String) -> void:
 			"character": character_path,
 			"name": my_name,
 			"steam_id": my_steam_id,
-			"ping": 0
+			"ping": 0,
+			"ready": false
 		}
 		spawn_player_rpc.rpc(1, character_path, my_name, my_steam_id)
+		sync_ready_states.rpc({})
 	else:
 		register_player.rpc_id(1, character_path, my_name, my_steam_id)
 
@@ -209,16 +274,18 @@ func register_player(character_path: String, player_name: String = "", steam_id:
 		"character": character_path,
 		"name": player_name if player_name != "" else "Player %d" % caller_id,
 		"steam_id": steam_id,
-		"ping": 0
+		"ping": 0,
+		"ready": false
 	}
 	print("[HOST] Registered player %d (%s) with %s" % [caller_id, player_name, character_path])
-	
+
 	for pid in player_info:
 		if pid != caller_id:
 			var info = player_info[pid]
 			spawn_player_rpc.rpc_id(caller_id, pid, info.character, info.name, info.steam_id)
-	
+
 	spawn_player_rpc.rpc(caller_id, character_path, player_name, steam_id)
+	sync_ready_states.rpc(get_ready_states())
 
 @rpc("authority", "call_local", "reliable")
 func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: String = "", steam_id: int = 0) -> void:
@@ -247,11 +314,14 @@ func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: St
 			"character": character_path,
 			"name": player_name if player_name != "" else "Player %d" % peer_id,
 			"steam_id": steam_id,
-			"ping": 0
+			"ping": 0,
+			"ready": false
 		}
 	else:
 		player_info[peer_id].name = player_name
 		player_info[peer_id].steam_id = steam_id
+		if not ("ready" in player_info[peer_id]):
+			player_info[peer_id]["ready"] = false
 	if tab_overlay.visible:
 		update_tab_overlay()
 
@@ -290,20 +360,17 @@ func remove_player(peer_id: int) -> void:
 
 func on_host_created() -> void:
 	status_label.visible = false
-	invite_button.visible = true
 	clear_all_players()
 	show_character_select()
 
 func on_client_connected() -> void:
 	status_label.visible = false
-	invite_button.visible = false
 	clear_all_players()
 	show_character_select()
 
 func _on_connected_to_server() -> void:
 	print("[CLIENT] connected_to_server fired")
 	status_label.visible = false
-	invite_button.visible = false
 	show_character_select()
 
 func _on_server_disconnected() -> void:
@@ -327,3 +394,87 @@ func _on_leave_pressed() -> void:
 	Networking.leave_current_session()
 	clear_all_players()
 	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+
+func _on_pause_settings_pressed() -> void:
+	var settings = SETTINGS_SCENE.instantiate()
+	$UI.add_child(settings)
+	settings.settings_closed.connect(func(): pass)
+
+func _on_pause_invite_pressed() -> void:
+	_on_invite_pressed()
+	if pause_menu:
+		pause_menu.visible = false
+
+func _on_pause_menu_pressed() -> void:
+	_on_leave_pressed()
+
+func _on_map_selected(map_name: String) -> void:
+	selected_map = map_name
+	print("[LOBBY] Selected map: ", map_name)
+
+func _on_ready_pressed() -> void:
+	is_ready = not is_ready
+	if btn_ready:
+		btn_ready.text = "UNREADY" if is_ready else "READY"
+		btn_ready.modulate = Color(0.3, 0.9, 0.3) if is_ready else Color(1, 1, 1)
+	if multiplayer.is_server():
+		player_info[1]["ready"] = is_ready
+		sync_ready_states.rpc(get_ready_states())
+		update_start_button()
+		if tab_overlay.visible:
+			update_tab_overlay()
+	else:
+		set_ready_state.rpc_id(1, is_ready)
+
+@rpc("any_peer", "reliable")
+func set_ready_state(p_ready: bool) -> void:
+	if not multiplayer.is_server():
+		return
+	var sender = multiplayer.get_remote_sender_id()
+	if sender in player_info:
+		player_info[sender]["ready"] = p_ready
+	sync_ready_states.rpc(get_ready_states())
+	update_start_button()
+	if tab_overlay.visible:
+		update_tab_overlay()
+
+@rpc("authority", "call_local", "reliable")
+func sync_ready_states(states: Dictionary) -> void:
+	for pid in states:
+		if pid in player_info:
+			player_info[pid]["ready"] = states[pid]
+	if tab_overlay.visible:
+		update_tab_overlay()
+
+func get_ready_states() -> Dictionary:
+	var states = {}
+	for pid in player_info:
+		states[pid] = player_info[pid].get("ready", false)
+	return states
+
+func update_start_button() -> void:
+	if not multiplayer.is_server() or not btn_start:
+		return
+	var all_ready = true
+	var count = player_info.size()
+	if count < 1:
+		all_ready = false
+	for pid in player_info:
+		if not player_info[pid].get("ready", false):
+			all_ready = false
+			break
+	btn_start.disabled = not all_ready
+
+func _on_start_pressed() -> void:
+	if not multiplayer.is_server():
+		return
+	start_game.rpc(selected_map)
+
+@rpc("authority", "call_local", "reliable")
+func start_game(map_name: String) -> void:
+	print("[GAME] Starting match on map: ", map_name)
+	if map_name == "HotBomb":
+		GameSession.minigame_players = player_info.duplicate(true)
+		get_tree().change_scene_to_file("res://scenes/minigames/hot_bomb.tscn")
+	else:
+		print("[GAME] Map %s is lobby, nothing to start" % map_name)

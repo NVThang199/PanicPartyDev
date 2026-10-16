@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c34ptqiayeqdm" path="res://scripts/players/player.gd" id="1_script"]
 [ext_resource type="PackedScene" uid="uid://dyxo436lfocwn" path="res://assets/characters/KayKit_Adventurers_2.0_FREE/Characters/gltf/Knight.glb" id="2_knight"]
+[ext_resource type="FontFile" path="res://assets/ui/FSEX300.ttf" id="3_font"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
 radius = 0.3
@@ -20,11 +21,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_player")
 
 [node name="NameLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
+pixel_size = 0.008
 billboard = 1
 double_sided = false
 no_depth_test = true
+alpha_cut = 0
+alpha_scissor_threshold = 0.5
+render_priority = 10
+shaded = false
+texture_filter = 0
+font = ExtResource("3_font")
+font_size = 36
+modulate = Color(1, 1, 1, 1)
+outline_size = 6
+outline_modulate = Color(0, 0, 0, 1)
 text = "Player"
-font_size = 28
-outline_size = 8
-outline_color = Color(0, 0, 0, 0.8)

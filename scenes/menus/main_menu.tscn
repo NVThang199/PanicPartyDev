@@ -69,6 +69,16 @@ font_size = 24
 ease_type = 2
 trans_type = 2
 
+[node name="SettingsButton" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Settings"
+
+[node name="ButtonEffects_Settings" type="Node" parent="Buttons/SettingsButton"]
+script = ExtResource("2_fx")
+font_size = 24
+ease_type = 2
+trans_type = 2
+
 [node name="CreditsButton" type="Button" parent="Buttons" unique_id=1290501338]
 layout_mode = 2
 text = "Credits"
@@ -100,5 +110,6 @@ Free assets by KayKit"
 
 [connection signal="pressed" from="Buttons/StartButton" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Buttons/JoinButton" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="Buttons/SettingsButton" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/CreditsButton" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_pressed"]

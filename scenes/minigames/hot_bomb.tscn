@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://hotbomb_arena001"]
+
+[ext_resource type="Script" path="res://scripts/minigames/hot_bomb.gd" id="1_arena_script"]
+[ext_resource type="Environment" uid="uid://dnwhw8it7gpmp" path="res://default_env.tres" id="2_env"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(30, 0.2, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
+albedo_color = Color(0.2, 0.25, 0.3, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+material = SubResource("StandardMaterial3D_floor")
+size = Vector3(30, 0.2, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall_lr"]
+size = Vector3(1, 5, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall_lr"]
+size = Vector3(1, 5, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall_fb"]
+size = Vector3(30, 5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall_fb"]
+size = Vector3(30, 5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_obstacle"]
+size = Vector3(3, 3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_obstacle"]
+albedo_color = Color(0.6, 0.4, 0.25, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_obstacle"]
+material = SubResource("StandardMaterial3D_obstacle")
+size = Vector3(3, 3, 3)
+
+[node name="HotBomb" type="Node3D"]
+script = ExtResource("1_arena_script")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 15, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_env")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 20)
+fov = 55.0
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_floor")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_floor")
+
+[node name="Wall_Left" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall_Left"]
+shape = SubResource("BoxShape3D_wall_lr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall_Left"]
+mesh = SubResource("BoxMesh_wall_lr")
+
+[node name="Wall_Right" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall_Right"]
+shape = SubResource("BoxShape3D_wall_lr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall_Right"]
+mesh = SubResource("BoxMesh_wall_lr")
+
+[node name="Wall_Forward" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall_Forward"]
+shape = SubResource("BoxShape3D_wall_fb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall_Forward"]
+mesh = SubResource("BoxMesh_wall_fb")
+
+[node name="Wall_Back" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall_Back"]
+shape = SubResource("BoxShape3D_wall_fb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall_Back"]
+mesh = SubResource("BoxMesh_wall_fb")
+
+[node name="Obstacle1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle1"]
+shape = SubResource("BoxShape3D_obstacle")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Obstacle1"]
+mesh = SubResource("BoxMesh_obstacle")
+
+[node name="Obstacle2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle2"]
+shape = SubResource("BoxShape3D_obstacle")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Obstacle2"]
+mesh = SubResource("BoxMesh_obstacle")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MatchTimerLabel" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Match: 60"
+horizontal_alignment = 1
+
+[node name="BombTimerLabel" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 65.0
+offset_right = 100.0
+offset_bottom = 105.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
+theme_override_font_sizes/font_size = 36
+text = "Bomb: 15"
+horizontal_alignment = 1
+
+[node name="WinnerBanner" type="PanelContainer" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -100.0
+offset_right = 180.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="UI/WinnerBanner"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="UI/WinnerBanner/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="WinnerLabel" type="Label" parent="UI/WinnerBanner/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "PLAYER WINS!"
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="UI/WinnerBanner/Margin/VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Return to Lobby"

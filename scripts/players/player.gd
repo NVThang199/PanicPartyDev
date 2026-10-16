@@ -19,12 +19,18 @@ var player_name: String = ""
 var steam_id: int = 0
 var ping_ms: int = 0
 
+# Hot Bomb Minigame state
+var is_holding_bomb: bool = false
+var is_dead_in_minigame: bool = false
+var held_bomb: Node = null
+
 func set_player_name(p_name: String) -> void:
 	player_name = p_name
 	if not name_label:
 		name_label = get_node_or_null("NameLabel")
 	if name_label:
 		name_label.text = p_name
+		name_label.modulate = Color(1, 1, 1, 1)
 
 func _ensure_nodes():
 	if not model:
@@ -128,14 +134,21 @@ func _physics_process(delta):
 	var has_authority = is_multiplayer_authority()
 	
 	if has_authority:
+		if is_dead_in_minigame:
+			return
+
 		if push_cooldown > 0.0:
 			push_cooldown -= delta
-			
+
 		if not is_on_floor():
 			velocity.y -= gravity * delta
 
 		if Input.is_key_pressed(KEY_E):
 			perform_push()
+
+		# Throw bomb with F key
+		if (Input.is_action_just_pressed("throw_bomb") or Input.is_key_pressed(KEY_F)) and is_holding_bomb:
+			throw_held_bomb()
 
 		if is_knocked_down:
 			velocity.x = knockback_velocity.x
@@ -165,11 +178,17 @@ func _physics_process(delta):
 				if model:
 					var target_rotation = atan2(direction.x, direction.z)
 					model.rotation.y = lerp_angle(model.rotation.y, target_rotation, ROTATION_SPEED * delta)
-				play_anim("movement/Walking_A")
+				if is_holding_bomb:
+					play_anim("hot_bomb/Running_HoldingRifle")
+				else:
+					play_anim("movement/Walking_A")
 			else:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 				velocity.z = move_toward(velocity.z, 0, SPEED)
-				play_anim("general/Idle_A")
+				if is_holding_bomb:
+					play_anim("hot_bomb/Holding_A")
+				else:
+					play_anim("general/Idle_A")
 
 		move_and_slide()
 		if multiplayer.multiplayer_peer != null:
@@ -182,8 +201,10 @@ func _ready():
 	_ensure_nodes()
 	if not name_label:
 		name_label = get_node_or_null("NameLabel")
-	if name_label and player_name != "":
-		name_label.text = player_name
+	if name_label:
+		if player_name != "":
+			name_label.text = player_name
+		name_label.modulate = Color(1, 1, 1, 1)
 	# Camera is managed by main.tscn, not here
 	if anim_player:
 		if not anim_player.has_animation_library("movement"):
@@ -202,6 +223,10 @@ func _ready():
 			var sim_lib = load("res://assets/animations/simulation_animations.res")
 			if sim_lib:
 				anim_player.add_animation_library("simulation", sim_lib)
+		if not anim_player.has_animation_library("hot_bomb"):
+			var hb_lib = load("res://assets/animations/hot_bomb_animations.res")
+			if hb_lib:
+				anim_player.add_animation_library("hot_bomb", hb_lib)
 	play_anim("general/Idle_A")
 
 func play_anim(anim_name: String, force_restart: bool = false):
@@ -212,7 +237,7 @@ func play_anim(anim_name: String, force_restart: bool = false):
 			anim_player.play(anim_name)
 			current_anim = anim_name
 
-func switch_character(glb_path: String):
+func switch_character(glb_path: String) -> void:
 	_ensure_nodes()
 	if model:
 		model.queue_free()
@@ -226,5 +251,49 @@ func switch_character(glb_path: String):
 	if anim_player:
 		anim_player.root_node = anim_player.get_path_to(model)
 	current_anim = ""
-	await get_tree().process_frame
+	if is_inside_tree():
+		await get_tree().process_frame
 	play_anim("general/Idle_A")
+
+# Hot Bomb Minigame Methods
+func pick_up_bomb(b: Node) -> void:
+	is_holding_bomb = true
+	held_bomb = b
+	play_anim("hot_bomb/Holding_A", true)
+
+func release_bomb() -> void:
+	is_holding_bomb = false
+	held_bomb = null
+	play_anim("general/Idle_A", true)
+
+func throw_held_bomb() -> void:
+	if not is_holding_bomb:
+		return
+
+	var direction = model.global_transform.basis.z if model else global_transform.basis.z
+	direction.y = 0.0
+	direction = direction.normalized()
+
+	play_anim("hot_bomb/Throw", true)
+
+	var minigame = get_parent()
+	if minigame and minigame.has_method("throw_bomb"):
+		minigame.throw_bomb(multiplayer.get_unique_id(), direction)
+
+	is_holding_bomb = false
+	held_bomb = null
+
+func die_in_minigame() -> void:
+	is_dead_in_minigame = true
+	is_holding_bomb = false
+	held_bomb = null
+	velocity = Vector3.ZERO
+	set_physics_process(false)
+
+	# Disable collision
+	var col = get_node_or_null("CollisionShape3D")
+	if col:
+		col.disabled = true
+
+	play_anim("hot_bomb/Skeletons_Death", true)
+	print("[PLAYER] %s died in minigame" % name)

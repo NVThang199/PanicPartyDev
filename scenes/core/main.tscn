@@ -1,25 +1,15 @@
 [gd_scene format=3 uid="uid://test3d"]
 
 [ext_resource type="Script" uid="uid://ba88wk2u4fnrb" path="res://scripts/core/main.gd" id="1_main_script"]
-[ext_resource type="PackedScene" uid="uid://ct3e6oxcai07p" path="res://assets/terrains/nature/Tree_1_A_Color1.fbx" id="2_jpx65"]
 [ext_resource type="Environment" uid="uid://dnwhw8it7gpmp" path="res://default_env.tres" id="2_lwqq7"]
 [ext_resource type="PackedScene" uid="uid://djekgtltdv7st" path="res://assets/terrains/medieval/buildings/neutral/wall_straight.fbx" id="2_m8j4h"]
-[ext_resource type="PackedScene" uid="uid://cfeeu1f013ufq" path="res://assets/terrains/nature/Tree_2_A_Color1.fbx" id="3_fu2j5"]
+[ext_resource type="Texture2D" uid="uid://dxshhb785n13s" path="res://assets/ui/menu_art.png" id="2_menu_art"]
 [ext_resource type="PackedScene" uid="uid://cipj3q5qtwfc0" path="res://assets/terrains/medieval/buildings/blue/building_barracks_blue.fbx" id="3_n74up"]
-[ext_resource type="PackedScene" uid="uid://bqx6clfwqc2ut" path="res://assets/terrains/nature/Bush_2_A_Color1.fbx" id="7_83agg"]
-[ext_resource type="PackedScene" uid="uid://bn17cjpcyoboh" path="res://assets/terrains/nature/Tree_1_B_Color1.fbx" id="11_n74up"]
-[ext_resource type="PackedScene" uid="uid://bc1p3qdhf0vn1" path="res://assets/terrains/nature/Tree_2_B_Color1.fbx" id="12_lwqq7"]
-[ext_resource type="PackedScene" uid="uid://c3p0axrcsyru1" path="res://assets/terrains/nature/Tree_1_C_Color1.fbx" id="13_m8j4h"]
-[ext_resource type="PackedScene" uid="uid://c7n21pe2sx1on" path="res://assets/terrains/nature/Tree_2_C_Color1.fbx" id="14_ralht"]
-[ext_resource type="PackedScene" uid="uid://78l61olum3n4" path="res://assets/terrains/nature/Bush_1_C_Color1.fbx" id="15_5r554"]
-[ext_resource type="PackedScene" uid="uid://c15nduws8syj3" path="res://assets/terrains/nature/Grass_1_D_Color1.fbx" id="15_ns4lk"]
-[ext_resource type="PackedScene" uid="uid://b2c8mimrgsfiv" path="res://assets/terrains/nature/Bush_1_D_Color1.fbx" id="16_uyqaj"]
 [ext_resource type="PackedScene" uid="uid://cm10qrby5qb37" path="res://assets/terrains/medieval/buildings/blue/building_tower_base_blue.fbx" id="17_lwqq7"]
 [ext_resource type="PackedScene" uid="uid://llswjdhq2ie1" path="res://assets/terrains/medieval/buildings/neutral/wall_straight_gate.fbx" id="17_m8j4h"]
-[ext_resource type="PackedScene" uid="uid://d0qljxgceadjh" path="res://assets/terrains/nature/Bush_2_B_Color1.fbx" id="17_wy8uk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
-size = Vector3(16, 0.2, 16)
+size = Vector3(40.15973, 0.2, 29.845337)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lwqq7"]
 albedo_color = Color(0.2901961, 0.52156866, 0.13333334, 1)
@@ -29,7 +19,7 @@ roughness = 0.85
 size = Vector3(214.86862, 0.2, 179.6236)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lwqq7"]
-size = Vector3(16, 5, 1)
+size = Vector3(30.89087, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m8j4h"]
 size = Vector3(16, 5, 1)
@@ -46,17 +36,18 @@ script = ExtResource("1_main_script")
 [node name="Floor" type="StaticBody3D" parent="." unique_id=2139890537]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1687245490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.667)
 shape = SubResource("BoxShape3D_floor")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1740177398]
-transform = Transform3D(0.99966156, 0, 0, 0, 0.99966156, 0, 0, 0, 0.99966156, -15.780663, 0.013223648, -71.58095)
+transform = Transform3D(0.99966156, 0, 0, 0, 0.99966156, 0, 0, 0, 0.99966156, -15.204, 0, -70.63)
 material_override = SubResource("StandardMaterial3D_lwqq7")
 lod_bias = 0.001
 gi_lightmap_texel_scale = 0.01
 mesh = SubResource("BoxMesh_floor")
 
 [node name="Wall_North" type="CollisionShape3D" parent="Floor" unique_id=983566032]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -8.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8121338, 2.5, -8.5)
 shape = SubResource("BoxShape3D_lwqq7")
 debug_color = Color(0.3879037, 0.3935868, 1, 0.41960785)
 
@@ -66,32 +57,25 @@ shape = SubResource("BoxShape3D_m8j4h")
 debug_color = Color(0.3879037, 0.3935868, 1, 0.41960785)
 
 [node name="Wall_East" type="CollisionShape3D" parent="Floor" unique_id=1924330318]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 2.5, 0)
+transform = Transform3D(0.91372067, 0, -0.40634304, 0, 1, 0, 0.40634304, 0, 0.91372067, 11.7878685, 2.5, 0.38194275)
 shape = SubResource("BoxShape3D_ralht")
 debug_color = Color(0.3879037, 0.3935868, 1, 0.41960785)
 
 [node name="Wall_West" type="CollisionShape3D" parent="Floor" unique_id=1698818139]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 2.5, 0)
+transform = Transform3D(0.9154931, 0, 0.4023337, 0, 1, 0, -0.4023337, 0, 0.9154931, -11.24055, 2.5, 0.5799613)
 shape = SubResource("BoxShape3D_mgwo4")
 debug_color = Color(0.3879037, 0.3935868, 1, 0.41960785)
-
-[node name="wall_straight" parent="Floor" unique_id=993549169 instance=ExtResource("2_m8j4h")]
-transform = Transform3D(15.78292, 0, 0, 0, 14.348108, 0, 0, 0, 14.348108, 25.980268, -0.41317463, -25.864193)
-
-[node name="wall_straight4" parent="Floor" unique_id=1598889767 instance=ExtResource("2_m8j4h")]
-transform = Transform3D(15.78292, 0, 0, 0, 14.348108, 0, 0, 0, 14.348108, 56.98027, -0.41317463, -25.864193)
-
-[node name="wall_straight2" parent="Floor" unique_id=1302218438 instance=ExtResource("2_m8j4h")]
-transform = Transform3D(15.78292, 0, 0, 0, 14.348108, 0, 0, 0, 14.348108, -25.844275, -0.41317463, -25.864193)
-
-[node name="wall_straight3" parent="Floor" unique_id=1322233186 instance=ExtResource("2_m8j4h")]
-transform = Transform3D(15.78292, 0, 0, 0, 14.348108, 0, 0, 0, 14.348108, -56.844276, -0.41317463, -25.864193)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1934731168]
 transform = Transform3D(-0.98510927, 0.15996589, 0.06301223, 0, -0.36650127, 0.93041784, 0.17192906, 0.9165633, 0.3610438, 0, 5, 0)
 light_color = Color(1, 0.9607843, 0.91764706, 1)
 light_energy = 1.2
 shadow_enabled = true
+shadow_bias = 0.02
+shadow_normal_bias = 1.5
+shadow_blur = 2.681
+directional_shadow_mode = 1
+directional_shadow_blend_splits = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=-2060399406]
 
@@ -103,16 +87,8 @@ anchor_bottom = 0.1
 offset_left = 10.0
 offset_top = 10.0
 
-[node name="InviteButton" type="Button" parent="UI" unique_id=-2060399404]
-anchors_preset = -1
-anchor_top = 0.1
-anchor_right = 0.15
-anchor_bottom = 0.2
-offset_left = 10.0
-offset_top = 50.0
-text = "INVITE"
-
 [node name="LeaveButton" type="Button" parent="UI" unique_id=-2060399403]
+visible = false
 anchors_preset = -1
 anchor_top = 0.1
 anchor_right = 0.15
@@ -120,6 +96,100 @@ anchor_bottom = 0.2
 offset_left = 10.0
 offset_top = 90.0
 text = "MENU"
+
+[node name="LoadingOverlay" type="ColorRect" parent="UI" unique_id=1061183002]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12, 0.12, 0.15, 1)
+
+[node name="TextureRect" type="TextureRect" parent="UI/LoadingOverlay" unique_id=632203554]
+self_modulate = Color(0.3, 0.3, 0.3, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_menu_art")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBox" type="VBoxContainer" parent="UI/LoadingOverlay" unique_id=115865358]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -40.0
+offset_right = 100.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/LoadingOverlay/VBox" unique_id=1647309645]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Loading..."
+horizontal_alignment = 1
+
+[node name="PauseMenu" type="PanelContainer" parent="UI" unique_id=94128246]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -140.0
+offset_right = 150.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="UI/PauseMenu" unique_id=1915500697]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="UI/PauseMenu/Margin" unique_id=1261594105]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="UI/PauseMenu/Margin/VBox" unique_id=1649827153]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "PAUSE"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="UI/PauseMenu/Margin/VBox" unique_id=75622661]
+layout_mode = 2
+
+[node name="BtnSettings" type="Button" parent="UI/PauseMenu/Margin/VBox" unique_id=42054095]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "SETTINGS"
+
+[node name="BtnInvite" type="Button" parent="UI/PauseMenu/Margin/VBox" unique_id=2058914839]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "INVITE"
+
+[node name="BtnMenu" type="Button" parent="UI/PauseMenu/Margin/VBox" unique_id=1728323635]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "BACK TO MENU"
 
 [node name="TabOverlay" type="PanelContainer" parent="UI" unique_id=1452381442]
 visible = false
@@ -134,6 +204,87 @@ offset_right = 220.0
 offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MapSelectPanel" type="PanelContainer" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 320.0
+grow_horizontal = 0
+
+[node name="Margin" type="MarginContainer" parent="UI/MapSelectPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="UI/MapSelectPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="UI/MapSelectPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "MAPS (DEBUG)"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="UI/MapSelectPanel/Margin/VBox"]
+layout_mode = 2
+
+[node name="BtnLobby" type="Button" parent="UI/MapSelectPanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Lobby"
+
+[node name="BtnHotBomb" type="Button" parent="UI/MapSelectPanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Hot Bomb"
+
+[node name="LobbyPanel" type="PanelContainer" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -80.0
+offset_right = 180.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Margin" type="MarginContainer" parent="UI/LobbyPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="HBox" type="HBoxContainer" parent="UI/LobbyPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="BtnReady" type="Button" parent="UI/LobbyPanel/Margin/HBox"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "READY"
+
+[node name="BtnStart" type="Button" parent="UI/LobbyPanel/Margin/HBox"]
+visible = false
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+disabled = true
+theme_override_font_sizes/font_size = 16
+text = "START"
 
 [node name="Margin" type="MarginContainer" parent="UI/TabOverlay" unique_id=359929586]
 layout_mode = 2
@@ -180,62 +331,28 @@ environment = ExtResource("2_lwqq7")
 
 [node name="Decorations" type="Node3D" parent="." unique_id=1704144862]
 
-[node name="Grass_1_D_Color1" parent="Decorations" unique_id=805504232 instance=ExtResource("15_ns4lk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.228525, 0.14216973, 0.5590849)
+[node name="Castle" type="Node3D" parent="." unique_id=4004391]
 
-[node name="Grass_1_D_Color2" parent="Decorations/Grass_1_D_Color1" unique_id=11764765 instance=ExtResource("15_ns4lk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.657982, 0.14216973, 0.5590849)
+[node name="wall_straight" parent="Castle" unique_id=993549169 instance=ExtResource("2_m8j4h")]
+transform = Transform3D(15.78292, 0, 0, 0, 14.348108, 0, 0, 0, 14.348108, 25.980268, 0.022701263, -25.864193)
 
-[node name="Tree_NE" parent="Decorations" unique_id=332572481 instance=ExtResource("3_fu2j5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.677743, 0.1, -4.5094748)
+[node name="wall_straight4" parent="Castle" unique_id=1598889767 instance=ExtResource("2_m8j4h")]
+transform = Transform3D(15.78292, 0, 0, 0, 14.348108, 0, 0, 0, 14.348108, 56.98027, 0.022701263, -25.864193)
 
-[node name="Tree_NorthMid" parent="Decorations" unique_id=510987770 instance=ExtResource("3_fu2j5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.1058655, 0.1, 3.5691042)
+[node name="wall_straight2" parent="Castle" unique_id=1302218438 instance=ExtResource("2_m8j4h")]
+transform = Transform3D(15.78292, 0, 0, 0, 14.348108, 0, 0, 0, 14.348108, -25.844275, 0.022701263, -25.864193)
 
-[node name="Tree_NorthMid2" parent="Decorations" unique_id=1181711329 instance=ExtResource("2_jpx65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.697844, 0.1, -6.8)
+[node name="wall_straight3" parent="Castle" unique_id=1322233186 instance=ExtResource("2_m8j4h")]
+transform = Transform3D(15.78292, 0, 0, 0, 14.348108, 0, 0, 0, 14.348108, -56.844276, 0.022701263, -25.864193)
 
-[node name="Tree_West" parent="Decorations" unique_id=972405262 instance=ExtResource("11_n74up")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.604673, 0.1, -0.5939231)
+[node name="wall_straight_gate" parent="Castle" unique_id=1925108339 instance=ExtResource("17_m8j4h")]
+transform = Transform3D(8.097418, 0, 0, 0, 8.097418, 0, 0, 0, 8.097418, -0.008563995, -0.0055634975, -13.113353)
 
-[node name="Tree_West" parent="Decorations/Tree_West" unique_id=783501831 instance=ExtResource("11_n74up")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2827282, 0.1, 7.961759)
+[node name="building_barracks_blue" parent="Castle" unique_id=1808579402 instance=ExtResource("3_n74up")]
+transform = Transform3D(18.106941, 0, 0, 0, 18.106941, 0, 0, 0, 18.106941, 0.061472416, 0.022404194, -27.613426)
 
-[node name="Tree_East" parent="Decorations" unique_id=1698009130 instance=ExtResource("12_lwqq7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.076414, 0.1, -1.075182)
-
-[node name="Tree_BackLeft2" parent="Decorations" unique_id=987569180 instance=ExtResource("13_m8j4h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.692914, 0.1, -6.7617927)
-
-[node name="Tree_BackRight2" parent="Decorations" unique_id=1320415772 instance=ExtResource("14_ralht")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9631195, 0.1, -7.5)
-
-[node name="Bush_NW_Corner" parent="Decorations" unique_id=1349487661 instance=ExtResource("15_5r554")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.1, -5)
-
-[node name="Bush_NE_Corner" parent="Decorations" unique_id=292846599 instance=ExtResource("16_uyqaj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.1, -5)
-
-[node name="Bush_Left_Front" parent="Decorations" unique_id=1681673936 instance=ExtResource("7_83agg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0.1, 4.5)
-
-[node name="Bush_Right_Front" parent="Decorations" unique_id=1663603579 instance=ExtResource("17_wy8uk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0.1, 5.7928553)
-
-[node name="Tree_NorthCenter2" parent="Decorations" unique_id=1863540236 instance=ExtResource("3_fu2j5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.685221, 0.1, 5.36043)
-
-[node name="Tree_NorthCenter3" parent="Decorations" unique_id=1272527187 instance=ExtResource("11_n74up")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.456491, 0.1, 7.055129)
-
-[node name="wall_straight_gate" parent="Decorations" unique_id=1925108339 instance=ExtResource("17_m8j4h")]
-transform = Transform3D(8.097418, 0, 0, 0, 8.097418, 0, 0, 0, 8.097418, -0.008563995, 0.16155028, -16.013636)
-
-[node name="building_barracks_blue" parent="." unique_id=1808579402 instance=ExtResource("3_n74up")]
-transform = Transform3D(18.106941, 0, 0, 0, 18.106941, 0, 0, 0, 18.106941, 0.061472416, 0.18951797, -31.075012)
-
-[node name="building_tower_base_blue" parent="." unique_id=1565666364 instance=ExtResource("17_lwqq7")]
+[node name="building_tower_base_blue" parent="Castle" unique_id=1565666364 instance=ExtResource("17_lwqq7")]
 transform = Transform3D(-16.754732, 0, 1.4647451e-06, 0, 16.754732, 0, -1.4647451e-06, 0, -16.754732, -78.501595, 0, -26.537418)
 
-[node name="building_tower_base_blue2" parent="." unique_id=1502391664 instance=ExtResource("17_lwqq7")]
+[node name="building_tower_base_blue2" parent="Castle" unique_id=1502391664 instance=ExtResource("17_lwqq7")]
 transform = Transform3D(-16.754732, 0, 1.4647451e-06, 0, 16.754732, 0, -1.4647451e-06, 0, -16.754732, 78.498405, 0, -26.537418)
