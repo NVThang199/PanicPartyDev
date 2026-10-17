@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://e8eebrdi4hgj" path="res://scripts/minigames/stable_footing.gd" id="1_script"]
 [ext_resource type="Environment" uid="uid://dnwhw8it7gpmp" path="res://default_env.tres" id="2_env"]
 [ext_resource type="PackedScene" uid="uid://davw8we72g7lx" path="res://assets/terrains/floor/tile_green.fbx" id="3_tile_green"]
+[ext_resource type="PackedScene" uid="uid://b2sn1nnggxjig" path="res://assets/terrains/Prototype Bits/Wall.fbx" id="4_drjsi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_0_0"]
 size = Vector3(1, 0.2, 1)
@@ -210,7 +211,7 @@ shadow_enabled = true
 environment = ExtResource("2_env")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1310282421]
-transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 7.347497, 7.361891)
+transform = Transform3D(1, 0, 0, 0, 0.4575816, 0.88916767, 0, -0.88916767, 0.4575816, 0, 9.400401, 4.175911)
 current = true
 fov = 55.0
 
@@ -927,3 +928,15 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 text = "Return to Lobby"
+
+[node name="Wall" parent="." unique_id=1988864143 instance=ExtResource("4_drjsi")]
+transform = Transform3D(2.3760002, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.3710003)
+
+[node name="Wall3" parent="." unique_id=296054435 instance=ExtResource("4_drjsi")]
+transform = Transform3D(-9.347244e-08, 0, -1, 0, 1, 0, 2.1384, 0, -4.371139e-08, -4.337532, 0, 0)
+
+[node name="Wall4" parent="." unique_id=1914313477 instance=ExtResource("4_drjsi")]
+transform = Transform3D(-9.347244e-08, 0, -1, 0, 1, 0, 2.1384, 0, -4.371139e-08, 4.662468, 0, 0)
+
+[node name="Wall2" parent="." unique_id=598258557 instance=ExtResource("4_drjsi")]
+transform = Transform3D(2.3760002, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.6289997)

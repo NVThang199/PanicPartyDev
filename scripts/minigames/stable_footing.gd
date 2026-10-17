@@ -69,6 +69,9 @@ func initialize_game() -> void:
 		push_error("[StableFooting] No tiles found in scene")
 		return
 
+	# Create walls to contain players
+	_create_walls()
+
 	# Spawn players at center
 	var center_x = -(GRID_SIZE / 2.0) * TILE_SPACING + TILE_SPACING / 2.0
 	var center_z = -(GRID_SIZE / 2.0) * TILE_SPACING + TILE_SPACING / 2.0
@@ -267,6 +270,28 @@ func reset_tiles_rpc() -> void:
 				var collision = static_body.get_node_or_null("CollisionShape3D")
 				if collision:
 					collision.disabled = false
+
+func _create_walls() -> void:
+	# Wall positions around 8x8 grid (spacing 1.0)
+	# Grid: -3.5 to 3.5
+	var walls_data = [
+		{"name": "WallLeft", "pos": Vector3(-4.2, 0, 0), "size": Vector3(0.4, 2, 8)},
+		{"name": "WallRight", "pos": Vector3(4.2, 0, 0), "size": Vector3(0.4, 2, 8)},
+		{"name": "WallFront", "pos": Vector3(0, 0, -4.2), "size": Vector3(8, 2, 0.4)},
+		{"name": "WallBack", "pos": Vector3(0, 0, 4.2), "size": Vector3(8, 2, 0.4)},
+	]
+
+	for wall_data in walls_data:
+		var wall = StaticBody3D.new()
+		wall.name = wall_data["name"]
+		wall.position = wall_data["pos"]
+		add_child(wall)
+
+		var collision_shape = CollisionShape3D.new()
+		var box_shape = BoxShape3D.new()
+		box_shape.size = wall_data["size"]
+		collision_shape.shape = box_shape
+		wall.add_child(collision_shape)
 
 @rpc("any_peer", "reliable")
 func request_game_sync() -> void:
