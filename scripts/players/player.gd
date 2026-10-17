@@ -326,7 +326,6 @@ func die_in_minigame() -> void:
 	is_holding_bomb = false
 	held_bomb = null
 	velocity = Vector3.ZERO
-	set_physics_process(false)
 
 	# Disable collision
 	var col = get_node_or_null("CollisionShape3D")
@@ -335,3 +334,7 @@ func die_in_minigame() -> void:
 
 	play_anim("hot_bomb/Skeletons_Death", true)
 	print("[PLAYER] %s died in minigame" % name)
+
+	# Keep physics_process running briefly to sync death animation
+	await get_tree().create_timer(0.5).timeout
+	set_physics_process(false)

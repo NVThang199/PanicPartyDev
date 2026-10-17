@@ -310,8 +310,6 @@ func player_died_rpc(peer_id: int) -> void:
 	if player and is_instance_valid(player) and player.is_inside_tree():
 		print("[DEATH RPC %d] Playing death animation for peer %d" % [multiplayer.get_unique_id(), peer_id])
 		player.die_in_minigame()
-		# Explicitly sync death animation since physics_process is now disabled
-		player._apply_state(player.position, player.model.rotation.y if player.model else 0.0, "hot_bomb/Skeletons_Death")
 	else:
 		print("[DEATH RPC %d] Player %d not found or invalid" % [multiplayer.get_unique_id(), peer_id])
 
