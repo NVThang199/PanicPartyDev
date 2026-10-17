@@ -151,8 +151,9 @@ func sync_player_state(peer_id: int, pos: Vector3, rot_y: float, anim_name: Stri
 		return
 	if peer_id == multiplayer.get_unique_id():
 		return
-	if peer_id in players and is_instance_valid(players[peer_id]):
-		players[peer_id]._apply_state(pos, rot_y, anim_name)
+	var player = players.get(peer_id)
+	if player and is_instance_valid(player) and player.is_inside_tree():
+		player._apply_state(pos, rot_y, anim_name)
 
 @rpc("any_peer", "call_local", "reliable")
 func request_throw_bomb(direction: Vector3) -> void:
