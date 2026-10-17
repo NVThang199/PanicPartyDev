@@ -25,6 +25,8 @@ var match_timer: float = MATCH_DURATION
 var cycle_timer: float = CYCLE_DURATION
 var flip_timer: float = 0.0
 var is_random_phase: bool = true
+var is_dropping: bool = false
+var reset_scheduled: bool = false
 
 @onready var match_timer_label: Label = $UI/MatchTimerLabel
 @onready var cycle_timer_label: Label = $UI/CycleTimerLabel
@@ -133,6 +135,24 @@ func _collect_existing_tiles() -> void:
 	for child in tile_grid.get_children():
 		tiles.append(child)
 		tile_colors.append(TileColor.GREEN)
+		_add_tile_model(child, TileColor.GREEN)
+
+func _add_tile_model(tile_node: Node3D, color: TileColor) -> void:
+	# Remove old model if exists
+	var old_model = tile_node.get_node_or_null("Model")
+	if old_model:
+		tile_node.remove_child(old_model)
+		old_model.queue_free()
+
+	# Load and add FBX model
+	var fbx_path = "res://assets/terrains/floor/tile_green.fbx" if color == TileColor.GREEN else "res://assets/terrains/floor/tile_red.fbx"
+	var fbx_scene = load(fbx_path)
+	if fbx_scene:
+		var model = fbx_scene.instantiate()
+		model.name = "Model"
+		tile_node.add_child(model)
+		# Scale down if needed
+		model.scale = Vector3(0.6, 0.6, 0.6)
 
 func _randomize_tiles() -> void:
 	for i in range(tiles.size()):
@@ -162,13 +182,13 @@ func _process(delta: float) -> void:
 			if flip_timer <= 0.0:
 				_randomize_tiles()
 				flip_timer = TILE_FLIP_INTERVAL
-		else:
+		elif cycle_timer > 0.0:
 			# Lock phase
 			is_random_phase = false
-			if cycle_timer <= 0.0:
-				# Drop phase
-				_drop_red_tiles()
-				cycle_timer = CYCLE_DURATION
+		else:
+			# Drop phase → reset after delay
+			_drop_red_tiles()
+			_schedule_reset_tiles()
 
 		sync_match_timer.rpc(match_timer)
 		sync_cycle_timer.rpc(cycle_timer)
@@ -209,6 +229,34 @@ func _drop_red_tiles() -> void:
 			var dist = player_pos.distance_to(tile.global_position)
 			if dist < TILE_SPACING / 2.0:
 				player_died(peer_id)
+
+func _reset_all_tiles() -> void:
+	reset_tiles_rpc.rpc()
+	cycle_timer = CYCLE_DURATION
+	reset_scheduled = false
+	is_dropping = false
+
+func _schedule_reset_tiles() -> void:
+	if reset_scheduled or is_dropping:
+		return
+	is_dropping = true
+	reset_scheduled = true
+	await get_tree().create_timer(1.5).timeout
+	if state == GameState.PLAYING and is_inside_tree():
+		_reset_all_tiles()
+
+@rpc("authority", "call_local", "reliable")
+func reset_tiles_rpc() -> void:
+	for tile in tiles:
+		if tile and is_instance_valid(tile):
+			tile.visible = true
+			tile.position.y = 0
+			tile.modulate.a = 1.0
+			var static_body = tile.get_node_or_null("StaticBody")
+			if static_body:
+				var collision = static_body.get_node_or_null("CollisionShape3D")
+				if collision:
+					collision.disabled = false
 
 @rpc("any_peer", "reliable")
 func request_game_sync() -> void:
@@ -282,6 +330,9 @@ func sync_tile_color(tile_idx: int, color: int) -> void:
 		return
 	if tile_idx < tile_colors.size():
 		tile_colors[tile_idx] = color
+		var tile = tiles[tile_idx]
+		if tile and is_instance_valid(tile):
+			_add_tile_model(tile, color)
 
 @rpc("authority", "call_local", "reliable")
 func drop_tiles_rpc(red_indices: Array[int]) -> void:
@@ -289,10 +340,19 @@ func drop_tiles_rpc(red_indices: Array[int]) -> void:
 		if idx >= 0 and idx < tiles.size():
 			var tile = tiles[idx]
 			if tile and is_instance_valid(tile):
+				# Disable collision immediately
+				var static_body = tile.get_node_or_null("StaticBody")
+				if static_body:
+					var collision = static_body.get_node_or_null("CollisionShape3D")
+					if collision:
+						collision.set_deferred("disabled", true)
+
+				# Hide tile completely (fall into void)
 				var tween = create_tween()
 				tween.set_ease(Tween.EASE_IN)
 				tween.set_trans(Tween.TRANS_QUAD)
-				tween.tween_property(tile, "position:y", tile.position.y - 2.0, 0.5)
+				tween.tween_property(tile, "position:y", -20.0, 0.8)
+				tween.parallel().tween_property(tile, "modulate:a", 0.0, 0.6)
 
 func player_died(peer_id: int) -> void:
 	if not is_inside_tree():
