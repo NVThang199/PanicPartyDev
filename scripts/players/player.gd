@@ -107,7 +107,7 @@ func perform_push() -> void:
 		var target_id = int(str(target.name))
 		print("[PUSH] perform_push found target %d (is_server=%s)" % [target_id, multiplayer.is_server()])
 		var main_node = get_parent()
-		if main_node:
+		if main_node and is_instance_valid(main_node) and main_node.is_inside_tree():
 			if multiplayer.is_server():
 				if target_id == multiplayer.get_unique_id():
 					target.apply_knockback(push_dir)
@@ -128,70 +128,73 @@ func perform_push() -> void:
 		play_anim("general/Idle_A")
 
 func _physics_process(delta):
+	if not is_inside_tree():
+		return
 	_ensure_nodes()
 	if multiplayer.multiplayer_peer == null:
 		return
-	
+
 	var has_authority = is_multiplayer_authority()
-	
+
 	if has_authority:
-		if is_dead_in_minigame:
-			return
+		# Skip input handling if dead, but still sync state at the end
+		if not is_dead_in_minigame:
+			if push_cooldown > 0.0:
+				push_cooldown -= delta
 
-		if push_cooldown > 0.0:
-			push_cooldown -= delta
+			if not is_on_floor():
+				velocity.y -= gravity * delta
 
-		if not is_on_floor():
-			velocity.y -= gravity * delta
+			if Input.is_key_pressed(KEY_E):
+				perform_push()
 
-		if Input.is_key_pressed(KEY_E):
-			perform_push()
+			# Throw bomb with F key
+			if (Input.is_action_just_pressed("throw_bomb") or Input.is_key_pressed(KEY_F)) and is_holding_bomb:
+				throw_held_bomb()
 
-		# Throw bomb with F key
-		if (Input.is_action_just_pressed("throw_bomb") or Input.is_key_pressed(KEY_F)) and is_holding_bomb:
-			throw_held_bomb()
-
-		if is_knocked_down:
-			velocity.x = knockback_velocity.x
-			velocity.z = knockback_velocity.z
-			knockback_velocity = knockback_velocity.move_toward(Vector3.ZERO, 15.0 * delta)
-		elif is_pushing:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			velocity.z = move_toward(velocity.z, 0, SPEED)
-		else:
-			var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-			if input_dir == Vector2.ZERO:
-				if Input.is_key_pressed(KEY_W):
-					input_dir.y -= 1
-				if Input.is_key_pressed(KEY_S):
-					input_dir.y += 1
-				if Input.is_key_pressed(KEY_A):
-					input_dir.x -= 1
-				if Input.is_key_pressed(KEY_D):
-					input_dir.x += 1
-				input_dir = input_dir.normalized()
-
-			var direction = Vector3(input_dir.x, 0, input_dir.y)
-
-			if direction != Vector3.ZERO:
-				velocity.x = direction.x * SPEED
-				velocity.z = direction.z * SPEED
-				if model:
-					var target_rotation = atan2(direction.x, direction.z)
-					model.rotation.y = lerp_angle(model.rotation.y, target_rotation, ROTATION_SPEED * delta)
-				if is_holding_bomb:
-					play_anim("hot_bomb/Running_HoldingRifle")
-				else:
-					play_anim("movement/Walking_A")
-			else:
+			if is_knocked_down:
+				velocity.x = knockback_velocity.x
+				velocity.z = knockback_velocity.z
+				knockback_velocity = knockback_velocity.move_toward(Vector3.ZERO, 15.0 * delta)
+			elif is_pushing:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 				velocity.z = move_toward(velocity.z, 0, SPEED)
-				if is_holding_bomb:
-					play_anim("hot_bomb/Holding_A")
-				else:
-					play_anim("general/Idle_A")
+			else:
+				var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+				if input_dir == Vector2.ZERO:
+					if Input.is_key_pressed(KEY_W):
+						input_dir.y -= 1
+					if Input.is_key_pressed(KEY_S):
+						input_dir.y += 1
+					if Input.is_key_pressed(KEY_A):
+						input_dir.x -= 1
+					if Input.is_key_pressed(KEY_D):
+						input_dir.x += 1
+					input_dir = input_dir.normalized()
 
-		move_and_slide()
+				var direction = Vector3(input_dir.x, 0, input_dir.y)
+
+				if direction != Vector3.ZERO:
+					velocity.x = direction.x * SPEED
+					velocity.z = direction.z * SPEED
+					if model:
+						var target_rotation = atan2(direction.x, direction.z)
+						model.rotation.y = lerp_angle(model.rotation.y, target_rotation, ROTATION_SPEED * delta)
+					if is_holding_bomb:
+						play_anim("hot_bomb/Running_HoldingRifle")
+					else:
+						play_anim("movement/Walking_A")
+				else:
+					velocity.x = move_toward(velocity.x, 0, SPEED)
+					velocity.z = move_toward(velocity.z, 0, SPEED)
+					if is_holding_bomb:
+						play_anim("hot_bomb/Holding_A")
+					else:
+						play_anim("general/Idle_A")
+
+			move_and_slide()
+
+		# Always sync state, even when dead (for death animation)
 		if multiplayer.multiplayer_peer != null:
 			var rot_y: float = model.rotation.y if model else 0.0
 			var main_node = get_parent()
@@ -310,7 +313,7 @@ func throw_held_bomb() -> void:
 	play_anim("hot_bomb/Throw", true)
 
 	var minigame = get_parent()
-	if minigame:
+	if minigame and is_instance_valid(minigame) and minigame.is_inside_tree():
 		if multiplayer.is_server():
 			if minigame.has_method("throw_bomb"):
 				minigame.throw_bomb(multiplayer.get_unique_id(), direction)

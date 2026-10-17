@@ -86,6 +86,8 @@ func _ready() -> void:
 	)
 
 func _process(delta: float) -> void:
+	if not is_inside_tree():
+		return
 	# ESC toggle pause menu
 	if Input.is_action_just_pressed("ui_cancel"):
 		if pause_menu:

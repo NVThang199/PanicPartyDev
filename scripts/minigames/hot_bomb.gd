@@ -156,6 +156,8 @@ func spawn_bomb_rpc(holder_id: int) -> void:
 		bomb.state = 2  # HOMING
 
 func _process(delta: float) -> void:
+	if not is_inside_tree():
+		return
 	if state != GameState.PLAYING:
 		return
 
@@ -295,6 +297,8 @@ func _on_bomb_exploded(holder_id: int) -> void:
 		end_game_timeout()
 
 func player_died(peer_id: int) -> void:
+	if not is_inside_tree():
+		return
 	player_states[peer_id].alive = false
 	player_states[peer_id].death_timer = 10.0
 
