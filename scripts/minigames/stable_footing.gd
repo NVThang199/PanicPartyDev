@@ -12,7 +12,7 @@ const CYCLE_DURATION = 8.0
 const RANDOM_PHASE = 5.0
 const LOCK_PHASE = 3.0
 const GRID_SIZE = 8
-const TILE_SPACING = 1.2
+const TILE_SPACING = 1.0
 const TILE_FLIP_INTERVAL = 0.3
 
 var state: GameState = GameState.INITIALIZING
@@ -150,9 +150,12 @@ func _add_tile_model(tile_node: Node3D, color: TileColor) -> void:
 	if fbx_scene:
 		var model = fbx_scene.instantiate()
 		model.name = "Model"
+		model.scale = Vector3(1.0, 1.0, 1.0)  # Full size
 		tile_node.add_child(model)
-		# Scale down if needed
-		model.scale = Vector3(0.6, 0.6, 0.6)
+		if multiplayer.is_server():
+			model.owner = get_tree().edited_scene_root  # For editor visibility
+	else:
+		print("Failed to load FBX: ", fbx_path)
 
 func _randomize_tiles() -> void:
 	for i in range(tiles.size()):
@@ -218,18 +221,20 @@ func _drop_red_tiles() -> void:
 
 	drop_tiles_rpc.rpc(red_indices)
 
-	# Check if any player is on red tile
+	# Check if any player is on red tile BEFORE they fall
 	for peer_id in players:
 		var player = players[peer_id]
-		if not is_instance_valid(player):
+		if not is_instance_valid(player) or not player_states[peer_id].alive:
 			continue
 
 		var player_pos = player.global_position
 		for tile_idx in red_indices:
 			var tile = tiles[tile_idx]
 			var dist = player_pos.distance_to(tile.global_position)
-			if dist < TILE_SPACING / 2.0:
-				player_died(peer_id)
+			# Player standing on tile → will fall when tile collision disabled
+			if dist < TILE_SPACING / 2.0 + 0.5:
+				# Player will fall via fall detector, no need to mark dead yet
+				pass
 
 func _reset_all_tiles() -> void:
 	reset_tiles_rpc.rpc()
