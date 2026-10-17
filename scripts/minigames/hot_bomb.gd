@@ -19,8 +19,12 @@ var match_timer: float = MATCH_DURATION
 @onready var winner_banner: PanelContainer = $UI/WinnerBanner
 @onready var winner_label: Label = $UI/WinnerBanner/Margin/VBox/WinnerLabel
 @onready var return_button: Button = $UI/WinnerBanner/Margin/VBox/ReturnButton
+@onready var nav_region: NavigationRegion3D = $NavigationRegion3D
 
 func _ready() -> void:
+	if nav_region:
+		nav_region.bake_navigation_mesh(false)
+
 	if winner_banner:
 		winner_banner.visible = false
 	if return_button:

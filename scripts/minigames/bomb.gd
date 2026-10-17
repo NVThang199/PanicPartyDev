@@ -22,6 +22,7 @@ const BOUNCE_DAMPING = 0.4
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
 @onready var explosion_particles: GPUParticles3D = $ExplosionParticles
 @onready var catch_area: Area3D = $CatchArea
+@onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
 func _ready() -> void:
 	if catch_area:
@@ -70,17 +71,50 @@ func _physics_process(delta: float) -> void:
 					state = State.HOMING
 
 		State.HOMING:
-			update_target()
-			if target_player and is_instance_valid(target_player):
-				var dir = (target_player.global_position - global_position)
-				dir.y = 0.0
-				if dir.length() > 0.1:
-					dir = dir.normalized()
-					velocity = dir * HOMING_SPEED
-					move_and_slide()
+			_homing_process(delta)
 
 	if state != State.HELD:
 		sync_bomb_state.rpc(global_position, state)
+
+func _homing_process(delta: float) -> void:
+	update_target()
+	if not target_player or not is_instance_valid(target_player):
+		return
+
+	if nav_agent:
+		nav_agent.target_position = target_player.global_position
+		var next_path_pos = nav_agent.get_next_path_position()
+		var move_dir = next_path_pos - global_position
+		move_dir.y = 0.0
+
+		if move_dir.length_squared() > 0.01:
+			move_dir = move_dir.normalized()
+		else:
+			var direct_dir = target_player.global_position - global_position
+			direct_dir.y = 0.0
+			move_dir = direct_dir.normalized()
+
+		velocity.x = move_dir.x * HOMING_SPEED
+		velocity.z = move_dir.z * HOMING_SPEED
+	else:
+		var direct_dir = target_player.global_position - global_position
+		direct_dir.y = 0.0
+		var move_dir = direct_dir.normalized()
+		velocity.x = move_dir.x * HOMING_SPEED
+		velocity.z = move_dir.z * HOMING_SPEED
+
+	velocity.y = -GRAVITY
+	move_and_slide()
+
+	# Bắt người chơi nếu va chạm lúc đang lướt
+	for i in range(get_slide_collision_count()):
+		var col = get_slide_collision(i)
+		var collider = col.get_collider()
+		if collider and collider.is_in_group("player"):
+			var peer_id = int(str(collider.name))
+			if peer_id != holder_id:
+				bomb_caught.emit(peer_id)
+				return
 
 @rpc("authority", "unreliable")
 func sync_bomb_state(pos: Vector3, new_state: int) -> void:
@@ -124,7 +158,7 @@ func attach_to_holder(player: Node, peer_id: int) -> void:
 	set_physics_process(true)
 	for p in get_collision_exceptions():
 		remove_collision_exception_with(p)
-	_reparent_to_holder(player)
+	_reparent_to_holder.call_deferred(player)
 
 func _reparent_to_holder(player: Node) -> void:
 	if not is_instance_valid(player):
