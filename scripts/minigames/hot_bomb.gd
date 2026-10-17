@@ -34,6 +34,8 @@ func _ready() -> void:
 
 	if multiplayer.is_server():
 		call_deferred("initialize_game")
+	else:
+		request_game_sync.rpc_id(1)
 
 func initialize_game() -> void:
 	var minigame_data = GameSession.minigame_players
@@ -52,7 +54,7 @@ func initialize_game() -> void:
 
 	for peer_id in minigame_data:
 		var info = minigame_data[peer_id]
-		spawn_player(peer_id, info.character, info.name, info.steam_id, spawn_positions[idx % spawn_positions.size()])
+		spawn_player.rpc(peer_id, info.character, info.name, info.steam_id, spawn_positions[idx % spawn_positions.size()])
 		player_states[peer_id] = {
 			"alive": true,
 			"death_timer": 0.0,
@@ -67,54 +69,91 @@ func initialize_game() -> void:
 		spawn_bomb(current_bomb_holder)
 
 	state = GameState.PLAYING
-	sync_game_state.rpc()
+	sync_game_state.rpc(GameState.PLAYING)
+
+@rpc("any_peer", "reliable")
+func request_game_sync() -> void:
+	if not multiplayer.is_server():
+		return
+	var caller_id = multiplayer.get_remote_sender_id()
+	if caller_id == 0:
+		caller_id = multiplayer.get_unique_id()
+
+	sync_game_state.rpc_id(caller_id, state)
+	sync_match_timer.rpc_id(caller_id, match_timer)
+
+	for pid in players:
+		var p = players[pid]
+		if is_instance_valid(p):
+			var c_path = p.character_path if "character_path" in p else ""
+			var p_name = p.player_name if p.player_name != "" else ("Player %d" % pid)
+			spawn_player.rpc_id(caller_id, pid, c_path, p_name, p.steam_id, p.position)
+
+	if current_bomb_holder != -1 and bomb and is_instance_valid(bomb):
+		spawn_bomb_rpc.rpc_id(caller_id, current_bomb_holder)
+		sync_bomb_timer.rpc_id(caller_id, bomb.timer)
 
 @rpc("authority", "call_local", "reliable")
 func spawn_player(peer_id: int, character_path: String, player_name: String, steam_id: int, pos: Vector3) -> void:
+	if peer_id in players and is_instance_valid(players[peer_id]):
+		return
+	var old_node = get_node_or_null(str(peer_id))
+	if old_node:
+		remove_child(old_node)
+		old_node.queue_free()
+
 	var player = PLAYER_SCENE.instantiate()
 	player.name = str(peer_id)
 	player.position = pos
 	player.set_multiplayer_authority(peer_id)
 	player.set_player_name(player_name)
 	player.steam_id = steam_id
+	player.character_path = character_path
 	player.add_to_group("player")
 	add_child(player)
 	players[peer_id] = player
+	player_states[peer_id] = {
+		"alive": true,
+		"death_timer": 0.0,
+		"name": player_name
+	}
 
 	if character_path:
 		player.switch_character(character_path)
 
 func spawn_bomb(holder_id: int) -> void:
-	if bomb:
+	if not multiplayer.is_server():
+		return
+	spawn_bomb_rpc.rpc(holder_id)
+
+@rpc("authority", "call_local", "reliable")
+func spawn_bomb_rpc(holder_id: int) -> void:
+	var old_bomb = get_node_or_null("Bomb")
+	if old_bomb:
+		remove_child(old_bomb)
+		old_bomb.queue_free()
+	if bomb and is_instance_valid(bomb) and bomb != old_bomb:
+		if bomb.get_parent():
+			bomb.get_parent().remove_child(bomb)
 		bomb.queue_free()
+	bomb = null
 
 	bomb = BOMB_SCENE.instantiate()
 	bomb.name = "Bomb"
 	bomb.holder_id = holder_id
 	bomb.timer = BOMB_DURATION
-	bomb.bomb_caught.connect(_on_bomb_caught)
-	bomb.bomb_exploded.connect(_on_bomb_exploded)
-
-	var holder = players.get(holder_id)
-	if not holder or not is_instance_valid(holder):
-		add_child(bomb)
-		bomb.state = 2  # HOMING
-
-	current_bomb_holder = holder_id
-	sync_bomb_holder.rpc(holder_id)
-
-@rpc("authority", "call_local", "reliable")
-func sync_bomb_holder(holder_id: int) -> void:
-	if not bomb or not is_instance_valid(bomb):
-		bomb = BOMB_SCENE.instantiate()
-		bomb.name = "Bomb"
-		add_child(bomb)
+	if multiplayer.is_server():
+		bomb.bomb_caught.connect(_on_bomb_caught)
+		bomb.bomb_exploded.connect(_on_bomb_exploded)
+	add_child(bomb)
 
 	current_bomb_holder = holder_id
 	var holder = players.get(holder_id)
 	if holder and is_instance_valid(holder):
 		holder.pick_up_bomb(bomb)
 		bomb.attach_to_holder(holder, holder_id)
+	else:
+		bomb.state = 2  # HOMING
 
 func _process(delta: float) -> void:
 	if state != GameState.PLAYING:
@@ -133,23 +172,28 @@ func _process(delta: float) -> void:
 				if player_states[peer_id].death_timer <= 0.0:
 					remove_dead_player(peer_id)
 
+		sync_match_timer.rpc(match_timer)
+
 	# Update UI
 	if match_timer_label:
 		match_timer_label.text = "Match: %d" % int(max(0, match_timer))
 	if bomb_timer_label and bomb and is_instance_valid(bomb):
 		bomb_timer_label.text = "Bomb: %d" % int(max(0, bomb.timer))
-		sync_bomb_timer.rpc(bomb.timer)
+		if multiplayer.is_server():
+			sync_bomb_timer.rpc(bomb.timer)
 
 @rpc("authority", "call_local", "reliable")
-func sync_game_state() -> void:
-	# Lightweight state sync
-	pass
+func sync_game_state(new_state: int) -> void:
+	state = new_state as GameState
 
 @rpc("any_peer", "unreliable")
 func sync_player_state(peer_id: int, pos: Vector3, rot_y: float, anim_name: String) -> void:
-	if not multiplayer.multiplayer_peer or multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
+	if not is_inside_tree():
 		return
-	if peer_id == multiplayer.get_unique_id():
+	if not multiplayer or not multiplayer.multiplayer_peer or multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
+		return
+	var local_id := multiplayer.get_unique_id()
+	if local_id == 0 or peer_id == local_id:
 		return
 	var player = players.get(peer_id)
 	if player and is_instance_valid(player) and player.is_inside_tree():
@@ -193,6 +237,8 @@ func throw_bomb_rpc(thrower_id: int, origin: Vector3, direction: Vector3) -> voi
 		bomb = BOMB_SCENE.instantiate()
 		bomb.name = "Bomb"
 		add_child(bomb)
+	elif not bomb.is_inside_tree():
+		add_child(bomb)
 
 	var thrower = players.get(thrower_id)
 	if thrower and thrower.has_method("release_bomb"):
@@ -221,6 +267,8 @@ func bomb_caught_rpc(catcher_id: int) -> void:
 	if not bomb or not is_instance_valid(bomb):
 		bomb = BOMB_SCENE.instantiate()
 		bomb.name = "Bomb"
+		add_child(bomb)
+	elif not bomb.is_inside_tree():
 		add_child(bomb)
 
 	current_bomb_holder = catcher_id
@@ -326,7 +374,21 @@ func request_return_to_lobby() -> void:
 
 @rpc("authority", "call_local", "reliable")
 func return_to_lobby() -> void:
+	for pid in players:
+		var p = players[pid]
+		if is_instance_valid(p):
+			p.set_physics_process(false)
+	if bomb and is_instance_valid(bomb):
+		bomb.set_physics_process(false)
 	get_tree().change_scene_to_file("res://scenes/core/main.tscn")
+
+@rpc("authority", "unreliable")
+func sync_match_timer(time_left: float) -> void:
+	if multiplayer.is_server():
+		return
+	match_timer = time_left
+	if match_timer_label:
+		match_timer_label.text = "Match: %d" % int(max(0, match_timer))
 
 @rpc("authority", "unreliable")
 func sync_bomb_timer(time_left: float) -> void:
@@ -334,6 +396,8 @@ func sync_bomb_timer(time_left: float) -> void:
 		return
 	if bomb and is_instance_valid(bomb):
 		bomb.timer = time_left
+	if bomb_timer_label:
+		bomb_timer_label.text = "Bomb: %d" % int(max(0, time_left))
 
 func _on_peer_disconnected(peer_id: int) -> void:
 	if peer_id in players:

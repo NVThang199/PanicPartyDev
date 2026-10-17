@@ -54,6 +54,7 @@ environment = ExtResource("2_env")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 20)
+current = true
 fov = 55.0
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]

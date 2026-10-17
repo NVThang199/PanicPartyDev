@@ -286,6 +286,13 @@ disabled = true
 theme_override_font_sizes/font_size = 16
 text = "START"
 
+[node name="BtnCopyCode" type="Button" parent="UI/LobbyPanel/Margin/HBox"]
+visible = false
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "COPY MÃ PHÒNG"
+
 [node name="Margin" type="MarginContainer" parent="UI/TabOverlay" unique_id=359929586]
 layout_mode = 2
 theme_override_constants/margin_left = 20

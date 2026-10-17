@@ -18,6 +18,7 @@ var knockback_velocity: Vector3 = Vector3.ZERO
 var player_name: String = ""
 var steam_id: int = 0
 var ping_ms: int = 0
+var character_path: String = ""
 
 # Hot Bomb Minigame state
 var is_holding_bomb: bool = false
@@ -194,7 +195,7 @@ func _physics_process(delta):
 		if multiplayer.multiplayer_peer != null:
 			var rot_y: float = model.rotation.y if model else 0.0
 			var main_node = get_parent()
-			if main_node and main_node.has_method("sync_player_state"):
+			if main_node and is_instance_valid(main_node) and main_node.is_inside_tree() and main_node.has_method("sync_player_state"):
 				main_node.sync_player_state.rpc(multiplayer.get_unique_id(), position, rot_y, current_anim)
 
 func _ready():
@@ -239,16 +240,23 @@ func play_anim(anim_name: String, force_restart: bool = false):
 			current_anim = anim_name
 
 func switch_character(glb_path: String) -> void:
+	print("[PLAYER %s] switch_character called with path: %s" % [name, glb_path])
 	_ensure_nodes()
+	character_path = glb_path
 	if model:
+		print("[PLAYER %s] Removing old model: %s" % [name, model.name])
+		remove_child(model)
 		model.queue_free()
 	var new_scene = load(glb_path)
 	if not new_scene:
+		print("[PLAYER %s] ERROR: Failed to load scene from %s" % [name, glb_path])
 		return
+	print("[PLAYER %s] Scene loaded, instantiating..." % name)
 	var new_model = new_scene.instantiate()
 	new_model.name = "Model"
 	add_child(new_model)
 	model = new_model
+	print("[PLAYER %s] New model added: %s" % [name, glb_path])
 	if anim_player:
 		anim_player.root_node = anim_player.get_path_to(model)
 	current_anim = ""

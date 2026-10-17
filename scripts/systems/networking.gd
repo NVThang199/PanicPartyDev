@@ -91,9 +91,17 @@ func on_join_requested(lobby_id: int, _steam_id: int) -> void:
 	if current_lobby_id == lobby_id and peer != null and multiplayer.multiplayer_peer != null:
 		print("[NETWORKING] Already in lobby %d, ignoring duplicate join" % lobby_id)
 		return
+	join_lobby_by_id(lobby_id)
+
+func join_lobby_by_id(lobby_id: int) -> void:
 	leave_current_session()
 	await get_tree().process_frame
 	Steam.joinLobby(lobby_id)
+
+func get_lobby_code() -> String:
+	if current_lobby_id == 0:
+		return ""
+	return str(current_lobby_id)
 
 func get_local_player_name() -> String:
 	if Steam.isSteamRunning():

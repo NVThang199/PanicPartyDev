@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-enum State { HELD, THROWN, HOMING }
+enum State { HELD, THROWN, HOMING, RUSHING }
 
 signal bomb_caught(catcher_id: int)
 signal bomb_exploded(holder_id: int)
@@ -18,6 +18,7 @@ var _client_target_pos: Vector3 = Vector3.ZERO
 var _client_interp_speed: float = 15.0
 
 const HOMING_SPEED = 7.5
+const RUSH_SPEED = 26.0
 const THROW_SPEED = 10.0
 const GRAVITY = 9.8
 const BOUNCE_DAMPING = 0.4
@@ -34,20 +35,26 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not multiplayer.is_server():
-		# Client interpolation
-		if state != State.HELD and _client_target_pos != Vector3.ZERO:
-			global_position = global_position.lerp(_client_target_pos, _client_interp_speed * delta)
+		if state == State.HELD:
+			_update_held_transform()
+		elif _client_target_pos != Vector3.ZERO:
+			var interp_speed = 35.0 if state == State.RUSHING else _client_interp_speed
+			global_position = global_position.lerp(_client_target_pos, interp_speed * delta)
 		return
 
 	timer -= delta
 
-	# Timer expired: snap to nearest and explode
+	# Timer expired: nếu trên tay thì nổ ngay, nếu đang rơi/lăn thì lao siêu nhanh tới người gần nhất
 	if timer <= 0.0:
-		if state != State.HELD:
-			snap_to_nearest_and_explode()
-		else:
+		if state == State.HELD:
 			explode()
-		return
+			return
+		elif state != State.RUSHING:
+			state = State.RUSHING
+			update_target()
+			if not target_player or not is_instance_valid(target_player):
+				explode()
+				return
 
 	if throw_grace_timer > 0.0:
 		throw_grace_timer -= delta
@@ -60,8 +67,7 @@ func _physics_process(delta: float) -> void:
 
 	match state:
 		State.HELD:
-			# Position handled by parent attachment
-			pass
+			_update_held_transform()
 
 		State.THROWN:
 			throw_velocity.y -= GRAVITY * delta
@@ -80,10 +86,42 @@ func _physics_process(delta: float) -> void:
 		State.HOMING:
 			_homing_process(delta)
 
+		State.RUSHING:
+			_rush_process(delta)
+
 	if state != State.HELD:
 		sync_bomb_state.rpc(global_position, state)
 
-func _homing_process(delta: float) -> void:
+func _rush_process(_delta: float) -> void:
+	update_target()
+	if not target_player or not is_instance_valid(target_player):
+		explode()
+		return
+
+	var target_pos = target_player.global_position + Vector3(0, 0.8, 0)
+	var to_target = target_pos - global_position
+	var dist = to_target.length()
+
+	# Chạm đích hoặc áp sát mục tiêu (< 1m) -> gán nạn nhân và nổ
+	if dist <= 1.0:
+		holder_id = int(str(target_player.name))
+		global_position = target_pos
+		explode()
+		return
+
+	var move_dir = to_target.normalized()
+	velocity = move_dir * RUSH_SPEED
+	move_and_slide()
+
+	for i in range(get_slide_collision_count()):
+		var col = get_slide_collision(i)
+		var collider = col.get_collider()
+		if collider and collider.is_in_group("player"):
+			holder_id = int(str(collider.name))
+			explode()
+			return
+
+func _homing_process(_delta: float) -> void:
 	update_target()
 	if not target_player or not is_instance_valid(target_player):
 		return
@@ -157,7 +195,7 @@ func throw(direction: Vector3) -> void:
 	throw_grace_timer = 0.8
 	set_physics_process(true)
 
-func attach_to_holder(player: Node, peer_id: int) -> void:
+func attach_to_holder(_player: Node, peer_id: int) -> void:
 	state = State.HELD
 	holder_id = peer_id
 	last_thrower_id = -1
@@ -165,53 +203,63 @@ func attach_to_holder(player: Node, peer_id: int) -> void:
 	set_physics_process(true)
 	for p in get_collision_exceptions():
 		remove_collision_exception_with(p)
-	_reparent_to_holder.call_deferred(player)
-
-func _reparent_to_holder(player: Node) -> void:
-	if not is_instance_valid(player):
-		return
-	var socket = player.get_hand_socket() if player.has_method("get_hand_socket") else null
-	var target_parent = socket if socket else player
-	if get_parent() == target_parent:
-		return
-	if is_inside_tree() and get_parent():
-		reparent(target_parent, false)
-	else:
-		target_parent.add_child(self)
-	if socket:
-		position = Vector3(0.0, 0.05, 0.0)
-	else:
-		position = Vector3(-0.31, 0.75, 0.53)
-	rotation = Vector3.ZERO
+	_update_held_transform()
 
 func detach_from_holder() -> void:
 	holder_id = -1
-	_reparent_to_scene()
 
-func _reparent_to_scene() -> void:
-	var current_p = get_parent()
-	var minigame = get_tree().current_scene if get_tree() else null
-	if not minigame or current_p == minigame:
-		return
-	reparent(minigame, true)
+func _update_held_transform() -> void:
+	var holder = _get_holder_player()
+	if holder and is_instance_valid(holder):
+		var socket = holder.get_hand_socket() if holder.has_method("get_hand_socket") else null
+		if socket and is_instance_valid(socket):
+			global_position = socket.global_position + socket.global_transform.basis * Vector3(0, 0.05, 0)
+			global_rotation = socket.global_rotation
+		else:
+			global_position = holder.global_position + Vector3(0, 1.0, 0)
 
-func snap_to_nearest_and_explode() -> void:
-	update_target()
-	if target_player and is_instance_valid(target_player):
-		holder_id = int(str(target_player.name))
-		explode()
+func _get_holder_player() -> Node:
+	if holder_id == -1:
+		return null
+	var minigame = get_parent()
+	if minigame and ("players" in minigame):
+		return minigame.players.get(holder_id)
+	return null
 
 func explode() -> void:
-	if model:
-		model.visible = false
-	if explosion_particles:
-		explosion_particles.emitting = true
+	set_physics_process(false)
+	if catch_area:
+		catch_area.set_deferred("monitoring", false)
+	if collision_shape:
+		collision_shape.set_deferred("disabled", true)
 
+	if multiplayer.is_server():
+		explode_rpc.rpc()
 	bomb_exploded.emit(holder_id)
 
-	# Visual effect duration
-	await get_tree().create_timer(2.0).timeout
-	queue_free()
+@rpc("authority", "call_local", "reliable")
+func explode_rpc() -> void:
+	if model:
+		model.visible = false
+	if catch_area:
+		catch_area.monitoring = false
+	if collision_shape:
+		collision_shape.disabled = true
+	if explosion_particles:
+		var arena = get_parent()
+		if arena and is_inside_tree():
+			var p_pos = explosion_particles.global_position
+			explosion_particles.reparent(arena, true)
+			explosion_particles.global_position = p_pos
+			explosion_particles.restart()
+			explosion_particles.emitting = true
+			get_tree().create_timer(2.0).timeout.connect(func():
+				if is_instance_valid(explosion_particles):
+					explosion_particles.queue_free()
+			)
+		else:
+			explosion_particles.restart()
+			explosion_particles.emitting = true
 
 func _on_body_entered(body: Node3D) -> void:
 	if not multiplayer.is_server():

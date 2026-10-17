@@ -19,6 +19,7 @@ var player_info: Dictionary = {}
 @onready var lobby_panel: PanelContainer = $UI/LobbyPanel
 @onready var btn_ready: Button = $UI/LobbyPanel/Margin/HBox/BtnReady
 @onready var btn_start: Button = $UI/LobbyPanel/Margin/HBox/BtnStart
+@onready var btn_copy_code: Button = $UI/LobbyPanel/Margin/HBox.get_node_or_null("BtnCopyCode")
 
 var ping_timer: float = 0.0
 var is_ready: bool = false
@@ -42,6 +43,8 @@ func _ready() -> void:
 		btn_ready.pressed.connect(_on_ready_pressed)
 	if btn_start:
 		btn_start.pressed.connect(_on_start_pressed)
+	if btn_copy_code:
+		btn_copy_code.pressed.connect(_on_copy_code_pressed)
 
 	status_label.visible = false
 	leave_button.visible = false
@@ -105,9 +108,12 @@ func _process(delta: float) -> void:
 
 @rpc("any_peer", "unreliable")
 func sync_player_state(peer_id: int, pos: Vector3, rot_y: float, anim_name: String) -> void:
-	if not multiplayer.multiplayer_peer or multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
+	if not is_inside_tree():
 		return
-	if peer_id == multiplayer.get_unique_id():
+	if not multiplayer or not multiplayer.multiplayer_peer or multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
+		return
+	var local_id := multiplayer.get_unique_id()
+	if local_id == 0 or peer_id == local_id:
 		return
 	var player = players.get(peer_id)
 	if player and is_instance_valid(player) and player.is_inside_tree():
@@ -135,19 +141,23 @@ func request_push(target_peer_id: int, push_dir: Vector3) -> void:
 
 @rpc("authority", "reliable")
 func apply_knockback_rpc(push_dir: Vector3) -> void:
+	if not is_inside_tree():
+		return
 	var my_id = multiplayer.get_unique_id()
 	if my_id in players and is_instance_valid(players[my_id]):
 		players[my_id].apply_knockback(push_dir)
 
 @rpc("any_peer", "unreliable")
 func request_ping(client_time: int) -> void:
-	if not multiplayer.is_server():
+	if not is_inside_tree() or not multiplayer.is_server():
 		return
 	var sender = multiplayer.get_remote_sender_id()
 	respond_ping.rpc_id(sender, client_time)
 
 @rpc("authority", "unreliable")
 func respond_ping(client_time: int) -> void:
+	if not is_inside_tree():
+		return
 	var rtt = Time.get_ticks_msec() - client_time
 	var my_id = multiplayer.get_unique_id()
 	if my_id in player_info:
@@ -156,10 +166,12 @@ func respond_ping(client_time: int) -> void:
 
 @rpc("any_peer", "unreliable")
 func report_ping(ping_val: int) -> void:
+	if not is_inside_tree():
+		return
 	var sender = multiplayer.get_remote_sender_id()
 	if sender in player_info:
 		player_info[sender].ping = ping_val
-	if tab_overlay.visible:
+	if tab_overlay and tab_overlay.visible:
 		update_tab_overlay()
 
 func update_tab_overlay() -> void:
@@ -257,6 +269,8 @@ func _on_character_confirmed(character_path: String) -> void:
 	if btn_start and multiplayer.is_server():
 		btn_start.visible = true
 		btn_start.disabled = true
+	if btn_copy_code and multiplayer.is_server():
+		btn_copy_code.visible = true
 
 	var my_name = Networking.get_local_player_name()
 	var my_steam_id = Networking.get_local_steam_id()
@@ -268,10 +282,23 @@ func _on_character_confirmed(character_path: String) -> void:
 			"ping": 0,
 			"ready": false
 		}
-		spawn_player_rpc.rpc(1, character_path, my_name, my_steam_id)
+		spawn_player_rpc(1, character_path, my_name, my_steam_id)
 		sync_ready_states.rpc({})
 	else:
-		register_player.rpc_id(1, character_path, my_name, my_steam_id)
+		if multiplayer.multiplayer_peer != null and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
+			register_player.rpc_id(1, character_path, my_name, my_steam_id)
+		else:
+			print("[CLIENT] Peer not connected yet, deferring register_player until connected_to_server...")
+			if not multiplayer.connected_to_server.is_connected(_on_deferred_register_player):
+				multiplayer.connected_to_server.connect(_on_deferred_register_player, CONNECT_ONE_SHOT)
+
+func _on_deferred_register_player() -> void:
+	var char_path = GameSession.selected_character
+	var my_name = Networking.get_local_player_name()
+	var my_steam_id = Networking.get_local_steam_id()
+	if char_path != "" and not multiplayer.is_server():
+		print("[CLIENT] Connection established! Sending deferred register_player...")
+		register_player.rpc_id(1, char_path, my_name, my_steam_id)
 
 func _restore_lobby_session() -> void:
 	print("[LOBBY] Restoring lobby session after minigame...")
@@ -297,6 +324,8 @@ func _restore_lobby_session() -> void:
 		if btn_start:
 			btn_start.visible = true
 			btn_start.disabled = true
+		if btn_copy_code:
+			btn_copy_code.visible = true
 
 		player_info.clear()
 		player_info[1] = {
@@ -306,25 +335,16 @@ func _restore_lobby_session() -> void:
 			"ping": 0,
 			"ready": false
 		}
-		spawn_player_rpc.rpc(1, char_path, my_name, my_steam_id)
+		spawn_player_rpc(1, char_path, my_name, my_steam_id)
 		sync_ready_states.rpc({})
-		notify_lobby_ready.rpc()
 	else:
 		if map_select_panel:
 			map_select_panel.visible = false
 		register_player.rpc_id(1, char_path, my_name, my_steam_id)
 
-@rpc("authority", "reliable")
-func notify_lobby_ready() -> void:
-	if not multiplayer.is_server():
-		var char_path = GameSession.selected_character
-		var my_name = Networking.get_local_player_name()
-		var my_steam_id = Networking.get_local_steam_id()
-		register_player.rpc_id(1, char_path, my_name, my_steam_id)
-
 @rpc("any_peer", "reliable")
 func register_player(character_path: String, player_name: String = "", steam_id: int = 0) -> void:
-	if not multiplayer.is_server():
+	if not is_inside_tree() or not multiplayer.is_server():
 		return
 	var caller_id := multiplayer.get_remote_sender_id()
 	if caller_id in players:
@@ -338,19 +358,33 @@ func register_player(character_path: String, player_name: String = "", steam_id:
 	}
 	print("[HOST] Registered player %d (%s) with %s" % [caller_id, player_name, character_path])
 
+	# Sync existing players to new joiner
 	for pid in player_info:
 		if pid != caller_id:
 			var info = player_info[pid]
 			spawn_player_rpc.rpc_id(caller_id, pid, info.character, info.name, info.steam_id)
 
+	# Spawn new joiner for everyone (host call_local + all clients)
 	spawn_player_rpc.rpc(caller_id, character_path, player_name, steam_id)
+
 	sync_ready_states.rpc(get_ready_states())
 
 @rpc("authority", "call_local", "reliable")
 func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: String = "", steam_id: int = 0) -> void:
-	if peer_id in players and is_instance_valid(players[peer_id]):
-		print("[DEBUG] Player %d already spawned, skipping" % peer_id)
+	if not is_inside_tree():
 		return
+	print("[DEBUG %d] spawn_player_rpc called: peer=%d, char=%s, name=%s" % [multiplayer.get_unique_id(), peer_id, character_path, player_name])
+
+	# Check if already exists with same character - update only if different
+	if peer_id in players and is_instance_valid(players[peer_id]):
+		var existing_player = players[peer_id]
+		if existing_player.character_path == character_path:
+			print("[DEBUG] Player %d already spawned with same character, skipping" % peer_id)
+			return
+		else:
+			print("[DEBUG] Player %d character changed from %s to %s, re-spawning" % [peer_id, existing_player.character_path, character_path])
+			remove_player(peer_id)
+
 	var old_node := get_node_or_null(str(peer_id))
 	if old_node:
 		remove_child(old_node)
@@ -365,8 +399,7 @@ func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: St
 	player.set_multiplayer_authority(peer_id)
 	player.set_player_name(player_name)
 	player.steam_id = steam_id
-	if character_path:
-		player.switch_character(character_path)
+	player.character_path = character_path
 	players[peer_id] = player
 	if not (peer_id in player_info):
 		player_info[peer_id] = {
@@ -381,6 +414,13 @@ func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: St
 		player_info[peer_id].steam_id = steam_id
 		if not ("ready" in player_info[peer_id]):
 			player_info[peer_id]["ready"] = false
+
+	# Switch character after player is fully in tree
+	if character_path:
+		await get_tree().process_frame
+		if is_instance_valid(player) and player.is_inside_tree():
+			player.switch_character(character_path)
+
 	if tab_overlay.visible:
 		update_tab_overlay()
 
@@ -430,7 +470,14 @@ func on_client_connected() -> void:
 func _on_connected_to_server() -> void:
 	print("[CLIENT] connected_to_server fired")
 	status_label.visible = false
-	show_character_select()
+	var char_path = GameSession.selected_character
+	if char_path != "" and not multiplayer.is_server():
+		var my_name = Networking.get_local_player_name()
+		var my_steam_id = Networking.get_local_steam_id()
+		print("[CLIENT] Auto-registering previously selected character: %s" % char_path)
+		register_player.rpc_id(1, char_path, my_name, my_steam_id)
+	else:
+		show_character_select()
 
 func _on_server_disconnected() -> void:
 	print("[CLIENT] server_disconnected, cleaning up players")
@@ -450,6 +497,8 @@ func _on_invite_pressed() -> void:
 		print("[STEAM] No active lobby to invite")
 
 func _on_leave_pressed() -> void:
+	set_process(false)
+	set_physics_process(false)
 	Networking.leave_current_session()
 	clear_all_players()
 	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
@@ -466,6 +515,17 @@ func _on_pause_invite_pressed() -> void:
 
 func _on_pause_menu_pressed() -> void:
 	_on_leave_pressed()
+
+func _on_copy_code_pressed() -> void:
+	var code := Networking.get_lobby_code()
+	if code != "":
+		DisplayServer.clipboard_set(code)
+		if btn_copy_code:
+			btn_copy_code.text = "ĐÃ COPY!"
+			get_tree().create_timer(1.5).timeout.connect(func():
+				if is_instance_valid(btn_copy_code):
+					btn_copy_code.text = "COPY MÃ PHÒNG"
+			)
 
 func _on_map_selected(map_name: String) -> void:
 	selected_map = map_name
@@ -487,22 +547,24 @@ func _on_ready_pressed() -> void:
 
 @rpc("any_peer", "reliable")
 func set_ready_state(p_ready: bool) -> void:
-	if not multiplayer.is_server():
+	if not is_inside_tree() or not multiplayer.is_server():
 		return
 	var sender = multiplayer.get_remote_sender_id()
 	if sender in player_info:
 		player_info[sender]["ready"] = p_ready
 	sync_ready_states.rpc(get_ready_states())
 	update_start_button()
-	if tab_overlay.visible:
+	if tab_overlay and tab_overlay.visible:
 		update_tab_overlay()
 
 @rpc("authority", "call_local", "reliable")
 func sync_ready_states(states: Dictionary) -> void:
+	if not is_inside_tree():
+		return
 	for pid in states:
 		if pid in player_info:
 			player_info[pid]["ready"] = states[pid]
-	if tab_overlay.visible:
+	if tab_overlay and tab_overlay.visible:
 		update_tab_overlay()
 
 func get_ready_states() -> Dictionary:
@@ -532,6 +594,12 @@ func _on_start_pressed() -> void:
 @rpc("authority", "call_local", "reliable")
 func start_game(map_name: String) -> void:
 	print("[GAME] Starting match on map: ", map_name)
+	set_process(false)
+	set_physics_process(false)
+	for pid in players:
+		var p = players[pid]
+		if is_instance_valid(p):
+			p.set_physics_process(false)
 	if map_name == "HotBomb":
 		GameSession.minigame_players = player_info.duplicate(true)
 		get_tree().change_scene_to_file("res://scenes/minigames/hot_bomb.tscn")
