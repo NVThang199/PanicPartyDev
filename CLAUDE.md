@@ -167,6 +167,7 @@ func request_action() -> void:
 10. Không ngắt `_process` khi đổi scene hoặc thiếu check `if not is_inside_tree(): return` trong các hàm RPC → gói tin RPC (như ping, sync) nhận khi node đang rời SceneTree làm sụp C++ `Node3D::get_global_transform()` sinh hàng trăm lỗi `Condition "!is_inside_tree()" is true`.
 11. Quên lưu `character_path` vào Player node khi spawn → Người chơi join muộn (hoặc late-join sync) không đồng bộ được nhân vật đúng, dùng model mặc định hoặc của host.
 12. Client gọi `explode_rpc.rpc()` trên RPC `@rpc("authority", ...)` → RPC không broadcast được vì chỉ server authority mới gửi được. Phải để Server gọi `.rpc()` broadcast.
+13. Server gọi hàm local (như `die_in_minigame()`) trước khi broadcast RPC → Chỉ Server thấy hiệu ứng, Client không thấy. Xóa call local, để RPC với `call_local` xử lý cả Server lẫn Client.
 
 ✅ **Đúng**:
 1. Luôn dùng `method.rpc(...)` để gửi RPC.

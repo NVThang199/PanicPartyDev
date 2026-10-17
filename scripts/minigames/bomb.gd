@@ -34,6 +34,11 @@ func _ready() -> void:
 		catch_area.body_entered.connect(_on_body_entered)
 
 func _physics_process(delta: float) -> void:
+	if not is_inside_tree():
+		return
+	if not multiplayer or not multiplayer.multiplayer_peer or multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
+		return
+
 	if not multiplayer.is_server():
 		if state == State.HELD:
 			_update_held_transform()
@@ -89,7 +94,7 @@ func _physics_process(delta: float) -> void:
 		State.RUSHING:
 			_rush_process(delta)
 
-	if state != State.HELD:
+	if state != State.HELD and is_inside_tree():
 		sync_bomb_state.rpc(global_position, state)
 
 func _rush_process(_delta: float) -> void:
@@ -163,6 +168,8 @@ func _homing_process(_delta: float) -> void:
 
 @rpc("authority", "unreliable")
 func sync_bomb_state(pos: Vector3, new_state: int) -> void:
+	if not is_inside_tree():
+		return
 	if multiplayer.is_server():
 		return
 	state = new_state as State
