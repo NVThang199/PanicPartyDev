@@ -1,6 +1,7 @@
 [gd_resource type="Environment" format=3 uid="uid://dnwhw8it7gpmp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_htemk"]
+ground_bottom_color = Color(0.042576432, 0.031006608, 0.020412413, 1)
 energy_multiplier = 3.0
 
 [sub_resource type="Sky" id="Sky_ooua1"]

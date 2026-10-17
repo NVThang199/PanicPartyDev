@@ -4,6 +4,7 @@
 [ext_resource type="Environment" uid="uid://dnwhw8it7gpmp" path="res://default_env.tres" id="2_env"]
 [ext_resource type="PackedScene" uid="uid://davw8we72g7lx" path="res://assets/terrains/floor/tile_green.fbx" id="3_tile_green"]
 [ext_resource type="PackedScene" uid="uid://b2sn1nnggxjig" path="res://assets/terrains/Prototype Bits/Wall.fbx" id="4_drjsi"]
+[ext_resource type="PackedScene" uid="uid://b8i47fx3ye58c" path="res://assets/terrains/Prototype Bits/Wall_Decorated.fbx" id="5_kcmxh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_0_0"]
 size = Vector3(1, 0.2, 1)
@@ -930,13 +931,13 @@ layout_mode = 2
 text = "Return to Lobby"
 
 [node name="Wall" parent="." unique_id=1988864143 instance=ExtResource("4_drjsi")]
-transform = Transform3D(2.3760002, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.3710003)
-
-[node name="Wall3" parent="." unique_id=296054435 instance=ExtResource("4_drjsi")]
-transform = Transform3D(-9.347244e-08, 0, -1, 0, 1, 0, 2.1384, 0, -4.371139e-08, -4.337532, 0, 0)
+transform = Transform3D(2.376, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.2978935)
 
 [node name="Wall4" parent="." unique_id=1914313477 instance=ExtResource("4_drjsi")]
-transform = Transform3D(-9.347244e-08, 0, -1, 0, 1, 0, 2.1384, 0, -4.371139e-08, 4.662468, 0, 0)
+transform = Transform3D(-9.347244e-08, 0, -1, 0, 1, 0, 2.1384, 0, -4.371139e-08, 4.338, 0, 0)
 
 [node name="Wall2" parent="." unique_id=598258557 instance=ExtResource("4_drjsi")]
-transform = Transform3D(2.3760002, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.6289997)
+transform = Transform3D(2.3760002, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.298)
+
+[node name="Wall_Decorated" parent="." unique_id=960809408 instance=ExtResource("5_kcmxh")]
+transform = Transform3D(2.8036484e-07, 0, 1.018, 0, 1.018, 0, -2.138, 0, 1.3349458e-07, -4.338, 0, 0)

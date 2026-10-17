@@ -9,8 +9,8 @@ const TILE_RED_SCENE = preload("res://assets/terrains/floor/tile_red.fbx")
 
 const MATCH_DURATION = 60.0
 const CYCLE_DURATION = 8.0
-const RANDOM_PHASE = 5.0
-const LOCK_PHASE = 3.0
+const RANDOM_PHASE = 6.0
+const LOCK_PHASE = 2.0
 const GRID_SIZE = 8
 const TILE_SPACING = 1.0
 const TILE_FLIP_INTERVAL = 0.3
@@ -72,10 +72,8 @@ func initialize_game() -> void:
 	# Create walls to contain players
 	_create_walls()
 
-	# Spawn players at center
-	var center_x = -(GRID_SIZE / 2.0) * TILE_SPACING + TILE_SPACING / 2.0
-	var center_z = -(GRID_SIZE / 2.0) * TILE_SPACING + TILE_SPACING / 2.0
-	var center_pos = Vector3(center_x, 1.0, center_z)
+	# Spawn players at center (grid runs from -3.5 to 3.5, center is 0,0)
+	var center_pos = Vector3(0, 1.0, 0)
 
 	var spawn_positions = [
 		center_pos + Vector3(-0.5, 0, -0.5),
@@ -218,7 +216,7 @@ func _process(delta: float) -> void:
 		match_timer_label.text = "Match: %d" % int(max(0, match_timer))
 	if cycle_timer_label:
 		if not is_random_phase and cycle_timer > 0:
-			cycle_timer_label.text = "%d" % int(max(0, cycle_timer))
+			cycle_timer_label.text = "%d" % int(ceil(max(0, cycle_timer)))
 		else:
 			cycle_timer_label.text = ""
 
@@ -255,7 +253,7 @@ func _schedule_reset_tiles() -> void:
 	if reset_scheduled:
 		return
 	reset_scheduled = true
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(3.0).timeout
 	if state == GameState.PLAYING and is_inside_tree():
 		_reset_all_tiles()
 
