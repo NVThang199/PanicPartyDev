@@ -303,9 +303,15 @@ func player_died(peer_id: int) -> void:
 
 @rpc("authority", "call_local", "reliable")
 func player_died_rpc(peer_id: int) -> void:
+	if not is_inside_tree():
+		return
+	print("[DEATH RPC %d] Received for peer %d, players dict: %s" % [multiplayer.get_unique_id(), peer_id, players.keys()])
 	var player = players.get(peer_id)
 	if player and is_instance_valid(player):
+		print("[DEATH RPC %d] Playing death animation for peer %d" % [multiplayer.get_unique_id(), peer_id])
 		player.die_in_minigame()
+	else:
+		print("[DEATH RPC %d] Player %d not found or invalid" % [multiplayer.get_unique_id(), peer_id])
 
 func remove_dead_player(peer_id: int) -> void:
 	var player = players.get(peer_id)
