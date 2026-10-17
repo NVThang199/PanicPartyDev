@@ -298,10 +298,7 @@ func player_died(peer_id: int) -> void:
 	player_states[peer_id].alive = false
 	player_states[peer_id].death_timer = 10.0
 
-	var player = players.get(peer_id)
-	if player and is_instance_valid(player):
-		player.die_in_minigame()
-
+	# Broadcast death animation to all clients (call_local handles server side)
 	player_died_rpc.rpc(peer_id)
 
 @rpc("authority", "call_local", "reliable")
