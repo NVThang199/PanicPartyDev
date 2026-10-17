@@ -204,6 +204,12 @@ func _process(delta: float) -> void:
 				if player_states[peer_id].death_timer <= 0.0:
 					remove_dead_player(peer_id)
 
+		# Check if no players alive
+		var alive_count = get_alive_player_ids().size()
+		if alive_count == 0:
+			end_game_timeout()
+			return
+
 	# Update UI
 	if match_timer_label:
 		match_timer_label.text = "Match: %d" % int(max(0, match_timer))
