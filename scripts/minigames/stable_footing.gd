@@ -238,9 +238,8 @@ func _reset_all_tiles() -> void:
 	is_dropping = false
 
 func _schedule_reset_tiles() -> void:
-	if reset_scheduled or is_dropping:
+	if reset_scheduled:
 		return
-	is_dropping = true
 	reset_scheduled = true
 	await get_tree().create_timer(1.5).timeout
 	if state == GameState.PLAYING and is_inside_tree():
