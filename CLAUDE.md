@@ -198,3 +198,24 @@ func request_action() -> void:
 - **Host**: Bấm "Host Server" → Vào phòng lobby → Nút "COPY MÃ PHÒNG" hiện ở thanh LobbyPanel dưới màn hình. Click để copy Steam Lobby ID vào clipboard.
 - **Client**: Main menu → Nhập mã vào ô "Nhập mã phòng..." dưới cùng → Bấm "Vào" để kết nối trực tiếp qua `Steam.joinLobby(lobby_id)`.
 - Hoạt động cho mọi tài khoản Steam (kể cả Limited Account chưa nạp 5$), không bắt buộc kết bạn Steam.
+
+## Graphify Codebase Exploration (Token Optimization)
+
+Dự án đã tích hợp Graphify knowledge graph tại `graphify-out/graph.json` và `graphify-out/GRAPH_REPORT.md` để khám phá mã nguồn mà không đọc tràn lan file (tiết kiệm 80-90% token).
+
+### Quy tắc Agent (MANDATORY):
+1. **Tra cứu trước khi đọc code**: Trước khi dùng `Read` hay `Grep` trên diện rộng, **BẮT BUỘC** chạy lệnh `graphify query` để định vị kiến trúc, node liên quan và quan hệ RPC/Signal:
+   ```bash
+   graphify query "<từ khóa hoặc câu hỏi>" --graph graphify-out/graph.json
+   ```
+2. **Khám phá quan hệ & luồng gọi**:
+   - `graphify explain "<tên hàm/class/signal>"`: Hiểu node và láng giềng.
+   - `graphify path "<node_A>" "<node_B>"`: Tìm đường kết nối/gọi giữa 2 thành phần (ví dụ giữa UI và RPC).
+   - Xem tổng quan kiến trúc tại `graphify-out/GRAPH_REPORT.md`.
+3. **Cập nhật đồ thị sau khi sửa cấu trúc file/hàm lớn**:
+   ```bash
+   python gd_graph_extractor.py
+   python generate_full_graph.py
+   ```
+4. Chỉ mở `Read` đúng hàm/dòng đã được định vị qua Graphify thay vì đọc cả file lớn.
+

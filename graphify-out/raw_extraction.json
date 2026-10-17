@@ -1,0 +1,4518 @@
+{
+  "nodes": [
+    {
+      "id": "gamesession",
+      "label": "Gamesession",
+      "file_type": "code",
+      "source_file": "core",
+      "source_location": "L1"
+    },
+    {
+      "id": "networking",
+      "label": "Networking",
+      "file_type": "code",
+      "source_file": "core",
+      "source_location": "L1"
+    },
+    {
+      "id": "steam",
+      "label": "Steam",
+      "file_type": "code",
+      "source_file": "core",
+      "source_location": "L1"
+    },
+    {
+      "id": "characterbody3d",
+      "label": "Characterbody3d",
+      "file_type": "code",
+      "source_file": "core",
+      "source_location": "L1"
+    },
+    {
+      "id": "node3d",
+      "label": "Node3d",
+      "file_type": "code",
+      "source_file": "core",
+      "source_location": "L1"
+    },
+    {
+      "id": "control",
+      "label": "Control",
+      "file_type": "code",
+      "source_file": "core",
+      "source_location": "L1"
+    },
+    {
+      "id": "node",
+      "label": "Node",
+      "file_type": "code",
+      "source_file": "core",
+      "source_location": "L1"
+    },
+    {
+      "id": "tools_check_anim_tracks_gd",
+      "label": "check_anim_tracks.gd",
+      "file_type": "code",
+      "source_file": "tools/check_anim_tracks.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "tools_check_anim_tracks_gd__init",
+      "label": "func _init()",
+      "file_type": "code",
+      "source_file": "tools/check_anim_tracks.gd",
+      "source_location": "L3"
+    },
+    {
+      "id": "tools_inspect_player_gd",
+      "label": "inspect_player.gd",
+      "file_type": "code",
+      "source_file": "tools/inspect_player.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "tools_inspect_player_gd__init",
+      "label": "func _init()",
+      "file_type": "code",
+      "source_file": "tools/inspect_player.gd",
+      "source_location": "L3"
+    },
+    {
+      "id": "tools_inspect_player_gd_print_nodes",
+      "label": "func print_nodes()",
+      "file_type": "code",
+      "source_file": "tools/inspect_player.gd",
+      "source_location": "L9"
+    },
+    {
+      "id": "tools_test_bomb_mesh_gd",
+      "label": "test_bomb_mesh.gd",
+      "file_type": "code",
+      "source_file": "tools/test_bomb_mesh.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "tools_test_bomb_mesh_gd__init",
+      "label": "func _init()",
+      "file_type": "code",
+      "source_file": "tools/test_bomb_mesh.gd",
+      "source_location": "L3"
+    },
+    {
+      "id": "tools_test_bomb_size_gd",
+      "label": "test_bomb_size.gd",
+      "file_type": "code",
+      "source_file": "tools/test_bomb_size.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "tools_test_bomb_size_gd__init",
+      "label": "func _init()",
+      "file_type": "code",
+      "source_file": "tools/test_bomb_size.gd",
+      "source_location": "L3"
+    },
+    {
+      "id": "tools_test_bone_attachment_gd",
+      "label": "test_bone_attachment.gd",
+      "file_type": "code",
+      "source_file": "tools/test_bone_attachment.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "tools_test_bone_attachment_gd__init",
+      "label": "func _init()",
+      "file_type": "code",
+      "source_file": "tools/test_bone_attachment.gd",
+      "source_location": "L3"
+    },
+    {
+      "id": "tools_test_bone_loop_gd",
+      "label": "test_bone_loop.gd",
+      "file_type": "code",
+      "source_file": "tools/test_bone_loop.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "tools_test_bone_loop_gd__initialize",
+      "label": "func _initialize()",
+      "file_type": "code",
+      "source_file": "tools/test_bone_loop.gd",
+      "source_location": "L5"
+    },
+    {
+      "id": "tools_test_bone_loop_gd__process",
+      "label": "func _process()",
+      "file_type": "code",
+      "source_file": "tools/test_bone_loop.gd",
+      "source_location": "L33"
+    },
+    {
+      "id": "tools_test_bone_poses_gd",
+      "label": "test_bone_poses.gd",
+      "file_type": "code",
+      "source_file": "tools/test_bone_poses.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "tools_test_bone_poses_gd__process",
+      "label": "func _process()",
+      "file_type": "code",
+      "source_file": "tools/test_bone_poses.gd",
+      "source_location": "L3"
+    },
+    {
+      "id": "tools_test_bone_poses_gd__init",
+      "label": "func _init()",
+      "file_type": "code",
+      "source_file": "tools/test_bone_poses.gd",
+      "source_location": "L6"
+    },
+    {
+      "id": "tools_test_hand_pose_gd",
+      "label": "test_hand_pose.gd",
+      "file_type": "code",
+      "source_file": "tools/test_hand_pose.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "tools_test_hand_pose_gd__init",
+      "label": "func _init()",
+      "file_type": "code",
+      "source_file": "tools/test_hand_pose.gd",
+      "source_location": "L3"
+    },
+    {
+      "id": "scripts_core_main_gd",
+      "label": "main.gd",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_core_main_gd__ready",
+      "label": "func _ready()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L28"
+    },
+    {
+      "id": "scripts_core_main_gd__process",
+      "label": "func _process()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L88"
+    },
+    {
+      "id": "scripts_core_main_gd_sync_player_state",
+      "label": "rpc func sync_player_state()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L112"
+    },
+    {
+      "id": "scripts_core_main_gd_request_push",
+      "label": "rpc func request_push()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L125"
+    },
+    {
+      "id": "scripts_core_main_gd_apply_knockback_rpc",
+      "label": "rpc func apply_knockback_rpc()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L145"
+    },
+    {
+      "id": "scripts_core_main_gd_request_ping",
+      "label": "rpc func request_ping()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L153"
+    },
+    {
+      "id": "scripts_core_main_gd_respond_ping",
+      "label": "rpc func respond_ping()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L160"
+    },
+    {
+      "id": "scripts_core_main_gd_report_ping",
+      "label": "rpc func report_ping()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L170"
+    },
+    {
+      "id": "scripts_core_main_gd_update_tab_overlay",
+      "label": "func update_tab_overlay()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L179"
+    },
+    {
+      "id": "scripts_core_main_gd__create_placeholder_avatar",
+      "label": "func _create_placeholder_avatar()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L236"
+    },
+    {
+      "id": "scripts_core_main_gd__on_avatar_updated",
+      "label": "func _on_avatar_updated()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L243"
+    },
+    {
+      "id": "scripts_core_main_gd_show_character_select",
+      "label": "func show_character_select()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L247"
+    },
+    {
+      "id": "scripts_core_main_gd__on_character_confirmed",
+      "label": "func _on_character_confirmed()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L256"
+    },
+    {
+      "id": "scripts_core_main_gd__on_deferred_register_player",
+      "label": "func _on_deferred_register_player()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L297"
+    },
+    {
+      "id": "scripts_core_main_gd__restore_lobby_session",
+      "label": "func _restore_lobby_session()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L305"
+    },
+    {
+      "id": "scripts_core_main_gd_register_player",
+      "label": "rpc func register_player()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L348"
+    },
+    {
+      "id": "scripts_core_main_gd_spawn_player_rpc",
+      "label": "rpc func spawn_player_rpc()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L375"
+    },
+    {
+      "id": "scripts_core_main_gd_clear_all_players",
+      "label": "func clear_all_players()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L429"
+    },
+    {
+      "id": "scripts_core_main_gd_remove_player",
+      "label": "func remove_player()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L445"
+    },
+    {
+      "id": "scripts_core_main_gd_on_host_created",
+      "label": "func on_host_created()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L462"
+    },
+    {
+      "id": "scripts_core_main_gd_on_client_connected",
+      "label": "func on_client_connected()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L467"
+    },
+    {
+      "id": "scripts_core_main_gd__on_connected_to_server",
+      "label": "func _on_connected_to_server()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L472"
+    },
+    {
+      "id": "scripts_core_main_gd__on_server_disconnected",
+      "label": "func _on_server_disconnected()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L484"
+    },
+    {
+      "id": "scripts_core_main_gd__on_peer_connected",
+      "label": "func _on_peer_connected()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L488"
+    },
+    {
+      "id": "scripts_core_main_gd__on_invite_pressed",
+      "label": "func _on_invite_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L493"
+    },
+    {
+      "id": "scripts_core_main_gd__on_leave_pressed",
+      "label": "func _on_leave_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L501"
+    },
+    {
+      "id": "scripts_core_main_gd__on_pause_settings_pressed",
+      "label": "func _on_pause_settings_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L508"
+    },
+    {
+      "id": "scripts_core_main_gd__on_pause_invite_pressed",
+      "label": "func _on_pause_invite_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L513"
+    },
+    {
+      "id": "scripts_core_main_gd__on_pause_menu_pressed",
+      "label": "func _on_pause_menu_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L518"
+    },
+    {
+      "id": "scripts_core_main_gd__on_copy_code_pressed",
+      "label": "func _on_copy_code_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L521"
+    },
+    {
+      "id": "scripts_core_main_gd__on_map_selected",
+      "label": "func _on_map_selected()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L532"
+    },
+    {
+      "id": "scripts_core_main_gd__on_ready_pressed",
+      "label": "func _on_ready_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L536"
+    },
+    {
+      "id": "scripts_core_main_gd_set_ready_state",
+      "label": "rpc func set_ready_state()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L551"
+    },
+    {
+      "id": "scripts_core_main_gd_sync_ready_states",
+      "label": "rpc func sync_ready_states()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L563"
+    },
+    {
+      "id": "scripts_core_main_gd_get_ready_states",
+      "label": "func get_ready_states()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L572"
+    },
+    {
+      "id": "scripts_core_main_gd_update_start_button",
+      "label": "func update_start_button()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L578"
+    },
+    {
+      "id": "scripts_core_main_gd__on_start_pressed",
+      "label": "func _on_start_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L591"
+    },
+    {
+      "id": "scripts_core_main_gd_start_game",
+      "label": "rpc func start_game()",
+      "file_type": "code",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L597"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd",
+      "label": "bomb.gd",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd_sig_bomb_caught",
+      "label": "signal bomb_caught",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L5"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd_sig_bomb_exploded",
+      "label": "signal bomb_exploded",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L6"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd__ready",
+      "label": "func _ready()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L32"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd__physics_process",
+      "label": "func _physics_process()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L36"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd__rush_process",
+      "label": "func _rush_process()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L100"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd__homing_process",
+      "label": "func _homing_process()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L129"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd_sync_bomb_state",
+      "label": "rpc func sync_bomb_state()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L170"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd_update_target",
+      "label": "func update_target()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L179"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd_throw",
+      "label": "func throw()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L198"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd_attach_to_holder",
+      "label": "func attach_to_holder()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L205"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd_detach_from_holder",
+      "label": "func detach_from_holder()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L215"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd__update_held_transform",
+      "label": "func _update_held_transform()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L218"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd__get_holder_player",
+      "label": "func _get_holder_player()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L228"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd_explode",
+      "label": "func explode()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L236"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd_explode_rpc",
+      "label": "rpc func explode_rpc()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L248"
+    },
+    {
+      "id": "scripts_minigames_bomb_gd__on_body_entered",
+      "label": "func _on_body_entered()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L271"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd",
+      "label": "hot_bomb.gd",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd__ready",
+      "label": "func _ready()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L24"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_initialize_game",
+      "label": "func initialize_game()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L40"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_request_game_sync",
+      "label": "rpc func request_game_sync()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L75"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_spawn_player",
+      "label": "rpc func spawn_player()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L97"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_spawn_bomb",
+      "label": "func spawn_bomb()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L124"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_spawn_bomb_rpc",
+      "label": "rpc func spawn_bomb_rpc()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L130"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd__process",
+      "label": "func _process()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L158"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_sync_game_state",
+      "label": "rpc func sync_game_state()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L188"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_sync_player_state",
+      "label": "rpc func sync_player_state()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L192"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_request_throw_bomb",
+      "label": "rpc func request_throw_bomb()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L205"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_throw_bomb",
+      "label": "func throw_bomb()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L213"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_throw_bomb_rpc",
+      "label": "rpc func throw_bomb_rpc()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L237"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd__on_bomb_caught",
+      "label": "func _on_bomb_caught()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L256"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_bomb_caught_rpc",
+      "label": "rpc func bomb_caught_rpc()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L268"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd__on_bomb_exploded",
+      "label": "func _on_bomb_exploded()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L282"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_player_died",
+      "label": "func player_died()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L299"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_player_died_rpc",
+      "label": "rpc func player_died_rpc()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L309"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_remove_dead_player",
+      "label": "func remove_dead_player()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L320"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_get_alive_player_ids",
+      "label": "func get_alive_player_ids()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L326"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_get_alive_players",
+      "label": "func get_alive_players()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L333"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_end_game_winner",
+      "label": "func end_game_winner()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L340"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_end_game_timeout",
+      "label": "func end_game_timeout()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L345"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd__start_auto_return",
+      "label": "func _start_auto_return()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L354"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_show_winner_banner",
+      "label": "rpc func show_winner_banner()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L362"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd__on_return_pressed",
+      "label": "func _on_return_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L371"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_request_return_to_lobby",
+      "label": "rpc func request_return_to_lobby()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L378"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_return_to_lobby",
+      "label": "rpc func return_to_lobby()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L383"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_sync_match_timer",
+      "label": "rpc func sync_match_timer()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L395"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd_sync_bomb_timer",
+      "label": "rpc func sync_bomb_timer()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L403"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_gd__on_peer_disconnected",
+      "label": "func _on_peer_disconnected()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L411"
+    },
+    {
+      "id": "scripts_players_player_gd",
+      "label": "player.gd",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_players_player_gd_set_player_name",
+      "label": "func set_player_name()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L28"
+    },
+    {
+      "id": "scripts_players_player_gd__ensure_nodes",
+      "label": "func _ensure_nodes()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L36"
+    },
+    {
+      "id": "scripts_players_player_gd__apply_state",
+      "label": "func _apply_state()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L42"
+    },
+    {
+      "id": "scripts_players_player_gd_apply_knockback",
+      "label": "func apply_knockback()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L49"
+    },
+    {
+      "id": "scripts_players_player_gd__find_push_target",
+      "label": "func _find_push_target()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L65"
+    },
+    {
+      "id": "scripts_players_player_gd_perform_push",
+      "label": "func perform_push()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L92"
+    },
+    {
+      "id": "scripts_players_player_gd__physics_process",
+      "label": "func _physics_process()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L130"
+    },
+    {
+      "id": "scripts_players_player_gd__ready",
+      "label": "func _ready()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L204"
+    },
+    {
+      "id": "scripts_players_player_gd_play_anim",
+      "label": "func play_anim()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L237"
+    },
+    {
+      "id": "scripts_players_player_gd_switch_character",
+      "label": "func switch_character()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L245"
+    },
+    {
+      "id": "scripts_players_player_gd__setup_hand_socket",
+      "label": "func _setup_hand_socket()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L271"
+    },
+    {
+      "id": "scripts_players_player_gd_get_hand_socket",
+      "label": "func get_hand_socket()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L284"
+    },
+    {
+      "id": "scripts_players_player_gd_pick_up_bomb",
+      "label": "func pick_up_bomb()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L295"
+    },
+    {
+      "id": "scripts_players_player_gd_release_bomb",
+      "label": "func release_bomb()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L300"
+    },
+    {
+      "id": "scripts_players_player_gd_throw_held_bomb",
+      "label": "func throw_held_bomb()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L305"
+    },
+    {
+      "id": "scripts_players_player_gd_die_in_minigame",
+      "label": "func die_in_minigame()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L327"
+    },
+    {
+      "id": "scripts_systems_game_session_gd",
+      "label": "game_session.gd",
+      "file_type": "code",
+      "source_file": "scripts/systems/game_session.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_systems_networking_gd",
+      "label": "networking.gd",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_systems_networking_gd_sig_host_created",
+      "label": "signal host_created",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L3"
+    },
+    {
+      "id": "scripts_systems_networking_gd_sig_client_connected",
+      "label": "signal client_connected",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L4"
+    },
+    {
+      "id": "scripts_systems_networking_gd_sig_avatar_updated",
+      "label": "signal avatar_updated",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L5"
+    },
+    {
+      "id": "scripts_systems_networking_gd__ready",
+      "label": "func _ready()",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L14"
+    },
+    {
+      "id": "scripts_systems_networking_gd__exit_tree",
+      "label": "func _exit_tree()",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L26"
+    },
+    {
+      "id": "scripts_systems_networking_gd__process",
+      "label": "func _process()",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L32"
+    },
+    {
+      "id": "scripts_systems_networking_gd__on_peer_disconnected",
+      "label": "func _on_peer_disconnected()",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L35"
+    },
+    {
+      "id": "scripts_systems_networking_gd_leave_current_session",
+      "label": "func leave_current_session()",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L39"
+    },
+    {
+      "id": "scripts_systems_networking_gd_host_lobby",
+      "label": "func host_lobby()",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L48"
+    },
+    {
+      "id": "scripts_systems_networking_gd_on_lobby_created",
+      "label": "func on_lobby_created()",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L53"
+    },
+    {
+      "id": "scripts_systems_networking_gd_on_lobby_joined",
+      "label": "func on_lobby_joined()",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L66"
+    },
+    {
+      "id": "scripts_systems_networking_gd_on_join_requested",
+      "label": "func on_join_requested()",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L90"
+    },
+    {
+      "id": "scripts_systems_networking_gd_join_lobby_by_id",
+      "label": "func join_lobby_by_id()",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L96"
+    },
+    {
+      "id": "scripts_systems_networking_gd_get_lobby_code",
+      "label": "func get_lobby_code()",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L101"
+    },
+    {
+      "id": "scripts_systems_networking_gd_get_local_player_name",
+      "label": "func get_local_player_name()",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L106"
+    },
+    {
+      "id": "scripts_systems_networking_gd_get_local_steam_id",
+      "label": "func get_local_steam_id()",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L113"
+    },
+    {
+      "id": "scripts_systems_networking_gd_get_avatar_texture",
+      "label": "func get_avatar_texture()",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L118"
+    },
+    {
+      "id": "scripts_systems_networking_gd__on_avatar_loaded",
+      "label": "func _on_avatar_loaded()",
+      "file_type": "code",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L141"
+    },
+    {
+      "id": "scripts_systems_settings_manager_gd",
+      "label": "settings_manager.gd",
+      "file_type": "code",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_systems_settings_manager_gd_sig_settings_changed",
+      "label": "signal settings_changed",
+      "file_type": "code",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L4"
+    },
+    {
+      "id": "scripts_systems_settings_manager_gd__ready",
+      "label": "func _ready()",
+      "file_type": "code",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L31"
+    },
+    {
+      "id": "scripts_systems_settings_manager_gd_load_settings",
+      "label": "func load_settings()",
+      "file_type": "code",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L35"
+    },
+    {
+      "id": "scripts_systems_settings_manager_gd_save_settings",
+      "label": "func save_settings()",
+      "file_type": "code",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L44"
+    },
+    {
+      "id": "scripts_systems_settings_manager_gd_apply_settings",
+      "label": "func apply_settings()",
+      "file_type": "code",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L53"
+    },
+    {
+      "id": "scripts_systems_settings_manager_gd_apply_preset",
+      "label": "func apply_preset()",
+      "file_type": "code",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L100"
+    },
+    {
+      "id": "scripts_systems_settings_manager_gd_get_setting",
+      "label": "func get_setting()",
+      "file_type": "code",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L148"
+    },
+    {
+      "id": "scripts_systems_settings_manager_gd_set_setting",
+      "label": "func set_setting()",
+      "file_type": "code",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L151"
+    },
+    {
+      "id": "scripts_test_multiplayer_test_gd",
+      "label": "multiplayer_test.gd",
+      "file_type": "code",
+      "source_file": "scripts/test/multiplayer_test.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_test_multiplayer_test_gd__ready",
+      "label": "func _ready()",
+      "file_type": "code",
+      "source_file": "scripts/test/multiplayer_test.gd",
+      "source_location": "L7"
+    },
+    {
+      "id": "scripts_test_multiplayer_test_gd_test_authority_setup",
+      "label": "func test_authority_setup()",
+      "file_type": "code",
+      "source_file": "scripts/test/multiplayer_test.gd",
+      "source_location": "L15"
+    },
+    {
+      "id": "scripts_test_multiplayer_test_gd_test_spawn_flow",
+      "label": "func test_spawn_flow()",
+      "file_type": "code",
+      "source_file": "scripts/test/multiplayer_test.gd",
+      "source_location": "L30"
+    },
+    {
+      "id": "scripts_test_multiplayer_test_gd_test_position_sync",
+      "label": "func test_position_sync()",
+      "file_type": "code",
+      "source_file": "scripts/test/multiplayer_test.gd",
+      "source_location": "L44"
+    },
+    {
+      "id": "scripts_test_multiplayer_test_gd_test_rpc_methods_exist",
+      "label": "func test_rpc_methods_exist()",
+      "file_type": "code",
+      "source_file": "scripts/test/multiplayer_test.gd",
+      "source_location": "L67"
+    },
+    {
+      "id": "scripts_test_multiplayer_test_gd_print_results",
+      "label": "func print_results()",
+      "file_type": "code",
+      "source_file": "scripts/test/multiplayer_test.gd",
+      "source_location": "L78"
+    },
+    {
+      "id": "scripts_tools_extract_hot_bomb_anims_gd",
+      "label": "extract_hot_bomb_anims.gd",
+      "file_type": "code",
+      "source_file": "scripts/tools/extract_hot_bomb_anims.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_tools_extract_hot_bomb_anims_gd__init",
+      "label": "func _init()",
+      "file_type": "code",
+      "source_file": "scripts/tools/extract_hot_bomb_anims.gd",
+      "source_location": "L4"
+    },
+    {
+      "id": "scripts_tools_inspect_anims_gd",
+      "label": "inspect_anims.gd",
+      "file_type": "code",
+      "source_file": "scripts/tools/inspect_anims.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_tools_inspect_anims_gd__init",
+      "label": "func _init()",
+      "file_type": "code",
+      "source_file": "scripts/tools/inspect_anims.gd",
+      "source_location": "L4"
+    },
+    {
+      "id": "scripts_ui_button_effects_config_gd",
+      "label": "button_effects_config.gd",
+      "file_type": "code",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_ui_button_effects_config_gd_buttoneffectsmodule",
+      "label": "class ButtonEffectsModule",
+      "file_type": "code",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L2"
+    },
+    {
+      "id": "scripts_ui_button_effects_config_gd__ready",
+      "label": "func _ready()",
+      "file_type": "code",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L29"
+    },
+    {
+      "id": "scripts_ui_button_effects_config_gd__on_button_pressed",
+      "label": "func _on_button_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L44"
+    },
+    {
+      "id": "scripts_ui_button_effects_config_gd__on_mouse_hovered",
+      "label": "func _on_mouse_hovered()",
+      "file_type": "code",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L53"
+    },
+    {
+      "id": "scripts_ui_button_effects_config_gd_reset_tween",
+      "label": "func reset_tween()",
+      "file_type": "code",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L63"
+    },
+    {
+      "id": "scripts_ui_button_effects_config_gd__start_pulse",
+      "label": "func _start_pulse()",
+      "file_type": "code",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L69"
+    },
+    {
+      "id": "scripts_ui_button_effects_config_gd__stop_pulse",
+      "label": "func _stop_pulse()",
+      "file_type": "code",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L76"
+    },
+    {
+      "id": "scripts_ui_button_effects_config_gd__apply_font_settings",
+      "label": "func _apply_font_settings()",
+      "file_type": "code",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L81"
+    },
+    {
+      "id": "scripts_ui_character_select_gd",
+      "label": "character_select.gd",
+      "file_type": "code",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_ui_character_select_gd_sig_character_confirmed",
+      "label": "signal character_confirmed",
+      "file_type": "code",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L3"
+    },
+    {
+      "id": "scripts_ui_character_select_gd_sig_selection_cancelled",
+      "label": "signal selection_cancelled",
+      "file_type": "code",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L4"
+    },
+    {
+      "id": "scripts_ui_character_select_gd__ready",
+      "label": "func _ready()",
+      "file_type": "code",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L20"
+    },
+    {
+      "id": "scripts_ui_character_select_gd__select_character",
+      "label": "func _select_character()",
+      "file_type": "code",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L28"
+    },
+    {
+      "id": "scripts_ui_character_select_gd__find_animation_player",
+      "label": "func _find_animation_player()",
+      "file_type": "code",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L54"
+    },
+    {
+      "id": "scripts_ui_character_select_gd__on_confirm_pressed",
+      "label": "func _on_confirm_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L63"
+    },
+    {
+      "id": "scripts_ui_character_select_gd__on_back_pressed",
+      "label": "func _on_back_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L68"
+    },
+    {
+      "id": "scripts_ui_character_switcher_gd",
+      "label": "character_switcher.gd",
+      "file_type": "code",
+      "source_file": "scripts/ui/character_switcher.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_ui_character_switcher_gd__ready",
+      "label": "func _ready()",
+      "file_type": "code",
+      "source_file": "scripts/ui/character_switcher.gd",
+      "source_location": "L13"
+    },
+    {
+      "id": "scripts_ui_character_switcher_gd__on_character_selected",
+      "label": "func _on_character_selected()",
+      "file_type": "code",
+      "source_file": "scripts/ui/character_switcher.gd",
+      "source_location": "L35"
+    },
+    {
+      "id": "scripts_ui_main_menu_gd",
+      "label": "main_menu.gd",
+      "file_type": "code",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_ui_main_menu_gd__ready",
+      "label": "func _ready()",
+      "file_type": "code",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L12"
+    },
+    {
+      "id": "scripts_ui_main_menu_gd__show_steam_warning",
+      "label": "func _show_steam_warning()",
+      "file_type": "code",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L21"
+    },
+    {
+      "id": "scripts_ui_main_menu_gd__on_steam_retry",
+      "label": "func _on_steam_retry()",
+      "file_type": "code",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L36"
+    },
+    {
+      "id": "scripts_ui_main_menu_gd__on_steam_quit",
+      "label": "func _on_steam_quit()",
+      "file_type": "code",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L45"
+    },
+    {
+      "id": "scripts_ui_main_menu_gd__on_join_code_pressed",
+      "label": "func _on_join_code_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L48"
+    },
+    {
+      "id": "scripts_ui_main_menu_gd__on_host_pressed",
+      "label": "func _on_host_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L60"
+    },
+    {
+      "id": "scripts_ui_main_menu_gd__on_join_pressed",
+      "label": "func _on_join_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L67"
+    },
+    {
+      "id": "scripts_ui_main_menu_gd__on_credits_pressed",
+      "label": "func _on_credits_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L73"
+    },
+    {
+      "id": "scripts_ui_main_menu_gd__on_settings_pressed",
+      "label": "func _on_settings_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L76"
+    },
+    {
+      "id": "scripts_ui_main_menu_gd__on_exit_pressed",
+      "label": "func _on_exit_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L81"
+    },
+    {
+      "id": "scripts_ui_settings_menu_gd",
+      "label": "settings_menu.gd",
+      "file_type": "code",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_ui_settings_menu_gd_sig_settings_closed",
+      "label": "signal settings_closed",
+      "file_type": "code",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L3"
+    },
+    {
+      "id": "scripts_ui_settings_menu_gd__ready",
+      "label": "func _ready()",
+      "file_type": "code",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L28"
+    },
+    {
+      "id": "scripts_ui_settings_menu_gd__input",
+      "label": "func _input()",
+      "file_type": "code",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L34"
+    },
+    {
+      "id": "scripts_ui_settings_menu_gd_update_resolution_options",
+      "label": "func update_resolution_options()",
+      "file_type": "code",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L39"
+    },
+    {
+      "id": "scripts_ui_settings_menu_gd__on_aspect_changed",
+      "label": "func _on_aspect_changed()",
+      "file_type": "code",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L46"
+    },
+    {
+      "id": "scripts_ui_settings_menu_gd_load_current_settings",
+      "label": "func load_current_settings()",
+      "file_type": "code",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L51"
+    },
+    {
+      "id": "scripts_ui_settings_menu_gd__on_preset_selected",
+      "label": "func _on_preset_selected()",
+      "file_type": "code",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L80"
+    },
+    {
+      "id": "scripts_ui_settings_menu_gd__on_apply_pressed",
+      "label": "func _on_apply_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L86"
+    },
+    {
+      "id": "scripts_ui_settings_menu_gd__on_close_pressed",
+      "label": "func _on_close_pressed()",
+      "file_type": "code",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L112"
+    },
+    {
+      "id": "scenes_core_main_tscn",
+      "label": "main.tscn",
+      "file_type": "scene",
+      "source_file": "scenes/core/main.tscn",
+      "source_location": "L1"
+    },
+    {
+      "id": "scenes_menus_character_select_tscn",
+      "label": "character_select.tscn",
+      "file_type": "scene",
+      "source_file": "scenes/menus/character_select.tscn",
+      "source_location": "L1"
+    },
+    {
+      "id": "scenes_menus_main_menu_tscn",
+      "label": "main_menu.tscn",
+      "file_type": "scene",
+      "source_file": "scenes/menus/main_menu.tscn",
+      "source_location": "L1"
+    },
+    {
+      "id": "scenes_menus_settings_menu_tscn",
+      "label": "settings_menu.tscn",
+      "file_type": "scene",
+      "source_file": "scenes/menus/settings_menu.tscn",
+      "source_location": "L1"
+    },
+    {
+      "id": "scenes_minigames_bomb_tscn",
+      "label": "bomb.tscn",
+      "file_type": "scene",
+      "source_file": "scenes/minigames/bomb.tscn",
+      "source_location": "L1"
+    },
+    {
+      "id": "scenes_minigames_hot_bomb_tscn",
+      "label": "hot_bomb.tscn",
+      "file_type": "scene",
+      "source_file": "scenes/minigames/hot_bomb.tscn",
+      "source_location": "L1"
+    },
+    {
+      "id": "scenes_players_player_tscn",
+      "label": "player.tscn",
+      "file_type": "scene",
+      "source_file": "scenes/players/player.tscn",
+      "source_location": "L1"
+    },
+    {
+      "id": "scenes_ui_hud_tscn",
+      "label": "hud.tscn",
+      "file_type": "scene",
+      "source_file": "scenes/ui/hud.tscn",
+      "source_location": "L1"
+    },
+    {
+      "id": "addons_godotsteam_editor_steamworks_panel_tscn",
+      "label": "steamworks_panel.tscn",
+      "file_type": "scene",
+      "source_file": "addons/godotsteam/editor/steamworks_panel.tscn",
+      "source_location": "L1"
+    }
+  ],
+  "edges": [
+    {
+      "source": "tools_check_anim_tracks_gd",
+      "target": "scenetree",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/check_anim_tracks.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_check_anim_tracks_gd",
+      "target": "tools_check_anim_tracks_gd__init",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/check_anim_tracks.gd",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_inspect_player_gd",
+      "target": "scenetree",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/inspect_player.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_inspect_player_gd",
+      "target": "tools_inspect_player_gd__init",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/inspect_player.gd",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_inspect_player_gd",
+      "target": "tools_inspect_player_gd_print_nodes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/inspect_player.gd",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_test_bomb_mesh_gd",
+      "target": "scenetree",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test_bomb_mesh.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_test_bomb_mesh_gd",
+      "target": "tools_test_bomb_mesh_gd__init",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test_bomb_mesh.gd",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_test_bomb_size_gd",
+      "target": "scenetree",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test_bomb_size.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_test_bomb_size_gd",
+      "target": "tools_test_bomb_size_gd__init",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test_bomb_size.gd",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_test_bone_attachment_gd",
+      "target": "scenetree",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test_bone_attachment.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_test_bone_attachment_gd",
+      "target": "tools_test_bone_attachment_gd__init",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test_bone_attachment.gd",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_test_bone_loop_gd",
+      "target": "mainloop",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test_bone_loop.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_test_bone_loop_gd",
+      "target": "tools_test_bone_loop_gd__initialize",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test_bone_loop.gd",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_test_bone_loop_gd",
+      "target": "tools_test_bone_loop_gd__process",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test_bone_loop.gd",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_test_bone_poses_gd",
+      "target": "scenetree",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test_bone_poses.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_test_bone_poses_gd",
+      "target": "tools_test_bone_poses_gd__process",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test_bone_poses.gd",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_test_bone_poses_gd",
+      "target": "tools_test_bone_poses_gd__init",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test_bone_poses.gd",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_test_hand_pose_gd",
+      "target": "scenetree",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test_hand_pose.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tools_test_hand_pose_gd",
+      "target": "tools_test_hand_pose_gd__init",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tools/test_hand_pose.gd",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "node3d",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scenes_players_player_tscn",
+      "relation": "preloads",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scenes_menus_character_select_tscn",
+      "relation": "preloads",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scenes_menus_settings_menu_tscn",
+      "relation": "preloads",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__ready",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__ready",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__ready",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__ready",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__ready",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__ready",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__ready",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__process",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__process",
+      "target": "request_ping",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_sync_player_state",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_request_push",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd_request_push",
+      "target": "apply_knockback_rpc",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L142",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_apply_knockback_rpc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L145",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_request_ping",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd_request_ping",
+      "target": "respond_ping",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L157",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_respond_ping",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd_respond_ping",
+      "target": "report_ping",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L167",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_report_ping",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_update_tab_overlay",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd_update_tab_overlay",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L196",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__create_placeholder_avatar",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L236",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__on_avatar_updated",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L243",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_show_character_select",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L247",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__on_character_confirmed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L256",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_character_confirmed",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L257",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_character_confirmed",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L277",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_character_confirmed",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L278",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_character_confirmed",
+      "target": "sync_ready_states",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L288",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_character_confirmed",
+      "target": "register_player",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L291",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__on_deferred_register_player",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L297",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_deferred_register_player",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L298",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_deferred_register_player",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L299",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_deferred_register_player",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L300",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_deferred_register_player",
+      "target": "register_player",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L303",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__restore_lobby_session",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L305",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__restore_lobby_session",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L319",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__restore_lobby_session",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L320",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__restore_lobby_session",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L321",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__restore_lobby_session",
+      "target": "sync_ready_states",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L341",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__restore_lobby_session",
+      "target": "register_player",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L345",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_register_player",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L348",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd_register_player",
+      "target": "spawn_player_rpc",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L367",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd_register_player",
+      "target": "spawn_player_rpc",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L370",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd_register_player",
+      "target": "sync_ready_states",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L372",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_spawn_player_rpc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L375",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_clear_all_players",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L429",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_remove_player",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L445",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_on_host_created",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L462",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_on_client_connected",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L467",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__on_connected_to_server",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L472",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_connected_to_server",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L475",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_connected_to_server",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L477",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_connected_to_server",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L478",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_connected_to_server",
+      "target": "register_player",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L480",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__on_server_disconnected",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L484",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__on_peer_connected",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L488",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__on_invite_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L493",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_invite_pressed",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L496",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_invite_pressed",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L497",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_invite_pressed",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L497",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__on_leave_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L501",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_leave_pressed",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L504",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__on_pause_settings_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L508",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__on_pause_invite_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L513",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__on_pause_menu_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L518",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__on_copy_code_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L521",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_copy_code_pressed",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L522",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__on_map_selected",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L532",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__on_ready_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L536",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_ready_pressed",
+      "target": "sync_ready_states",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L543",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_ready_pressed",
+      "target": "set_ready_state",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L548",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_set_ready_state",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L551",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd_set_ready_state",
+      "target": "sync_ready_states",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L557",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_sync_ready_states",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L563",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_get_ready_states",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L572",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_update_start_button",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L578",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__on_start_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L591",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_start_pressed",
+      "target": "start_game",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L594",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_start_game",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L597",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd_start_game",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L606",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "characterbody3d",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd_sig_bomb_caught",
+      "relation": "declares_signal",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd_sig_bomb_exploded",
+      "relation": "declares_signal",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd__ready",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd__physics_process",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd__physics_process",
+      "target": "sync_bomb_state",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd__rush_process",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd__homing_process",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd_sync_bomb_state",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd_update_target",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd_throw",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L198",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd_attach_to_holder",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L205",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd_detach_from_holder",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L215",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd__update_held_transform",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd__get_holder_player",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L228",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd_explode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L236",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd_explode",
+      "target": "explode_rpc",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L244",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd_explode_rpc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_bomb_gd",
+      "target": "scripts_minigames_bomb_gd__on_body_entered",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/bomb.gd",
+      "source_location": "L271",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "node3d",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scenes_players_player_tscn",
+      "relation": "preloads",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scenes_minigames_bomb_tscn",
+      "relation": "preloads",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd__ready",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd__ready",
+      "target": "request_game_sync",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_initialize_game",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_initialize_game",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_initialize_game",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_initialize_game",
+      "target": "spawn_player",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_initialize_game",
+      "target": "sync_game_state",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_request_game_sync",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_request_game_sync",
+      "target": "sync_game_state",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_request_game_sync",
+      "target": "sync_match_timer",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_request_game_sync",
+      "target": "spawn_player",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_request_game_sync",
+      "target": "spawn_bomb_rpc",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_request_game_sync",
+      "target": "sync_bomb_timer",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_spawn_player",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_spawn_bomb",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_spawn_bomb",
+      "target": "spawn_bomb_rpc",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_spawn_bomb_rpc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd__process",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L158",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd__process",
+      "target": "sync_match_timer",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L177",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd__process",
+      "target": "sync_bomb_timer",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L185",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_sync_game_state",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L188",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_sync_player_state",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L192",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_request_throw_bomb",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L205",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_throw_bomb",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L213",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_throw_bomb",
+      "target": "throw_bomb_rpc",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L234",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_throw_bomb_rpc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L237",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd__on_bomb_caught",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L256",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd__on_bomb_caught",
+      "target": "bomb_caught_rpc",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L265",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_bomb_caught_rpc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L268",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd__on_bomb_exploded",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L282",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_player_died",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L299",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_player_died",
+      "target": "player_died_rpc",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L306",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_player_died_rpc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L309",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_remove_dead_player",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L320",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_get_alive_player_ids",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L326",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_get_alive_players",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L333",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_end_game_winner",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L340",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_end_game_winner",
+      "target": "show_winner_banner",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L342",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_end_game_timeout",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L345",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_end_game_timeout",
+      "target": "show_winner_banner",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L349",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_end_game_timeout",
+      "target": "show_winner_banner",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L351",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd__start_auto_return",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L354",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd__start_auto_return",
+      "target": "return_to_lobby",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L359",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_show_winner_banner",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L362",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd__on_return_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L371",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd__on_return_pressed",
+      "target": "return_to_lobby",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L373",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd__on_return_pressed",
+      "target": "request_return_to_lobby",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L375",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_request_return_to_lobby",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L378",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd_request_return_to_lobby",
+      "target": "return_to_lobby",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L380",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_return_to_lobby",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L383",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_sync_match_timer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L395",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd_sync_bomb_timer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L403",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_gd__on_peer_disconnected",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb.gd",
+      "source_location": "L411",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "characterbody3d",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd_set_player_name",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd__ensure_nodes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd__apply_state",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd_apply_knockback",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd__find_push_target",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd_perform_push",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L92",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd_perform_push",
+      "target": "apply_knockback_rpc",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd_perform_push",
+      "target": "request_push",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd__physics_process",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd__physics_process",
+      "target": "sync_player_state",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L202",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd__ready",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L204",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd_play_anim",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L237",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd_switch_character",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L245",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd__setup_hand_socket",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L271",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd_get_hand_socket",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L284",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd_pick_up_bomb",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L295",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd_release_bomb",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L300",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd_throw_held_bomb",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L305",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd_throw_held_bomb",
+      "target": "request_throw_bomb",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L322",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd_die_in_minigame",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L327",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_game_session_gd",
+      "target": "node",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/game_session.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "node",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd_sig_host_created",
+      "relation": "declares_signal",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd_sig_client_connected",
+      "relation": "declares_signal",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd_sig_avatar_updated",
+      "relation": "declares_signal",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd__ready",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd__ready",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd__ready",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd__ready",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd__ready",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd__ready",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd__ready",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd__ready",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd__ready",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd__exit_tree",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd__exit_tree",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd__process",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd__process",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd__on_peer_disconnected",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd_leave_current_session",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_leave_current_session",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd_host_lobby",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_host_lobby",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd_on_lobby_created",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_on_lobby_created",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_on_lobby_created",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_on_lobby_created",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd_on_lobby_joined",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_on_lobby_joined",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_on_lobby_joined",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_on_lobby_joined",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_on_lobby_joined",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_on_lobby_joined",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_on_lobby_joined",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd_on_join_requested",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd_join_lobby_by_id",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_join_lobby_by_id",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd_get_lobby_code",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd_get_local_player_name",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_get_local_player_name",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_get_local_player_name",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd_get_local_steam_id",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_get_local_steam_id",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_get_local_steam_id",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd_get_avatar_texture",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_get_avatar_texture",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L121",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_get_avatar_texture",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_get_avatar_texture",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_get_avatar_texture",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_get_avatar_texture",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L128",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd__on_avatar_loaded",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L141",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_settings_manager_gd",
+      "target": "node",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_settings_manager_gd",
+      "target": "scripts_systems_settings_manager_gd_sig_settings_changed",
+      "relation": "declares_signal",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_settings_manager_gd",
+      "target": "scripts_systems_settings_manager_gd__ready",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_settings_manager_gd",
+      "target": "scripts_systems_settings_manager_gd_load_settings",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_settings_manager_gd",
+      "target": "scripts_systems_settings_manager_gd_save_settings",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_settings_manager_gd",
+      "target": "scripts_systems_settings_manager_gd_apply_settings",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_settings_manager_gd",
+      "target": "scripts_systems_settings_manager_gd_apply_preset",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_settings_manager_gd",
+      "target": "scripts_systems_settings_manager_gd_get_setting",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_settings_manager_gd",
+      "target": "scripts_systems_settings_manager_gd_set_setting",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/settings_manager.gd",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_test_multiplayer_test_gd",
+      "target": "node",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/test/multiplayer_test.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_test_multiplayer_test_gd",
+      "target": "scenes_players_player_tscn",
+      "relation": "preloads",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/test/multiplayer_test.gd",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_test_multiplayer_test_gd",
+      "target": "scripts_test_multiplayer_test_gd__ready",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/test/multiplayer_test.gd",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_test_multiplayer_test_gd",
+      "target": "scripts_test_multiplayer_test_gd_test_authority_setup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/test/multiplayer_test.gd",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_test_multiplayer_test_gd",
+      "target": "scripts_test_multiplayer_test_gd_test_spawn_flow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/test/multiplayer_test.gd",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_test_multiplayer_test_gd",
+      "target": "scripts_test_multiplayer_test_gd_test_position_sync",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/test/multiplayer_test.gd",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_test_multiplayer_test_gd",
+      "target": "scripts_test_multiplayer_test_gd_test_rpc_methods_exist",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/test/multiplayer_test.gd",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_test_multiplayer_test_gd",
+      "target": "scripts_test_multiplayer_test_gd_print_results",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/test/multiplayer_test.gd",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_tools_extract_hot_bomb_anims_gd",
+      "target": "scenetree",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/tools/extract_hot_bomb_anims.gd",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_tools_extract_hot_bomb_anims_gd",
+      "target": "scripts_tools_extract_hot_bomb_anims_gd__init",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/tools/extract_hot_bomb_anims.gd",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_tools_inspect_anims_gd",
+      "target": "scenetree",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/tools/inspect_anims.gd",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_tools_inspect_anims_gd",
+      "target": "scripts_tools_inspect_anims_gd__init",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/tools/inspect_anims.gd",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_button_effects_config_gd",
+      "target": "node",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_button_effects_config_gd",
+      "target": "scripts_ui_button_effects_config_gd_buttoneffectsmodule",
+      "relation": "defines_class",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_button_effects_config_gd",
+      "target": "scripts_ui_button_effects_config_gd__ready",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_button_effects_config_gd",
+      "target": "scripts_ui_button_effects_config_gd__on_button_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_button_effects_config_gd",
+      "target": "scripts_ui_button_effects_config_gd__on_mouse_hovered",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_button_effects_config_gd",
+      "target": "scripts_ui_button_effects_config_gd_reset_tween",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_button_effects_config_gd",
+      "target": "scripts_ui_button_effects_config_gd__start_pulse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_button_effects_config_gd",
+      "target": "scripts_ui_button_effects_config_gd__stop_pulse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_button_effects_config_gd",
+      "target": "scripts_ui_button_effects_config_gd__apply_font_settings",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/button_effects_config.gd",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_select_gd",
+      "target": "control",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_select_gd",
+      "target": "scripts_ui_character_select_gd_sig_character_confirmed",
+      "relation": "declares_signal",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_select_gd",
+      "target": "scripts_ui_character_select_gd_sig_selection_cancelled",
+      "relation": "declares_signal",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_select_gd",
+      "target": "scripts_ui_character_select_gd__ready",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_select_gd",
+      "target": "scripts_ui_character_select_gd__select_character",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_select_gd__select_character",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_select_gd__select_character",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_select_gd",
+      "target": "scripts_ui_character_select_gd__find_animation_player",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_select_gd",
+      "target": "scripts_ui_character_select_gd__on_confirm_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_select_gd__on_confirm_pressed",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_select_gd",
+      "target": "scripts_ui_character_select_gd__on_back_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_select.gd",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_switcher_gd",
+      "target": "canvaslayer",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_switcher.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_switcher_gd",
+      "target": "scripts_ui_character_switcher_gd__ready",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_switcher.gd",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_switcher_gd__ready",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_switcher.gd",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_switcher_gd__ready",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_switcher.gd",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_character_switcher_gd",
+      "target": "scripts_ui_character_switcher_gd__on_character_selected",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/character_switcher.gd",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd",
+      "target": "canvaslayer",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd",
+      "target": "scenes_menus_settings_menu_tscn",
+      "relation": "preloads",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd",
+      "target": "scripts_ui_main_menu_gd__ready",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd__ready",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd",
+      "target": "scripts_ui_main_menu_gd__show_steam_warning",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd__show_steam_warning",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd__show_steam_warning",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd",
+      "target": "scripts_ui_main_menu_gd__on_steam_retry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd__on_steam_retry",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd__on_steam_retry",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd",
+      "target": "scripts_ui_main_menu_gd__on_steam_quit",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd",
+      "target": "scripts_ui_main_menu_gd__on_join_code_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd__on_join_code_pressed",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd",
+      "target": "scripts_ui_main_menu_gd__on_host_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd__on_host_pressed",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd__on_host_pressed",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd",
+      "target": "scripts_ui_main_menu_gd__on_join_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd__on_join_pressed",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd__on_join_pressed",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd",
+      "target": "scripts_ui_main_menu_gd__on_credits_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd",
+      "target": "scripts_ui_main_menu_gd__on_settings_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_main_menu_gd",
+      "target": "scripts_ui_main_menu_gd__on_exit_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/main_menu.gd",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_settings_menu_gd",
+      "target": "canvaslayer",
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_settings_menu_gd",
+      "target": "scripts_ui_settings_menu_gd_sig_settings_closed",
+      "relation": "declares_signal",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_settings_menu_gd",
+      "target": "scripts_ui_settings_menu_gd__ready",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_settings_menu_gd",
+      "target": "scripts_ui_settings_menu_gd__input",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_settings_menu_gd",
+      "target": "scripts_ui_settings_menu_gd_update_resolution_options",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_settings_menu_gd",
+      "target": "scripts_ui_settings_menu_gd__on_aspect_changed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_settings_menu_gd",
+      "target": "scripts_ui_settings_menu_gd_load_current_settings",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_settings_menu_gd",
+      "target": "scripts_ui_settings_menu_gd__on_preset_selected",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_settings_menu_gd",
+      "target": "scripts_ui_settings_menu_gd__on_apply_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_settings_menu_gd",
+      "target": "scripts_ui_settings_menu_gd__on_close_pressed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ui/settings_menu.gd",
+      "source_location": "L112",
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "directed": true
+}
