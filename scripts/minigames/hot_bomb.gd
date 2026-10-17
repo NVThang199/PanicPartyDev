@@ -371,6 +371,8 @@ func request_return_to_lobby() -> void:
 
 @rpc("authority", "call_local", "reliable")
 func return_to_lobby() -> void:
+	set_process(false)
+	set_physics_process(false)
 	for pid in players:
 		var p = players[pid]
 		if is_instance_valid(p):
