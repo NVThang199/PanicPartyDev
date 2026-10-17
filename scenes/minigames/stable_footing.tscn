@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/minigames/stable_footing.gd" id="1_script"]
 [ext_resource type="Environment" uid="uid://dnwhw8it7gpmp" path="res://default_env.tres" id="2_env"]
+[ext_resource type="PackedScene" path="res://assets/terrains/floor/tile_green.fbx" id="3_tile_green"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_0_0"]
 size = Vector3(1.0, 0.2, 1.0)
@@ -218,385 +219,641 @@ fov = 55.0
 [node name="Tile_0_0" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_0"]
+[node name="Model" parent="TileGrid/Tile_0_0" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_0/StaticBody"]
 shape = SubResource("BoxShape3D_tile_0_0")
 
 [node name="Tile_0_1" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_1"]
+[node name="Model" parent="TileGrid/Tile_0_1" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_1/StaticBody"]
 shape = SubResource("BoxShape3D_tile_0_1")
 
 [node name="Tile_0_2" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_2"]
+[node name="Model" parent="TileGrid/Tile_0_2" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_2/StaticBody"]
 shape = SubResource("BoxShape3D_tile_0_2")
 
 [node name="Tile_0_3" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_3"]
+[node name="Model" parent="TileGrid/Tile_0_3" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_3/StaticBody"]
 shape = SubResource("BoxShape3D_tile_0_3")
 
 [node name="Tile_0_4" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_4"]
+[node name="Model" parent="TileGrid/Tile_0_4" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_4/StaticBody"]
 shape = SubResource("BoxShape3D_tile_0_4")
 
 [node name="Tile_0_5" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_5"]
+[node name="Model" parent="TileGrid/Tile_0_5" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_5/StaticBody"]
 shape = SubResource("BoxShape3D_tile_0_5")
 
 [node name="Tile_0_6" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_6"]
+[node name="Model" parent="TileGrid/Tile_0_6" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_6/StaticBody"]
 shape = SubResource("BoxShape3D_tile_0_6")
 
 [node name="Tile_0_7" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_7"]
+[node name="Model" parent="TileGrid/Tile_0_7" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_7/StaticBody"]
 shape = SubResource("BoxShape3D_tile_0_7")
 
 [node name="Tile_1_0" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_0"]
+[node name="Model" parent="TileGrid/Tile_1_0" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_0/StaticBody"]
 shape = SubResource("BoxShape3D_tile_1_0")
 
 [node name="Tile_1_1" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_1"]
+[node name="Model" parent="TileGrid/Tile_1_1" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_1/StaticBody"]
 shape = SubResource("BoxShape3D_tile_1_1")
 
 [node name="Tile_1_2" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_2"]
+[node name="Model" parent="TileGrid/Tile_1_2" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_2/StaticBody"]
 shape = SubResource("BoxShape3D_tile_1_2")
 
 [node name="Tile_1_3" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_3"]
+[node name="Model" parent="TileGrid/Tile_1_3" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_3/StaticBody"]
 shape = SubResource("BoxShape3D_tile_1_3")
 
 [node name="Tile_1_4" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_4"]
+[node name="Model" parent="TileGrid/Tile_1_4" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_4/StaticBody"]
 shape = SubResource("BoxShape3D_tile_1_4")
 
 [node name="Tile_1_5" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_5"]
+[node name="Model" parent="TileGrid/Tile_1_5" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_5/StaticBody"]
 shape = SubResource("BoxShape3D_tile_1_5")
 
 [node name="Tile_1_6" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_6"]
+[node name="Model" parent="TileGrid/Tile_1_6" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_6/StaticBody"]
 shape = SubResource("BoxShape3D_tile_1_6")
 
 [node name="Tile_1_7" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_7"]
+[node name="Model" parent="TileGrid/Tile_1_7" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_7/StaticBody"]
 shape = SubResource("BoxShape3D_tile_1_7")
 
 [node name="Tile_2_0" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_0"]
+[node name="Model" parent="TileGrid/Tile_2_0" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_0/StaticBody"]
 shape = SubResource("BoxShape3D_tile_2_0")
 
 [node name="Tile_2_1" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_1"]
+[node name="Model" parent="TileGrid/Tile_2_1" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_1/StaticBody"]
 shape = SubResource("BoxShape3D_tile_2_1")
 
 [node name="Tile_2_2" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_2"]
+[node name="Model" parent="TileGrid/Tile_2_2" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_2/StaticBody"]
 shape = SubResource("BoxShape3D_tile_2_2")
 
 [node name="Tile_2_3" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_3"]
+[node name="Model" parent="TileGrid/Tile_2_3" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_3/StaticBody"]
 shape = SubResource("BoxShape3D_tile_2_3")
 
 [node name="Tile_2_4" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_4"]
+[node name="Model" parent="TileGrid/Tile_2_4" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_4/StaticBody"]
 shape = SubResource("BoxShape3D_tile_2_4")
 
 [node name="Tile_2_5" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_5"]
+[node name="Model" parent="TileGrid/Tile_2_5" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_5/StaticBody"]
 shape = SubResource("BoxShape3D_tile_2_5")
 
 [node name="Tile_2_6" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_6"]
+[node name="Model" parent="TileGrid/Tile_2_6" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_6/StaticBody"]
 shape = SubResource("BoxShape3D_tile_2_6")
 
 [node name="Tile_2_7" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_7"]
+[node name="Model" parent="TileGrid/Tile_2_7" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_7/StaticBody"]
 shape = SubResource("BoxShape3D_tile_2_7")
 
 [node name="Tile_3_0" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_0"]
+[node name="Model" parent="TileGrid/Tile_3_0" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_0/StaticBody"]
 shape = SubResource("BoxShape3D_tile_3_0")
 
 [node name="Tile_3_1" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_1"]
+[node name="Model" parent="TileGrid/Tile_3_1" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_1/StaticBody"]
 shape = SubResource("BoxShape3D_tile_3_1")
 
 [node name="Tile_3_2" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_2"]
+[node name="Model" parent="TileGrid/Tile_3_2" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_2/StaticBody"]
 shape = SubResource("BoxShape3D_tile_3_2")
 
 [node name="Tile_3_3" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_3"]
+[node name="Model" parent="TileGrid/Tile_3_3" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_3/StaticBody"]
 shape = SubResource("BoxShape3D_tile_3_3")
 
 [node name="Tile_3_4" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_4"]
+[node name="Model" parent="TileGrid/Tile_3_4" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_4/StaticBody"]
 shape = SubResource("BoxShape3D_tile_3_4")
 
 [node name="Tile_3_5" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_5"]
+[node name="Model" parent="TileGrid/Tile_3_5" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_5/StaticBody"]
 shape = SubResource("BoxShape3D_tile_3_5")
 
 [node name="Tile_3_6" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_6"]
+[node name="Model" parent="TileGrid/Tile_3_6" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_6/StaticBody"]
 shape = SubResource("BoxShape3D_tile_3_6")
 
 [node name="Tile_3_7" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_7"]
+[node name="Model" parent="TileGrid/Tile_3_7" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_7/StaticBody"]
 shape = SubResource("BoxShape3D_tile_3_7")
 
 [node name="Tile_4_0" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_0"]
+[node name="Model" parent="TileGrid/Tile_4_0" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_0/StaticBody"]
 shape = SubResource("BoxShape3D_tile_4_0")
 
 [node name="Tile_4_1" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_1"]
+[node name="Model" parent="TileGrid/Tile_4_1" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_1/StaticBody"]
 shape = SubResource("BoxShape3D_tile_4_1")
 
 [node name="Tile_4_2" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_2"]
+[node name="Model" parent="TileGrid/Tile_4_2" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_2/StaticBody"]
 shape = SubResource("BoxShape3D_tile_4_2")
 
 [node name="Tile_4_3" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_3"]
+[node name="Model" parent="TileGrid/Tile_4_3" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_3/StaticBody"]
 shape = SubResource("BoxShape3D_tile_4_3")
 
 [node name="Tile_4_4" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_4"]
+[node name="Model" parent="TileGrid/Tile_4_4" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_4/StaticBody"]
 shape = SubResource("BoxShape3D_tile_4_4")
 
 [node name="Tile_4_5" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_5"]
+[node name="Model" parent="TileGrid/Tile_4_5" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_5/StaticBody"]
 shape = SubResource("BoxShape3D_tile_4_5")
 
 [node name="Tile_4_6" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_6"]
+[node name="Model" parent="TileGrid/Tile_4_6" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_6/StaticBody"]
 shape = SubResource("BoxShape3D_tile_4_6")
 
 [node name="Tile_4_7" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_7"]
+[node name="Model" parent="TileGrid/Tile_4_7" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_7/StaticBody"]
 shape = SubResource("BoxShape3D_tile_4_7")
 
 [node name="Tile_5_0" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_0"]
+[node name="Model" parent="TileGrid/Tile_5_0" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_0/StaticBody"]
 shape = SubResource("BoxShape3D_tile_5_0")
 
 [node name="Tile_5_1" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_1"]
+[node name="Model" parent="TileGrid/Tile_5_1" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_1/StaticBody"]
 shape = SubResource("BoxShape3D_tile_5_1")
 
 [node name="Tile_5_2" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_2"]
+[node name="Model" parent="TileGrid/Tile_5_2" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_2/StaticBody"]
 shape = SubResource("BoxShape3D_tile_5_2")
 
 [node name="Tile_5_3" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_3"]
+[node name="Model" parent="TileGrid/Tile_5_3" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_3/StaticBody"]
 shape = SubResource("BoxShape3D_tile_5_3")
 
 [node name="Tile_5_4" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_4"]
+[node name="Model" parent="TileGrid/Tile_5_4" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_4/StaticBody"]
 shape = SubResource("BoxShape3D_tile_5_4")
 
 [node name="Tile_5_5" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_5"]
+[node name="Model" parent="TileGrid/Tile_5_5" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_5/StaticBody"]
 shape = SubResource("BoxShape3D_tile_5_5")
 
 [node name="Tile_5_6" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_6"]
+[node name="Model" parent="TileGrid/Tile_5_6" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_6/StaticBody"]
 shape = SubResource("BoxShape3D_tile_5_6")
 
 [node name="Tile_5_7" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_7"]
+[node name="Model" parent="TileGrid/Tile_5_7" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_7/StaticBody"]
 shape = SubResource("BoxShape3D_tile_5_7")
 
 [node name="Tile_6_0" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_0"]
+[node name="Model" parent="TileGrid/Tile_6_0" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_0/StaticBody"]
 shape = SubResource("BoxShape3D_tile_6_0")
 
 [node name="Tile_6_1" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_1"]
+[node name="Model" parent="TileGrid/Tile_6_1" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_1/StaticBody"]
 shape = SubResource("BoxShape3D_tile_6_1")
 
 [node name="Tile_6_2" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_2"]
+[node name="Model" parent="TileGrid/Tile_6_2" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_2/StaticBody"]
 shape = SubResource("BoxShape3D_tile_6_2")
 
 [node name="Tile_6_3" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_3"]
+[node name="Model" parent="TileGrid/Tile_6_3" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_3/StaticBody"]
 shape = SubResource("BoxShape3D_tile_6_3")
 
 [node name="Tile_6_4" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_4"]
+[node name="Model" parent="TileGrid/Tile_6_4" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_4/StaticBody"]
 shape = SubResource("BoxShape3D_tile_6_4")
 
 [node name="Tile_6_5" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_5"]
+[node name="Model" parent="TileGrid/Tile_6_5" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_5/StaticBody"]
 shape = SubResource("BoxShape3D_tile_6_5")
 
 [node name="Tile_6_6" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_6"]
+[node name="Model" parent="TileGrid/Tile_6_6" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_6/StaticBody"]
 shape = SubResource("BoxShape3D_tile_6_6")
 
 [node name="Tile_6_7" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_7"]
+[node name="Model" parent="TileGrid/Tile_6_7" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_7/StaticBody"]
 shape = SubResource("BoxShape3D_tile_6_7")
 
 [node name="Tile_7_0" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_0"]
+[node name="Model" parent="TileGrid/Tile_7_0" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_0/StaticBody"]
 shape = SubResource("BoxShape3D_tile_7_0")
 
 [node name="Tile_7_1" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_1"]
+[node name="Model" parent="TileGrid/Tile_7_1" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_1/StaticBody"]
 shape = SubResource("BoxShape3D_tile_7_1")
 
 [node name="Tile_7_2" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_2"]
+[node name="Model" parent="TileGrid/Tile_7_2" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_2/StaticBody"]
 shape = SubResource("BoxShape3D_tile_7_2")
 
 [node name="Tile_7_3" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_3"]
+[node name="Model" parent="TileGrid/Tile_7_3" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_3/StaticBody"]
 shape = SubResource("BoxShape3D_tile_7_3")
 
 [node name="Tile_7_4" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_4"]
+[node name="Model" parent="TileGrid/Tile_7_4" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_4/StaticBody"]
 shape = SubResource("BoxShape3D_tile_7_4")
 
 [node name="Tile_7_5" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_5"]
+[node name="Model" parent="TileGrid/Tile_7_5" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_5/StaticBody"]
 shape = SubResource("BoxShape3D_tile_7_5")
 
 [node name="Tile_7_6" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 2.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_6"]
+[node name="Model" parent="TileGrid/Tile_7_6" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_6/StaticBody"]
 shape = SubResource("BoxShape3D_tile_7_6")
 
 [node name="Tile_7_7" type="StaticBody3D" parent="TileGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 3.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_7"]
+[node name="Model" parent="TileGrid/Tile_7_7" instance=ExtResource("3_tile_green")]
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_7/StaticBody"]
 shape = SubResource("BoxShape3D_tile_7_7")
 
 [node name="FallDetector" type="Area3D" parent="."]
