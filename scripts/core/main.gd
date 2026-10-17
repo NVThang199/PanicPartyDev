@@ -105,6 +105,8 @@ func _process(delta: float) -> void:
 
 @rpc("any_peer", "unreliable")
 func sync_player_state(peer_id: int, pos: Vector3, rot_y: float, anim_name: String) -> void:
+	if not multiplayer.multiplayer_peer or multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
+		return
 	if peer_id == multiplayer.get_unique_id():
 		return
 	if peer_id in players and is_instance_valid(players[peer_id]):

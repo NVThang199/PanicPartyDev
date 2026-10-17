@@ -13,6 +13,10 @@ var throw_velocity: Vector3 = Vector3.ZERO
 var last_thrower_id: int = -1
 var throw_grace_timer: float = 0.0
 
+# Client-side interpolation
+var _client_target_pos: Vector3 = Vector3.ZERO
+var _client_interp_speed: float = 15.0
+
 const HOMING_SPEED = 7.5
 const THROW_SPEED = 10.0
 const GRAVITY = 9.8
@@ -30,6 +34,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not multiplayer.is_server():
+		# Client interpolation
+		if state != State.HELD and _client_target_pos != Vector3.ZERO:
+			global_position = global_position.lerp(_client_target_pos, _client_interp_speed * delta)
 		return
 
 	timer -= delta
@@ -122,7 +129,7 @@ func sync_bomb_state(pos: Vector3, new_state: int) -> void:
 		return
 	state = new_state as State
 	if state != State.HELD:
-		global_position = pos
+		_client_target_pos = pos
 
 func update_target() -> void:
 	var minigame = get_parent()

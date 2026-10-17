@@ -136,8 +136,9 @@ func _process(delta: float) -> void:
 	# Update UI
 	if match_timer_label:
 		match_timer_label.text = "Match: %d" % int(max(0, match_timer))
-	if bomb_timer_label and bomb:
+	if bomb_timer_label and bomb and is_instance_valid(bomb):
 		bomb_timer_label.text = "Bomb: %d" % int(max(0, bomb.timer))
+		sync_bomb_timer.rpc(bomb.timer)
 
 @rpc("authority", "call_local", "reliable")
 func sync_game_state() -> void:
@@ -146,6 +147,8 @@ func sync_game_state() -> void:
 
 @rpc("any_peer", "unreliable")
 func sync_player_state(peer_id: int, pos: Vector3, rot_y: float, anim_name: String) -> void:
+	if not multiplayer.multiplayer_peer or multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
+		return
 	if peer_id == multiplayer.get_unique_id():
 		return
 	if peer_id in players and is_instance_valid(players[peer_id]):
@@ -323,6 +326,13 @@ func request_return_to_lobby() -> void:
 @rpc("authority", "call_local", "reliable")
 func return_to_lobby() -> void:
 	get_tree().change_scene_to_file("res://scenes/core/main.tscn")
+
+@rpc("authority", "unreliable")
+func sync_bomb_timer(time_left: float) -> void:
+	if multiplayer.is_server():
+		return
+	if bomb and is_instance_valid(bomb):
+		bomb.timer = time_left
 
 func _on_peer_disconnected(peer_id: int) -> void:
 	if peer_id in players:
