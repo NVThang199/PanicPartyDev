@@ -16,6 +16,7 @@ var player_info: Dictionary = {}
 @onready var map_select_panel: PanelContainer = $UI/MapSelectPanel
 @onready var btn_lobby_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnLobby
 @onready var btn_hotbomb_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnHotBomb
+@onready var btn_stablefooting_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnStableFooting
 @onready var lobby_panel: PanelContainer = $UI/LobbyPanel
 @onready var btn_ready: Button = $UI/LobbyPanel/Margin/HBox/BtnReady
 @onready var btn_start: Button = $UI/LobbyPanel/Margin/HBox/BtnStart
@@ -39,6 +40,8 @@ func _ready() -> void:
 		btn_lobby_map.pressed.connect(_on_map_selected.bind("Lobby"))
 	if btn_hotbomb_map:
 		btn_hotbomb_map.pressed.connect(_on_map_selected.bind("HotBomb"))
+	if btn_stablefooting_map:
+		btn_stablefooting_map.pressed.connect(_on_map_selected.bind("StableFooting"))
 	if btn_ready:
 		btn_ready.pressed.connect(_on_ready_pressed)
 	if btn_start:
@@ -605,5 +608,8 @@ func start_game(map_name: String) -> void:
 	if map_name == "HotBomb":
 		GameSession.minigame_players = player_info.duplicate(true)
 		get_tree().change_scene_to_file("res://scenes/minigames/hot_bomb.tscn")
+	elif map_name == "StableFooting":
+		GameSession.minigame_players = player_info.duplicate(true)
+		get_tree().change_scene_to_file("res://scenes/minigames/stable_footing.tscn")
 	else:
 		print("[GAME] Map %s is lobby, nothing to start" % map_name)

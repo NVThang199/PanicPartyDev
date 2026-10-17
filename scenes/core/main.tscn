@@ -247,6 +247,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Hot Bomb"
 
+[node name="BtnStableFooting" type="Button" parent="UI/MapSelectPanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Stable Footing"
+
 [node name="LobbyPanel" type="PanelContainer" parent="UI"]
 anchors_preset = 7
 anchor_left = 0.5
