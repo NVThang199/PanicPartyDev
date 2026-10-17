@@ -185,8 +185,9 @@ func _process(delta: float) -> void:
 		elif cycle_timer > 0.0:
 			# Lock phase
 			is_random_phase = false
-		else:
-			# Drop phase → reset after delay
+		elif not is_dropping:
+			# Drop phase (trigger once)
+			is_dropping = true
 			_drop_red_tiles()
 			_schedule_reset_tiles()
 
@@ -335,23 +336,38 @@ func sync_tile_color(tile_idx: int, color: int) -> void:
 
 @rpc("authority", "call_local", "reliable")
 func drop_tiles_rpc(red_indices: Array[int]) -> void:
+	# Disable all red tile collisions immediately
 	for idx in red_indices:
 		if idx >= 0 and idx < tiles.size():
 			var tile = tiles[idx]
 			if tile and is_instance_valid(tile):
-				# Disable collision immediately
 				var static_body = tile.get_node_or_null("StaticBody")
 				if static_body:
 					var collision = static_body.get_node_or_null("CollisionShape3D")
 					if collision:
-						collision.set_deferred("disabled", true)
+						collision.disabled = true
 
-				# Drop & hide tile
+	# Drop all red tiles simultaneously
+	var tweens: Array = []
+	for idx in red_indices:
+		if idx >= 0 and idx < tiles.size():
+			var tile = tiles[idx]
+			if tile and is_instance_valid(tile):
 				var tween = create_tween()
 				tween.set_ease(Tween.EASE_IN)
 				tween.set_trans(Tween.TRANS_QUAD)
 				tween.tween_property(tile, "position:y", -20.0, 0.8)
-				await tween.finished
+				tweens.append(tween)
+
+	# Wait for all tweens to finish
+	if tweens.size() > 0:
+		await tweens[tweens.size() - 1].finished
+
+	# Hide all dropped tiles
+	for idx in red_indices:
+		if idx >= 0 and idx < tiles.size():
+			var tile = tiles[idx]
+			if tile and is_instance_valid(tile):
 				tile.visible = false
 
 func player_died(peer_id: int) -> void:
