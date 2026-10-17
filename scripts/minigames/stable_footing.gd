@@ -251,7 +251,6 @@ func reset_tiles_rpc() -> void:
 		if tile and is_instance_valid(tile):
 			tile.visible = true
 			tile.position.y = 0
-			tile.modulate.a = 1.0
 			var static_body = tile.get_node_or_null("StaticBody")
 			if static_body:
 				var collision = static_body.get_node_or_null("CollisionShape3D")
@@ -347,12 +346,13 @@ func drop_tiles_rpc(red_indices: Array[int]) -> void:
 					if collision:
 						collision.set_deferred("disabled", true)
 
-				# Hide tile completely (fall into void)
+				# Drop & hide tile
 				var tween = create_tween()
 				tween.set_ease(Tween.EASE_IN)
 				tween.set_trans(Tween.TRANS_QUAD)
 				tween.tween_property(tile, "position:y", -20.0, 0.8)
-				tween.parallel().tween_property(tile, "modulate:a", 0.0, 0.6)
+				await tween.finished
+				tile.visible = false
 
 func player_died(peer_id: int) -> void:
 	if not is_inside_tree():
