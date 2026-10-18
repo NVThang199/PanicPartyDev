@@ -212,10 +212,14 @@ Dự án đã tích hợp Graphify knowledge graph tại `graphify-out/graph.jso
    - `graphify explain "<tên hàm/class/signal>"`: Hiểu node và láng giềng.
    - `graphify path "<node_A>" "<node_B>"`: Tìm đường kết nối/gọi giữa 2 thành phần (ví dụ giữa UI và RPC).
    - Xem tổng quan kiến trúc tại `graphify-out/GRAPH_REPORT.md`.
-3. **Cập nhật đồ thị sau khi sửa cấu trúc file/hàm lớn**:
+3. **Cập nhật đồ thị**: Đã tự động qua hook (`.claude/settings.json` và `.githooks/pre-commit`). Chạy thủ công nếu cần:
    ```bash
-   python gd_graph_extractor.py
-   python generate_full_graph.py
+   python update_graph.py
    ```
 4. Chỉ mở `Read` đúng hàm/dòng đã được định vị qua Graphify thay vì đọc cả file lớn.
+
+## Git & Workflow Discipline (MANDATORY)
+- **Revert over patching**: Khi nhận phản hồi tiếp cận sai hoặc yêu cầu làm lại: BẮT BUỘC dùng `git restore <file>` để đưa file về trạng thái sạch ban đầu trước khi viết lại, KHÔNG viết code vá chắp vá đè lên code hỏng gây rác codebase.
+- **Không tự ý commit/push**: Tuyệt đối không tự ý chạy `git commit` hoặc `git push` trừ khi người dùng yêu cầu rõ ràng.
+
 

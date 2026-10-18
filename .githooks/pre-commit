@@ -1,0 +1,4 @@
+#!/bin/sh
+# Auto-update Graphify knowledge graph and all agent instruction files
+python update_graph.py
+git add graphify-out/ AGENTS.md GEMINI.md .cursorrules .windsurfrules .clinerules .github/copilot-instructions.md
