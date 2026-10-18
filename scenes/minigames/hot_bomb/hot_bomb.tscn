@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bxb54nwxlflej" path="res://scripts/minigames/hot_bomb/hot_bomb.gd" id="1_arena_script"]
 [ext_resource type="Environment" uid="uid://dnwhw8it7gpmp" path="res://default_env.tres" id="2_env"]
-[ext_resource type="NavigationMesh" path="res://scenes/minigames/hot_bomb/hot_bomb_navmesh.tres" id="3_navmesh"]
+[ext_resource type="NavigationMesh" uid="uid://ct7tv7kfoe0an" path="res://scenes/minigames/hot_bomb/hot_bomb_navmesh.tres" id="3_navmesh"]
 [ext_resource type="PackedScene" uid="uid://nyj60ib5ts8v" path="res://assets/terrains/medieval/buildings/neutral/fence_wood_straight.fbx" id="4_u08cb"]
 [ext_resource type="PackedScene" uid="uid://b43tppne1u5vn" path="res://assets/terrains/medieval/buildings/neutral/fence_wood_straight_gate.fbx" id="5_nws6h"]
 [ext_resource type="PackedScene" uid="uid://by00hxjpx1b4c" path="res://assets/terrains/medieval/decoration/nature/hills_C_trees.fbx" id="6_jtgnb"]
@@ -19,20 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://dq7gxqkgnxtfp" path="res://assets/terrains/medieval/decoration/props/crate_A_small.fbx" id="17_uojsn"]
 [ext_resource type="PackedScene" uid="uid://cxppymxowiu1f" path="res://assets/terrains/medieval/decoration/props/barrel.fbx" id="18_aqmjc"]
 [ext_resource type="PackedScene" uid="uid://cyc7yw1bqx05y" path="res://assets/terrains/medieval/buildings/blue/building_well_blue.fbx" id="19_kn1e3"]
+[ext_resource type="PackedScene" uid="uid://dqe3bxlypgc8o" path="res://assets/terrains/medieval/decoration/nature/mountain_A_grass_trees.fbx" id="20_2m1ut"]
+[ext_resource type="PackedScene" uid="uid://ew4avpbsf41y" path="res://assets/terrains/medieval/tiles/roads/hex_road_B.fbx" id="21_afkkf"]
+[ext_resource type="PackedScene" uid="uid://dfu56org4iyqf" path="res://assets/terrains/medieval/tiles/base/hex_grass.fbx" id="22_j2ctx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
 size = Vector3(30, 0.2, 30)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
-albedo_color = Color(0.2, 0.25, 0.3, 1)
-roughness = 0.8
-
-[sub_resource type="BoxMesh" id="BoxMesh_floor"]
-material = SubResource("StandardMaterial3D_floor")
-size = Vector3(75.98983, 0.2, 65.11105)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gk03p"]
-albedo_color = Color(0.5176471, 0.60784316, 0.23529412, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wall_lr"]
 size = Vector3(1, 5, 30)
@@ -74,11 +66,6 @@ navigation_mesh = ExtResource("3_navmesh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor" unique_id=1972738001]
 shape = SubResource("BoxShape3D_floor")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Floor" unique_id=1030077380]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05111313, 0, -7.6756744)
-mesh = SubResource("BoxMesh_floor")
-surface_material_override/0 = SubResource("StandardMaterial3D_gk03p")
 
 [node name="Wall_Left" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1448474335]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, 0)
@@ -314,3 +301,12 @@ transform = Transform3D(9.6, 0, 0, 0, 9.6, 0, 0, 0, 9.6, 23.24404, 0, -4.4844093
 
 [node name="hills_A" parent="decobackground" unique_id=1482257054 instance=ExtResource("13_d7o3a")]
 transform = Transform3D(14.9920435, 0, 0.62342864, 0, 15.005, 0, -0.62342864, 0, 14.9920435, -23.825634, 1.9073486e-06, -19.479265)
+
+[node name="mountain_A_grass_trees" parent="decobackground" unique_id=484555982 instance=ExtResource("20_2m1ut")]
+transform = Transform3D(18.93901, 0, -6.4275875, 0, 20, 0, 6.4275875, 0, 18.93901, 12.890039, 0, -54.278263)
+
+[node name="hex_road_B" parent="." unique_id=106343950 instance=ExtResource("21_afkkf")]
+transform = Transform3D(-0.20701659, 0, 29.999289, 0, 29.999998, 0, -29.999289, 0, -0.20701659, -1.216, 1.62, -44.903)
+
+[node name="hex_grass" parent="." unique_id=1575705418 instance=ExtResource("22_j2ctx")]
+transform = Transform3D(95.54515, 0, 0, 0, 17.67718, 0, 0, 0, 95.54515, -4.639515, 0.11, -30.556969)
