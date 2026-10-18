@@ -103,20 +103,14 @@ func _rush_process(_delta: float) -> void:
 		explode()
 		return
 
-	var target_pos = target_player.global_position + Vector3(0, 0.8, 0)
-	var to_target = target_pos - global_position
-	var dist = to_target.length()
-
-	# Chạm đích hoặc áp sát mục tiêu (< 1m) -> gán nạn nhân và nổ
+	var dist = global_position.distance_to(target_player.global_position)
 	if dist <= 1.0:
 		holder_id = int(str(target_player.name))
-		global_position = target_pos
+		global_position = target_player.global_position + Vector3(0, 0.8, 0)
 		explode()
 		return
 
-	var move_dir = to_target.normalized()
-	velocity = move_dir * RUSH_SPEED
-	move_and_slide()
+	_move_towards_target(RUSH_SPEED)
 
 	for i in range(get_slide_collision_count()):
 		var col = get_slide_collision(i)
@@ -131,30 +125,7 @@ func _homing_process(_delta: float) -> void:
 	if not target_player or not is_instance_valid(target_player):
 		return
 
-	if nav_agent:
-		nav_agent.target_position = target_player.global_position
-		var next_path_pos = nav_agent.get_next_path_position()
-		var move_dir = next_path_pos - global_position
-		move_dir.y = 0.0
-
-		if move_dir.length_squared() > 0.01:
-			move_dir = move_dir.normalized()
-		else:
-			var direct_dir = target_player.global_position - global_position
-			direct_dir.y = 0.0
-			move_dir = direct_dir.normalized()
-
-		velocity.x = move_dir.x * HOMING_SPEED
-		velocity.z = move_dir.z * HOMING_SPEED
-	else:
-		var direct_dir = target_player.global_position - global_position
-		direct_dir.y = 0.0
-		var move_dir = direct_dir.normalized()
-		velocity.x = move_dir.x * HOMING_SPEED
-		velocity.z = move_dir.z * HOMING_SPEED
-
-	velocity.y = -GRAVITY
-	move_and_slide()
+	_move_towards_target(HOMING_SPEED)
 
 	# Bắt người chơi nếu va chạm lúc đang lướt
 	for i in range(get_slide_collision_count()):
@@ -165,6 +136,27 @@ func _homing_process(_delta: float) -> void:
 			if peer_id != holder_id:
 				bomb_caught.emit(peer_id)
 				return
+
+func _move_towards_target(speed: float) -> void:
+	var move_dir := Vector3.ZERO
+	if nav_agent:
+		nav_agent.target_position = target_player.global_position
+		if not nav_agent.is_navigation_finished():
+			var next_path_pos = nav_agent.get_next_path_position()
+			var to_next = next_path_pos - global_position
+			to_next.y = 0.0
+			if to_next.length_squared() > 0.01:
+				move_dir = to_next.normalized()
+
+	if move_dir == Vector3.ZERO:
+		var direct_dir = target_player.global_position - global_position
+		direct_dir.y = 0.0
+		move_dir = direct_dir.normalized() if direct_dir.length_squared() > 0.01 else Vector3.ZERO
+
+	velocity.x = move_dir.x * speed
+	velocity.z = move_dir.z * speed
+	velocity.y = -GRAVITY
+	move_and_slide()
 
 @rpc("authority", "unreliable")
 func sync_bomb_state(pos: Vector3, new_state: int) -> void:

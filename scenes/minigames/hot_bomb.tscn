@@ -1,7 +1,24 @@
-[gd_scene format=3 uid="uid://hotbomb_arena001"]
+[gd_scene format=3 uid="uid://octrx1r0tl6j"]
 
-[ext_resource type="Script" path="res://scripts/minigames/hot_bomb.gd" id="1_arena_script"]
+[ext_resource type="Script" uid="uid://bxb54nwxlflej" path="res://scripts/minigames/hot_bomb.gd" id="1_arena_script"]
 [ext_resource type="Environment" uid="uid://dnwhw8it7gpmp" path="res://default_env.tres" id="2_env"]
+[ext_resource type="NavigationMesh" path="res://scenes/minigames/hot_bomb_navmesh.tres" id="3_navmesh"]
+[ext_resource type="PackedScene" uid="uid://nyj60ib5ts8v" path="res://assets/terrains/medieval/buildings/neutral/fence_wood_straight.fbx" id="4_u08cb"]
+[ext_resource type="PackedScene" uid="uid://b43tppne1u5vn" path="res://assets/terrains/medieval/buildings/neutral/fence_wood_straight_gate.fbx" id="5_nws6h"]
+[ext_resource type="PackedScene" uid="uid://by00hxjpx1b4c" path="res://assets/terrains/medieval/decoration/nature/hills_C_trees.fbx" id="6_jtgnb"]
+[ext_resource type="PackedScene" uid="uid://d37aja63efscy" path="res://assets/terrains/medieval/decoration/props/wheelbarrow.fbx" id="6_kn1e3"]
+[ext_resource type="PackedScene" uid="uid://bqrdlcmmhp863" path="res://assets/terrains/medieval/decoration/props/resource_lumber.fbx" id="7_f23qq"]
+[ext_resource type="PackedScene" uid="uid://bgm2pejreqmeg" path="res://assets/terrains/medieval/decoration/nature/hills_A_trees.fbx" id="7_qh3mv"]
+[ext_resource type="PackedScene" uid="uid://cwjvhiyc8bvak" path="res://assets/terrains/medieval/decoration/props/resource_stone.fbx" id="8_awpsf"]
+[ext_resource type="PackedScene" uid="uid://c5gknafrew4i" path="res://assets/terrains/medieval/decoration/props/sack.fbx" id="9_nukmv"]
+[ext_resource type="PackedScene" uid="uid://b4qwivfs6eqnq" path="res://assets/terrains/medieval/decoration/nature/mountain_A_grass.fbx" id="10_stocl"]
+[ext_resource type="PackedScene" uid="uid://pt1jd5ebt2el" path="res://assets/terrains/medieval/decoration/nature/hills_A.fbx" id="13_d7o3a"]
+[ext_resource type="PackedScene" uid="uid://debdihq6ttlsh" path="res://assets/terrains/medieval/decoration/props/crate_A_big.fbx" id="14_xfash"]
+[ext_resource type="PackedScene" uid="uid://dmjvu3npayaay" path="res://assets/terrains/medieval/decoration/props/crate_long_empty.fbx" id="15_sydqe"]
+[ext_resource type="PackedScene" uid="uid://dwjawyb0l4b8f" path="res://assets/terrains/medieval/decoration/props/crate_open.fbx" id="16_rp41u"]
+[ext_resource type="PackedScene" uid="uid://dq7gxqkgnxtfp" path="res://assets/terrains/medieval/decoration/props/crate_A_small.fbx" id="17_uojsn"]
+[ext_resource type="PackedScene" uid="uid://cxppymxowiu1f" path="res://assets/terrains/medieval/decoration/props/barrel.fbx" id="18_aqmjc"]
+[ext_resource type="PackedScene" uid="uid://cyc7yw1bqx05y" path="res://assets/terrains/medieval/buildings/blue/building_well_blue.fbx" id="19_kn1e3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
 size = Vector3(30, 0.2, 30)
@@ -12,119 +29,215 @@ roughness = 0.8
 
 [sub_resource type="BoxMesh" id="BoxMesh_floor"]
 material = SubResource("StandardMaterial3D_floor")
-size = Vector3(30, 0.2, 30)
+size = Vector3(75.98983, 0.2, 65.11105)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gk03p"]
+albedo_color = Color(0.5176471, 0.60784316, 0.23529412, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wall_lr"]
-size = Vector3(1, 5, 30)
-
-[sub_resource type="BoxMesh" id="BoxMesh_wall_lr"]
 size = Vector3(1, 5, 30)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wall_fb"]
 size = Vector3(30, 5, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_wall_fb"]
-size = Vector3(30, 5, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_obs_crates"]
+size = Vector3(4.5, 3, 4.4)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_obstacle"]
-size = Vector3(3, 3, 3)
+[sub_resource type="BoxShape3D" id="BoxShape3D_obs_barrels"]
+size = Vector3(3.6, 3.8, 3.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_obstacle"]
-albedo_color = Color(0.6, 0.4, 0.25, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_obs_tent"]
+size = Vector3(4.4, 3.6, 4.4)
 
-[sub_resource type="BoxMesh" id="BoxMesh_obstacle"]
-material = SubResource("StandardMaterial3D_obstacle")
-size = Vector3(3, 3, 3)
+[sub_resource type="BoxShape3D" id="BoxShape3D_obs_resources"]
+size = Vector3(4.8, 2.5, 4.4)
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_arena"]
-geometry_parsed_geometry_type = 1
-agent_radius = 0.5
-agent_height = 1.5
-agent_max_climb = 0.25
-
-[node name="HotBomb" type="Node3D"]
+[node name="HotBomb" type="Node3D" unique_id=1086205871]
 script = ExtResource("1_arena_script")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=699681790]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 15, 0)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1380260465]
 environment = ExtResource("2_env")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1223199760]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 20)
 current = true
 fov = 55.0
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_arena")
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1889813107]
+navigation_mesh = ExtResource("3_navmesh")
 
-[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D"]
+[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D" unique_id=713020666]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor" unique_id=1972738001]
 shape = SubResource("BoxShape3D_floor")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Floor"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Floor" unique_id=1030077380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05111313, 0, -7.6756744)
 mesh = SubResource("BoxMesh_floor")
+surface_material_override/0 = SubResource("StandardMaterial3D_gk03p")
 
-[node name="Wall_Left" type="StaticBody3D" parent="NavigationRegion3D"]
+[node name="Wall_Left" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1448474335]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall_Left"]
+[node name="fence_wood_straight" parent="NavigationRegion3D/Wall_Left" unique_id=1312272320 instance=ExtResource("4_u08cb")]
+transform = Transform3D(13.5, 0, 0, 0, 13.5, 0, 0, 0, 13.5, 13.89391, -2.2576847, 6.4811172)
+
+[node name="fence_wood_straight2" parent="NavigationRegion3D/Wall_Left" unique_id=1673245548 instance=ExtResource("4_u08cb")]
+transform = Transform3D(13.5, 0, 0, 0, 13.5, 0, 0, 0, 13.5, 13.89391, -2.2576847, -7.2612267)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall_Left" unique_id=1526668261]
 shape = SubResource("BoxShape3D_wall_lr")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Wall_Left"]
-mesh = SubResource("BoxMesh_wall_lr")
-
-[node name="Wall_Right" type="StaticBody3D" parent="NavigationRegion3D"]
+[node name="Wall_Right" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1984141886]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2.5, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall_Right"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall_Right" unique_id=1754575845]
+transform = Transform3D(1.035, 0, 0, 0, 1.035, 0, 0, 0, 1.035, 0, 0, 0)
 shape = SubResource("BoxShape3D_wall_lr")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Wall_Right"]
-mesh = SubResource("BoxMesh_wall_lr")
+[node name="fence_wood_straight" parent="NavigationRegion3D/Wall_Right" unique_id=301836831 instance=ExtResource("4_u08cb")]
+transform = Transform3D(13.5, 0, 0, 0, 13.5, 0, 0, 0, 13.5, 13.893909, -2.2576847, 6.569971)
 
-[node name="Wall_Forward" type="StaticBody3D" parent="NavigationRegion3D"]
+[node name="fence_wood_straight2" parent="NavigationRegion3D/Wall_Right" unique_id=948277051 instance=ExtResource("4_u08cb")]
+transform = Transform3D(13.5, 0, 0, 0, 13.5, 0, 0, 0, 13.5, 13.89391, -2.2576847, -7.2612267)
+
+[node name="Wall_Forward" type="StaticBody3D" parent="NavigationRegion3D" unique_id=705873099]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -15)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall_Forward"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall_Forward" unique_id=1403492011]
 shape = SubResource("BoxShape3D_wall_fb")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Wall_Forward"]
-mesh = SubResource("BoxMesh_wall_fb")
+[node name="fence_wood_straight_gate" parent="NavigationRegion3D/Wall_Forward" unique_id=1630500544 instance=ExtResource("5_nws6h")]
+transform = Transform3D(-5.901038e-07, 0, -13.5, 0, 13.5, 0, 13.5, 0, -5.901038e-07, 0.1347866, -2.2391543, 14.1308365)
 
-[node name="Wall_Back" type="StaticBody3D" parent="NavigationRegion3D"]
+[node name="fence_wood_straight" parent="NavigationRegion3D/Wall_Forward" unique_id=1704046837 instance=ExtResource("4_u08cb")]
+transform = Transform3D(-5.9010375e-07, 0, -13.5, 0, 13.5, 0, 13.5, 0, -5.9010375e-07, -13.677996, -2.2576847, 14.117332)
+
+[node name="fence_wood_straight2" parent="NavigationRegion3D/Wall_Forward" unique_id=916557215 instance=ExtResource("4_u08cb")]
+transform = Transform3D(-5.9010375e-07, 0, -13.5, 0, 13.5, 0, 13.5, 0, -5.9010375e-07, 14.048697, -2.2576847, 14.117332)
+
+[node name="Wall_Back" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1448231811]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 15)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall_Back"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall_Back" unique_id=2070598326]
 shape = SubResource("BoxShape3D_wall_fb")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Wall_Back"]
-mesh = SubResource("BoxMesh_wall_fb")
+[node name="fence_wood_straight" parent="NavigationRegion3D/Wall_Back" unique_id=213375626 instance=ExtResource("4_u08cb")]
+transform = Transform3D(-5.9010375e-07, 0, -13.5, 0, 13.5, 0, 13.5, 0, -5.9010375e-07, -6.4846487, -2.2576847, 13.117332)
 
-[node name="Obstacle1" type="StaticBody3D" parent="NavigationRegion3D"]
+[node name="fence_wood_straight2" parent="NavigationRegion3D/Wall_Back" unique_id=2072020608 instance=ExtResource("4_u08cb")]
+transform = Transform3D(-5.9010375e-07, 0, -13.5, 0, 13.5, 0, 13.5, 0, -5.9010375e-07, 8.272469, -2.2576847, 13.117332)
+
+[node name="Obstacle1" type="StaticBody3D" parent="NavigationRegion3D" unique_id=849482558]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, -5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Obstacle1"]
-shape = SubResource("BoxShape3D_obstacle")
+[node name="crate_A_big" parent="NavigationRegion3D/Obstacle1" unique_id=1845492154 instance=ExtResource("14_xfash")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -1.2878361, -1.4000003, 1.4601083)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Obstacle1"]
-mesh = SubResource("BoxMesh_obstacle")
+[node name="crate_A_big2" parent="NavigationRegion3D/Obstacle1" unique_id=1034729398 instance=ExtResource("14_xfash")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0.2391944, -1.4000003, 1.4601083)
 
-[node name="Obstacle2" type="StaticBody3D" parent="NavigationRegion3D"]
+[node name="crate_A_big3" parent="NavigationRegion3D/Obstacle1" unique_id=1386470761 instance=ExtResource("14_xfash")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0.2391944, -1.4000003, -0.06726456)
+
+[node name="crate_A_big4" parent="NavigationRegion3D/Obstacle1" unique_id=1502765935 instance=ExtResource("14_xfash")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -1.2897544, -1.4000003, -0.14083195)
+
+[node name="crate_long_empty" parent="NavigationRegion3D/Obstacle1" unique_id=348157817 instance=ExtResource("15_sydqe")]
+transform = Transform3D(-5.22, 0, -4.5634687e-07, 0, 5.22, 0, 4.5634687e-07, 0, -5.22, -0.7526555, -1.4000001, -1.5302744)
+
+[node name="crate_long_empty2" parent="NavigationRegion3D/Obstacle1" unique_id=1389015531 instance=ExtResource("15_sydqe")]
+transform = Transform3D(-5.22, 0, -4.5634687e-07, 0, 5.22, 0, 4.5634687e-07, 0, -5.22, 1.2073345, -1.4000001, -1.5302744)
+
+[node name="crate_open" parent="NavigationRegion3D/Obstacle1" unique_id=629069326 instance=ExtResource("16_rp41u")]
+transform = Transform3D(0.39861807, 0, 6.663087, 0, 6.675, 0, -6.663087, 0, 0.39861807, 1.5785534, -1.3943616, 0.90506697)
+
+[node name="crate_A_small" parent="NavigationRegion3D/Obstacle1" unique_id=1906620017 instance=ExtResource("17_uojsn")]
+transform = Transform3D(9.675, 0, 0, 0, 9.675, 0, 0, 0, 9.675, -0.4867487, 0.07701254, 0.61642647)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Obstacle1" unique_id=437019300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, 0.08)
+shape = SubResource("BoxShape3D_obs_crates")
+
+[node name="Obstacle_Barrels" type="StaticBody3D" parent="NavigationRegion3D" unique_id=987123451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1.5, -8.2)
+
+[node name="barrel" parent="NavigationRegion3D/Obstacle_Barrels" unique_id=499322373 instance=ExtResource("18_aqmjc")]
+transform = Transform3D(9.085, 0, 0, 0, 9.085, 0, 0, 0, 9.085, -0.808199, -1.4, -0.580973)
+
+[node name="barrel2" parent="NavigationRegion3D/Obstacle_Barrels" unique_id=500904877 instance=ExtResource("18_aqmjc")]
+transform = Transform3D(9.085, 0, 0, 0, 9.085, 0, 0, 0, 9.085, 0.22496, -1.4, 0.7946765)
+
+[node name="barrel3" parent="NavigationRegion3D/Obstacle_Barrels" unique_id=2075471895 instance=ExtResource("18_aqmjc")]
+transform = Transform3D(9.085, 0, 0, 0, 9.085, 0, 0, 0, 9.085, 0.869819, -1.4, -0.723868)
+
+[node name="barrel4" parent="NavigationRegion3D/Obstacle_Barrels" unique_id=1657971144 instance=ExtResource("18_aqmjc")]
+transform = Transform3D(9.085, 0, 0, 0, 9.085, 0, 0, 0, 9.085, 0.145299, 0.504936, -0.396562)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Obstacle_Barrels" unique_id=987123452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.45, -0.05)
+shape = SubResource("BoxShape3D_obs_barrels")
+
+[node name="Obstacle_Tent" type="StaticBody3D" parent="NavigationRegion3D" unique_id=987123453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7386794, 1.5, 8.663787)
+
+[node name="building_well_blue" parent="NavigationRegion3D/Obstacle_Tent" unique_id=178884806 instance=ExtResource("19_kn1e3")]
+transform = Transform3D(-2.380085e-07, 0, -5.4449997, 0, 5.4449997, 0, 5.4449997, 0, -2.380085e-07, 0.09743881, -1.399997, 0.07572746)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Obstacle_Tent" unique_id=987123454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+shape = SubResource("BoxShape3D_obs_tent")
+
+[node name="Obstacle2" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1452942688]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Obstacle2"]
-shape = SubResource("BoxShape3D_obstacle")
+[node name="wheelbarrow" parent="NavigationRegion3D/Obstacle2" unique_id=1558153149 instance=ExtResource("6_kn1e3")]
+transform = Transform3D(6.925, 0, 0, 0, 6.925, 0, 0, 0, 6.925, -1.1821232, -1.3014693, -0.17239189)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Obstacle2"]
-mesh = SubResource("BoxMesh_obstacle")
+[node name="resource_lumber" parent="NavigationRegion3D/Obstacle2" unique_id=40422763 instance=ExtResource("7_f23qq")]
+transform = Transform3D(4.2, 0, 0, 0, 4.2, 0, 0, 0, 4.2, 1.0908713, -1.399999, 1.2179227)
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="resource_stone" parent="NavigationRegion3D/Obstacle2" unique_id=162218390 instance=ExtResource("8_awpsf")]
+transform = Transform3D(1.66, 0, 0, 0, 1.66, 0, 0, 0, 1.66, 2.0630145, -1.3999996, 0.12326813)
 
-[node name="MatchTimerLabel" type="Label" parent="UI"]
+[node name="resource_stone2" parent="NavigationRegion3D/Obstacle2" unique_id=1921966814 instance=ExtResource("8_awpsf")]
+transform = Transform3D(1.66, 0, 0, 0, 1.66, 0, 0, 0, 1.66, 1.3498592, -1.3999996, 0.12326813)
+
+[node name="resource_stone3" parent="NavigationRegion3D/Obstacle2" unique_id=45180207 instance=ExtResource("8_awpsf")]
+transform = Transform3D(1.66, 0, 0, 0, 1.66, 0, 0, 0, 1.66, 0.62964964, -1.3999996, 0.12326813)
+
+[node name="resource_stone4" parent="NavigationRegion3D/Obstacle2" unique_id=808544280 instance=ExtResource("8_awpsf")]
+transform = Transform3D(1.66, 0, 0, 0, 1.66, 0, 0, 0, 1.66, 1.6933475, -0.9328935, 0.12326813)
+
+[node name="resource_stone5" parent="NavigationRegion3D/Obstacle2" unique_id=106573992 instance=ExtResource("8_awpsf")]
+transform = Transform3D(1.66, 0, 0, 0, 1.66, 0, 0, 0, 1.66, 1.0164609, -0.9328935, 0.12326813)
+
+[node name="resource_stone6" parent="NavigationRegion3D/Obstacle2" unique_id=1357071647 instance=ExtResource("8_awpsf")]
+transform = Transform3D(1.66, 0, 0, 0, 1.66, 0, 0, 0, 1.66, 1.4028797, -0.50988483, 0.12326813)
+
+[node name="sack" parent="NavigationRegion3D/Obstacle2" unique_id=1486804098 instance=ExtResource("9_nukmv")]
+transform = Transform3D(7.55, 0, 0, 0, 7.55, 0, 0, 0, 7.55, 1.8791938, -1.3975499, -0.8659005)
+
+[node name="sack4" parent="NavigationRegion3D/Obstacle2" unique_id=1906258764 instance=ExtResource("9_nukmv")]
+transform = Transform3D(7.55, 0, 0, 0, 7.55, 0, 0, 0, 7.55, 1.334548, -1.0059217, -0.8659005)
+
+[node name="sack2" parent="NavigationRegion3D/Obstacle2" unique_id=2115737156 instance=ExtResource("9_nukmv")]
+transform = Transform3D(-0.9797654, 0, -7.4861584, 0, 7.55, 0, 7.4861584, 0, -0.9797654, 0.7145963, -1.3975499, -0.7599311)
+
+[node name="sack3" parent="NavigationRegion3D/Obstacle2" unique_id=213501114 instance=ExtResource("9_nukmv")]
+transform = Transform3D(0.5984764, 0, -7.5262427, 0, 7.55, 0, 7.5262427, 0, 0.5984764, 0.8137317, -1.3975499, -1.6547451)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Obstacle2" unique_id=1914124583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.25, -0.1)
+shape = SubResource("BoxShape3D_obs_resources")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=613516403]
+
+[node name="MatchTimerLabel" type="Label" parent="UI" unique_id=959854509]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -137,7 +250,7 @@ theme_override_font_sizes/font_size = 28
 text = "Match: 60"
 horizontal_alignment = 1
 
-[node name="BombTimerLabel" type="Label" parent="UI"]
+[node name="BombTimerLabel" type="Label" parent="UI" unique_id=727462835]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -151,7 +264,7 @@ theme_override_font_sizes/font_size = 36
 text = "Bomb: 15"
 horizontal_alignment = 1
 
-[node name="WinnerBanner" type="PanelContainer" parent="UI"]
+[node name="WinnerBanner" type="PanelContainer" parent="UI" unique_id=548052556]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -165,25 +278,39 @@ offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Margin" type="MarginContainer" parent="UI/WinnerBanner"]
+[node name="Margin" type="MarginContainer" parent="UI/WinnerBanner" unique_id=506814231]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBox" type="VBoxContainer" parent="UI/WinnerBanner/Margin"]
+[node name="VBox" type="VBoxContainer" parent="UI/WinnerBanner/Margin" unique_id=1517402571]
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="WinnerLabel" type="Label" parent="UI/WinnerBanner/Margin/VBox"]
+[node name="WinnerLabel" type="Label" parent="UI/WinnerBanner/Margin/VBox" unique_id=253028241]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "PLAYER WINS!"
 horizontal_alignment = 1
 
-[node name="ReturnButton" type="Button" parent="UI/WinnerBanner/Margin/VBox"]
+[node name="ReturnButton" type="Button" parent="UI/WinnerBanner/Margin/VBox" unique_id=978435981]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 text = "Return to Lobby"
+
+[node name="decobackground" type="Node3D" parent="." unique_id=517914678]
+
+[node name="mountain_A_grass" parent="decobackground" unique_id=810108572 instance=ExtResource("10_stocl")]
+transform = Transform3D(10.99, 0, 0, 0, 10.99, 0, 0, 0, 10.99, 20.551107, 0, -21.30743)
+
+[node name="hills_C_trees" parent="decobackground" unique_id=276204935 instance=ExtResource("6_jtgnb")]
+transform = Transform3D(-7.94687, 0, 6.0866585, 0, 10.010001, 0, -6.0866585, 0, -7.94687, -22.54342, 0, 0.062366962)
+
+[node name="hills_A_trees" parent="decobackground" unique_id=582396974 instance=ExtResource("7_qh3mv")]
+transform = Transform3D(9.6, 0, 0, 0, 9.6, 0, 0, 0, 9.6, 23.24404, 0, -4.4844093)
+
+[node name="hills_A" parent="decobackground" unique_id=1482257054 instance=ExtResource("13_d7o3a")]
+transform = Transform3D(14.9920435, 0, 0.62342864, 0, 15.005, 0, -0.62342864, 0, 14.9920435, -23.825634, 1.9073486e-06, -19.479265)
