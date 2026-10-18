@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3idwui5pmemt"]
 
-[ext_resource type="Script" uid="uid://e8eebrdi4hgj" path="res://scripts/minigames/stable_footing.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://e8eebrdi4hgj" path="res://scripts/minigames/stable_footing/stable_footing.gd" id="1_script"]
 [ext_resource type="Environment" uid="uid://dnwhw8it7gpmp" path="res://default_env.tres" id="2_env"]
 [ext_resource type="PackedScene" uid="uid://davw8we72g7lx" path="res://assets/terrains/floor/tile_green.fbx" id="3_tile_green"]
 [ext_resource type="PackedScene" uid="uid://b2sn1nnggxjig" path="res://assets/terrains/Prototype Bits/Wall.fbx" id="4_drjsi"]

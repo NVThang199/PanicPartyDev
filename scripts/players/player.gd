@@ -19,6 +19,7 @@ var player_name: String = ""
 var steam_id: int = 0
 var ping_ms: int = 0
 var character_path: String = ""
+var step_timer: float = 0.0
 
 # Hot Bomb Minigame state
 var is_holding_bomb: bool = false
@@ -53,6 +54,9 @@ func apply_knockback(push_dir: Vector3) -> void:
 	is_knocked_down = true
 	is_pushing = false
 	velocity = Vector3.ZERO
+	if AudioManager:
+		AudioManager.play_kick_hit(global_position)
+		AudioManager.play_knockback_fall(global_position)
 	play_anim("simulation/Sit_Floor_Down")
 	if anim_player:
 		await anim_player.animation_finished
@@ -95,6 +99,8 @@ func perform_push() -> void:
 	is_pushing = true
 	push_cooldown = PUSH_COOLDOWN_TIME
 	play_anim("combat/Melee_Unarmed_Attack_Kick", true)
+	if AudioManager:
+		AudioManager.play_kick_whoosh(global_position)
 	
 	var target = _find_push_target()
 	if target:
@@ -131,10 +137,8 @@ func _physics_process(delta):
 	if not is_inside_tree():
 		return
 	_ensure_nodes()
-	if multiplayer.multiplayer_peer == null:
-		return
-
-	var has_authority = is_multiplayer_authority()
+	var has_peer = multiplayer and multiplayer.multiplayer_peer and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED
+	var has_authority = is_multiplayer_authority() if has_peer else true
 
 	if has_authority:
 		# Skip input handling if dead, but still sync state at the end
@@ -147,11 +151,11 @@ func _physics_process(delta):
 			else:
 				velocity.y = -0.1
 
-			if Input.is_key_pressed(KEY_E):
+			if Input.is_action_just_pressed("push"):
 				perform_push()
 
-			# Throw bomb with F key
-			if (Input.is_action_just_pressed("throw_bomb") or Input.is_key_pressed(KEY_F)) and is_holding_bomb:
+			# Throw bomb with throw_bomb action
+			if Input.is_action_just_pressed("throw_bomb") and is_holding_bomb:
 				throw_held_bomb()
 
 			if is_knocked_down:
@@ -163,17 +167,6 @@ func _physics_process(delta):
 				velocity.z = move_toward(velocity.z, 0, SPEED)
 			else:
 				var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-				if input_dir == Vector2.ZERO:
-					if Input.is_key_pressed(KEY_W):
-						input_dir.y -= 1
-					if Input.is_key_pressed(KEY_S):
-						input_dir.y += 1
-					if Input.is_key_pressed(KEY_A):
-						input_dir.x -= 1
-					if Input.is_key_pressed(KEY_D):
-						input_dir.x += 1
-					input_dir = input_dir.normalized()
-
 				var direction = Vector3(input_dir.x, 0, input_dir.y)
 
 				if direction != Vector3.ZERO:
@@ -186,7 +179,15 @@ func _physics_process(delta):
 						play_anim("hot_bomb/Running_HoldingRifle")
 					else:
 						play_anim("movement/Walking_A")
+
+					if is_on_floor():
+						step_timer -= delta
+						if step_timer <= 0.0:
+							step_timer = 0.35
+							if AudioManager:
+								AudioManager.play_footstep(global_position)
 				else:
+					step_timer = 0.0
 					velocity.x = move_toward(velocity.x, 0, SPEED)
 					velocity.z = move_toward(velocity.z, 0, SPEED)
 					if is_holding_bomb:
@@ -197,11 +198,21 @@ func _physics_process(delta):
 			move_and_slide()
 
 		# Always sync state, even when dead (for death animation)
-		if multiplayer.multiplayer_peer != null:
+		if has_peer:
 			var rot_y: float = model.rotation.y if model else 0.0
 			var main_node = get_parent()
 			if main_node and is_instance_valid(main_node) and main_node.is_inside_tree() and main_node.has_method("sync_player_state"):
 				main_node.sync_player_state.rpc(multiplayer.get_unique_id(), position, rot_y, current_anim)
+	else:
+		# Remote players: play footstep when moving
+		if current_anim in ["movement/Walking_A", "hot_bomb/Running_HoldingRifle"]:
+			step_timer -= delta
+			if step_timer <= 0.0:
+				step_timer = 0.38
+				if AudioManager:
+					AudioManager.play_footstep(global_position)
+		else:
+			step_timer = 0.0
 
 func _ready():
 	_ensure_nodes()
@@ -298,6 +309,8 @@ func pick_up_bomb(b: Node) -> void:
 	is_holding_bomb = true
 	held_bomb = b
 	play_anim("hot_bomb/Holding_A", true)
+	if AudioManager:
+		AudioManager.play_bomb_catch(global_position)
 
 func release_bomb() -> void:
 	is_holding_bomb = false
@@ -313,6 +326,8 @@ func throw_held_bomb() -> void:
 	direction = direction.normalized()
 
 	play_anim("hot_bomb/Throw", true)
+	if AudioManager:
+		AudioManager.play_bomb_throw(global_position)
 
 	var minigame = get_parent()
 	if minigame and is_instance_valid(minigame) and minigame.is_inside_tree():
@@ -338,6 +353,8 @@ func die_in_minigame() -> void:
 		col.disabled = true
 
 	play_anim("hot_bomb/Skeletons_Death", true)
+	if AudioManager:
+		AudioManager.play_player_death(global_position)
 	print("[PLAYER] %s died in minigame" % name)
 
 	# Keep physics_process running briefly to sync death animation

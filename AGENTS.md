@@ -5,7 +5,8 @@
 - **Architecture**: Server-authoritative multiplayer với SteamMultiplayerPeer
 - **Main scenes**:
   - `scenes/core/main.tscn` - Lobby
-  - `scenes/minigames/hot_bomb.tscn` - Hot Bomb minigame
+  - `scenes/minigames/hot_bomb/hot_bomb.tscn` - Hot Bomb minigame
+  - `scenes/minigames/stable_footing/stable_footing.tscn` - Stable Footing minigame
 
 ## Multiplayer Pattern (MUST FOLLOW)
 
@@ -184,8 +185,8 @@ func request_action() -> void:
 
 ### File Structure Reference
 - `scripts/core/main.gd` - Lobby logic, room code, player spawn/despawn
-- `scripts/minigames/hot_bomb.gd` - Minigame orchestration (server authoritative, timers, sync)
-- `scripts/minigames/bomb.gd` - Bomb entity (server physics, homing, rushing on timeout, client interpolation)
+- `scenes/minigames/hot_bomb/` & `scripts/minigames/hot_bomb/` - Hot Bomb minigame (`hot_bomb.gd`, `bomb.gd`, `hot_bomb.tscn`, `bomb.tscn`)
+- `scenes/minigames/stable_footing/` & `scripts/minigames/stable_footing/` - Stable Footing minigame (`stable_footing.gd`, `stable_footing.tscn`, `stable_footing_tile.gd`)
 - `scripts/players/player.gd` - Player controller (client input → server validation, animation)
 - `scripts/systems/networking.gd` - Steam relay transport, lobby code management
 
@@ -221,5 +222,61 @@ Dự án đã tích hợp Graphify knowledge graph tại `graphify-out/graph.jso
 ## Git & Workflow Discipline (MANDATORY)
 - **Revert over patching**: Khi nhận phản hồi tiếp cận sai hoặc yêu cầu làm lại: BẮT BUỘC dùng `git restore <file>` để đưa file về trạng thái sạch ban đầu trước khi viết lại, KHÔNG viết code vá chắp vá đè lên code hỏng gây rác codebase.
 - **Không tự ý commit/push**: Tuyệt đối không tự ý chạy `git commit` hoặc `git push` trừ khi người dùng yêu cầu rõ ràng.
+
+---
+
+## Multilingual & Localization Architecture (HỆ THỐNG ĐA NGÔN NGỮ)
+
+### 1. Supported Languages (11 ngôn ngữ)
+- **English** (`en`) - Mặc định (Default & Fallback)
+- **Tiếng Việt** (`vi`) - Bắt buộc hỗ trợ đầy đủ dấu thanh
+- **Español** (`es`) - Tây Ban Nha
+- **Français** (`fr`) - Pháp
+- **Deutsch** (`de`) - Đức
+- **Português (Brasil)** (`pt_BR`) - Bồ Đào Nha
+- **Русский** (`ru`) - Nga
+- **日本語** (`ja`) - Nhật
+- **한국어** (`ko`) - Hàn
+- **简体中文** (`zh_CN`) - Trung giản thể
+- **Italiano** (`it`) - Ý
+
+### 2. File Organization & Registration
+- **CSV Translation Source**: `translations/translations.csv` (UTF-8 format, Header: `keys,en,vi,es,fr,de,pt_BR,ru,ja,ko,zh_CN,it`).
+- **Compiled Resources**: Tự động sinh bởi Godot engine khi import CSV: `translations.<locale>.translation`.
+- **Project Registration**: Đã cấu hình trong `project.godot`:
+  ```ini
+  [internationalization]
+  locale/translations=PackedStringArray("res://translations/translations.en.translation", "res://translations/translations.vi.translation", "res://translations/translations.es.translation", "res://translations/translations.fr.translation", "res://translations/translations.de.translation", "res://translations/translations.pt_BR.translation", "res://translations/translations.ru.translation", "res://translations/translations.ja.translation", "res://translations/translations.ko.translation", "res://translations/translations.zh_CN.translation", "res://translations/translations.it.translation")
+  locale/fallback="en"
+  ```
+
+### 3. Setting & Persistence (`SettingsManager`)
+- **Vị trí UI**: Menu Cài đặt (`settings_menu.tscn`) -> Tab **Display** (`setting-display`) -> Dòng đầu tiên `LanguageHBox/LanguageOption`.
+- **Lưu trữ cấu hình**: `user://settings.cfg` dưới section `[display]` với key `language = "en"`.
+- **Áp dụng ngôn ngữ**:
+  ```gdscript
+  TranslationServer.set_locale(settings["display"].get("language", "en"))
+  ```
+
+### 4. Development Rules (BẮT BUỘC TUÂN THỦ KHI PHÁT TRIỂN TIẾP)
+1. **Không hardcode chuỗi text hiển thị trên UI**:
+   - Tất cả Label, Button, Tooltip, Dialog, Banners phải dùng `tr("KEY")` hoặc key CSV tương ứng.
+   - Text có tham số: dùng `tr("KEY") % value` hoặc `tr("KEY") % [val1, val2]`.
+2. **Dynamic UI Refresh**:
+   - Với các script quản lý UI có string khởi tạo runtime bằng code, luôn cài đặt listener:
+   ```gdscript
+   func _notification(what: int) -> void:
+       if what == NOTIFICATION_TRANSLATION_CHANGED:
+           _update_localized_texts()
+   ```
+3. **Quy trình thêm text mới**:
+   - Mở `translations/translations.csv`.
+   - Thêm dòng mới với `KEY` và bản dịch cho đủ 11 ngôn ngữ (không để trống).
+   - Lưu file dưới định dạng UTF-8.
+   - Chạy Editor hoặc `filesystem_manage(op="scan")` để Godot build lại `.translation`.
+4. **Font & Glyph Rendering**:
+   - Font chính `assets/ui/FSEX300.ttf` đã hỗ trợ đầy đủ Latin mở rộng, tiếng Việt có dấu (`àáạảãâ...`), tiếng Nga (Cyrillic).
+   - `assets/ui/FSEX300.ttf.import` đã bật `allow_system_fallback=true` để tự động render mượt mà các ký tự CJK (Nhật/Hàn/Trung) từ font hệ thống của OS mà không bị ô vuông (tofu).
+
 
 

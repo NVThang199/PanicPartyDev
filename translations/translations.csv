@@ -1,0 +1,192 @@
+keys,en,vi,es,fr,de,pt_BR,ru,ja,ko,zh_CN,it
+GAME_TITLE,Party Panic,Party Panic,Party Panic,Party Panic,Party Panic,Party Panic,Party Panic,パーティーパニック,파티 패닉,派对狂欢,Party Panic
+Party Panic,Party Panic,Party Panic,Party Panic,Party Panic,Party Panic,Party Panic,Party Panic,パーティーパニック,파티 패닉,派对狂欢,Party Panic
+HOST_SERVER,Host Server,Tạo Máy Chủ,Crear Servidor,Héberger,Server Erstellen,Hospedar Servidor,Создать Сервер,サーバーをホスト,서버 생성,创建房间,Crea Server
+Host Server,Host Server,Tạo Máy Chủ,Crear Servidor,Héberger,Server Erstellen,Hospedar Servidor,Создать Сервер,サーバーをホスト,서버 생성,创建房间,Crea Server
+JOIN_GAME,Join Game,Vào Game,Unirse,Rejoindre,Spiel Beitreten,Entrar no Jogo,Присоединиться,ゲームに参加,게임 참가,加入游戏,Unisciti
+Join Game,Join Game,Vào Game,Unirse,Rejoindre,Spiel Beitreten,Entrar no Jogo,Присоединиться,ゲームに参加,게임 참가,加入游戏,Unisciti
+SETTINGS,Settings,Cài Đặt,Ajustes,Paramètres,Einstellungen,Configurações,Настройки,設定,설정,设置,Impostazioni
+Settings,Settings,Cài Đặt,Ajustes,Paramètres,Einstellungen,Configurações,Настройки,設定,설정,设置,Impostazioni
+CREDITS,Credits,Thông Tin,Créditos,Crédits,Mitwirkende,Créditos,Авторы,クレジット,크레딧,制作人员,Riconoscimenti
+Credits,Credits,Thông Tin,Créditos,Crédits,Mitwirkende,Créditos,Авторы,クレジット,크레딧,制作人员,Riconoscimenti
+QUIT_GAME,Quit Game,Thoát Game,Salir,Quitter,Beenden,Sair do Jogo,Выйти,ゲーム終了,게임 종료,退出游戏,Esci
+Quit Game,Quit Game,Thoát Game,Salir,Quitter,Beenden,Sair do Jogo,Выйти,ゲーム終了,게임 종료,退出游戏,Esci
+ENTER_ROOM_CODE,Enter room code...,Nhập mã phòng...,Código de sala...,Code de salle...,Raumcode eingeben...,Código da sala...,Код комнаты...,ルームコードを入力...,방 코드 입력...,输入房间代码...,Inserisci codice stanza...
+Nhập mã phòng...,Enter room code...,Nhập mã phòng...,Código de sala...,Code de salle...,Raumcode eingeben...,Código da sala...,Код комнаты...,ルームコードを入力...,방 코드 입력...,输入房间代码...,Inserisci codice stanza...
+JOIN_ROOM,Join,Vào,Entrar,Entrer,Beitreten,Entrar,Войти,参加,입장,进入,Entra
+Vào,Join,Vào,Entrar,Entrer,Beitreten,Entrar,Войти,参加,입장,进入,Entra
+STEAM_REQUIRED_TITLE,Steam Required,Cần Mở Steam,Steam Requerido,Steam Requis,Steam Erforderlich,Steam Necessário,Требуется Steam,Steamが必要です,Steam 필요,需要 Steam,Steam Richiesto
+Cần Mở Steam,Steam Required,Cần Mở Steam,Steam Requerido,Steam Requis,Steam Erforderlich,Steam Necessário,Требуется Steam,Steamが必要です,Steam 필요,需要 Steam,Steam Richiesto
+STEAM_REQUIRED_MSG,"Steam is not running.
+Multiplayer mode requires Steam to connect.","Steam chưa chạy.
+Chế độ multiplayer yêu cầu mở ứng dụng Steam để kết nối.","Steam no se está ejecutando.
+El modo multijugador requiere Steam.","Steam n'est pas lancé.
+Le mode multijoueur requiert Steam.","Steam läuft nicht.
+Mehrspielermodus erfordert Steam.","Steam não está em execução.
+O modo multijogador requer Steam.","Steam не запущен.
+Для мультиплеера требуется Steam.","Steamが起動していません。
+マルチプレイにはSteamが必要です。","Steam이 실행 중이지 않습니다.
+멀티플레이에는 Steam이 필요합니다.","Steam未运行。
+多人模式需要运行Steam。","Steam non è avviato.
+Il multiplayer richiede Steam."
+RETRY,Retry,Thử Lại,Reintentar,Réessayer,Wiederholen,Tentar Novamente,Повторить,再試行,다시 시도,重试,Riprova
+Thử Lại,Retry,Thử Lại,Reintentar,Réessayer,Wiederholen,Tentar Novamente,Повторить,再試行,다시 시도,重试,Riprova
+CREDITS_DIALOG_TITLE,Credits,Thông Tin,Créditos,Crédits,Mitwirkende,Créditos,Авторы,クレジット,크레딧,制作人员,Riconoscimenti
+CREDITS_DIALOG_TEXT,"Party Panic
+Developed with Godot Engine
+Free assets by KayKit","Party Panic
+Phát triển trên Godot Engine
+Asset miễn phí từ KayKit","Party Panic
+Desarrollado con Godot Engine
+Recursos gratis de KayKit","Party Panic
+Développé avec Godot Engine
+Ressources gratuites par KayKit","Party Panic
+Entwickelt mit Godot Engine
+Kostenlose Assets von KayKit","Party Panic
+Desenvolvido com Godot Engine
+Recursos gratuitos por KayKit","Party Panic
+Разработано на Godot Engine
+Бесплатные ассеты от KayKit","Party Panic
+Godot Engineで開発
+無料アセット: KayKit","Party Panic
+Godot Engine으로 개발
+무료 에셋: KayKit","Party Panic
+基于 Godot 引擎开发
+免费资源来自 KayKit","Party Panic
+Sviluppato con Godot Engine
+Risorse gratuite di KayKit"
+SETTINGS_TITLE,SETTINGS,CÀI ĐẶT,AJUSTES,PARAMÈTRES,EINSTELLUNGEN,CONFIGURAÇÕES,НАСТРОЙКИ,設定,설정,设置,IMPOSTAZIONI
+TAB_DISPLAY,Display,Hiển Thị,Pantalla,Affichage,Anzeige,Tela,Экран,画面,디스플레이,显示,Schermo
+Display,Display,Hiển Thị,Pantalla,Affichage,Anzeige,Tela,Экран,画面,디스플레이,显示,Schermo
+TAB_GRAPHICS,Advanced Graphic,Đồ Họa Nâng Cao,Gráficos Avanzados,Graphismes Avancés,Erweiterte Grafik,Gráficos Avançados,Графика,高度なグラフィックス,고급 그래픽,高级画质,Grafica Avanzata
+Advanced Graphic,Advanced Graphic,Đồ Họa Nâng Cao,Gráficos Avanzados,Graphismes Avancés,Erweiterte Grafik,Gráficos Avançados,Графика,高度なグラフィックス,고급 그래픽,高级画质,Grafica Avanzata
+TAB_AUDIO,Audio,Âm Thanh,Audio,Audio,Audio,Áudio,Звук,オーディオ,오디오,音频,Audio
+Audio,Audio,Âm Thanh,Audio,Audio,Audio,Áudio,Звук,オーディオ,오디오,音频,Audio
+TAB_KEYBINDS,Keybind,Phím Điều Khiển,Controles,Touches,Tastenbelegung,Teclas,Управление,キー設定,키 설정,按键绑定,Tasti
+Keybind,Keybind,Phím Điều Khiển,Controles,Touches,Tastenbelegung,Teclas,Управление,キー設定,키 설정,按键绑定,Tasti
+LANGUAGE,Language,Ngôn Ngữ,Idioma,Langue,Sprache,Idioma,Язык,言語,언어,语言,Lingua
+Language,Language,Ngôn Ngữ,Idioma,Langue,Sprache,Idioma,Язык,言語,언어,语言,Lingua
+FULLSCREEN,Fullscreen,Toàn Màn Hình,Pantalla Completa,Plein Écran,Vollbild,Tela Cheia,Полноэкранный,フルスクリーン,전체 화면,全屏,Schermo Intero
+Fullscreen,Fullscreen,Toàn Màn Hình,Pantalla Completa,Plein Écran,Vollbild,Tela Cheia,Полноэкранный,フルスクリーン,전체 화면,全屏,Schermo Intero
+ASPECT_RATIO,Aspect Ratio,Tỉ Lệ Màn Hình,Relación de Aspecto,Format d'Image,Seitenverhältnis,Proporção de Tela,Соотношение сторон,アスペクト比,화면 비율,宽高比,Proporzioni
+Aspect Ratio,Aspect Ratio,Tỉ Lệ Màn Hình,Relación de Aspecto,Format d'Image,Seitenverhältnis,Proporção de Tela,Соотношение сторон,アスペクト比,화면 비율,宽高比,Proporzioni
+RESOLUTION,Resolution,Độ Phân Giải,Resolución,Résolution,Auflösung,Resolução,Разрешение,解像度,해상도,分辨率,Risoluzione
+Resolution,Resolution,Độ Phân Giải,Resolución,Résolution,Auflösung,Resolução,Разрешение,解像度,해상도,分辨率,Risoluzione
+VSYNC,V-Sync,Đồng Bộ Khung Hình (V-Sync),V-Sync,V-Sync,V-Sync,V-Sync,Вертикальная Синхронизация,V-Sync,수직 동기화,垂直同步,V-Sync
+V-Sync,V-Sync,Đồng Bộ Khung Hình (V-Sync),V-Sync,V-Sync,V-Sync,V-Sync,Вертикальная Синхронизация,V-Sync,수직 동기화,垂直同步,V-Sync
+MAX_FPS,Max FPS,FPS Tối Đa,FPS Máximo,FPS Max,Max. FPS,FPS Máximo,Макс. FPS,最大FPS,최대 FPS,最大帧率,FPS Massimo
+Max FPS,Max FPS,FPS Tối Đa,FPS Máximo,FPS Max,Max. FPS,FPS Máximo,Макс. FPS,最大FPS,최대 FPS,最大帧率,FPS Massimo
+GRAPHIC_PRESET,Graphic Preset,Cấu Hình Đồ Họa,Ajuste Gráfico,Préréglage Graphique,Grafik-Voreinstellung,Predefinição Gráfica,Пресет Графики,グラフィックプリセット,그래픽 프리셋,画质预设,Preimpostazione Grafica
+Graphic Preset,Graphic Preset,Cấu Hình Đồ Họa,Ajuste Gráfico,Préréglage Graphique,Grafik-Voreinstellung,Predefinição Gráfica,Пресет Графики,グラフィックプリセット,그래픽 프리셋,画质预设,Preimpostazione Grafica
+PRESET_LOW,Low,Thấp,Bajo,Faible,Niedrig,Baixo,Низкие,低,낮음,低,Basso
+Low,Low,Thấp,Bajo,Faible,Niedrig,Baixo,Низкие,低,낮음,低,Basso
+PRESET_MEDIUM,Medium,Trung Bình,Medio,Moyen,Mittel,Médio,Средние,中,중간,中,Medio
+Medium,Medium,Trung Bình,Medio,Moyen,Mittel,Médio,Средние,中,중간,中,Medio
+PRESET_HIGH,High,Cao,Alto,Élevé,Hoch,Alto,Высокие,高,높음,高,Alto
+High,High,Cao,Alto,Élevé,Hoch,Alto,Высокие,高,높음,高,Alto
+PRESET_ULTRA,Ultra,Tối Đa,Ultra,Ultra,Ultra,Ultra,Ультра,ウルトラ,최고,极致,Ultra
+Ultra,Ultra,Tối Đa,Ultra,Ultra,Ultra,Ultra,Ультра,ウルトラ,최고,极致,Ultra
+PRESET_CUSTOM,Custom,Tùy Chỉnh,Personalizado,Personnalisé,Benutzerdefiniert,Personalizado,Пользовательские,カスタム,사용자 지정,自定义,Personalizzato
+Custom,Custom,Tùy Chỉnh,Personalizado,Personnalisé,Benutzerdefiniert,Personalizado,Пользовательские,カスタム,사용자 지정,自定义,Personalizzato
+FXAA,FXAA,FXAA,FXAA,FXAA,FXAA,FXAA,FXAA,FXAA,FXAA,FXAA,FXAA
+TAA,TAA,TAA,TAA,TAA,TAA,TAA,TAA,TAA,TAA,TAA,TAA
+MSAA,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D
+MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D,MSAA 3D
+FSR_MODE,FSR Mode,Chế Độ FSR,Modo FSR,Mode FSR,FSR-Modus,Modo FSR,Режим FSR,FSRモード,FSR 모드,FSR 模式,Modalità FSR
+FSR Mode,FSR Mode,Chế Độ FSR,Modo FSR,Mode FSR,FSR-Modus,Modo FSR,Режим FSR,FSRモード,FSR 모드,FSR 模式,Modalità FSR
+FSR_SCALE,FSR Scale,Tỉ Lệ FSR,Escala FSR,Échelle FSR,FSR-Skalierung,Escala FSR,Масштаб FSR,FSRスケール,FSR 배율,FSR 比例,Scala FSR
+FSR Scale,FSR Scale,Tỉ Lệ FSR,Escala FSR,Échelle FSR,FSR-Skalierung,Escala FSR,Масштаб FSR,FSRスケール,FSR 배율,FSR 比例,Scala FSR
+FSR_SHARPNESS,FSR Sharpness,Độ Sắc Nét FSR,Nitidez FSR,Netteté FSR,FSR-Schärfe,Nitidez FSR,Резкость FSR,FSRシャープネス,FSR 선명도,FSR 锐度,Nitidezza FSR
+FSR Sharpness,FSR Sharpness,Độ Sắc Nét FSR,Nitidez FSR,Netteté FSR,FSR-Schärfe,Nitidez FSR,Резкость FSR,FSRシャープネス,FSR 선명도,FSR 锐度,Nitidezza FSR
+SHADOW_QUALITY,Shadow Quality,Chất Lượng Bóng,Calidad de Sombras,Qualité des Ombres,Schattenqualität,Qualidade das Sombras,Качество Теней,影の品質,그림자 품질,阴影质量,Qualità Ombre
+Shadow Quality,Shadow Quality,Chất Lượng Bóng,Calidad de Sombras,Qualité des Ombres,Schattenqualität,Qualidade das Sombras,Качество Теней,影の品質,그림자 품질,阴影质量,Qualità Ombre
+SSAO,SSAO,SSAO,SSAO,SSAO,SSAO,SSAO,SSAO,SSAO,SSAO,SSAO,SSAO
+SSIL,SSIL,SSIL,SSIL,SSIL,SSIL,SSIL,SSIL,SSIL,SSIL,SSIL,SSIL
+SSR,SSR,SSR,SSR,SSR,SSR,SSR,SSR,SSR,SSR,SSR,SSR
+GLOW,Glow,Hiệu Ứng Phát Sáng (Glow),Resplandor,Lueur,Leuchten,Brilho,Свечение,発光 (Glow),글로우,泛光 (Glow),Bagliore
+Glow,Glow,Hiệu Ứng Phát Sáng (Glow),Resplandor,Lueur,Leuchten,Brilho,Свечение,発光 (Glow),글로우,泛光 (Glow),Bagliore
+MASTER_VOLUME,Master Volume,Âm Lượng Tổng,Volumen Principal,Volume Principal,Gesamtlautstärke,Volume Geral,Общая Громкость,マスター音量,마스터 볼륨,主音量,Volume Principale
+Master Volume,Master Volume,Âm Lượng Tổng,Volumen Principal,Volume Principal,Gesamtlautstärke,Volume Geral,Общая Громкость,マスター音量,마스터 볼륨,主音量,Volume Principale
+MUSIC_VOLUME,Music Volume,Âm Lượng Nhạc,Volumen de Música,Volume Musique,Musiklautstärke,Volume da Música,Громкость Музыки,音楽音量,음악 볼륨,音乐音量,Volume Musica
+Music Volume,Music Volume,Âm Lượng Nhạc,Volumen de Música,Volume Musique,Musiklautstärke,Volume da Música,Громкость Музыки,音楽音量,음악 볼륨,音乐音量,Volume Musica
+SFX_VOLUME,SFX Volume,Âm Lượng Hiệu Ứng,Volumen de Efectos,Volume Effets,Effektlautstärke,Volume dos Efeitos,Громкость Эффектов,効果音音量,효과음 볼륨,音效音量,Volume Effetti
+SFX Volume,SFX Volume,Âm Lượng Hiệu Ứng,Volumen de Efectos,Volume Effets,Effektlautstärke,Volume dos Efeitos,Громкость Эффектов,効果音音量,효과음 볼륨,音效音量,Volume Effetti
+AUDIO_OUTPUT_DEVICE,Audio Output Device,Thiết Bị Đầu Ra,Dispositivo de Audio,Périphérique Audio,Ausgabegerät,Dispositivo de Saída,Устройство Вывода,出力デバイス,출력 장치,音频输出设备,Dispositivo di Uscita
+Audio Output Device,Audio Output Device,Thiết Bị Đầu Ra,Dispositivo de Audio,Périphérique Audio,Ausgabegerät,Dispositivo de Saída,Устройство Вывода,出力デバイス,출력 장치,音频输出设备,Dispositivo di Uscita
+AUDIO_MODE,Audio Mode,Chế Độ Âm Thanh,Modo de Audio,Mode Audio,Audiomodus,Modo de Áudio,Режим Аудио,オーディオモード,오디오 모드,音频模式,Modalità Audio
+Audio Mode,Audio Mode,Chế Độ Âm Thanh,Modo de Audio,Mode Audio,Audiomodus,Modo de Áudio,Режим Аудио,オーディオモード,오디오 모드,音频模式,Modalità Audio
+AUDIO_STEREO,Stereo,Âm Thanh Vòm (Stereo),Estéreo,Stéréo,Stereo,Estéreo,Стерео,ステレオ,스테레오,立体声,Stereo
+Stereo,Stereo,Âm Thanh Vòm (Stereo),Estéreo,Stéréo,Stereo,Estéreo,Стерео,ステレオ,스테레오,立体声,Stereo
+AUDIO_MONO,Mono,Đơn Âm (Mono),Mono,Mono,Mono,Mono,Моно,モノラル,모노,单声道,Mono
+Mono,Mono,Đơn Âm (Mono),Mono,Mono,Mono,Mono,Моно,モノラル,모노,单声道,Mono
+KEY_NONE,None,Chưa Gán,Ninguno,Aucun,Keine,Nenhum,Нет,なし,없음,无,Nessuno
+None,None,Chưa Gán,Ninguno,Aucun,Keine,Nenhum,Нет,なし,없음,无,Nessuno
+PRESS_ANY_KEY,Press any key...,Nhấn phím bất kỳ...,Presiona una tecla...,Appuyez sur une touche...,Beliebige Taste drücken...,Pressione qualquer tecla...,Нажмите любую клавишу...,キーを押してください...,아무 키나 누르세요...,按任意键...,Premi un tasto...
+ACTION_MOVE_FORWARD,Move Forward,Đi Tới,Mover Adelante,Avancer,Vorwärts,Mover para Frente,Вперед,前進,앞으로 이동,向前移动,Avanti
+Move Forward,Move Forward,Đi Tới,Mover Adelante,Avancer,Vorwärts,Mover para Frente,Вперед,前進,앞으로 이동,向前移动,Avanti
+ACTION_MOVE_BACKWARD,Move Backward,Đi Lùi,Mover Atrás,Reculer,Rückwärts,Mover para Trás,Назад,後退,뒤로 이동,向后移动,Indietro
+Move Backward,Move Backward,Đi Lùi,Mover Atrás,Reculer,Rückwärts,Mover para Trás,Назад,後退,뒤로 이동,向后移动,Indietro
+ACTION_MOVE_LEFT,Move Left,Sang Trái,Mover Izquierda,Gauche,Nach Links,Mover para Esquerda,Влево,左移動,왼쪽으로 이동,向左移动,Sinistra
+Move Left,Move Left,Sang Trái,Mover Izquierda,Gauche,Nach Links,Mover para Esquerda,Влево,左移動,왼쪽으로 이동,向左移动,Sinistra
+ACTION_MOVE_RIGHT,Move Right,Sang Phải,Mover Derecha,Droite,Nach Rechts,Mover para Direita,Вправо,右移動,오른쪽으로 이동,向右移动,Destra
+Move Right,Move Right,Sang Phải,Mover Derecha,Droite,Nach Rechts,Mover para Direita,Вправо,右移動,오른쪽으로 이동,向右移动,Destra
+ACTION_PUSH,Push / Kick,Đẩy / Đá,Empujar / Patear,Pousser / Frapper,Schubsen / Treten,Empurrar / Chutar,Толкнуть / Пнуть,押す / キック,밀치기 / 발차기,推 / 踢,Spingi / Calcia
+Push / Kick,Push / Kick,Đẩy / Đá,Empujar / Patear,Pousser / Frapper,Schubsen / Treten,Empurrar / Chutar,Толкнуть / Пнуть,押す / キック,밀치기 / 발차기,推 / 踢,Spingi / Calcia
+ACTION_THROW_BOMB,Throw Bomb,Ném Bom,Lanzar Bomba,Lancer la Bombe,Bombe Werfen,Lançar Bomba,Бросить Бомбу,爆弾を投げる,폭탄 던지기,扔炸弹,Lancia Bomba
+Throw Bomb,Throw Bomb,Ném Bom,Lanzar Bomba,Lancer la Bombe,Bombe Werfen,Lançar Bomba,Бросить Бомбу,爆弾を投げる,폭탄 던지기,扔炸弹,Lancia Bomba
+BTN_APPLY,Apply,Áp Dụng,Aplicar,Appliquer,Anwenden,Aplicar,Применить,適用,적용,应用,Applica
+Apply,Apply,Áp Dụng,Aplicar,Appliquer,Anwenden,Aplicar,Применить,適用,적용,应用,Applica
+BTN_CLOSE,Close,Đóng,Cerrar,Fermer,Schließen,Fechar,Закрыть,閉じる,닫기,关闭,Chiudi
+Close,Close,Đóng,Cerrar,Fermer,Schließen,Fechar,Закрыть,閉じる,닫기,关闭,Chiudi
+CHOOSE_YOUR_CHARACTER,CHOOSE YOUR CHARACTER,CHỌN NHÂN VẬT CỦA BẠN,ELIGE TU PERSONAJE,CHOISISSEZ VOTRE PERSONNAGE,WÄHLE DEINEN CHARAKTER,ESCOLHA SEU PERSONAGEM,ВЫБЕРИТЕ ПЕРСОНАЖА,キャラクターを選択,캐릭터 선택,选择你的角色,SCEGLI IL TUO PERSONAGGIO
+SELECT_A_CHARACTER,Select a character,Chọn một nhân vật,Selecciona un personaje,Sélectionnez un personnage,Wähle einen Charakter,Selecione um personagem,Выберите героя,キャラクターを選んでください,캐릭터를 선택하세요,请选择角色,Seleziona un personaggio
+Select a character,Select a character,Chọn một nhân vật,Selecciona un personaje,Sélectionnez un personnage,Wähle einen Charakter,Selecione um personagem,Выберите героя,キャラクターを選んでください,캐릭터를 선택하세요,请选择角色,Seleziona un personaggio
+BACK,Back,Quay Lại,Volver,Retour,Zurück,Voltar,Назад,戻る,뒤로,返回,Indietro
+Back,Back,Quay Lại,Volver,Retour,Zurück,Voltar,Назад,戻る,뒤로,返回,Indietro
+CONFIRM,Confirm,Xác Nhận,Confirmar,Confirmer,Bestätigen,Confirmar,Подтвердить,決定,확인,确认,Conferma
+Confirm,Confirm,Xác Nhận,Confirmar,Confirmer,Bestätigen,Confirmar,Подтвердить,決定,확인,确认,Conferma
+CHAR_KNIGHT,Knight,Hiệp Sĩ,Caballero,Chevalier,Ritter,Cavaleiro,Рыцарь,騎士,기사,骑士,Cavaliere
+Knight,Knight,Hiệp Sĩ,Caballero,Chevalier,Ritter,Cavaleiro,Рыцарь,騎士,기사,骑士,Cavaliere
+CHAR_BARBARIAN,Barbarian,Chiến Binh Man Tộc,Bárbaro,Barbare,Barbar,Bárbaro,Варвар,バーバリアン,바바리안,野蛮人,Barbaro
+Barbarian,Barbarian,Chiến Binh Man Tộc,Bárbaro,Barbare,Barbar,Bárbaro,Варвар,バーバリアン,바바리안,野蛮人,Barbaro
+CHAR_MAGE,Mage,Pháp Sư,Mago,Mage,Magier,Mago,Маг,魔法使い,마법사,法师,Mago
+Mage,Mage,Pháp Sư,Mago,Mage,Magier,Mago,Маг,魔法使い,마법사,法师,Mago
+CHAR_RANGER,Ranger,Cung Thủ,Explorador,Rôdeur,Waldläufer,Patrulheiro,Следопыт,レンジャー,레인저,游侠,Ranger
+Ranger,Ranger,Cung Thủ,Explorador,Rôdeur,Waldläufer,Patrulheiro,Следопыт,レンジャー,레인저,游侠,Ranger
+CHAR_ROGUE,Rogue,Sát Thủ,Pícaro,Voleur,Schurke,Ladino,Разбойник,ローグ,도적,刺客,Ladro
+Rogue,Rogue,Sát Thủ,Pícaro,Voleur,Schurke,Ladino,Разбойник,ローグ,도적,刺客,Ladro
+MENU,MENU,MENU,MENÚ,MENU,MENÜ,MENU,МЕНЮ,メニュー,메뉴,菜单,MENU
+LOADING,Loading...,Đang tải...,Cargando...,Chargement...,Laden...,Carregando...,Загрузка...,読み込み中...,로딩 중...,加载中...,Caricamento...
+Loading...,Loading...,Đang tải...,Cargando...,Chargement...,Laden...,Carregando...,Загрузка...,読み込み中...,로딩 중...,加载中...,Caricamento...
+PAUSE,PAUSE,TẠM DỪNG,PAUSA,PAUSE,PAUSE,PAUSA,ПАУЗА,ポーズ,일시정지,暂停,PAUSA
+INVITE,INVITE,MỜI BẠN,INVITAR,INVITER,EINLADEN,CONVIDAR,ПРИГЛАСИТЬ,招待,초대,邀请,INVITA
+BACK_TO_MENU,BACK TO MENU,VỀ MENU CHÍNH,VOLVER AL MENÚ,RETOUR AU MENU,ZURÜCK ZUM MENÜ,VOLTAR AO MENU,В ГЛАВНОЕ МЕНЮ,メニューへ戻る,메인 메뉴로,返回主菜单,TORNA AL MENU
+MAPS_DEBUG,MAPS (DEBUG),BẢN ĐỒ (DEBUG),MAPAS (DEBUG),CARTES (DEBUG),KARTEN (DEBUG),MAPAS (DEBUG),КАРТЫ (DEBUG),マップ (DEBUG),맵 (디버그),地图 (DEBUG),MAPPE (DEBUG)
+MAP_LOBBY,Lobby,Phòng Chờ,Sala,Salon,Lobby,Lobby,Лобби,ロビー,로비,大厅,Lobby
+Lobby,Lobby,Phòng Chờ,Sala,Salon,Lobby,Lobby,Лобби,ロビー,로비,大厅,Lobby
+MAP_HOT_BOMB,Hot Bomb,Bom Nổ Chậm,Bomba Caliente,Bombe Chaude,Heiße Bombe,Bomba Quente,Горячая Бомба,ホットボム,핫 밤,烫手炸弹,Bomba Calda
+Hot Bomb,Hot Bomb,Bom Nổ Chậm,Bomba Caliente,Bombe Chaude,Heiße Bombe,Bomba Quente,Горячая Бомба,ホットボム,핫 밤,烫手炸弹,Bomba Calda
+MAP_STABLE_FOOTING,Stable Footing,Đứng Vững,Pies Firmes,Pied Ferme,Fester Boden,Pé Firme,Твердая Почва,足場サバイバル,흔들리는 발판,稳健立足,Passo Sicuro
+Stable Footing,Stable Footing,Đứng Vững,Pies Firmes,Pied Ferme,Fester Boden,Pé Firme,Твердая Почва,足場サバイバル,흔들리는 발판,稳健立足,Passo Sicuro
+READY,READY,SẴN SÀNG,LISTO,PRÊT,BEREIT,PRONTO,ГОТОВ,準備完了,준비,准备,PRONTO
+UNREADY,UNREADY,HỦY SẴN SÀNG,CANCELAR,ANNULER,NICHT BEREIT,CANCELAR,ОТМЕНА,キャンセル,준비 취소,取消准备,NON PRONTO
+START,START,BẮT ĐẦU,INICIAR,COMMENCER,START,INICIAR,СТАРТ,スタート,시작,开始,AVVIA
+COPY_ROOM_CODE,COPY ROOM CODE,COPY MÃ PHÒNG,COPIAR CÓDIGO,COPIER CODE,CODE KOPIEREN,COPIAR CÓDIGO,СКОПИРОВАТЬ КОД,コードをコピー,방 코드 복사,复制房间代码,COPIA CODICE
+COPY MÃ PHÒNG,COPY ROOM CODE,COPY MÃ PHÒNG,COPIAR CÓDIGO,COPIER CODE,CODE KOPIEREN,COPIAR CÓDIGO,СКОПИРОВАТЬ КОД,コードをコピー,방 코드 복사,复制房间代码,COPIA CODICE
+COPIED,COPIED!,ĐÃ COPY!,¡COPIADO!,COPIÉ !,KOPIERT!,COPIADO!,СКОПИРОВАНО!,コピー完了!,복사됨!,已复制!,COPIATO!
+ĐÃ COPY!,COPIED!,ĐÃ COPY!,¡COPIADO!,COPIÉ !,KOPIERT!,COPIADO!,СКОПИРОВАНО!,コピー完了!,복사됨!,已复制!,COPIATO!
+PLAYERS,PLAYERS,NGƯỜI CHƠI,JUGADORES,JOUEURS,SPIELER,JOGADORES,ИГРОКИ,プレイヤー,플레이어,玩家列表,GIOCATORI
+PING,PING,PING,PING,PING,PING,PING,ПИНГ,PING,핑,延迟 (PING),PING
+HOST,HOST,CHỦ PHÒNG,ANFITRIÓN,HÔTE,HOST,ANFITRIÃO,ХОСТ,ホスト,방장,房主,HOST
+STATUS_READY,[READY],[SẴN SÀNG],[LISTO],[PRÊT],[BEREIT],[PRONTO],[ГОТОВ],[準備完了],[준비 완료],[已准备],[PRONTO]
+STATUS_NOT_READY,[NOT READY],[CHƯA SẴN SÀNG],[NO LISTO],[PAS PRÊT],[NICHT BEREIT],[NÃO PRONTO],[НЕ ГОТОВ],[未準備],[준비 안 됨],[未准备],[NON PRONTO]
+MATCH_TIMER,Match: %d,Trận đấu: %d,Partida: %d,Partie : %d,Spiel: %d,Partida: %d,Матч: %d,試合: %d,경기: %d,比赛: %d,Partita: %d
+BOMB_TIMER,Bomb: %d,Bom: %d,Bomba: %d,Bombe : %d,Bombe: %d,Bomba: %d,Бомба: %d,爆弾: %d,폭탄: %d,炸弹: %d,Bomba: %d
+PLAYER_WINS,%s WINS!,%s CHIẾN THẮNG!,¡%s GANA!,%s GAGNE !,%s GEWINNT!,%s VENCEU!,%s ПОБЕДИЛ!,%s の勝利!,%s 승리!,%s 获胜!,%s VINCE!
+PLAYER WINS!,PLAYER WINS!,CHIẾN THẮNG!,¡VICTORIA!,VICTOIRE !,SIEG!,VITÓRIA!,ПОБЕДА!,勝利!,승리!,获胜!,VITTORIA!
+DRAW,DRAW!,HÒA!,¡EMPATE!,ÉGALITÉ !,UNENTSCHIEDEN!,EMPATE!,НИЧЬЯ!,引き分け!,무승부!,平局!,PAREGGIO!
+DRAW!,DRAW!,HÒA!,¡EMPATE!,ÉGALITÉ !,UNENTSCHIEDEN!,EMPATE!,НИЧЬЯ!,引き分け!,무승부!,平局!,PAREGGIO!
+SURVIVORS,SURVIVORS!,SỐNG SÓT!,¡SUPERVIVIENTES!,SURVIVANTS !,ÜBERLEBENDE!,SOBREVIVENTES!,ВЫЖИВШИЕ!,生存者!,생존자!,幸存者!,SOPRAVVISSUTI!
+SURVIVORS!,SURVIVORS!,SỐNG SÓT!,¡SUPERVIVIENTES!,SURVIVANTS !,ÜBERLEBENDE!,SOBREVIVENTES!,ВЫЖИВШИЕ!,生存者!,생존자!,幸存者!,SOPRAVVISSUTI!
+RETURN_TO_LOBBY,Return to Lobby,Về Phòng Chờ,Volver a la Sala,Retour au Salon,Zurück zur Lobby,Voltar ao Lobby,Вернуться в лобби,ロビーに戻る,로비로 돌아가기,返回大厅,Torna alla Lobby
+Return to Lobby,Return to Lobby,Về Phòng Chờ,Volver a la Sala,Retour au Salon,Zurück zur Lobby,Voltar ao Lobby,Вернуться в лобби,ロビーに戻る,로비로 돌아가기,返回大厅,Torna alla Lobby

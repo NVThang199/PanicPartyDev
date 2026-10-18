@@ -3,7 +3,7 @@ extends Node3D
 enum GameState { INITIALIZING, PLAYING, ENDED }
 
 const PLAYER_SCENE = preload("res://scenes/players/player.tscn")
-const BOMB_SCENE = preload("res://scenes/minigames/bomb.tscn")
+const BOMB_SCENE = preload("res://scenes/minigames/hot_bomb/bomb.tscn")
 const MATCH_DURATION = 60.0
 const BOMB_DURATION = 15.0
 
@@ -13,6 +13,7 @@ var player_states: Dictionary = {}  # peer_id -> {alive: bool, death_timer: floa
 var bomb: Node = null
 var current_bomb_holder: int = -1
 var match_timer: float = MATCH_DURATION
+var _last_bomb_countdown_sec: int = -1
 
 @onready var match_timer_label: Label = $UI/MatchTimerLabel
 @onready var bomb_timer_label: Label = $UI/BombTimerLabel
@@ -173,13 +174,23 @@ func _process(delta: float) -> void:
 
 		sync_match_timer.rpc(match_timer)
 
-	# Update UI
+	# Update UI & countdown audio
 	if match_timer_label:
-		match_timer_label.text = "Match: %d" % int(max(0, match_timer))
+		match_timer_label.text = tr("MATCH_TIMER") % int(max(0, match_timer))
 	if bomb_timer_label and bomb and is_instance_valid(bomb):
-		bomb_timer_label.text = "Bomb: %d" % int(max(0, bomb.timer))
+		bomb_timer_label.text = tr("BOMB_TIMER") % int(max(0, bomb.timer))
 		if multiplayer.is_server():
 			sync_bomb_timer.rpc(bomb.timer)
+
+		# Urgent audio countdown tick in final 3 seconds
+		if bomb.timer > 0.0 and bomb.timer <= 3.0:
+			var sec = int(ceil(bomb.timer))
+			if sec != _last_bomb_countdown_sec:
+				_last_bomb_countdown_sec = sec
+				if AudioManager:
+					AudioManager.play_countdown_tick()
+		else:
+			_last_bomb_countdown_sec = -1
 
 @rpc("authority", "call_local", "reliable")
 func sync_game_state(new_state: int) -> void:
@@ -228,7 +239,11 @@ func throw_bomb(thrower_id: int, direction: Vector3) -> void:
 	bomb.throw(direction)
 	current_bomb_holder = -1
 
-	throw_bomb_rpc.rpc(thrower_id, throw_origin, direction)
+	var has_peer = multiplayer and multiplayer.multiplayer_peer and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED
+	if has_peer:
+		throw_bomb_rpc.rpc(thrower_id, throw_origin, direction)
+	else:
+		throw_bomb_rpc(thrower_id, throw_origin, direction)
 
 @rpc("authority", "call_local", "reliable")
 func throw_bomb_rpc(thrower_id: int, origin: Vector3, direction: Vector3) -> void:
@@ -249,6 +264,8 @@ func throw_bomb_rpc(thrower_id: int, origin: Vector3, direction: Vector3) -> voi
 	bomb.throw_grace_timer = 0.8
 	bomb.throw(direction)
 	current_bomb_holder = -1
+	if AudioManager:
+		AudioManager.play_bomb_throw(origin)
 
 func _on_bomb_caught(catcher_id: int) -> void:
 	if not multiplayer.is_server():
@@ -259,7 +276,11 @@ func _on_bomb_caught(catcher_id: int) -> void:
 	if catcher and is_instance_valid(catcher):
 		catcher.pick_up_bomb(bomb)
 
-	bomb_caught_rpc.rpc(catcher_id)
+	var has_peer = multiplayer and multiplayer.multiplayer_peer and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED
+	if has_peer:
+		bomb_caught_rpc.rpc(catcher_id)
+	else:
+		bomb_caught_rpc(catcher_id)
 
 @rpc("authority", "call_local", "reliable")
 func bomb_caught_rpc(catcher_id: int) -> void:
@@ -275,6 +296,8 @@ func bomb_caught_rpc(catcher_id: int) -> void:
 	if catcher and is_instance_valid(catcher):
 		catcher.pick_up_bomb(bomb)
 		bomb.attach_to_holder(catcher, catcher_id)
+		if AudioManager:
+			AudioManager.play_bomb_catch(catcher.global_position)
 
 func _on_bomb_exploded(holder_id: int) -> void:
 	if not multiplayer.is_server():
@@ -357,13 +380,15 @@ func _start_auto_return() -> void:
 
 @rpc("authority", "call_local", "reliable")
 func show_winner_banner(winner_id: int) -> void:
+	if AudioManager:
+		AudioManager.play_game_win()
 	if winner_banner:
 		winner_banner.visible = true
 	if winner_label:
 		if winner_id > 0 and winner_id in player_states:
-			winner_label.text = "%s WINS!" % player_states[winner_id].name
+			winner_label.text = tr("PLAYER_WINS") % player_states[winner_id].name
 		else:
-			winner_label.text = "DRAW!"
+			winner_label.text = tr("DRAW")
 
 func _on_return_pressed() -> void:
 	if multiplayer.is_server():
@@ -388,13 +413,39 @@ func return_to_lobby() -> void:
 		bomb.set_physics_process(false)
 	get_tree().change_scene_to_file("res://scenes/core/main.tscn")
 
+@rpc("any_peer", "reliable")
+func request_push(target_peer_id: int, push_dir: Vector3) -> void:
+	if not multiplayer.is_server():
+		return
+	var sender_id = multiplayer.get_remote_sender_id()
+	var sender_player = players.get(sender_id)
+	var target_player = players.get(target_peer_id)
+	if not sender_player or not target_player:
+		return
+	var dist = sender_player.global_position.distance_to(target_player.global_position)
+	if dist > 2.2 + 1.5:
+		return
+	if target_peer_id == multiplayer.get_unique_id():
+		target_player.apply_knockback(push_dir)
+	else:
+		apply_knockback_rpc.rpc_id(target_peer_id, push_dir)
+
+@rpc("authority", "reliable")
+func apply_knockback_rpc(push_dir: Vector3) -> void:
+	if not is_inside_tree():
+		return
+	var local_id = multiplayer.get_unique_id()
+	var player = players.get(local_id)
+	if player and is_instance_valid(player):
+		player.apply_knockback(push_dir)
+
 @rpc("authority", "unreliable")
 func sync_match_timer(time_left: float) -> void:
 	if multiplayer.is_server():
 		return
 	match_timer = time_left
 	if match_timer_label:
-		match_timer_label.text = "Match: %d" % int(max(0, match_timer))
+		match_timer_label.text = tr("MATCH_TIMER") % int(max(0, match_timer))
 
 @rpc("authority", "unreliable")
 func sync_bomb_timer(time_left: float) -> void:
@@ -403,7 +454,7 @@ func sync_bomb_timer(time_left: float) -> void:
 	if bomb and is_instance_valid(bomb):
 		bomb.timer = time_left
 	if bomb_timer_label:
-		bomb_timer_label.text = "Bomb: %d" % int(max(0, time_left))
+		bomb_timer_label.text = tr("BOMB_TIMER") % int(max(0, time_left))
 
 func _on_peer_disconnected(peer_id: int) -> void:
 	if peer_id in players:

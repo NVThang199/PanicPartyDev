@@ -16,18 +16,36 @@ const CHARACTERS := {
 @onready var selected_label: Label = $Margin/Content/Footer/SelectedLabel
 var model: Node3D
 var anim_player: AnimationPlayer
+var current_character_name: String = "Knight"
+var char_buttons: Dictionary = {}
 
 func _ready() -> void:
 	for character_name in CHARACTERS:
 		var button := Button.new()
-		button.text = character_name
+		button.text = tr(character_name)
 		button.pressed.connect(_select_character.bind(character_name))
 		$Margin/Content/Body/LeftPanel/CharacterButtons.add_child(button)
+		char_buttons[character_name] = button
 	_select_character("Knight")
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED:
+		if not is_node_ready():
+			return
+		_update_ui_text()
+
+func _update_ui_text() -> void:
+	for character_name in char_buttons:
+		var btn: Button = char_buttons[character_name]
+		if is_instance_valid(btn):
+			btn.text = tr(character_name)
+	if selected_label and current_character_name != "":
+		selected_label.text = tr(current_character_name)
+
 func _select_character(character_name: String) -> void:
+	current_character_name = character_name
 	GameSession.selected_character = CHARACTERS[character_name]
-	selected_label.text = character_name
+	selected_label.text = tr(character_name)
 	if model:
 		model.queue_free()
 	model = load(GameSession.selected_character).instantiate()

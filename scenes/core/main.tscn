@@ -42,6 +42,7 @@ shape = SubResource("BoxShape3D_floor")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1740177398]
 transform = Transform3D(0.99966156, 0, 0, 0, 0.99966156, 0, 0, 0, 0.99966156, -15.204, 0, -70.63)
 material_override = SubResource("StandardMaterial3D_lwqq7")
+cast_shadow = 0
 lod_bias = 0.001
 gi_lightmap_texel_scale = 0.01
 mesh = SubResource("BoxMesh_floor")
@@ -71,10 +72,7 @@ transform = Transform3D(-0.98510927, 0.15996589, 0.06301223, 0, -0.36650127, 0.9
 light_color = Color(1, 0.9607843, 0.91764706, 1)
 light_energy = 1.2
 shadow_enabled = true
-shadow_bias = 0.02
-shadow_normal_bias = 1.5
-shadow_blur = 2.681
-directional_shadow_mode = 1
+shadow_blur = 1.5
 directional_shadow_blend_splits = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=-2060399406]
@@ -205,100 +203,6 @@ offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MapSelectPanel" type="PanelContainer" parent="UI"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -180.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = 320.0
-grow_horizontal = 0
-
-[node name="Margin" type="MarginContainer" parent="UI/MapSelectPanel"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="VBox" type="VBoxContainer" parent="UI/MapSelectPanel/Margin"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Title" type="Label" parent="UI/MapSelectPanel/Margin/VBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "MAPS (DEBUG)"
-horizontal_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="UI/MapSelectPanel/Margin/VBox"]
-layout_mode = 2
-
-[node name="BtnLobby" type="Button" parent="UI/MapSelectPanel/Margin/VBox"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "Lobby"
-
-[node name="BtnHotBomb" type="Button" parent="UI/MapSelectPanel/Margin/VBox"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "Hot Bomb"
-
-[node name="BtnStableFooting" type="Button" parent="UI/MapSelectPanel/Margin/VBox"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "Stable Footing"
-
-[node name="LobbyPanel" type="PanelContainer" parent="UI"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -180.0
-offset_top = -80.0
-offset_right = 180.0
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Margin" type="MarginContainer" parent="UI/LobbyPanel"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 12
-
-[node name="HBox" type="HBoxContainer" parent="UI/LobbyPanel/Margin"]
-layout_mode = 2
-theme_override_constants/separation = 16
-alignment = 1
-
-[node name="BtnReady" type="Button" parent="UI/LobbyPanel/Margin/HBox"]
-custom_minimum_size = Vector2(140, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "READY"
-
-[node name="BtnStart" type="Button" parent="UI/LobbyPanel/Margin/HBox"]
-visible = false
-custom_minimum_size = Vector2(140, 40)
-layout_mode = 2
-disabled = true
-theme_override_font_sizes/font_size = 16
-text = "START"
-
-[node name="BtnCopyCode" type="Button" parent="UI/LobbyPanel/Margin/HBox"]
-visible = false
-custom_minimum_size = Vector2(140, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "COPY MÃ PHÒNG"
-
 [node name="Margin" type="MarginContainer" parent="UI/TabOverlay" unique_id=359929586]
 layout_mode = 2
 theme_override_constants/margin_left = 20
@@ -332,6 +236,100 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
+
+[node name="MapSelectPanel" type="PanelContainer" parent="UI" unique_id=963995091]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 320.0
+grow_horizontal = 0
+
+[node name="Margin" type="MarginContainer" parent="UI/MapSelectPanel" unique_id=593250414]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="UI/MapSelectPanel/Margin" unique_id=1783651156]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="UI/MapSelectPanel/Margin/VBox" unique_id=2029025602]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "MAPS (DEBUG)"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="UI/MapSelectPanel/Margin/VBox" unique_id=402816610]
+layout_mode = 2
+
+[node name="BtnLobby" type="Button" parent="UI/MapSelectPanel/Margin/VBox" unique_id=834789915]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Lobby"
+
+[node name="BtnHotBomb" type="Button" parent="UI/MapSelectPanel/Margin/VBox" unique_id=821303639]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Hot Bomb"
+
+[node name="BtnStableFooting" type="Button" parent="UI/MapSelectPanel/Margin/VBox" unique_id=1204383326]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Stable Footing"
+
+[node name="LobbyPanel" type="PanelContainer" parent="UI" unique_id=22028294]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -80.0
+offset_right = 180.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Margin" type="MarginContainer" parent="UI/LobbyPanel" unique_id=1307269015]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="HBox" type="HBoxContainer" parent="UI/LobbyPanel/Margin" unique_id=345088895]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="BtnReady" type="Button" parent="UI/LobbyPanel/Margin/HBox" unique_id=2004456283]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "READY"
+
+[node name="BtnStart" type="Button" parent="UI/LobbyPanel/Margin/HBox" unique_id=466568098]
+visible = false
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+disabled = true
+text = "START"
+
+[node name="BtnCopyCode" type="Button" parent="UI/LobbyPanel/Margin/HBox" unique_id=1173762465]
+visible = false
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "COPY_ROOM_CODE"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=-1294967296]
 transform = Transform3D(1, 0, 0, 0, 0.9766723, 0.21473533, 0, -0.21473533, 0.9766723, 0, 7.641, 17.051)

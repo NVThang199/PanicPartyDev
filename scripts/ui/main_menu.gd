@@ -15,8 +15,27 @@ func _ready() -> void:
 	if code_input:
 		code_input.text_submitted.connect(func(_text): _on_join_code_pressed())
 
+	_update_ui_text()
+
 	if not Steam.isSteamRunning():
 		_show_steam_warning()
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED:
+		if not is_node_ready():
+			return
+		_update_ui_text()
+
+func _update_ui_text() -> void:
+	if code_input:
+		code_input.placeholder_text = tr("ENTER_ROOM_CODE")
+	if btn_join_code:
+		btn_join_code.text = tr("JOIN_ROOM")
+	if steam_warning_dialog and is_instance_valid(steam_warning_dialog):
+		steam_warning_dialog.title = tr("STEAM_REQUIRED_TITLE")
+		steam_warning_dialog.dialog_text = tr("STEAM_REQUIRED_MSG")
+		steam_warning_dialog.ok_button_text = tr("RETRY")
+		steam_warning_dialog.cancel_button_text = tr("QUIT_GAME")
 
 func _show_steam_warning() -> void:
 	if steam_warning_dialog and is_instance_valid(steam_warning_dialog):
@@ -24,10 +43,10 @@ func _show_steam_warning() -> void:
 		return
 
 	steam_warning_dialog = ConfirmationDialog.new()
-	steam_warning_dialog.title = "Cần Mở Steam"
-	steam_warning_dialog.dialog_text = "Steam chưa chạy.\nChế độ multiplayer yêu cầu mở ứng dụng Steam để kết nối."
-	steam_warning_dialog.ok_button_text = "Thử Lại"
-	steam_warning_dialog.cancel_button_text = "Thoát Game"
+	steam_warning_dialog.title = tr("STEAM_REQUIRED_TITLE")
+	steam_warning_dialog.dialog_text = tr("STEAM_REQUIRED_MSG")
+	steam_warning_dialog.ok_button_text = tr("RETRY")
+	steam_warning_dialog.cancel_button_text = tr("QUIT_GAME")
 	steam_warning_dialog.confirmed.connect(_on_steam_retry)
 	steam_warning_dialog.canceled.connect(_on_steam_quit)
 	add_child(steam_warning_dialog)

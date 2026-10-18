@@ -1,7 +1,7 @@
 extends SceneTree
 
 func _init():
-	var bomb_scene = load("res://scenes/minigames/bomb.tscn")
+	var bomb_scene = load("res://scenes/minigames/hot_bomb/bomb.tscn")
 	var b = bomb_scene.instantiate()
 	var m = b.get_node("Model")
 	var sm = m.get_node("smokebomb") as MeshInstance3D

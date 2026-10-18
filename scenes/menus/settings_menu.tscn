@@ -24,10 +24,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -260.0
-offset_top = -260.0
-offset_right = 260.0
-offset_bottom = 260.0
+offset_left = -320.0
+offset_top = -280.0
+offset_right = 320.0
+offset_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -61,28 +61,17 @@ theme_override_constants/margin_bottom = 10
 
 [node name="DisplayContent" type="VBoxContainer" parent="Panel/Margin/VBox/Tabs/Display"]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 10
 
-[node name="PresetLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Display/DisplayContent"]
+[node name="LanguageHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Display/DisplayContent"]
 layout_mode = 2
-text = "Graphic Preset"
 
-[node name="PresetOption" type="OptionButton" parent="Panel/Margin/VBox/Tabs/Display/DisplayContent"]
+[node name="LanguageLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Display/DisplayContent/LanguageHBox"]
 layout_mode = 2
-item_count = 5
-selected = 1
-popup/item_0/text = "Low"
-popup/item_0/id = 0
-popup/item_1/text = "Medium"
-popup/item_1/id = 1
-popup/item_2/text = "High"
-popup/item_2/id = 2
-popup/item_3/text = "Ultra"
-popup/item_3/id = 3
-popup/item_4/text = "Custom"
-popup/item_4/id = 4
+size_flags_horizontal = 3
+text = "Language"
 
-[node name="HSeparator" type="HSeparator" parent="Panel/Margin/VBox/Tabs/Display/DisplayContent"]
+[node name="LanguageOption" type="OptionButton" parent="Panel/Margin/VBox/Tabs/Display/DisplayContent/LanguageHBox"]
 layout_mode = 2
 
 [node name="FullscreenCheck" type="CheckBox" parent="Panel/Margin/VBox/Tabs/Display/DisplayContent"]
@@ -137,7 +126,7 @@ max_value = 240.0
 step = 10.0
 value = 60.0
 
-[node name="Graphics" type="MarginContainer" parent="Panel/Margin/VBox/Tabs"]
+[node name="Advanced Graphic" type="MarginContainer" parent="Panel/Margin/VBox/Tabs"]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
@@ -145,28 +134,64 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="GraphicsContent" type="VBoxContainer" parent="Panel/Margin/VBox/Tabs/Graphics"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/Margin/VBox/Tabs/Advanced Graphic"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GraphicsContent" type="VBoxContainer" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 6
 
-[node name="FXAACheck" type="CheckBox" parent="Panel/Margin/VBox/Tabs/Graphics/GraphicsContent"]
+[node name="PresetHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent"]
 layout_mode = 2
+
+[node name="PresetLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent/PresetHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Graphic Preset"
+
+[node name="PresetOption" type="OptionButton" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent/PresetHBox"]
+layout_mode = 2
+tooltip_text = "Graphic Preset: Select a quick graphics quality preset or customize individual options."
+item_count = 5
+selected = 1
+popup/item_0/text = "Low"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "High"
+popup/item_2/id = 2
+popup/item_3/text = "Ultra"
+popup/item_3/id = 3
+popup/item_4/text = "Custom"
+popup/item_4/id = 4
+
+[node name="HSeparator" type="HSeparator" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent"]
+layout_mode = 2
+
+[node name="FXAACheck" type="CheckBox" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent"]
+layout_mode = 2
+tooltip_text = "FXAA (Fast Approximate Anti-Aliasing): Fast post-process edge blur with virtually zero GPU cost. Slightly softens fine textures."
 text = "FXAA"
 
-[node name="TAACheck" type="CheckBox" parent="Panel/Margin/VBox/Tabs/Graphics/GraphicsContent"]
+[node name="TAACheck" type="CheckBox" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent"]
 layout_mode = 2
+tooltip_text = "TAA (Temporal Anti-Aliasing): Blends past frames using sub-pixel jitter to eliminate jagged edges and specular shimmer. May cause slight ghosting in fast motion."
 text = "TAA"
 
-[node name="MSAAHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Graphics/GraphicsContent"]
+[node name="MSAAHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent"]
 layout_mode = 2
 
-[node name="MSAALabel" type="Label" parent="Panel/Margin/VBox/Tabs/Graphics/GraphicsContent/MSAAHBox"]
+[node name="MSAALabel" type="Label" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent/MSAAHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "MSAA 3D"
 
-[node name="MSAAOption" type="OptionButton" parent="Panel/Margin/VBox/Tabs/Graphics/GraphicsContent/MSAAHBox"]
+[node name="MSAAOption" type="OptionButton" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent/MSAAHBox"]
 layout_mode = 2
+tooltip_text = "MSAA 3D (Multi-Sample Anti-Aliasing): Hardware geometric edge smoothing. Keeps textures sharp while smoothing polygon silhouettes. Higher VRAM/GPU cost."
 item_count = 4
 selected = 0
 popup/item_0/text = "Disabled"
@@ -178,32 +203,70 @@ popup/item_2/id = 2
 popup/item_3/text = "8x"
 popup/item_3/id = 3
 
-[node name="FSRHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Graphics/GraphicsContent"]
+[node name="FSRModeHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent"]
 layout_mode = 2
 
-[node name="FSRLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Graphics/GraphicsContent/FSRHBox"]
+[node name="FSRModeLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent/FSRModeHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Scaling Scale"
+text = "FSR Mode"
 
-[node name="FSRSlider" type="HSlider" parent="Panel/Margin/VBox/Tabs/Graphics/GraphicsContent/FSRHBox"]
-custom_minimum_size = Vector2(100, 0)
+[node name="FSRModeOption" type="OptionButton" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent/FSRModeHBox"]
 layout_mode = 2
+tooltip_text = "FSR Mode (AMD FidelityFX Super Resolution): 3D render upscaler. Native (Disabled), FSR 1.0 (Spatial upscaler), or FSR 2.2 (Temporal upscaler with built-in temporal reconstruction)."
+item_count = 3
+selected = 0
+popup/item_0/text = "Disabled (Native)"
+popup/item_0/id = 0
+popup/item_1/text = "FSR 1.0"
+popup/item_1/id = 1
+popup/item_2/text = "FSR 2.2"
+popup/item_2/id = 2
+
+[node name="FSRHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent"]
+layout_mode = 2
+
+[node name="FSRLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent/FSRHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FSR Scale"
+
+[node name="FSRSlider" type="HSlider" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent/FSRHBox"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+tooltip_text = "FSR Scale: Internal 3D render resolution ratio (1.0 = native 100%, 0.5 = 50% resolution). Lower values increase FPS at the cost of sharpness."
 min_value = 0.5
 max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="ShadowHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Graphics/GraphicsContent"]
+[node name="FSRSharpnessHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent"]
 layout_mode = 2
 
-[node name="ShadowLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Graphics/GraphicsContent/ShadowHBox"]
+[node name="FSRSharpnessLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent/FSRSharpnessHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FSR Sharpness"
+
+[node name="FSRSharpnessSlider" type="HSlider" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent/FSRSharpnessHBox"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+tooltip_text = "FSR Sharpness: Edge sharpening strength applied during FSR reconstruction."
+max_value = 2.0
+step = 0.05
+value = 0.2
+
+[node name="ShadowHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent"]
+layout_mode = 2
+
+[node name="ShadowLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent/ShadowHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Shadow Quality"
 
-[node name="ShadowOption" type="OptionButton" parent="Panel/Margin/VBox/Tabs/Graphics/GraphicsContent/ShadowHBox"]
+[node name="ShadowOption" type="OptionButton" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent/ShadowHBox"]
 layout_mode = 2
+tooltip_text = "Shadow Quality: Controls shadow map resolution and filtering. Higher settings eliminate shadow stair-stepping and self-shadow acne."
 item_count = 4
 selected = 1
 popup/item_0/text = "Low"
@@ -215,21 +278,150 @@ popup/item_2/id = 2
 popup/item_3/text = "Ultra"
 popup/item_3/id = 3
 
-[node name="SSAOCheck" type="CheckBox" parent="Panel/Margin/VBox/Tabs/Graphics/GraphicsContent"]
+[node name="SSAOCheck" type="CheckBox" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent"]
 layout_mode = 2
+tooltip_text = "SSAO (Screen-Space Ambient Occlusion): Darkens crevices, corners, and contact points between objects for realistic depth."
 text = "SSAO"
 
-[node name="SSILCheck" type="CheckBox" parent="Panel/Margin/VBox/Tabs/Graphics/GraphicsContent"]
+[node name="SSILCheck" type="CheckBox" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent"]
 layout_mode = 2
+tooltip_text = "SSIL (Screen-Space Indirect Lighting): Simulates real-time indirect light bouncing between nearby bright surfaces."
 text = "SSIL"
 
-[node name="SSRCheck" type="CheckBox" parent="Panel/Margin/VBox/Tabs/Graphics/GraphicsContent"]
+[node name="SSRCheck" type="CheckBox" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent"]
 layout_mode = 2
+tooltip_text = "SSR (Screen-Space Reflections): Adds real-time reflections on glossy and wet surfaces based on on-screen geometry."
 text = "SSR"
 
-[node name="GlowCheck" type="CheckBox" parent="Panel/Margin/VBox/Tabs/Graphics/GraphicsContent"]
+[node name="GlowCheck" type="CheckBox" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent"]
 layout_mode = 2
+tooltip_text = "Glow / Bloom: Makes bright lights and emissive materials bleed softly into surrounding areas."
 text = "Glow"
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent"]
+layout_mode = 2
+
+[node name="NotePanel" type="PanelContainer" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent"]
+layout_mode = 2
+
+[node name="NoteMargin" type="MarginContainer" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent/NotePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="NoteLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Advanced Graphic/ScrollContainer/GraphicsContent/NotePanel/NoteMargin"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Hover over any setting above to view its English explanation."
+autowrap_mode = 3
+
+[node name="Audio" type="MarginContainer" parent="Panel/Margin/VBox/Tabs"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="AudioContent" type="VBoxContainer" parent="Panel/Margin/VBox/Tabs/Audio"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="MasterVolHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent"]
+layout_mode = 2
+
+[node name="MasterLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/MasterVolHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/MasterVolHBox"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="MusicVolHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/MusicVolHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/MusicVolHBox"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="SFXVolHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent"]
+layout_mode = 2
+
+[node name="SFXLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/SFXVolHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX Volume"
+
+[node name="SFXSlider" type="HSlider" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/SFXVolHBox"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="HSeparator" type="HSeparator" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent"]
+layout_mode = 2
+
+[node name="DeviceHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent"]
+layout_mode = 2
+
+[node name="DeviceLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/DeviceHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Audio Output Device"
+
+[node name="DeviceOption" type="OptionButton" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/DeviceHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ModeHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent"]
+layout_mode = 2
+
+[node name="ModeLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/ModeHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Audio Mode"
+
+[node name="ModeOption" type="OptionButton" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/ModeHBox"]
+layout_mode = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "Stereo"
+popup/item_0/id = 0
+popup/item_1/text = "Mono"
+popup/item_1/id = 1
+
+[node name="Keybind" type="MarginContainer" parent="Panel/Margin/VBox/Tabs"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/Margin/VBox/Tabs/Keybind"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="KeybindList" type="VBoxContainer" parent="Panel/Margin/VBox/Tabs/Keybind/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
 
 [node name="Buttons" type="HBoxContainer" parent="Panel/Margin/VBox"]
 layout_mode = 2

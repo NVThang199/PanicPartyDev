@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://octrx1r0tl6j"]
 
-[ext_resource type="Script" uid="uid://bxb54nwxlflej" path="res://scripts/minigames/hot_bomb.gd" id="1_arena_script"]
+[ext_resource type="Script" uid="uid://bxb54nwxlflej" path="res://scripts/minigames/hot_bomb/hot_bomb.gd" id="1_arena_script"]
 [ext_resource type="Environment" uid="uid://dnwhw8it7gpmp" path="res://default_env.tres" id="2_env"]
-[ext_resource type="NavigationMesh" path="res://scenes/minigames/hot_bomb_navmesh.tres" id="3_navmesh"]
+[ext_resource type="NavigationMesh" path="res://scenes/minigames/hot_bomb/hot_bomb_navmesh.tres" id="3_navmesh"]
 [ext_resource type="PackedScene" uid="uid://nyj60ib5ts8v" path="res://assets/terrains/medieval/buildings/neutral/fence_wood_straight.fbx" id="4_u08cb"]
 [ext_resource type="PackedScene" uid="uid://b43tppne1u5vn" path="res://assets/terrains/medieval/buildings/neutral/fence_wood_straight_gate.fbx" id="5_nws6h"]
 [ext_resource type="PackedScene" uid="uid://by00hxjpx1b4c" path="res://assets/terrains/medieval/decoration/nature/hills_C_trees.fbx" id="6_jtgnb"]

@@ -12,6 +12,7 @@ var timer: float = 15.0
 var throw_velocity: Vector3 = Vector3.ZERO
 var last_thrower_id: int = -1
 var throw_grace_timer: float = 0.0
+var tick_timer: float = 0.0
 
 # Client-side interpolation
 var _client_target_pos: Vector3 = Vector3.ZERO
@@ -36,10 +37,20 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_inside_tree():
 		return
-	if not multiplayer or not multiplayer.multiplayer_peer or multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
-		return
+	var has_peer = multiplayer and multiplayer.multiplayer_peer and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED
+	var is_server = multiplayer.is_server() if has_peer else true
 
-	if not multiplayer.is_server():
+	# Bomb ticking sound plays for everyone
+	if state != State.RUSHING:
+		tick_timer -= delta
+		var tick_interval = 0.25 if timer <= 4.0 else 1.0
+		if tick_timer <= 0.0:
+			tick_timer = tick_interval
+			if AudioManager:
+				AudioManager.play_bomb_tick(global_position, timer <= 4.0)
+
+	if not is_server:
+		timer -= delta
 		if state == State.HELD:
 			_update_held_transform()
 		elif _client_target_pos != Vector3.ZERO:
@@ -56,6 +67,10 @@ func _physics_process(delta: float) -> void:
 			return
 		elif state != State.RUSHING:
 			state = State.RUSHING
+			if AudioManager:
+				AudioManager.play_bomb_rush(global_position)
+			if has_peer and is_inside_tree():
+				sync_bomb_state.rpc(global_position, state)
 			update_target()
 			if not target_player or not is_instance_valid(target_player):
 				explode()
@@ -85,6 +100,8 @@ func _physics_process(delta: float) -> void:
 						bomb_caught.emit(peer_id)
 						return
 				throw_velocity = throw_velocity.bounce(collision.get_normal()) * BOUNCE_DAMPING
+				if AudioManager:
+					AudioManager.play_bomb_bounce(global_position)
 				if throw_velocity.length() < 2.0:
 					state = State.HOMING
 
@@ -94,7 +111,7 @@ func _physics_process(delta: float) -> void:
 		State.RUSHING:
 			_rush_process(delta)
 
-	if state != State.HELD and is_inside_tree():
+	if state != State.HELD and is_inside_tree() and has_peer:
 		sync_bomb_state.rpc(global_position, state)
 
 func _rush_process(_delta: float) -> void:
@@ -164,6 +181,9 @@ func sync_bomb_state(pos: Vector3, new_state: int) -> void:
 		return
 	if multiplayer.is_server():
 		return
+	if new_state == State.RUSHING and state != State.RUSHING:
+		if AudioManager:
+			AudioManager.play_bomb_rush(global_position)
 	state = new_state as State
 	if state != State.HELD:
 		_client_target_pos = pos
@@ -232,12 +252,18 @@ func explode() -> void:
 	if collision_shape:
 		collision_shape.set_deferred("disabled", true)
 
-	if multiplayer.is_server():
-		explode_rpc.rpc()
+	var has_peer = multiplayer and multiplayer.multiplayer_peer and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED
+	if has_peer:
+		if multiplayer.is_server():
+			explode_rpc.rpc()
+	else:
+		explode_rpc()
 	bomb_exploded.emit(holder_id)
 
 @rpc("authority", "call_local", "reliable")
 func explode_rpc() -> void:
+	if AudioManager:
+		AudioManager.play_bomb_explode(global_position)
 	if model:
 		model.visible = false
 	if catch_area:

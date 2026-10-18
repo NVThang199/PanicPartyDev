@@ -48,6 +48,7 @@ func _ready() -> void:
 		btn_start.pressed.connect(_on_start_pressed)
 	if btn_copy_code:
 		btn_copy_code.pressed.connect(_on_copy_code_pressed)
+	_update_ui_text()
 
 	status_label.visible = false
 	leave_button.visible = false
@@ -87,6 +88,20 @@ func _ready() -> void:
 		if is_instance_valid(loading_overlay) and loading_overlay.visible and not $UI.has_node("CharacterSelect"):
 			loading_overlay.visible = false
 	)
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED:
+		if not is_node_ready():
+			return
+		_update_ui_text()
+
+func _update_ui_text() -> void:
+	if btn_ready:
+		btn_ready.text = tr("UNREADY") if is_ready else tr("READY")
+	if btn_copy_code:
+		btn_copy_code.text = tr("COPY_ROOM_CODE")
+	if tab_overlay and tab_overlay.visible:
+		update_tab_overlay()
 
 func _process(delta: float) -> void:
 	if not is_inside_tree():
@@ -215,14 +230,14 @@ func update_tab_overlay() -> void:
 		
 		var is_p_ready: bool = info.get("ready", false)
 		var ready_lbl := Label.new()
-		ready_lbl.text = "[READY]" if is_p_ready else "[NOT READY]"
+		ready_lbl.text = tr("STATUS_READY") if is_p_ready else tr("STATUS_NOT_READY")
 		ready_lbl.modulate = Color(0.3, 0.9, 0.3) if is_p_ready else Color(0.7, 0.7, 0.7)
 		ready_lbl.add_theme_font_size_override("font_size", 14)
 		row.add_child(ready_lbl)
 
 		var ping_lbl := Label.new()
 		if pid == 1:
-			ping_lbl.text = "HOST"
+			ping_lbl.text = tr("HOST")
 			ping_lbl.modulate = Color(1.0, 0.8, 0.2)
 		else:
 			ping_lbl.text = "%d ms" % p_ping
@@ -316,7 +331,7 @@ func _restore_lobby_session() -> void:
 		lobby_panel.visible = true
 	is_ready = false
 	if btn_ready:
-		btn_ready.text = "READY"
+		btn_ready.text = tr("READY")
 		btn_ready.modulate = Color(1, 1, 1)
 
 	var my_name = Networking.get_local_player_name()
@@ -406,6 +421,8 @@ func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: St
 	player.steam_id = steam_id
 	player.character_path = character_path
 	players[peer_id] = player
+	if AudioManager and peer_id != multiplayer.get_unique_id():
+		AudioManager.play_player_join()
 	if not (peer_id in player_info):
 		player_info[peer_id] = {
 			"character": character_path,
@@ -446,6 +463,8 @@ func clear_all_players() -> void:
 		update_tab_overlay()
 
 func remove_player(peer_id: int) -> void:
+	if AudioManager:
+		AudioManager.play_player_leave()
 	player_info.erase(peer_id)
 	if peer_id in players:
 		var p: Node = players[peer_id]
@@ -525,11 +544,13 @@ func _on_copy_code_pressed() -> void:
 	var code := Networking.get_lobby_code()
 	if code != "":
 		DisplayServer.clipboard_set(code)
+		if AudioManager:
+			AudioManager.play_copy_code()
 		if btn_copy_code:
-			btn_copy_code.text = "ĐÃ COPY!"
+			btn_copy_code.text = tr("COPIED")
 			get_tree().create_timer(1.5).timeout.connect(func():
 				if is_instance_valid(btn_copy_code):
-					btn_copy_code.text = "COPY MÃ PHÒNG"
+					btn_copy_code.text = tr("COPY_ROOM_CODE")
 			)
 
 func _on_map_selected(map_name: String) -> void:
@@ -538,8 +559,10 @@ func _on_map_selected(map_name: String) -> void:
 
 func _on_ready_pressed() -> void:
 	is_ready = not is_ready
+	if AudioManager:
+		AudioManager.play_player_ready(is_ready)
 	if btn_ready:
-		btn_ready.text = "UNREADY" if is_ready else "READY"
+		btn_ready.text = tr("UNREADY") if is_ready else tr("READY")
 		btn_ready.modulate = Color(0.3, 0.9, 0.3) if is_ready else Color(1, 1, 1)
 	if multiplayer.is_server():
 		player_info[1]["ready"] = is_ready
@@ -599,6 +622,8 @@ func _on_start_pressed() -> void:
 @rpc("authority", "call_local", "reliable")
 func start_game(map_name: String) -> void:
 	print("[GAME] Starting match on map: ", map_name)
+	if AudioManager:
+		AudioManager.play_match_start()
 	set_process(false)
 	set_physics_process(false)
 	for pid in players:
@@ -607,9 +632,9 @@ func start_game(map_name: String) -> void:
 			p.set_physics_process(false)
 	if map_name == "HotBomb":
 		GameSession.minigame_players = player_info.duplicate(true)
-		get_tree().change_scene_to_file("res://scenes/minigames/hot_bomb.tscn")
+		get_tree().change_scene_to_file("res://scenes/minigames/hot_bomb/hot_bomb.tscn")
 	elif map_name == "StableFooting":
 		GameSession.minigame_players = player_info.duplicate(true)
-		get_tree().change_scene_to_file("res://scenes/minigames/stable_footing.tscn")
+		get_tree().change_scene_to_file("res://scenes/minigames/stable_footing/stable_footing.tscn")
 	else:
 		print("[GAME] Map %s is lobby, nothing to start" % map_name)

@@ -4,7 +4,7 @@ func _init():
 	call_deferred("_start")
 
 func _start():
-	var scene = load("res://scenes/minigames/hot_bomb.tscn").instantiate()
+	var scene = load("res://scenes/minigames/hot_bomb/hot_bomb.tscn").instantiate()
 	root.add_child(scene)
 	for i in range(5):
 		await process_frame
@@ -17,7 +17,7 @@ func _start():
 	for i in range(10):
 		await process_frame
 
-	var err = ResourceSaver.save(nav_mesh, "res://scenes/minigames/hot_bomb_navmesh.tres")
+	var err = ResourceSaver.save(nav_mesh, "res://scenes/minigames/hot_bomb/hot_bomb_navmesh.tres")
 	print("ResourceSaver.save result: ", err)
 	print("Navmesh polygons count: ", nav_mesh.get_polygon_count())
 	print("Navmesh vertices count: ", nav_mesh.get_vertices().size())

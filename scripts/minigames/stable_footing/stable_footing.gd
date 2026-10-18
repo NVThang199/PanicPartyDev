@@ -8,9 +8,9 @@ const TILE_GREEN_SCENE = preload("res://assets/terrains/floor/tile_green.fbx")
 const TILE_RED_SCENE = preload("res://assets/terrains/floor/tile_red.fbx")
 
 const MATCH_DURATION = 60.0
-const CYCLE_DURATION = 8.0
+const CYCLE_DURATION = 7.0
 const RANDOM_PHASE = 6.0
-const LOCK_PHASE = 2.0
+const LOCK_PHASE = 1.0
 const GRID_SIZE = 8
 const TILE_SPACING = 1.0
 const TILE_FLIP_INTERVAL = 0.3
@@ -27,6 +27,7 @@ var flip_timer: float = 0.0
 var is_random_phase: bool = true
 var is_dropping: bool = false
 var reset_scheduled: bool = false
+var _last_lock_sec: int = -1
 
 @onready var match_timer_label: Label = $UI/MatchTimerLabel
 @onready var cycle_timer_label: Label = $UI/CycleTimerLabel
@@ -189,6 +190,8 @@ func _process(delta: float) -> void:
 				flip_timer = TILE_FLIP_INTERVAL
 		elif cycle_timer > 0.0:
 			# Lock phase
+			if is_random_phase:
+				trigger_crumble_warning_rpc.rpc()
 			is_random_phase = false
 		elif not is_dropping:
 			# Drop phase (trigger once)
@@ -220,13 +223,19 @@ func _process(delta: float) -> void:
 			_check_game_over()
 			return
 
-	# Update UI
+	# Update UI & countdown audio
 	if match_timer_label:
-		match_timer_label.text = "Match: %d" % int(max(0, match_timer))
+		match_timer_label.text = tr("MATCH_TIMER") % int(max(0, match_timer))
 	if cycle_timer_label:
 		if not is_random_phase and cycle_timer > 0:
-			cycle_timer_label.text = "%d" % int(ceil(max(0, cycle_timer)))
+			var lock_sec = int(ceil(cycle_timer))
+			cycle_timer_label.text = "%d" % lock_sec
+			if lock_sec != _last_lock_sec:
+				_last_lock_sec = lock_sec
+				if AudioManager:
+					AudioManager.play_countdown_tick()
 		else:
+			_last_lock_sec = -1
 			cycle_timer_label.text = ""
 
 func _drop_red_tiles() -> void:
@@ -262,7 +271,7 @@ func _schedule_reset_tiles() -> void:
 	if reset_scheduled:
 		return
 	reset_scheduled = true
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	if state == GameState.PLAYING and is_inside_tree():
 		_reset_all_tiles()
 
@@ -410,9 +419,18 @@ func sync_cycle_timer(time_left: float) -> void:
 	cycle_timer = time_left
 
 @rpc("authority", "call_local", "reliable")
+func trigger_crumble_warning_rpc() -> void:
+	if not is_inside_tree():
+		return
+	if AudioManager:
+		AudioManager.play_tile_crumble(Vector3.ZERO)
+
+@rpc("authority", "call_local", "reliable")
 func sync_all_tile_colors(colors: Array[int]) -> void:
 	if not is_inside_tree():
 		return
+	if AudioManager:
+		AudioManager.play_tile_flip()
 	tile_colors = colors
 	for i in range(mini(tiles.size(), colors.size())):
 		var tile = tiles[i]
@@ -435,6 +453,8 @@ func sync_tile_color(tile_idx: int, color: int) -> void:
 func drop_tiles_rpc(red_indices: Array[int]) -> void:
 	if not is_inside_tree():
 		return
+	if AudioManager:
+		AudioManager.play_tile_fall(Vector3.ZERO)
 	# Disable all red tile collisions immediately
 	for idx in red_indices:
 		if idx >= 0 and idx < tiles.size():
@@ -548,13 +568,15 @@ func _start_auto_return() -> void:
 func show_winner_banner(winner_id: int) -> void:
 	if not is_inside_tree():
 		return
+	if AudioManager:
+		AudioManager.play_game_win()
 	if winner_banner:
 		winner_banner.visible = true
 	if winner_label:
 		if winner_id > 0 and winner_id in player_states:
-			winner_label.text = "%s WINS!" % player_states[winner_id].name
+			winner_label.text = tr("PLAYER_WINS") % player_states[winner_id].name
 		else:
-			winner_label.text = "SURVIVORS!"
+			winner_label.text = tr("SURVIVORS")
 
 func _on_fall_detected(body: Node3D) -> void:
 	if not multiplayer.is_server():
@@ -562,7 +584,15 @@ func _on_fall_detected(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		var peer_id = int(str(body.name))
 		if peer_id in player_states and player_states[peer_id].alive:
+			play_player_fall_rpc.rpc(body.global_position)
 			player_died(peer_id)
+
+@rpc("authority", "call_local", "reliable")
+func play_player_fall_rpc(pos: Vector3) -> void:
+	if not is_inside_tree():
+		return
+	if AudioManager:
+		AudioManager.play_player_fall(pos)
 
 func _on_return_pressed() -> void:
 	if multiplayer.is_server():

@@ -29,6 +29,7 @@ var normal_modulate: Color = Color.WHITE
 func _ready() -> void:
 	_apply_font_settings()
 	sound_player = AudioStreamPlayer.new()
+	sound_player.bus = "SFX"
 	add_child(sound_player)
 	
 	button.mouse_entered.connect(_on_mouse_hovered.bind(true))
@@ -48,6 +49,8 @@ func _on_button_pressed() -> void:
 	if sound_pressed_button:
 		sound_player.stream = sound_pressed_button
 		sound_player.play()
+	elif AudioManager:
+		AudioManager.play_ui_click()
 
 
 func _on_mouse_hovered(hovered: bool) -> void:
@@ -58,6 +61,8 @@ func _on_mouse_hovered(hovered: bool) -> void:
 		if hovered == true:
 			sound_player.stream = sound_hovered_button
 			sound_player.play()
+	elif hovered and AudioManager:
+		AudioManager.play_ui_hover()
 	button.modulate = hover_modulate if hovered else normal_modulate
 
 func reset_tween() -> void:

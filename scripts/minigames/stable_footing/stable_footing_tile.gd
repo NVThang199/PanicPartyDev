@@ -26,6 +26,8 @@ func drop() -> void:
 		return
 
 	is_dropping = true
+	if AudioManager:
+		AudioManager.play_tile_fall(global_position)
 	if collision:
 		collision.set_deferred("disabled", true)
 

@@ -136,12 +136,12 @@ theme_override_constants/separation = 8
 custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "Nhập mã phòng..."
+placeholder_text = "ENTER_ROOM_CODE"
 
 [node name="BtnJoinCode" type="Button" parent="JoinCodePanel/Margin/HBox"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
-text = "Vào"
+text = "JOIN_ROOM"
 
 [connection signal="pressed" from="Buttons/StartButton" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Buttons/JoinButton" to="." method="_on_join_pressed"]

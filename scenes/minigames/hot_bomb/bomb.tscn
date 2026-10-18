@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://hotbomb001"]
 
-[ext_resource type="Script" path="res://scripts/minigames/bomb.gd" id="1_bomb_script"]
+[ext_resource type="Script" path="res://scripts/minigames/hot_bomb/bomb.gd" id="1_bomb_script"]
 [ext_resource type="PackedScene" path="res://assets/characters/KayKit_Adventurers_2.0_FREE/Assets/fbx/smokebomb.fbx" id="2_bomb_model"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_body"]

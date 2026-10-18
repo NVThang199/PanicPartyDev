@@ -4,13 +4,13 @@ func _init():
 	call_deferred("_run_test")
 
 func _run_test():
-	var arena = load("res://scenes/minigames/hot_bomb.tscn").instantiate()
+	var arena = load("res://scenes/minigames/hot_bomb/hot_bomb.tscn").instantiate()
 	root.add_child(arena)
 
 	for i in range(5):
 		await process_frame
 
-	var bomb = load("res://scenes/minigames/bomb.tscn").instantiate()
+	var bomb = load("res://scenes/minigames/hot_bomb/bomb.tscn").instantiate()
 	arena.add_child(bomb)
 
 	var dummy_target = Node3D.new()
