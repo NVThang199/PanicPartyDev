@@ -146,8 +146,8 @@ func _safe_wait_animation(anim_name: String, fallback_duration: float = 0.5) -> 
 	if anim_player and anim_player.has_animation(anim_name):
 		var anim = anim_player.get_animation(anim_name)
 		if anim and anim.length > 0.0:
-			var scale = max(0.1, abs(anim_player.speed_scale))
-			duration = (anim.length / scale) + 0.05
+			var speed_scale_val = max(0.1, abs(anim_player.speed_scale))
+			duration = (anim.length / speed_scale_val) + 0.05
 
 	var timer = get_tree().create_timer(duration)
 	while is_inside_tree() and timer.time_left > 0.0:
@@ -352,11 +352,7 @@ func _ready():
 		character_color = GameSession.selected_color
 		character_face = GameSession.selected_face
 		character_hat = GameSession.selected_hat
-		var has_peer = multiplayer and multiplayer.multiplayer_peer and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED
-		if has_peer:
-			sync_character_customization.rpc(GameSession.selected_color, GameSession.selected_face, GameSession.selected_hat)
-		else:
-			set_character_customization(GameSession.selected_color, GameSession.selected_face, GameSession.selected_hat)
+		set_character_customization(GameSession.selected_color, GameSession.selected_face, GameSession.selected_hat)
 	else:
 		_apply_character_color()
 		_apply_character_hat()
