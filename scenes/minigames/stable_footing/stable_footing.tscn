@@ -5,198 +5,202 @@
 [ext_resource type="PackedScene" uid="uid://davw8we72g7lx" path="res://assets/terrains/floor/tile_green.fbx" id="3_tile_green"]
 [ext_resource type="PackedScene" uid="uid://b2sn1nnggxjig" path="res://assets/terrains/Prototype Bits/Wall.fbx" id="4_drjsi"]
 [ext_resource type="PackedScene" uid="uid://b8i47fx3ye58c" path="res://assets/terrains/Prototype Bits/Wall_Decorated.fbx" id="5_kcmxh"]
+[ext_resource type="PackedScene" uid="uid://dhw4c2e2ua324" path="res://assets/terrains/Prototype Bits/Pallet_Small_Decorated_B.fbx" id="6_lh85o"]
+[ext_resource type="PackedScene" uid="uid://c5ivlylikjawu" path="res://assets/terrains/Prototype Bits/Pallet_Large.fbx" id="7_6x0aa"]
+[ext_resource type="PackedScene" uid="uid://dhi1568iwnhlq" path="res://assets/terrains/Prototype Bits/Dummy_Base.fbx" id="8_6cbat"]
+[ext_resource type="PackedScene" uid="uid://dody5w4rohbtp" path="res://assets/terrains/Prototype Bits/Coin_B.fbx" id="9_3q78o"]
+[ext_resource type="PackedScene" uid="uid://d0u2b6317nvvf" path="res://assets/terrains/Prototype Bits/Coin_A.fbx" id="10_brxn4"]
+[ext_resource type="PackedScene" uid="uid://mn8nmqo17j32" path="res://assets/terrains/Prototype Bits/Coin_C.fbx" id="11_nbv2g"]
+[ext_resource type="PackedScene" uid="uid://de3kjvubuir35" path="res://assets/terrains/Prototype Bits/Box_C.fbx" id="12_brxn4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_0_0"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_0_1"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_0_2"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_0_3"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_0_4"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_0_5"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_0_6"]
-size = Vector3(1, 0.2, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tile_0_7"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_1_0"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_1_1"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_1_2"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_1_3"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_1_4"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_1_5"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_1_6"]
-size = Vector3(1, 0.2, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tile_1_7"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_2_0"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_2_1"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_2_2"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_2_3"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_2_4"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_2_5"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_2_6"]
-size = Vector3(1, 0.2, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tile_2_7"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_3_0"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_3_1"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_3_2"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_3_3"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_3_4"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_3_5"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_3_6"]
-size = Vector3(1, 0.2, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tile_3_7"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_4_0"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_4_1"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_4_2"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_4_3"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_4_4"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_4_5"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_4_6"]
-size = Vector3(1, 0.2, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tile_4_7"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_5_0"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_5_1"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_5_2"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_5_3"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_5_4"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_5_5"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_5_6"]
-size = Vector3(1, 0.2, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tile_5_7"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_6_0"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_6_1"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_6_2"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_6_3"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_6_4"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_6_5"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_6_6"]
-size = Vector3(1, 0.2, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tile_6_7"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_7_0"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_7_1"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_7_2"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_7_3"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_7_4"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_7_5"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_7_6"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(1.8, 0.2, 1.8)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tile_7_7"]
-size = Vector3(1, 0.2, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_tile_8_0"]
+size = Vector3(1.8, 0.2, 1.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tile_8_1"]
+size = Vector3(1.8, 0.2, 1.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tile_8_2"]
+size = Vector3(1.8, 0.2, 1.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tile_8_3"]
+size = Vector3(1.8, 0.2, 1.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tile_8_4"]
+size = Vector3(1.8, 0.2, 1.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tile_8_5"]
+size = Vector3(1.8, 0.2, 1.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tile_8_6"]
+size = Vector3(1.8, 0.2, 1.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fall"]
 size = Vector3(20, 1, 20)
@@ -212,651 +216,703 @@ shadow_enabled = true
 environment = ExtResource("2_env")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1310282421]
-transform = Transform3D(1, 0, 0, 0, 0.4575816, 0.88916767, 0, -0.88916767, 0.4575816, 0, 9.400401, 4.175911)
+transform = Transform3D(1, 0, 0, 0, 0.4575816, 0.88916767, 0, -0.88916767, 0.4575816, 0, 12.875743, 6.4498672)
 current = true
 fov = 55.0
 
 [node name="TileGrid" type="Node3D" parent="." unique_id=35081093]
 
-[node name="Tile_0_0" type="StaticBody3D" parent="TileGrid" unique_id=87081380]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -3.5)
+[node name="Tile_0_0" type="StaticBody3D" parent="TileGrid" unique_id=604087368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, -5.4)
 
-[node name="Model" parent="TileGrid/Tile_0_0" unique_id=1655908678 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_0_0" unique_id=1722112082 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_0" unique_id=2083445967]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_0" unique_id=612529172]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_0/StaticBody" unique_id=1783954833]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_0/StaticBody" unique_id=1781050537]
 shape = SubResource("BoxShape3D_tile_0_0")
 
-[node name="Tile_0_1" type="StaticBody3D" parent="TileGrid" unique_id=153121328]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -2.5)
+[node name="Tile_0_1" type="StaticBody3D" parent="TileGrid" unique_id=1108667791]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, -3.6)
 
-[node name="Model" parent="TileGrid/Tile_0_1" unique_id=1811157120 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_0_1" unique_id=162880309 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_1" unique_id=749744092]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_1" unique_id=1813594437]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_1/StaticBody" unique_id=242746388]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_1/StaticBody" unique_id=239535010]
 shape = SubResource("BoxShape3D_tile_0_1")
 
-[node name="Tile_0_2" type="StaticBody3D" parent="TileGrid" unique_id=1322468069]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -1.5)
+[node name="Tile_0_2" type="StaticBody3D" parent="TileGrid" unique_id=4106018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, -1.8)
 
-[node name="Model" parent="TileGrid/Tile_0_2" unique_id=396543754 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_0_2" unique_id=1420085303 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_2" unique_id=1752221442]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_2" unique_id=307716407]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_2/StaticBody" unique_id=1478460866]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_2/StaticBody" unique_id=2018476296]
 shape = SubResource("BoxShape3D_tile_0_2")
 
-[node name="Tile_0_3" type="StaticBody3D" parent="TileGrid" unique_id=1139746828]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -0.5)
+[node name="Tile_0_3" type="StaticBody3D" parent="TileGrid" unique_id=1808091836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, 0)
 
-[node name="Model" parent="TileGrid/Tile_0_3" unique_id=499675504 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_0_3" unique_id=175981328 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_3" unique_id=652254806]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_3" unique_id=424688480]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_3/StaticBody" unique_id=1376510656]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_3/StaticBody" unique_id=995362796]
 shape = SubResource("BoxShape3D_tile_0_3")
 
-[node name="Tile_0_4" type="StaticBody3D" parent="TileGrid" unique_id=1823257220]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 0.5)
+[node name="Tile_0_4" type="StaticBody3D" parent="TileGrid" unique_id=1138353906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, 1.8)
 
-[node name="Model" parent="TileGrid/Tile_0_4" unique_id=87235806 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_0_4" unique_id=221188414 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_4" unique_id=1114362849]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_4" unique_id=1926737169]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_4/StaticBody" unique_id=2109814919]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_4/StaticBody" unique_id=458390004]
 shape = SubResource("BoxShape3D_tile_0_4")
 
-[node name="Tile_0_5" type="StaticBody3D" parent="TileGrid" unique_id=2046541628]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 1.5)
+[node name="Tile_0_5" type="StaticBody3D" parent="TileGrid" unique_id=1685261668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, 3.6)
 
-[node name="Model" parent="TileGrid/Tile_0_5" unique_id=2080401379 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_0_5" unique_id=1990113964 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_5" unique_id=1797193536]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_5" unique_id=409346209]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_5/StaticBody" unique_id=566253772]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_5/StaticBody" unique_id=256341201]
 shape = SubResource("BoxShape3D_tile_0_5")
 
-[node name="Tile_0_6" type="StaticBody3D" parent="TileGrid" unique_id=2002404228]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 2.5)
+[node name="Tile_0_6" type="StaticBody3D" parent="TileGrid" unique_id=1433312087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, 5.4)
 
-[node name="Model" parent="TileGrid/Tile_0_6" unique_id=385212156 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_0_6" unique_id=1000972183 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_6" unique_id=1785614926]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_6" unique_id=1636470086]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_6/StaticBody" unique_id=325963499]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_6/StaticBody" unique_id=1183979028]
 shape = SubResource("BoxShape3D_tile_0_6")
 
-[node name="Tile_0_7" type="StaticBody3D" parent="TileGrid" unique_id=1464504215]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 3.5)
+[node name="Tile_1_0" type="StaticBody3D" parent="TileGrid" unique_id=266857534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4, 0, -5.4)
 
-[node name="Model" parent="TileGrid/Tile_0_7" unique_id=340225329 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_1_0" unique_id=1537166100 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_7" unique_id=394062837]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_0" unique_id=419868222]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_7/StaticBody" unique_id=1094368280]
-shape = SubResource("BoxShape3D_tile_0_7")
-
-[node name="Tile_1_0" type="StaticBody3D" parent="TileGrid" unique_id=187240088]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -3.5)
-
-[node name="Model" parent="TileGrid/Tile_1_0" unique_id=53915327 instance=ExtResource("3_tile_green")]
-
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_0" unique_id=1459845668]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_0/StaticBody" unique_id=273782375]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_0/StaticBody" unique_id=1630742932]
 shape = SubResource("BoxShape3D_tile_1_0")
 
-[node name="Tile_1_1" type="StaticBody3D" parent="TileGrid" unique_id=1177213514]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -2.5)
+[node name="Tile_1_1" type="StaticBody3D" parent="TileGrid" unique_id=444150390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4, 0, -3.6)
 
-[node name="Model" parent="TileGrid/Tile_1_1" unique_id=1858976662 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_1_1" unique_id=407870365 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_1" unique_id=283382418]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_1" unique_id=1947318051]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_1/StaticBody" unique_id=490554043]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_1/StaticBody" unique_id=469424509]
 shape = SubResource("BoxShape3D_tile_1_1")
 
-[node name="Tile_1_2" type="StaticBody3D" parent="TileGrid" unique_id=1266009851]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -1.5)
+[node name="Tile_1_2" type="StaticBody3D" parent="TileGrid" unique_id=601368101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4, 0, -1.8)
 
-[node name="Model" parent="TileGrid/Tile_1_2" unique_id=1273927515 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_1_2" unique_id=28423556 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_2" unique_id=672158937]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_2" unique_id=591881580]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_2/StaticBody" unique_id=2035354656]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_2/StaticBody" unique_id=1096008208]
 shape = SubResource("BoxShape3D_tile_1_2")
 
-[node name="Tile_1_3" type="StaticBody3D" parent="TileGrid" unique_id=98851472]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -0.5)
+[node name="Tile_1_3" type="StaticBody3D" parent="TileGrid" unique_id=784930704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4, 0, 0)
 
-[node name="Model" parent="TileGrid/Tile_1_3" unique_id=963189171 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_1_3" unique_id=1017676371 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_3" unique_id=1429440620]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_3" unique_id=1411099927]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_3/StaticBody" unique_id=473849361]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_3/StaticBody" unique_id=1566940682]
 shape = SubResource("BoxShape3D_tile_1_3")
 
-[node name="Tile_1_4" type="StaticBody3D" parent="TileGrid" unique_id=1379051880]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0.5)
+[node name="Tile_1_4" type="StaticBody3D" parent="TileGrid" unique_id=163151787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4, 0, 1.8)
 
-[node name="Model" parent="TileGrid/Tile_1_4" unique_id=1461696591 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_1_4" unique_id=175991442 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_4" unique_id=147578464]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_4" unique_id=2059799315]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_4/StaticBody" unique_id=214306412]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_4/StaticBody" unique_id=1157934129]
 shape = SubResource("BoxShape3D_tile_1_4")
 
-[node name="Tile_1_5" type="StaticBody3D" parent="TileGrid" unique_id=1763406366]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 1.5)
+[node name="Tile_1_5" type="StaticBody3D" parent="TileGrid" unique_id=2042420390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4, 0, 3.6)
 
-[node name="Model" parent="TileGrid/Tile_1_5" unique_id=56132334 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_1_5" unique_id=1111544344 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_5" unique_id=1731740080]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_5" unique_id=800772114]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_5/StaticBody" unique_id=579122245]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_5/StaticBody" unique_id=1680565201]
 shape = SubResource("BoxShape3D_tile_1_5")
 
-[node name="Tile_1_6" type="StaticBody3D" parent="TileGrid" unique_id=1216525051]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 2.5)
+[node name="Tile_1_6" type="StaticBody3D" parent="TileGrid" unique_id=1984741766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4, 0, 5.4)
 
-[node name="Model" parent="TileGrid/Tile_1_6" unique_id=256033567 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_1_6" unique_id=260904277 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_6" unique_id=312541212]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_6" unique_id=1356829387]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_6/StaticBody" unique_id=2077234805]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_6/StaticBody" unique_id=1522138396]
 shape = SubResource("BoxShape3D_tile_1_6")
 
-[node name="Tile_1_7" type="StaticBody3D" parent="TileGrid" unique_id=853479897]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 3.5)
+[node name="Tile_2_0" type="StaticBody3D" parent="TileGrid" unique_id=740046143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 0, -5.4)
 
-[node name="Model" parent="TileGrid/Tile_1_7" unique_id=591511560 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_2_0" unique_id=1879915816 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_7" unique_id=603911258]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_0" unique_id=1301771166]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_7/StaticBody" unique_id=157577864]
-shape = SubResource("BoxShape3D_tile_1_7")
-
-[node name="Tile_2_0" type="StaticBody3D" parent="TileGrid" unique_id=789150204]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -3.5)
-
-[node name="Model" parent="TileGrid/Tile_2_0" unique_id=1088960885 instance=ExtResource("3_tile_green")]
-
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_0" unique_id=1730013724]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_0/StaticBody" unique_id=1223795842]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_0/StaticBody" unique_id=1157058080]
 shape = SubResource("BoxShape3D_tile_2_0")
 
-[node name="Tile_2_1" type="StaticBody3D" parent="TileGrid" unique_id=563339984]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -2.5)
+[node name="Tile_2_1" type="StaticBody3D" parent="TileGrid" unique_id=468774898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 0, -3.6)
 
-[node name="Model" parent="TileGrid/Tile_2_1" unique_id=1335242784 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_2_1" unique_id=201442351 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_1" unique_id=1667973449]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_1" unique_id=314370532]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_1/StaticBody" unique_id=471422124]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_1/StaticBody" unique_id=575564284]
 shape = SubResource("BoxShape3D_tile_2_1")
 
-[node name="Tile_2_2" type="StaticBody3D" parent="TileGrid" unique_id=572390961]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.5)
+[node name="Tile_2_2" type="StaticBody3D" parent="TileGrid" unique_id=406785745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 0, -1.8)
 
-[node name="Model" parent="TileGrid/Tile_2_2" unique_id=1614805414 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_2_2" unique_id=1541416831 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_2" unique_id=211376637]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_2" unique_id=25564532]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_2/StaticBody" unique_id=216209578]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_2/StaticBody" unique_id=1066135904]
 shape = SubResource("BoxShape3D_tile_2_2")
 
-[node name="Tile_2_3" type="StaticBody3D" parent="TileGrid" unique_id=76239310]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.5)
+[node name="Tile_2_3" type="StaticBody3D" parent="TileGrid" unique_id=1476054886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 0, 0)
 
-[node name="Model" parent="TileGrid/Tile_2_3" unique_id=534944627 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_2_3" unique_id=664477826 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_3" unique_id=2041416594]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_3" unique_id=2038445419]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_3/StaticBody" unique_id=481062056]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_3/StaticBody" unique_id=912054320]
 shape = SubResource("BoxShape3D_tile_2_3")
 
-[node name="Tile_2_4" type="StaticBody3D" parent="TileGrid" unique_id=152827160]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0.5)
+[node name="Tile_2_4" type="StaticBody3D" parent="TileGrid" unique_id=1916350600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 0, 1.8)
 
-[node name="Model" parent="TileGrid/Tile_2_4" unique_id=532368183 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_2_4" unique_id=879261893 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_4" unique_id=857301414]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_4" unique_id=1810941083]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_4/StaticBody" unique_id=1870702990]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_4/StaticBody" unique_id=901350641]
 shape = SubResource("BoxShape3D_tile_2_4")
 
-[node name="Tile_2_5" type="StaticBody3D" parent="TileGrid" unique_id=336471520]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5)
+[node name="Tile_2_5" type="StaticBody3D" parent="TileGrid" unique_id=1130868945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 0, 3.6)
 
-[node name="Model" parent="TileGrid/Tile_2_5" unique_id=1552024101 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_2_5" unique_id=406065333 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_5" unique_id=441452938]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_5" unique_id=1197443869]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_5/StaticBody" unique_id=1145326622]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_5/StaticBody" unique_id=1426315166]
 shape = SubResource("BoxShape3D_tile_2_5")
 
-[node name="Tile_2_6" type="StaticBody3D" parent="TileGrid" unique_id=569109196]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 2.5)
+[node name="Tile_2_6" type="StaticBody3D" parent="TileGrid" unique_id=195076338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 0, 5.4)
 
-[node name="Model" parent="TileGrid/Tile_2_6" unique_id=1158658827 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_2_6" unique_id=1932951382 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_6" unique_id=1423444670]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_6" unique_id=750954004]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_6/StaticBody" unique_id=433756710]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_6/StaticBody" unique_id=600153690]
 shape = SubResource("BoxShape3D_tile_2_6")
 
-[node name="Tile_2_7" type="StaticBody3D" parent="TileGrid" unique_id=1668888778]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 3.5)
+[node name="Tile_3_0" type="StaticBody3D" parent="TileGrid" unique_id=207376613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0, -5.4)
 
-[node name="Model" parent="TileGrid/Tile_2_7" unique_id=1034045726 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_3_0" unique_id=1784170389 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_7" unique_id=1331236470]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_0" unique_id=1126231441]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_7/StaticBody" unique_id=370116835]
-shape = SubResource("BoxShape3D_tile_2_7")
-
-[node name="Tile_3_0" type="StaticBody3D" parent="TileGrid" unique_id=688282477]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -3.5)
-
-[node name="Model" parent="TileGrid/Tile_3_0" unique_id=1999831934 instance=ExtResource("3_tile_green")]
-
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_0" unique_id=616187539]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_0/StaticBody" unique_id=2059411124]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_0/StaticBody" unique_id=106769467]
 shape = SubResource("BoxShape3D_tile_3_0")
 
-[node name="Tile_3_1" type="StaticBody3D" parent="TileGrid" unique_id=1263091268]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -2.5)
+[node name="Tile_3_1" type="StaticBody3D" parent="TileGrid" unique_id=1379534580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0, -3.6)
 
-[node name="Model" parent="TileGrid/Tile_3_1" unique_id=1880627456 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_3_1" unique_id=941078257 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_1" unique_id=305553194]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_1" unique_id=2011890399]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_1/StaticBody" unique_id=952999264]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_1/StaticBody" unique_id=1274312237]
 shape = SubResource("BoxShape3D_tile_3_1")
 
-[node name="Tile_3_2" type="StaticBody3D" parent="TileGrid" unique_id=747036206]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1.5)
+[node name="Tile_3_2" type="StaticBody3D" parent="TileGrid" unique_id=1380962674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0, -1.8)
 
-[node name="Model" parent="TileGrid/Tile_3_2" unique_id=597668145 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_3_2" unique_id=458642484 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_2" unique_id=335339314]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_2" unique_id=1345310531]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_2/StaticBody" unique_id=1496514586]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_2/StaticBody" unique_id=1548557310]
 shape = SubResource("BoxShape3D_tile_3_2")
 
-[node name="Tile_3_3" type="StaticBody3D" parent="TileGrid" unique_id=908228966]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.5)
+[node name="Tile_3_3" type="StaticBody3D" parent="TileGrid" unique_id=283519796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0, 0)
 
-[node name="Model" parent="TileGrid/Tile_3_3" unique_id=782748815 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_3_3" unique_id=161932077 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_3" unique_id=1600235270]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_3" unique_id=816704007]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_3/StaticBody" unique_id=1878849937]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_3/StaticBody" unique_id=1738301964]
 shape = SubResource("BoxShape3D_tile_3_3")
 
-[node name="Tile_3_4" type="StaticBody3D" parent="TileGrid" unique_id=545432996]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.5)
+[node name="Tile_3_4" type="StaticBody3D" parent="TileGrid" unique_id=1046999538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0, 1.8)
 
-[node name="Model" parent="TileGrid/Tile_3_4" unique_id=1912003057 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_3_4" unique_id=1149327970 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_4" unique_id=1245068777]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_4" unique_id=939883167]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_4/StaticBody" unique_id=848710658]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_4/StaticBody" unique_id=105758369]
 shape = SubResource("BoxShape3D_tile_3_4")
 
-[node name="Tile_3_5" type="StaticBody3D" parent="TileGrid" unique_id=1749992655]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1.5)
+[node name="Tile_3_5" type="StaticBody3D" parent="TileGrid" unique_id=714867912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0, 3.6)
 
-[node name="Model" parent="TileGrid/Tile_3_5" unique_id=1150110300 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_3_5" unique_id=783621960 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_5" unique_id=695462356]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_5" unique_id=1646810072]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_5/StaticBody" unique_id=882274559]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_5/StaticBody" unique_id=1784643837]
 shape = SubResource("BoxShape3D_tile_3_5")
 
-[node name="Tile_3_6" type="StaticBody3D" parent="TileGrid" unique_id=1225818723]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 2.5)
+[node name="Tile_3_6" type="StaticBody3D" parent="TileGrid" unique_id=728925755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0, 5.4)
 
-[node name="Model" parent="TileGrid/Tile_3_6" unique_id=239204655 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_3_6" unique_id=563337053 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_6" unique_id=2040653364]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_6" unique_id=881821137]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_6/StaticBody" unique_id=935562820]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_6/StaticBody" unique_id=1499124044]
 shape = SubResource("BoxShape3D_tile_3_6")
 
-[node name="Tile_3_7" type="StaticBody3D" parent="TileGrid" unique_id=1754160392]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 3.5)
+[node name="Tile_4_0" type="StaticBody3D" parent="TileGrid" unique_id=219039955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.4)
 
-[node name="Model" parent="TileGrid/Tile_3_7" unique_id=1288973582 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_4_0" unique_id=1300799478 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_7" unique_id=2091913992]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_0" unique_id=2070106785]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_7/StaticBody" unique_id=923835100]
-shape = SubResource("BoxShape3D_tile_3_7")
-
-[node name="Tile_4_0" type="StaticBody3D" parent="TileGrid" unique_id=1943828173]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -3.5)
-
-[node name="Model" parent="TileGrid/Tile_4_0" unique_id=440696478 instance=ExtResource("3_tile_green")]
-
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_0" unique_id=814678231]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_0/StaticBody" unique_id=2049438357]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_0/StaticBody" unique_id=1693005431]
 shape = SubResource("BoxShape3D_tile_4_0")
 
-[node name="Tile_4_1" type="StaticBody3D" parent="TileGrid" unique_id=425054300]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.5)
+[node name="Tile_4_1" type="StaticBody3D" parent="TileGrid" unique_id=1739051962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.6)
 
-[node name="Model" parent="TileGrid/Tile_4_1" unique_id=746465843 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_4_1" unique_id=1644238004 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_1" unique_id=94220775]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_1" unique_id=1956801456]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_1/StaticBody" unique_id=2050564168]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_1/StaticBody" unique_id=1533478977]
 shape = SubResource("BoxShape3D_tile_4_1")
 
-[node name="Tile_4_2" type="StaticBody3D" parent="TileGrid" unique_id=1092255762]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1.5)
+[node name="Tile_4_2" type="StaticBody3D" parent="TileGrid" unique_id=1563628257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.8)
 
-[node name="Model" parent="TileGrid/Tile_4_2" unique_id=2013611771 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_4_2" unique_id=239401013 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_2" unique_id=1821646523]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_2" unique_id=80887192]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_2/StaticBody" unique_id=770253545]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_2/StaticBody" unique_id=1390039606]
 shape = SubResource("BoxShape3D_tile_4_2")
 
-[node name="Tile_4_3" type="StaticBody3D" parent="TileGrid" unique_id=1433864919]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
+[node name="Tile_4_3" type="StaticBody3D" parent="TileGrid" unique_id=1396422331]
 
-[node name="Model" parent="TileGrid/Tile_4_3" unique_id=446034190 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_4_3" unique_id=1911268224 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_3" unique_id=875752068]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_3" unique_id=1754236455]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_3/StaticBody" unique_id=503914772]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_3/StaticBody" unique_id=930725586]
 shape = SubResource("BoxShape3D_tile_4_3")
 
-[node name="Tile_4_4" type="StaticBody3D" parent="TileGrid" unique_id=579236351]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+[node name="Tile_4_4" type="StaticBody3D" parent="TileGrid" unique_id=1740985934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8)
 
-[node name="Model" parent="TileGrid/Tile_4_4" unique_id=1283317168 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_4_4" unique_id=91259015 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_4" unique_id=2049010542]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_4" unique_id=1089120503]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_4/StaticBody" unique_id=1563181967]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_4/StaticBody" unique_id=1912251624]
 shape = SubResource("BoxShape3D_tile_4_4")
 
-[node name="Tile_4_5" type="StaticBody3D" parent="TileGrid" unique_id=514378458]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1.5)
+[node name="Tile_4_5" type="StaticBody3D" parent="TileGrid" unique_id=153107639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.6)
 
-[node name="Model" parent="TileGrid/Tile_4_5" unique_id=1499605077 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_4_5" unique_id=1122976951 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_5" unique_id=1045644338]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_5" unique_id=22163950]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_5/StaticBody" unique_id=1074557627]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_5/StaticBody" unique_id=65006214]
 shape = SubResource("BoxShape3D_tile_4_5")
 
-[node name="Tile_4_6" type="StaticBody3D" parent="TileGrid" unique_id=1101588214]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 2.5)
+[node name="Tile_4_6" type="StaticBody3D" parent="TileGrid" unique_id=1299845442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.4)
 
-[node name="Model" parent="TileGrid/Tile_4_6" unique_id=1463281485 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_4_6" unique_id=1293298050 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_6" unique_id=35833042]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_6" unique_id=888184072]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_6/StaticBody" unique_id=2113372805]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_6/StaticBody" unique_id=1152727764]
 shape = SubResource("BoxShape3D_tile_4_6")
 
-[node name="Tile_4_7" type="StaticBody3D" parent="TileGrid" unique_id=164857445]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 3.5)
+[node name="Tile_5_0" type="StaticBody3D" parent="TileGrid" unique_id=1188935543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 0, -5.4)
 
-[node name="Model" parent="TileGrid/Tile_4_7" unique_id=92984722 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_5_0" unique_id=1116060978 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_7" unique_id=290322309]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_0" unique_id=970941629]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_7/StaticBody" unique_id=229444082]
-shape = SubResource("BoxShape3D_tile_4_7")
-
-[node name="Tile_5_0" type="StaticBody3D" parent="TileGrid" unique_id=1867857621]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -3.5)
-
-[node name="Model" parent="TileGrid/Tile_5_0" unique_id=1290081882 instance=ExtResource("3_tile_green")]
-
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_0" unique_id=1984815393]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_0/StaticBody" unique_id=241312191]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_0/StaticBody" unique_id=43060309]
 shape = SubResource("BoxShape3D_tile_5_0")
 
-[node name="Tile_5_1" type="StaticBody3D" parent="TileGrid" unique_id=73343966]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -2.5)
+[node name="Tile_5_1" type="StaticBody3D" parent="TileGrid" unique_id=1901667790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 0, -3.6)
 
-[node name="Model" parent="TileGrid/Tile_5_1" unique_id=781657410 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_5_1" unique_id=691037870 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_1" unique_id=502903742]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_1" unique_id=1391117465]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_1/StaticBody" unique_id=1531128624]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_1/StaticBody" unique_id=2037282594]
 shape = SubResource("BoxShape3D_tile_5_1")
 
-[node name="Tile_5_2" type="StaticBody3D" parent="TileGrid" unique_id=1321969720]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
+[node name="Tile_5_2" type="StaticBody3D" parent="TileGrid" unique_id=1317518329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 0, -1.8)
 
-[node name="Model" parent="TileGrid/Tile_5_2" unique_id=1921072438 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_5_2" unique_id=1108383920 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_2" unique_id=1408769408]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_2" unique_id=1742924519]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_2/StaticBody" unique_id=345227227]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_2/StaticBody" unique_id=1308624961]
 shape = SubResource("BoxShape3D_tile_5_2")
 
-[node name="Tile_5_3" type="StaticBody3D" parent="TileGrid" unique_id=2038982899]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -0.5)
+[node name="Tile_5_3" type="StaticBody3D" parent="TileGrid" unique_id=1257413082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 0, 0)
 
-[node name="Model" parent="TileGrid/Tile_5_3" unique_id=1082681573 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_5_3" unique_id=508352288 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_3" unique_id=1116501378]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_3" unique_id=437049797]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_3/StaticBody" unique_id=1192705434]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_3/StaticBody" unique_id=15516956]
 shape = SubResource("BoxShape3D_tile_5_3")
 
-[node name="Tile_5_4" type="StaticBody3D" parent="TileGrid" unique_id=971397577]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5)
+[node name="Tile_5_4" type="StaticBody3D" parent="TileGrid" unique_id=816344737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 0, 1.8)
 
-[node name="Model" parent="TileGrid/Tile_5_4" unique_id=1160626109 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_5_4" unique_id=235420854 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_4" unique_id=53157409]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_4" unique_id=344136230]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_4/StaticBody" unique_id=862434673]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_4/StaticBody" unique_id=427879834]
 shape = SubResource("BoxShape3D_tile_5_4")
 
-[node name="Tile_5_5" type="StaticBody3D" parent="TileGrid" unique_id=1120688993]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5)
+[node name="Tile_5_5" type="StaticBody3D" parent="TileGrid" unique_id=251664961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 0, 3.6)
 
-[node name="Model" parent="TileGrid/Tile_5_5" unique_id=1818520949 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_5_5" unique_id=482819504 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_5" unique_id=1306103323]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_5" unique_id=1612583093]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_5/StaticBody" unique_id=1561502160]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_5/StaticBody" unique_id=1113382608]
 shape = SubResource("BoxShape3D_tile_5_5")
 
-[node name="Tile_5_6" type="StaticBody3D" parent="TileGrid" unique_id=1734466166]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.5)
+[node name="Tile_5_6" type="StaticBody3D" parent="TileGrid" unique_id=447255012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 0, 5.4)
 
-[node name="Model" parent="TileGrid/Tile_5_6" unique_id=1804741079 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_5_6" unique_id=1463635236 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_6" unique_id=433981044]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_6" unique_id=673317507]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_6/StaticBody" unique_id=1411511678]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_6/StaticBody" unique_id=71555064]
 shape = SubResource("BoxShape3D_tile_5_6")
 
-[node name="Tile_5_7" type="StaticBody3D" parent="TileGrid" unique_id=927841568]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 3.5)
+[node name="Tile_6_0" type="StaticBody3D" parent="TileGrid" unique_id=177901807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0, -5.4)
 
-[node name="Model" parent="TileGrid/Tile_5_7" unique_id=1615679493 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_6_0" unique_id=1234529299 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_7" unique_id=1081486146]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_0" unique_id=1722807257]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_7/StaticBody" unique_id=815054485]
-shape = SubResource("BoxShape3D_tile_5_7")
-
-[node name="Tile_6_0" type="StaticBody3D" parent="TileGrid" unique_id=1538600565]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -3.5)
-
-[node name="Model" parent="TileGrid/Tile_6_0" unique_id=2075926710 instance=ExtResource("3_tile_green")]
-
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_0" unique_id=1959270884]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_0/StaticBody" unique_id=371265380]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_0/StaticBody" unique_id=1902389769]
 shape = SubResource("BoxShape3D_tile_6_0")
 
-[node name="Tile_6_1" type="StaticBody3D" parent="TileGrid" unique_id=991313797]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
+[node name="Tile_6_1" type="StaticBody3D" parent="TileGrid" unique_id=850360165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0, -3.6)
 
-[node name="Model" parent="TileGrid/Tile_6_1" unique_id=654356711 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_6_1" unique_id=1463177855 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_1" unique_id=1697624695]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_1" unique_id=645294493]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_1/StaticBody" unique_id=225630953]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_1/StaticBody" unique_id=512211458]
 shape = SubResource("BoxShape3D_tile_6_1")
 
-[node name="Tile_6_2" type="StaticBody3D" parent="TileGrid" unique_id=94002877]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -1.5)
+[node name="Tile_6_2" type="StaticBody3D" parent="TileGrid" unique_id=1325401925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0, -1.8)
 
-[node name="Model" parent="TileGrid/Tile_6_2" unique_id=627494710 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_6_2" unique_id=983780026 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_2" unique_id=758973232]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_2" unique_id=2071131462]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_2/StaticBody" unique_id=1266323808]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_2/StaticBody" unique_id=314512712]
 shape = SubResource("BoxShape3D_tile_6_2")
 
-[node name="Tile_6_3" type="StaticBody3D" parent="TileGrid" unique_id=102841979]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -0.5)
+[node name="Tile_6_3" type="StaticBody3D" parent="TileGrid" unique_id=2001842176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0, 0)
 
-[node name="Model" parent="TileGrid/Tile_6_3" unique_id=1701177542 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_6_3" unique_id=2027215389 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_3" unique_id=572667652]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_3" unique_id=959021303]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_3/StaticBody" unique_id=458154928]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_3/StaticBody" unique_id=646402053]
 shape = SubResource("BoxShape3D_tile_6_3")
 
-[node name="Tile_6_4" type="StaticBody3D" parent="TileGrid" unique_id=1142137496]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0.5)
+[node name="Tile_6_4" type="StaticBody3D" parent="TileGrid" unique_id=1803170550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0, 1.8)
 
-[node name="Model" parent="TileGrid/Tile_6_4" unique_id=1822212203 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_6_4" unique_id=2020099973 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_4" unique_id=63049148]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_4" unique_id=225374873]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_4/StaticBody" unique_id=1156147972]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_4/StaticBody" unique_id=1917896485]
 shape = SubResource("BoxShape3D_tile_6_4")
 
-[node name="Tile_6_5" type="StaticBody3D" parent="TileGrid" unique_id=515193658]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 1.5)
+[node name="Tile_6_5" type="StaticBody3D" parent="TileGrid" unique_id=2044750869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0, 3.6)
 
-[node name="Model" parent="TileGrid/Tile_6_5" unique_id=15202657 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_6_5" unique_id=264675203 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_5" unique_id=78038672]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_5" unique_id=1545610829]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_5/StaticBody" unique_id=885094646]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_5/StaticBody" unique_id=2054089914]
 shape = SubResource("BoxShape3D_tile_6_5")
 
-[node name="Tile_6_6" type="StaticBody3D" parent="TileGrid" unique_id=1994305415]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 2.5)
+[node name="Tile_6_6" type="StaticBody3D" parent="TileGrid" unique_id=378798118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0, 5.4)
 
-[node name="Model" parent="TileGrid/Tile_6_6" unique_id=2120503524 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_6_6" unique_id=555539755 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_6" unique_id=1576678233]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_6" unique_id=932374390]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_6/StaticBody" unique_id=966634592]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_6/StaticBody" unique_id=109166768]
 shape = SubResource("BoxShape3D_tile_6_6")
 
-[node name="Tile_6_7" type="StaticBody3D" parent="TileGrid" unique_id=2010262560]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 3.5)
+[node name="Tile_7_0" type="StaticBody3D" parent="TileGrid" unique_id=1989881256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 0, -5.4)
 
-[node name="Model" parent="TileGrid/Tile_6_7" unique_id=391148926 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_7_0" unique_id=309131589 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_7" unique_id=175201063]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_0" unique_id=994370884]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_7/StaticBody" unique_id=25458552]
-shape = SubResource("BoxShape3D_tile_6_7")
-
-[node name="Tile_7_0" type="StaticBody3D" parent="TileGrid" unique_id=88683346]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -3.5)
-
-[node name="Model" parent="TileGrid/Tile_7_0" unique_id=1958882131 instance=ExtResource("3_tile_green")]
-
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_0" unique_id=166084375]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_0/StaticBody" unique_id=105160806]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_0/StaticBody" unique_id=90811336]
 shape = SubResource("BoxShape3D_tile_7_0")
 
-[node name="Tile_7_1" type="StaticBody3D" parent="TileGrid" unique_id=146270297]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -2.5)
+[node name="Tile_7_1" type="StaticBody3D" parent="TileGrid" unique_id=1996442911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 0, -3.6)
 
-[node name="Model" parent="TileGrid/Tile_7_1" unique_id=378036847 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_7_1" unique_id=1403484061 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_1" unique_id=595995024]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_1" unique_id=548142370]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_1/StaticBody" unique_id=565414368]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_1/StaticBody" unique_id=156156552]
 shape = SubResource("BoxShape3D_tile_7_1")
 
-[node name="Tile_7_2" type="StaticBody3D" parent="TileGrid" unique_id=2065723635]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -1.5)
+[node name="Tile_7_2" type="StaticBody3D" parent="TileGrid" unique_id=1803011276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 0, -1.8)
 
-[node name="Model" parent="TileGrid/Tile_7_2" unique_id=857174190 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_7_2" unique_id=1092045127 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_2" unique_id=1801111898]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_2" unique_id=1771740261]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_2/StaticBody" unique_id=1983986962]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_2/StaticBody" unique_id=1345140918]
 shape = SubResource("BoxShape3D_tile_7_2")
 
-[node name="Tile_7_3" type="StaticBody3D" parent="TileGrid" unique_id=54162594]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -0.5)
+[node name="Tile_7_3" type="StaticBody3D" parent="TileGrid" unique_id=819996230]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 0, 0)
 
-[node name="Model" parent="TileGrid/Tile_7_3" unique_id=2060909365 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_7_3" unique_id=1555048202 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_3" unique_id=627861421]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_3" unique_id=601241120]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_3/StaticBody" unique_id=1392585750]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_3/StaticBody" unique_id=696836249]
 shape = SubResource("BoxShape3D_tile_7_3")
 
-[node name="Tile_7_4" type="StaticBody3D" parent="TileGrid" unique_id=1570931550]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 0.5)
+[node name="Tile_7_4" type="StaticBody3D" parent="TileGrid" unique_id=990630508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 0, 1.8)
 
-[node name="Model" parent="TileGrid/Tile_7_4" unique_id=375326796 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_7_4" unique_id=407464266 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_4" unique_id=1591319395]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_4" unique_id=179691712]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_4/StaticBody" unique_id=527106713]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_4/StaticBody" unique_id=21442817]
 shape = SubResource("BoxShape3D_tile_7_4")
 
-[node name="Tile_7_5" type="StaticBody3D" parent="TileGrid" unique_id=844195677]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 1.5)
+[node name="Tile_7_5" type="StaticBody3D" parent="TileGrid" unique_id=1495645756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 0, 3.6)
 
-[node name="Model" parent="TileGrid/Tile_7_5" unique_id=314863615 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_7_5" unique_id=612596204 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_5" unique_id=52038583]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_5" unique_id=1032265596]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_5/StaticBody" unique_id=843418459]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_5/StaticBody" unique_id=192298095]
 shape = SubResource("BoxShape3D_tile_7_5")
 
-[node name="Tile_7_6" type="StaticBody3D" parent="TileGrid" unique_id=846392224]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 2.5)
+[node name="Tile_7_6" type="StaticBody3D" parent="TileGrid" unique_id=964557819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 0, 5.4)
 
-[node name="Model" parent="TileGrid/Tile_7_6" unique_id=226703107 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_7_6" unique_id=1690879558 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_6" unique_id=2103068568]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_6" unique_id=569575063]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_6/StaticBody" unique_id=689046283]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_6/StaticBody" unique_id=111721532]
 shape = SubResource("BoxShape3D_tile_7_6")
 
-[node name="Tile_7_7" type="StaticBody3D" parent="TileGrid" unique_id=2071438460]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 3.5)
+[node name="Tile_8_0" type="StaticBody3D" parent="TileGrid" unique_id=1583656031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0, -5.4)
 
-[node name="Model" parent="TileGrid/Tile_7_7" unique_id=1473896784 instance=ExtResource("3_tile_green")]
+[node name="Model" parent="TileGrid/Tile_8_0" unique_id=1509508365 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_7" unique_id=727871072]
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_8_0" unique_id=1152586673]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_7/StaticBody" unique_id=1868900833]
-shape = SubResource("BoxShape3D_tile_7_7")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_8_0/StaticBody" unique_id=1722548981]
+shape = SubResource("BoxShape3D_tile_8_0")
+
+[node name="Tile_8_1" type="StaticBody3D" parent="TileGrid" unique_id=1907269917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0, -3.6)
+
+[node name="Model" parent="TileGrid/Tile_8_1" unique_id=2019169411 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_8_1" unique_id=1541562425]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_8_1/StaticBody" unique_id=1077245670]
+shape = SubResource("BoxShape3D_tile_8_1")
+
+[node name="Tile_8_2" type="StaticBody3D" parent="TileGrid" unique_id=621862649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0, -1.8)
+
+[node name="Model" parent="TileGrid/Tile_8_2" unique_id=1011556662 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_8_2" unique_id=387743421]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_8_2/StaticBody" unique_id=1654984332]
+shape = SubResource("BoxShape3D_tile_8_2")
+
+[node name="Tile_8_3" type="StaticBody3D" parent="TileGrid" unique_id=1956395727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0, 0)
+
+[node name="Model" parent="TileGrid/Tile_8_3" unique_id=1412693731 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_8_3" unique_id=479388629]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_8_3/StaticBody" unique_id=1472807127]
+shape = SubResource("BoxShape3D_tile_8_3")
+
+[node name="Tile_8_4" type="StaticBody3D" parent="TileGrid" unique_id=496871181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0, 1.8)
+
+[node name="Model" parent="TileGrid/Tile_8_4" unique_id=770132121 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_8_4" unique_id=76757569]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_8_4/StaticBody" unique_id=1795698018]
+shape = SubResource("BoxShape3D_tile_8_4")
+
+[node name="Tile_8_5" type="StaticBody3D" parent="TileGrid" unique_id=1734553632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0, 3.6)
+
+[node name="Model" parent="TileGrid/Tile_8_5" unique_id=1737029661 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_8_5" unique_id=1632922413]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_8_5/StaticBody" unique_id=29712614]
+shape = SubResource("BoxShape3D_tile_8_5")
+
+[node name="Tile_8_6" type="StaticBody3D" parent="TileGrid" unique_id=113825329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0, 5.4)
+
+[node name="Model" parent="TileGrid/Tile_8_6" unique_id=1117261509 instance=ExtResource("3_tile_green")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
+
+[node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_8_6" unique_id=1533152084]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_8_6/StaticBody" unique_id=103476991]
+shape = SubResource("BoxShape3D_tile_8_6")
 
 [node name="FallDetector" type="Area3D" parent="." unique_id=382807375]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
@@ -931,13 +987,61 @@ layout_mode = 2
 text = "Return to Lobby"
 
 [node name="Wall" parent="." unique_id=1988864143 instance=ExtResource("4_drjsi")]
-transform = Transform3D(2.376, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.2978935)
+transform = Transform3D(4.2767997, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.5945683)
 
 [node name="Wall4" parent="." unique_id=1914313477 instance=ExtResource("4_drjsi")]
-transform = Transform3D(-9.347244e-08, 0, -1, 0, 1, 0, 2.1384, 0, -4.371139e-08, 4.338, 0, 0)
+transform = Transform3D(-1.4953666e-07, 0, -1.077, 0, 1.077, 0, 3.421, 0, -4.7077165e-08, 8.337999, 0, 0)
 
 [node name="Wall2" parent="." unique_id=598258557 instance=ExtResource("4_drjsi")]
-transform = Transform3D(2.3760002, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.298)
+transform = Transform3D(4.2768, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.595)
 
 [node name="Wall_Decorated" parent="." unique_id=960809408 instance=ExtResource("5_kcmxh")]
-transform = Transform3D(2.8036484e-07, 0, 1.018, 0, 1.018, 0, -2.138, 0, 1.3349458e-07, -4.338, 0, 0)
+transform = Transform3D(4.4858376e-07, 0, 1.0179999, 0, 1.018, 0, -3.4208, 0, 1.3349457e-07, -8.337999, 0, 0)
+
+[node name="Wall3" parent="." unique_id=224431246 instance=ExtResource("4_drjsi")]
+transform = Transform3D(4.7, 0, 0, 0, 1, 0, 0, 0, 1, -16.218, 0, 6.595)
+
+[node name="Wall6" parent="." unique_id=456648857 instance=ExtResource("4_drjsi")]
+transform = Transform3D(4.7, 0, 0, 0, 1, 0, 0, 0, 1, 16.218, 0, 6.595)
+
+[node name="Wall7" parent="." unique_id=636359021 instance=ExtResource("4_drjsi")]
+transform = Transform3D(4.7, 0, 0, 0, 1, 0, 0, 0, 1, 16.218, 0, -6.595)
+
+[node name="Wall5" parent="." unique_id=919173697 instance=ExtResource("4_drjsi")]
+transform = Transform3D(4.7, 0, 0, 0, 1, 0, 0, 0, 1, -16.218, 0, -6.595)
+
+[node name="Pallet_Small_Decorated_B" parent="." unique_id=1862668503 instance=ExtResource("6_lh85o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.639106, 0.024291992, -5.321919)
+
+[node name="Pallet_Large" parent="." unique_id=1549145567 instance=ExtResource("7_6x0aa")]
+transform = Transform3D(4.086, 0, 0, 0, 2.226, 0, 0, 0, 3.211, 16.64, 0, -0.003)
+
+[node name="Pallet_Large2" parent="." unique_id=877407284 instance=ExtResource("7_6x0aa")]
+transform = Transform3D(4.0863914, 0, 0, 0, 2.2257032, 0, 0, 0, 3.2106793, -16.6403, 0, -0.0028316975)
+
+[node name="Dummy_Base" parent="." unique_id=438239492 instance=ExtResource("8_6cbat")]
+transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.2453668e-08, -10.709047, 1.0281372, -1.6655061)
+
+[node name="Dummy_Base2" parent="." unique_id=1584184938 instance=ExtResource("8_6cbat")]
+transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.2453668e-08, -10.709047, 1.0281372, -4.9493065)
+
+[node name="Dummy_Base3" parent="." unique_id=818875512 instance=ExtResource("8_6cbat")]
+transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.2453668e-08, -10.709047, 1.0281372, 1.6416492)
+
+[node name="Dummy_Base4" parent="." unique_id=1027821246 instance=ExtResource("8_6cbat")]
+transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.2453668e-08, -10.709047, 1.0281372, 5.096819)
+
+[node name="Coin_B" parent="." unique_id=1001465963 instance=ExtResource("9_3q78o")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.004008, 2.4104004, 0)
+
+[node name="Coin_A" parent="." unique_id=243631584 instance=ExtResource("10_brxn4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.004, 2.42, -2)
+
+[node name="Coin_C" parent="." unique_id=587539554 instance=ExtResource("11_nbv2g")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.004, 2.42, 2)
+
+[node name="Box_C" parent="." unique_id=653000029 instance=ExtResource("12_brxn4")]
+transform = Transform3D(2.8092904, 0, 1.5296783, 0, 3.198754, 0, -1.5296783, 0, 2.8092904, 10.5843525, 1.0473175, -2.9518266)
+
+[node name="Box_C2" parent="." unique_id=1884075299 instance=ExtResource("12_brxn4")]
+transform = Transform3D(2.454394, 0, -2.0513353, 0, 3.198754, 0, 2.0513353, 0, 2.454394, 12.895, 1.047, -4.714137)

@@ -11,8 +11,9 @@ const MATCH_DURATION = 60.0
 const CYCLE_DURATION = 7.0
 const RANDOM_PHASE = 6.0
 const LOCK_PHASE = 1.0
-const GRID_SIZE = 8
-const TILE_SPACING = 1.0
+const GRID_ROWS = 9
+const GRID_COLS = 7
+const TILE_SPACING = 1.8
 const TILE_FLIP_INTERVAL = 0.3
 
 var state: GameState = GameState.INITIALIZING
@@ -103,19 +104,20 @@ func _generate_tile_grid() -> void:
 	if not tile_grid:
 		return
 
-	for i in range(GRID_SIZE):
-		for j in range(GRID_SIZE):
+	for i in range(GRID_ROWS):
+		for j in range(GRID_COLS):
 			var tile_node = Node3D.new()
 			tile_node.name = "Tile_%d_%d" % [i, j]
 
-			var x = i * TILE_SPACING - (GRID_SIZE / 2.0) * TILE_SPACING + TILE_SPACING / 2.0
-			var z = j * TILE_SPACING - (GRID_SIZE / 2.0) * TILE_SPACING + TILE_SPACING / 2.0
+			var x = i * TILE_SPACING - (GRID_ROWS / 2.0) * TILE_SPACING + TILE_SPACING / 2.0
+			var z = j * TILE_SPACING - (GRID_COLS / 2.0) * TILE_SPACING + TILE_SPACING / 2.0
 			tile_node.position = Vector3(x, 0, z)
 
 			tile_grid.add_child(tile_node)
 
 			var color = TileColor.GREEN if randf() > 0.5 else TileColor.RED
 			var fbx = TILE_GREEN_SCENE.instantiate() if color == TileColor.GREEN else TILE_RED_SCENE.instantiate()
+			fbx.scale = Vector3.ONE * TILE_SPACING
 			tile_node.add_child(fbx)
 
 			var static_body = StaticBody3D.new()
@@ -153,7 +155,7 @@ func _add_tile_model(tile_node: Node3D, color: TileColor) -> void:
 	if fbx_scene:
 		var model = fbx_scene.instantiate()
 		model.name = "Model"
-		model.scale = Vector3(1.0, 1.0, 1.0)  # Full size
+		model.scale = Vector3.ONE * TILE_SPACING
 		tile_node.add_child(model)
 		if multiplayer.is_server():
 			model.owner = get_tree().edited_scene_root  # For editor visibility
@@ -290,13 +292,13 @@ func reset_tiles_rpc() -> void:
 					collision.disabled = false
 
 func _create_walls() -> void:
-	# Wall positions around 8x8 grid (spacing 1.0)
-	# Grid: -3.5 to 3.5
+	# Wall positions around 9x7 grid (spacing 1.8)
+	# Grid X: -7.2 to 7.2 (9 rows), Z: -5.4 to 5.4 (7 cols)
 	var walls_data = [
-		{"name": "WallLeft", "pos": Vector3(-4.2, 0, 0), "size": Vector3(0.4, 2, 8)},
-		{"name": "WallRight", "pos": Vector3(4.2, 0, 0), "size": Vector3(0.4, 2, 8)},
-		{"name": "WallFront", "pos": Vector3(0, 0, -4.2), "size": Vector3(8, 2, 0.4)},
-		{"name": "WallBack", "pos": Vector3(0, 0, 4.2), "size": Vector3(8, 2, 0.4)},
+		{"name": "WallLeft", "pos": Vector3(-8.1, 0, 0), "size": Vector3(0.4, 2, 12.6)},
+		{"name": "WallRight", "pos": Vector3(8.1, 0, 0), "size": Vector3(0.4, 2, 12.6)},
+		{"name": "WallFront", "pos": Vector3(0, 0, -6.3), "size": Vector3(16.2, 2, 0.4)},
+		{"name": "WallBack", "pos": Vector3(0, 0, 6.3), "size": Vector3(16.2, 2, 0.4)},
 	]
 
 	for wall_data in walls_data:

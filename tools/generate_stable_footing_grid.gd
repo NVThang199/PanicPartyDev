@@ -1,8 +1,9 @@
 @tool
 extends EditorScript
 
-const GRID_SIZE = 8
-const TILE_SPACING = 1.2
+const GRID_ROWS = 9
+const GRID_COLS = 7
+const TILE_SPACING = 1.8
 const TILE_GREEN_SCENE = "res://assets/terrains/floor/tile_green.fbx"
 const TILE_RED_SCENE = "res://assets/terrains/floor/tile_red.fbx"
 
@@ -18,14 +19,14 @@ func _run() -> void:
 	for child in tile_grid.get_children():
 		child.queue_free()
 
-	# Generate 8x8 grid
-	for i in range(GRID_SIZE):
-		for j in range(GRID_SIZE):
+	# Generate 7x9 grid
+	for i in range(GRID_ROWS):
+		for j in range(GRID_COLS):
 			var tile_node = Node3D.new()
 			tile_node.name = "Tile_%d_%d" % [i, j]
 
-			var x = i * TILE_SPACING - (GRID_SIZE / 2.0) * TILE_SPACING + TILE_SPACING / 2.0
-			var z = j * TILE_SPACING - (GRID_SIZE / 2.0) * TILE_SPACING + TILE_SPACING / 2.0
+			var x = i * TILE_SPACING - (GRID_ROWS / 2.0) * TILE_SPACING + TILE_SPACING / 2.0
+			var z = j * TILE_SPACING - (GRID_COLS / 2.0) * TILE_SPACING + TILE_SPACING / 2.0
 			tile_node.position = Vector3(x, 0, z)
 
 			tile_grid.add_child(tile_node)
