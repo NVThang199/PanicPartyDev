@@ -139,6 +139,22 @@ func _apply_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
 	if anim_name and anim_name != current_anim:
 		play_anim(anim_name)
 
+func _safe_wait_animation(anim_name: String, fallback_duration: float = 0.5) -> void:
+	if not is_inside_tree():
+		return
+	var duration: float = fallback_duration
+	if anim_player and anim_player.has_animation(anim_name):
+		var anim = anim_player.get_animation(anim_name)
+		if anim and anim.length > 0.0:
+			var scale = max(0.1, abs(anim_player.speed_scale))
+			duration = (anim.length / scale) + 0.05
+
+	var timer = get_tree().create_timer(duration)
+	while is_inside_tree() and timer.time_left > 0.0:
+		if not anim_player or not anim_player.is_playing() or anim_player.current_animation != anim_name:
+			break
+		await get_tree().process_frame
+
 func apply_knockback(push_dir: Vector3) -> void:
 	knockback_velocity = push_dir.normalized() * 5.0
 	if is_knocked_down:
@@ -150,13 +166,18 @@ func apply_knockback(push_dir: Vector3) -> void:
 		AudioManager.play_kick_hit(global_position)
 		AudioManager.play_knockback_fall(global_position)
 	play_anim("simulation/Sit_Floor_Down")
-	if anim_player:
-		await anim_player.animation_finished
+	await _safe_wait_animation("simulation/Sit_Floor_Down", 0.6)
+	if not is_inside_tree() or is_dead_in_minigame:
+		is_knocked_down = false
+		return
 	play_anim("simulation/Sit_Floor_StandUp")
-	if anim_player:
-		await anim_player.animation_finished
+	await _safe_wait_animation("simulation/Sit_Floor_StandUp", 0.6)
 	is_knocked_down = false
-	play_anim("general/Idle_A")
+	if is_inside_tree() and not is_dead_in_minigame:
+		if is_holding_bomb:
+			play_anim("hot_bomb/Holding_A")
+		else:
+			play_anim("general/Idle_A")
 
 func _find_push_target() -> Node:
 	var main_node = get_parent()
@@ -217,13 +238,16 @@ func perform_push() -> void:
 		print("[PUSH] perform_push: No target found in front")
 			
 	if anim_player:
-		await anim_player.animation_finished
+		await _safe_wait_animation("combat/Melee_Unarmed_Attack_Kick", 0.6)
 	else:
 		await get_tree().create_timer(1.0).timeout
 	is_pushing = false
 	push_cooldown = 0.0
-	if not is_knocked_down and current_anim == "combat/Melee_Unarmed_Attack_Kick":
-		play_anim("general/Idle_A")
+	if not is_knocked_down and not is_dead_in_minigame and current_anim == "combat/Melee_Unarmed_Attack_Kick":
+		if is_holding_bomb:
+			play_anim("hot_bomb/Holding_A")
+		else:
+			play_anim("general/Idle_A")
 
 func _physics_process(delta):
 	if not is_inside_tree():
@@ -243,11 +267,11 @@ func _physics_process(delta):
 			else:
 				velocity.y = -0.1
 
-			if Input.is_action_just_pressed("push"):
+			if Input.is_action_just_pressed("push") and not is_knocked_down:
 				perform_push()
 
 			# Throw bomb with throw_bomb action
-			if Input.is_action_just_pressed("throw_bomb") and is_holding_bomb:
+			if Input.is_action_just_pressed("throw_bomb") and is_holding_bomb and not is_knocked_down:
 				throw_held_bomb()
 
 			if is_knocked_down:
@@ -457,7 +481,7 @@ func release_bomb() -> void:
 	play_anim("general/Idle_A", true)
 
 func throw_held_bomb() -> void:
-	if not is_holding_bomb:
+	if not is_holding_bomb or is_knocked_down or is_dead_in_minigame:
 		return
 
 	var direction = model.global_transform.basis.z if model else global_transform.basis.z
@@ -482,6 +506,8 @@ func throw_held_bomb() -> void:
 
 func die_in_minigame() -> void:
 	is_dead_in_minigame = true
+	is_knocked_down = false
+	is_pushing = false
 	is_holding_bomb = false
 	held_bomb = null
 	velocity = Vector3.ZERO

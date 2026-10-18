@@ -169,6 +169,15 @@ func request_action() -> void:
 11. Quên lưu `character_path` vào Player node khi spawn → Người chơi join muộn (hoặc late-join sync) không đồng bộ được nhân vật đúng, dùng model mặc định hoặc của host.
 12. Client gọi `explode_rpc.rpc()` trên RPC `@rpc("authority", ...)` → RPC không broadcast được vì chỉ server authority mới gửi được. Phải để Server gọi `.rpc()` broadcast.
 13. Server gọi hàm local (như `die_in_minigame()`) trước khi broadcast RPC → Chỉ Server thấy hiệu ứng, Client không thấy. Xóa call local, để RPC với `call_local` xử lý cả Server lẫn Client.
+14. Đổi scene bằng `call_local` hoặc delay một phía gây lệch frame chuyển scene (Race condition `Node not found: "Main3D"` / `Node not found: "StableFooting"`):
+    - Server đổi scene ngay: Client vẫn đang ở scene cũ bắn `sync_player_state` lên Server đã sang scene mới → Server báo `Node not found: "Main3D"` hoặc `"HotBomb"`.
+    - Server delay `await timer` nhưng Client đổi scene ngay: Client vào scene mới bắn `request_game_sync.rpc_id(1)` lên Server vẫn đang ở scene cũ → Server báo `Node not found: "StableFooting"`.
+15. Xóa node `MeshInstance3D` (hoặc phụ kiện/model) có gắn `surface_override_material` bằng `queue_free()` mà không gỡ material trước → Gây crash/warning C++ engine RendererRD Vulkan: `material_casts_shadows: Parameter "material" is null`, `material_update_dependency: Parameter "material" is null`.
+16. Load tài nguyên với đường dẫn rỗng `""` (`load("")` hoặc `ResourceLoader.load("res://")`) → Gây lỗi C++ engine: `Resource file not found: res:// (expected type: unknown)`.
+17. Dùng `await anim_player.animation_finished` trần trụi trong coroutine điều khiển trạng thái (như `is_knocked_down`, `is_pushing`):
+    - Trong Godot 4, khi một animation đang chạy bị ngắt bởi `play()` hoặc `stop()` khác (ví dụ: đang bị ngã mà nhấn ném bom hoặc bị đá tiếp), engine **KHÔNG BAO GIỜ** phát tín hiệu `animation_finished`.
+    - Coroutine bị treo vĩnh viễn, cờ trạng thái (`is_knocked_down = true`) không bao giờ được reset về `false`, khiến nhân vật bị đơ/đứng im vĩnh viễn không thể di chuyển hay nhận input.
+    - Cần bọc input action (`throw_bomb`, `push`) với điều kiện `not is_knocked_down`, và thay `await anim_player.animation_finished` bằng hàm đợi an toàn có giới hạn thời gian (timer timeout fallback + frame check).
 
 ✅ **Đúng**:
 1. Luôn dùng `method.rpc(...)` để gửi RPC.
@@ -180,6 +189,15 @@ func request_action() -> void:
 7. Đợi peer đạt `CONNECTION_CONNECTED` (signal `connected_to_server`) trước khi phát bất kỳ RPC nào từ Client.
 8. Trở về lobby dùng mô hình Client-pull: Client vào `_ready()` tự gửi `register_player.rpc_id(1)` lên Server, Server không broadcast trước.
 9. Gọi `set_process(false)` và `set_physics_process(false)` trước khi gọi `get_tree().change_scene_to_file(...)`, kèm `if not is_inside_tree(): return` ở đầu tất cả các hàm RPC.
+10. **Quy trình chuyển scene 2 giai đoạn (Two-Phase Scene Transition)**:
+    - **Giai đoạn 1 (Freeze traffic)**: Server phát RPC `prepare_start_game_rpc.rpc()` (hoặc `prepare_return_to_lobby_rpc.rpc()`). Toàn bộ client đặt `is_starting = true` / `is_returning = true`, tắt `_process`, tắt `set_physics_process` trên tất cả players, ngừng bắn `sync_player_state` và ping.
+    - **Xả mạng (Drain)**: Server đợi `await get_tree().create_timer(0.1).timeout` để các gói tin in-flight đến nốt và rơi vào node cũ an toàn.
+    - **Giai đoạn 2 (Switch scene)**: Server phát RPC `start_game_rpc.rpc()` / `return_to_lobby_rpc.rpc()` rồi Server đổi scene ngay. Client nhận được RPC mới bắt đầu đổi scene. Server luôn sang scene mới trước hoặc cùng lúc Client, sẵn sàng nhận `request_game_sync`.
+11. **Dọn dẹp Material trước khi queue_free**: Luôn gọi `_clear_materials_recursive(node)` (set surface override material về `null`) trước khi `queue_free()` bất kỳ mesh/model/phụ kiện nào.
+12. **Kiểm tra đường dẫn tài nguyên**: Luôn check `if path != "" and ResourceLoader.exists(path):` trước khi `load(path)`. Đường dẫn face mặc định fallback về `"res://assets/characters/face/robloxmanface.png"`.
+13. **Đợi Animation an toàn (Safe Animation Await Pattern)**:
+    - Dùng `_safe_wait_animation(anim_name, duration)` kiểm tra mỗi frame `timer.time_left > 0` và `anim_player.current_animation == anim_name`. Nếu bị ngắt bởi animation khác hoặc hết thời gian thì tự động thoát loop, đảm bảo cờ trạng thái (`is_knocked_down = false`, `is_pushing = false`) luôn luôn được giải phóng.
+    - Luôn chặn các hành động input (`throw_bomb`, `push`) khi đang ở trạng thái bị khống chế (`is_knocked_down`).
 
 ---
 

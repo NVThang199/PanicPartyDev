@@ -5,7 +5,7 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 383 nodes · 404 edges · 32 communities (3 shown, 29 thin omitted)
+- 384 nodes · 405 edges · 32 communities (3 shown, 29 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -57,14 +57,14 @@ Nodes (15): func _change_to_minigame(), func initialize_game(), func initialize_
 
 ## Knowledge Gaps
 - **12 isolated node(s):** `signal host_created`, `signal host_failed`, `signal client_connected`, `signal avatar_updated`, `signal settings_changed` (+7 more)
-  These have ≤1 connection - possible missing edges. (Counts symbols only; 315 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges. (Counts symbols only; 316 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **29 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `func _ready()` connect `character_select.gd` to `player.gd`?**
-  _High betweenness centrality (0.180) - this node is a cross-community bridge._
+  _High betweenness centrality (0.183) - this node is a cross-community bridge._
 - **What connects `signal host_created`, `signal host_failed`, `signal client_connected` to the rest of the system?**
   _12 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `main.gd` be split into smaller, more focused modules?**
