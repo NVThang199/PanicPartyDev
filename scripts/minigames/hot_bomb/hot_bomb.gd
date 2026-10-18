@@ -14,6 +14,7 @@ var bomb: Node = null
 var current_bomb_holder: int = -1
 var match_timer: float = MATCH_DURATION
 var _last_bomb_countdown_sec: int = -1
+var is_returning: bool = false
 
 @onready var match_timer_label: Label = $UI/MatchTimerLabel
 @onready var bomb_timer_label: Label = $UI/BombTimerLabel
@@ -209,7 +210,7 @@ func sync_game_state(new_state: int) -> void:
 
 @rpc("any_peer", "unreliable")
 func sync_player_state(peer_id: int, pos: Vector3, rot_y: float, anim_name: String) -> void:
-	if not is_inside_tree():
+	if not is_inside_tree() or is_returning or state != GameState.PLAYING:
 		return
 	if not multiplayer or not multiplayer.multiplayer_peer or multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
 		return
@@ -387,10 +388,11 @@ func _start_auto_return() -> void:
 		return
 	await get_tree().create_timer(6.0).timeout
 	if state == GameState.ENDED and is_inside_tree():
-		return_to_lobby.rpc()
+		return_to_lobby()
 
 @rpc("authority", "call_local", "reliable")
 func show_winner_banner(winner_id: int) -> void:
+	state = GameState.ENDED
 	if AudioManager:
 		AudioManager.play_game_win()
 	if winner_banner:
@@ -403,17 +405,19 @@ func show_winner_banner(winner_id: int) -> void:
 
 func _on_return_pressed() -> void:
 	if multiplayer.is_server():
-		return_to_lobby.rpc()
+		return_to_lobby()
 	else:
 		request_return_to_lobby.rpc_id(1)
 
 @rpc("any_peer", "call_local", "reliable")
 func request_return_to_lobby() -> void:
 	if multiplayer.is_server() and state == GameState.ENDED:
-		return_to_lobby.rpc()
+		return_to_lobby()
 
-@rpc("authority", "call_local", "reliable")
 func return_to_lobby() -> void:
+	if is_returning:
+		return
+	is_returning = true
 	set_process(false)
 	set_physics_process(false)
 	for pid in players:
@@ -422,7 +426,17 @@ func return_to_lobby() -> void:
 			p.set_physics_process(false)
 	if bomb and is_instance_valid(bomb):
 		bomb.set_physics_process(false)
-	get_tree().change_scene_to_file("res://scenes/core/main.tscn")
+
+	if multiplayer.is_server():
+		return_to_lobby_rpc.rpc()
+		await get_tree().create_timer(0.15).timeout
+
+	if is_inside_tree():
+		get_tree().change_scene_to_file("res://scenes/core/main.tscn")
+
+@rpc("authority", "call_remote", "reliable")
+func return_to_lobby_rpc() -> void:
+	return_to_lobby()
 
 @rpc("any_peer", "reliable")
 func request_push(target_peer_id: int, push_dir: Vector3) -> void:

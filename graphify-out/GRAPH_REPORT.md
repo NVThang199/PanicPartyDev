@@ -5,7 +5,7 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 376 nodes · 397 edges · 32 communities (4 shown, 28 thin omitted)
+- 378 nodes · 399 edges · 32 communities (4 shown, 28 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -60,7 +60,7 @@ Nodes (3): signal keybinds_changed, signal settings_changed, class ButtonEffects
 
 ## Knowledge Gaps
 - **12 isolated node(s):** `signal host_created`, `signal host_failed`, `signal client_connected`, `signal avatar_updated`, `signal settings_changed` (+7 more)
-  These have ≤1 connection - possible missing edges. (Counts symbols only; 308 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges. (Counts symbols only; 310 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **28 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -73,10 +73,10 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `main.gd` be split into smaller, more focused modules?**
   _Cohesion score 0.056910569105691054 - nodes in this community are weakly interconnected._
 - **Why does `func _on_host_pressed()` connect `networking.gd` to `character_select.gd`?**
-  _High betweenness centrality (0.120) - this node is a cross-community bridge._
+  _High betweenness centrality (0.119) - this node is a cross-community bridge._
 - **Should `stable_footing.gd` be split into smaller, more focused modules?**
-  _Cohesion score 0.05 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.04878048780487805 - nodes in this community are weakly interconnected._
 - **Why does `func initialize_game()` connect `character_select.gd` to `stable_footing.gd`?**
-  _High betweenness centrality (0.051) - this node is a cross-community bridge._
+  _High betweenness centrality (0.052) - this node is a cross-community bridge._
 - **Should `audio_manager.gd` be split into smaller, more focused modules?**
   _Cohesion score 0.05 - nodes in this community are weakly interconnected._

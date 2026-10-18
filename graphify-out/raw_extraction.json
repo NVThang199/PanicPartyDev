@@ -684,84 +684,84 @@
       "label": "func _ready()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L292"
+      "source_location": "L295"
     },
     {
       "id": "scripts_players_player_gd_play_anim",
       "label": "func play_anim()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L338"
+      "source_location": "L341"
     },
     {
       "id": "scripts_players_player_gd__clear_materials_recursive",
       "label": "func _clear_materials_recursive()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L346"
+      "source_location": "L349"
     },
     {
       "id": "scripts_players_player_gd_switch_character",
       "label": "func switch_character()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L355"
+      "source_location": "L358"
     },
     {
       "id": "scripts_players_player_gd__setup_head_socket",
       "label": "func _setup_head_socket()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L389"
+      "source_location": "L392"
     },
     {
       "id": "scripts_players_player_gd__apply_character_hat",
       "label": "func _apply_character_hat()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L404"
+      "source_location": "L407"
     },
     {
       "id": "scripts_players_player_gd__setup_hand_socket",
       "label": "func _setup_hand_socket()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L420"
+      "source_location": "L423"
     },
     {
       "id": "scripts_players_player_gd_get_hand_socket",
       "label": "func get_hand_socket()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L433"
+      "source_location": "L436"
     },
     {
       "id": "scripts_players_player_gd_pick_up_bomb",
       "label": "func pick_up_bomb()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L444"
+      "source_location": "L447"
     },
     {
       "id": "scripts_players_player_gd_release_bomb",
       "label": "func release_bomb()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L451"
+      "source_location": "L454"
     },
     {
       "id": "scripts_players_player_gd_throw_held_bomb",
       "label": "func throw_held_bomb()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L456"
+      "source_location": "L459"
     },
     {
       "id": "scripts_players_player_gd_die_in_minigame",
       "label": "func die_in_minigame()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L480"
+      "source_location": "L483"
     },
     {
       "id": "scripts_systems_audio_manager_gd",
@@ -2000,224 +2000,231 @@
       "label": "func _ready()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L25"
+      "source_location": "L26"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_initialize_game",
       "label": "func initialize_game()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L38"
+      "source_location": "L39"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_request_game_sync",
       "label": "rpc func request_game_sync()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L76"
+      "source_location": "L77"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_spawn_player",
       "label": "rpc func spawn_player()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L101"
+      "source_location": "L102"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_spawn_bomb",
       "label": "func spawn_bomb()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L133"
+      "source_location": "L134"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_spawn_bomb_rpc",
       "label": "rpc func spawn_bomb_rpc()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L139"
+      "source_location": "L140"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd__process",
       "label": "func _process()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L167"
+      "source_location": "L168"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_sync_game_state",
       "label": "rpc func sync_game_state()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L207"
+      "source_location": "L208"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_sync_player_state",
       "label": "rpc func sync_player_state()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L211"
+      "source_location": "L212"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_request_throw_bomb",
       "label": "rpc func request_throw_bomb()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L224"
+      "source_location": "L225"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_throw_bomb",
       "label": "func throw_bomb()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L232"
+      "source_location": "L233"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_throw_bomb_rpc",
       "label": "rpc func throw_bomb_rpc()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L260"
+      "source_location": "L261"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd__on_bomb_caught",
       "label": "func _on_bomb_caught()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L281"
+      "source_location": "L282"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_bomb_caught_rpc",
       "label": "rpc func bomb_caught_rpc()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L297"
+      "source_location": "L298"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd__on_bomb_exploded",
       "label": "func _on_bomb_exploded()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L313"
+      "source_location": "L314"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_player_died",
       "label": "func player_died()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L330"
+      "source_location": "L331"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_player_died_rpc",
       "label": "rpc func player_died_rpc()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L340"
+      "source_location": "L341"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_remove_dead_player",
       "label": "func remove_dead_player()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L351"
+      "source_location": "L352"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_get_alive_player_ids",
       "label": "func get_alive_player_ids()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L357"
+      "source_location": "L358"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_get_alive_players",
       "label": "func get_alive_players()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L364"
+      "source_location": "L365"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_end_game_winner",
       "label": "func end_game_winner()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L371"
+      "source_location": "L372"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_end_game_timeout",
       "label": "func end_game_timeout()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L376"
+      "source_location": "L377"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd__start_auto_return",
       "label": "func _start_auto_return()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L385"
+      "source_location": "L386"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_show_winner_banner",
       "label": "rpc func show_winner_banner()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L393"
+      "source_location": "L394"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd__on_return_pressed",
       "label": "func _on_return_pressed()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L404"
+      "source_location": "L406"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_request_return_to_lobby",
       "label": "rpc func request_return_to_lobby()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L411"
+      "source_location": "L413"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_return_to_lobby",
-      "label": "rpc func return_to_lobby()",
+      "label": "func return_to_lobby()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L416"
+      "source_location": "L417"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_hot_bomb_gd_return_to_lobby_rpc",
+      "label": "rpc func return_to_lobby_rpc()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
+      "source_location": "L438"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_request_push",
       "label": "rpc func request_push()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L428"
+      "source_location": "L442"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_apply_knockback_rpc",
       "label": "rpc func apply_knockback_rpc()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L445"
+      "source_location": "L459"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_sync_match_timer",
       "label": "rpc func sync_match_timer()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L454"
+      "source_location": "L468"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_sync_bomb_timer",
       "label": "rpc func sync_bomb_timer()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L462"
+      "source_location": "L476"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd__on_peer_disconnected",
       "label": "func _on_peer_disconnected()",
       "file_type": "code",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L470"
+      "source_location": "L484"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd",
@@ -2231,280 +2238,287 @@
       "label": "func _ready()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L41"
+      "source_location": "L42"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_initialize_game",
       "label": "func initialize_game()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L64"
+      "source_location": "L65"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__generate_tile_grid",
       "label": "func _generate_tile_grid()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L106"
+      "source_location": "L107"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__collect_existing_tiles",
       "label": "func _collect_existing_tiles()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L139"
+      "source_location": "L140"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__add_tile_model",
       "label": "func _add_tile_model()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L148"
+      "source_location": "L149"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__randomize_tiles",
       "label": "func _randomize_tiles()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L168"
+      "source_location": "L169"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__process",
       "label": "func _process()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L173"
+      "source_location": "L174"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__drop_red_tiles",
       "label": "func _drop_red_tiles()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L246"
+      "source_location": "L247"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__reset_all_tiles",
       "label": "func _reset_all_tiles()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L269"
+      "source_location": "L270"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__schedule_reset_tiles",
       "label": "func _schedule_reset_tiles()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L275"
+      "source_location": "L276"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_reset_tiles_rpc",
       "label": "rpc func reset_tiles_rpc()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L284"
+      "source_location": "L285"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__create_walls",
       "label": "func _create_walls()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L297"
+      "source_location": "L298"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_request_game_sync",
       "label": "rpc func request_game_sync()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L320"
+      "source_location": "L321"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_sync_player_state",
       "label": "rpc func sync_player_state()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L344"
+      "source_location": "L345"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_request_push",
       "label": "rpc func request_push()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L357"
+      "source_location": "L358"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_apply_knockback_rpc",
       "label": "rpc func apply_knockback_rpc()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L374"
+      "source_location": "L375"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_spawn_player",
       "label": "rpc func spawn_player()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L382"
+      "source_location": "L383"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_sync_game_state",
       "label": "rpc func sync_game_state()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L417"
+      "source_location": "L418"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_sync_match_timer",
       "label": "rpc func sync_match_timer()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L423"
+      "source_location": "L424"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_sync_cycle_timer",
       "label": "rpc func sync_cycle_timer()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L429"
+      "source_location": "L430"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_trigger_crumble_warning_rpc",
       "label": "rpc func trigger_crumble_warning_rpc()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L435"
+      "source_location": "L436"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_sync_all_tile_colors",
       "label": "rpc func sync_all_tile_colors()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L442"
+      "source_location": "L443"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_sync_tile_color",
       "label": "rpc func sync_tile_color()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L454"
+      "source_location": "L455"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_drop_tiles_rpc",
       "label": "rpc func drop_tiles_rpc()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L466"
+      "source_location": "L467"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_player_died",
       "label": "func player_died()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L505"
+      "source_location": "L506"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_player_died_rpc",
       "label": "rpc func player_died_rpc()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L517"
+      "source_location": "L518"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_remove_dead_player",
       "label": "func remove_dead_player()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L524"
+      "source_location": "L525"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_remove_player_rpc",
       "label": "rpc func remove_player_rpc()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L530"
+      "source_location": "L531"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_get_alive_player_ids",
       "label": "func get_alive_player_ids()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L538"
+      "source_location": "L539"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__check_game_over",
       "label": "func _check_game_over()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L545"
+      "source_location": "L546"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_end_game_winner",
       "label": "func end_game_winner()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L559"
+      "source_location": "L560"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_end_game_timeout",
       "label": "func end_game_timeout()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L564"
+      "source_location": "L565"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__start_auto_return",
       "label": "func _start_auto_return()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L573"
+      "source_location": "L574"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_show_winner_banner",
       "label": "rpc func show_winner_banner()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L581"
+      "source_location": "L582"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__on_fall_detected",
       "label": "func _on_fall_detected()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L594"
+      "source_location": "L596"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_play_player_fall_rpc",
       "label": "rpc func play_player_fall_rpc()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L604"
+      "source_location": "L606"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__on_return_pressed",
       "label": "func _on_return_pressed()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L610"
+      "source_location": "L612"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_request_return_to_lobby",
       "label": "rpc func request_return_to_lobby()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L617"
+      "source_location": "L619"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_return_to_lobby",
-      "label": "rpc func return_to_lobby()",
+      "label": "func return_to_lobby()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L622"
+      "source_location": "L623"
+    },
+    {
+      "id": "scripts_minigames_stable_footing_stable_footing_gd_return_to_lobby_rpc",
+      "label": "rpc func return_to_lobby_rpc()",
+      "file_type": "code",
+      "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
+      "source_location": "L642"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__on_peer_disconnected",
       "label": "func _on_peer_disconnected()",
       "file_type": "code",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L631"
+      "source_location": "L645"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_editor_gd",
@@ -3981,7 +3995,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L290",
+      "source_location": "L293",
       "weight": 1.0
     },
     {
@@ -3990,7 +4004,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L292",
+      "source_location": "L295",
       "weight": 1.0
     },
     {
@@ -3999,7 +4013,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L325",
+      "source_location": "L328",
       "weight": 1.0
     },
     {
@@ -4008,7 +4022,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L326",
+      "source_location": "L329",
       "weight": 1.0
     },
     {
@@ -4017,7 +4031,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L327",
+      "source_location": "L330",
       "weight": 1.0
     },
     {
@@ -4026,7 +4040,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L330",
+      "source_location": "L333",
       "weight": 1.0
     },
     {
@@ -4035,7 +4049,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L330",
+      "source_location": "L333",
       "weight": 1.0
     },
     {
@@ -4044,7 +4058,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L332",
+      "source_location": "L335",
       "weight": 1.0
     },
     {
@@ -4053,7 +4067,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L338",
+      "source_location": "L341",
       "weight": 1.0
     },
     {
@@ -4062,7 +4076,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L346",
+      "source_location": "L349",
       "weight": 1.0
     },
     {
@@ -4071,7 +4085,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L355",
+      "source_location": "L358",
       "weight": 1.0
     },
     {
@@ -4080,7 +4094,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L389",
+      "source_location": "L392",
       "weight": 1.0
     },
     {
@@ -4089,7 +4103,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L404",
+      "source_location": "L407",
       "weight": 1.0
     },
     {
@@ -4098,7 +4112,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L420",
+      "source_location": "L423",
       "weight": 1.0
     },
     {
@@ -4107,7 +4121,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L433",
+      "source_location": "L436",
       "weight": 1.0
     },
     {
@@ -4116,7 +4130,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L444",
+      "source_location": "L447",
       "weight": 1.0
     },
     {
@@ -4125,7 +4139,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L451",
+      "source_location": "L454",
       "weight": 1.0
     },
     {
@@ -4134,7 +4148,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L456",
+      "source_location": "L459",
       "weight": 1.0
     },
     {
@@ -4143,7 +4157,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L475",
+      "source_location": "L478",
       "weight": 1.0
     },
     {
@@ -4152,7 +4166,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L480",
+      "source_location": "L483",
       "weight": 1.0
     },
     {
@@ -6276,7 +6290,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -6285,22 +6299,13 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
       "source": "scripts_minigames_hot_bomb_hot_bomb_gd",
       "target": "scripts_minigames_hot_bomb_hot_bomb_gd_initialize_game",
       "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L38",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_minigames_hot_bomb_hot_bomb_gd_initialize_game",
-      "target": "gamesession",
-      "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
       "source_location": "L39",
@@ -6312,7 +6317,16 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L41",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_hot_bomb_gd_initialize_game",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -6321,7 +6335,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L58",
+      "source_location": "L59",
       "weight": 1.0
     },
     {
@@ -6330,7 +6344,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L73",
+      "source_location": "L74",
       "weight": 1.0
     },
     {
@@ -6339,7 +6353,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L76",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -6348,7 +6362,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L83",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -6357,7 +6371,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L84",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -6366,7 +6380,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L94",
+      "source_location": "L95",
       "weight": 1.0
     },
     {
@@ -6375,7 +6389,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L97",
+      "source_location": "L98",
       "weight": 1.0
     },
     {
@@ -6384,7 +6398,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L98",
+      "source_location": "L99",
       "weight": 1.0
     },
     {
@@ -6393,7 +6407,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L101",
+      "source_location": "L102",
       "weight": 1.0
     },
     {
@@ -6402,7 +6416,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L133",
+      "source_location": "L134",
       "weight": 1.0
     },
     {
@@ -6411,7 +6425,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L136",
+      "source_location": "L137",
       "weight": 1.0
     },
     {
@@ -6420,7 +6434,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L139",
+      "source_location": "L140",
       "weight": 1.0
     },
     {
@@ -6429,7 +6443,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L167",
+      "source_location": "L168",
       "weight": 1.0
     },
     {
@@ -6438,7 +6452,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L186",
+      "source_location": "L187",
       "weight": 1.0
     },
     {
@@ -6447,7 +6461,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L194",
+      "source_location": "L195",
       "weight": 1.0
     },
     {
@@ -6456,7 +6470,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L207",
+      "source_location": "L208",
       "weight": 1.0
     },
     {
@@ -6465,7 +6479,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L211",
+      "source_location": "L212",
       "weight": 1.0
     },
     {
@@ -6474,7 +6488,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L224",
+      "source_location": "L225",
       "weight": 1.0
     },
     {
@@ -6483,7 +6497,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L232",
+      "source_location": "L233",
       "weight": 1.0
     },
     {
@@ -6492,7 +6506,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L255",
+      "source_location": "L256",
       "weight": 1.0
     },
     {
@@ -6501,7 +6515,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L260",
+      "source_location": "L261",
       "weight": 1.0
     },
     {
@@ -6510,7 +6524,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L281",
+      "source_location": "L282",
       "weight": 1.0
     },
     {
@@ -6519,7 +6533,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L292",
+      "source_location": "L293",
       "weight": 1.0
     },
     {
@@ -6528,7 +6542,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L297",
+      "source_location": "L298",
       "weight": 1.0
     },
     {
@@ -6537,7 +6551,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L313",
+      "source_location": "L314",
       "weight": 1.0
     },
     {
@@ -6546,7 +6560,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L330",
+      "source_location": "L331",
       "weight": 1.0
     },
     {
@@ -6555,7 +6569,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L337",
+      "source_location": "L338",
       "weight": 1.0
     },
     {
@@ -6564,7 +6578,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L340",
+      "source_location": "L341",
       "weight": 1.0
     },
     {
@@ -6573,7 +6587,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L351",
+      "source_location": "L352",
       "weight": 1.0
     },
     {
@@ -6582,7 +6596,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L357",
+      "source_location": "L358",
       "weight": 1.0
     },
     {
@@ -6591,7 +6605,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L364",
+      "source_location": "L365",
       "weight": 1.0
     },
     {
@@ -6600,7 +6614,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L371",
+      "source_location": "L372",
       "weight": 1.0
     },
     {
@@ -6609,7 +6623,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L373",
+      "source_location": "L374",
       "weight": 1.0
     },
     {
@@ -6618,7 +6632,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L376",
+      "source_location": "L377",
       "weight": 1.0
     },
     {
@@ -6627,7 +6641,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L380",
+      "source_location": "L381",
       "weight": 1.0
     },
     {
@@ -6636,7 +6650,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L382",
+      "source_location": "L383",
       "weight": 1.0
     },
     {
@@ -6645,16 +6659,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L385",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_minigames_hot_bomb_hot_bomb_gd__start_auto_return",
-      "target": "return_to_lobby",
-      "relation": "calls_rpc",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L390",
+      "source_location": "L386",
       "weight": 1.0
     },
     {
@@ -6663,22 +6668,13 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L393",
+      "source_location": "L394",
       "weight": 1.0
     },
     {
       "source": "scripts_minigames_hot_bomb_hot_bomb_gd",
       "target": "scripts_minigames_hot_bomb_hot_bomb_gd__on_return_pressed",
       "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L404",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_minigames_hot_bomb_hot_bomb_gd__on_return_pressed",
-      "target": "return_to_lobby",
-      "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
       "source_location": "L406",
@@ -6690,22 +6686,13 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L408",
+      "source_location": "L410",
       "weight": 1.0
     },
     {
       "source": "scripts_minigames_hot_bomb_hot_bomb_gd",
       "target": "scripts_minigames_hot_bomb_hot_bomb_gd_request_return_to_lobby",
       "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L411",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_minigames_hot_bomb_hot_bomb_gd_request_return_to_lobby",
-      "target": "return_to_lobby",
-      "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
       "source_location": "L413",
@@ -6717,7 +6704,25 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L416",
+      "source_location": "L417",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_hot_bomb_gd_return_to_lobby",
+      "target": "return_to_lobby_rpc",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
+      "source_location": "L431",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_hot_bomb_gd_return_to_lobby_rpc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
+      "source_location": "L438",
       "weight": 1.0
     },
     {
@@ -6726,7 +6731,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L428",
+      "source_location": "L442",
       "weight": 1.0
     },
     {
@@ -6735,7 +6740,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L442",
+      "source_location": "L456",
       "weight": 1.0
     },
     {
@@ -6744,7 +6749,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L445",
+      "source_location": "L459",
       "weight": 1.0
     },
     {
@@ -6753,7 +6758,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L454",
+      "source_location": "L468",
       "weight": 1.0
     },
     {
@@ -6762,7 +6767,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L462",
+      "source_location": "L476",
       "weight": 1.0
     },
     {
@@ -6771,7 +6776,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L470",
+      "source_location": "L484",
       "weight": 1.0
     },
     {
@@ -6816,7 +6821,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L41",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -6825,22 +6830,13 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L62",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
       "source": "scripts_minigames_stable_footing_stable_footing_gd",
       "target": "scripts_minigames_stable_footing_stable_footing_gd_initialize_game",
       "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L64",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_minigames_stable_footing_stable_footing_gd_initialize_game",
-      "target": "gamesession",
-      "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
       "source_location": "L65",
@@ -6852,7 +6848,16 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L67",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_stable_footing_stable_footing_gd_initialize_game",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
+      "source_location": "L68",
       "weight": 1.0
     },
     {
@@ -6861,7 +6866,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L94",
+      "source_location": "L95",
       "weight": 1.0
     },
     {
@@ -6870,7 +6875,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L103",
+      "source_location": "L104",
       "weight": 1.0
     },
     {
@@ -6879,7 +6884,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L106",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -6888,7 +6893,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L139",
+      "source_location": "L140",
       "weight": 1.0
     },
     {
@@ -6897,7 +6902,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L148",
+      "source_location": "L149",
       "weight": 1.0
     },
     {
@@ -6906,7 +6911,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L168",
+      "source_location": "L169",
       "weight": 1.0
     },
     {
@@ -6915,7 +6920,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L171",
+      "source_location": "L172",
       "weight": 1.0
     },
     {
@@ -6924,7 +6929,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L173",
+      "source_location": "L174",
       "weight": 1.0
     },
     {
@@ -6933,7 +6938,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L199",
+      "source_location": "L200",
       "weight": 1.0
     },
     {
@@ -6942,7 +6947,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L207",
+      "source_location": "L208",
       "weight": 1.0
     },
     {
@@ -6951,7 +6956,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L208",
+      "source_location": "L209",
       "weight": 1.0
     },
     {
@@ -6960,7 +6965,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L246",
+      "source_location": "L247",
       "weight": 1.0
     },
     {
@@ -6969,7 +6974,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L252",
+      "source_location": "L253",
       "weight": 1.0
     },
     {
@@ -6978,7 +6983,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L269",
+      "source_location": "L270",
       "weight": 1.0
     },
     {
@@ -6987,7 +6992,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L270",
+      "source_location": "L271",
       "weight": 1.0
     },
     {
@@ -6996,7 +7001,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L275",
+      "source_location": "L276",
       "weight": 1.0
     },
     {
@@ -7005,7 +7010,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L284",
+      "source_location": "L285",
       "weight": 1.0
     },
     {
@@ -7014,7 +7019,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L297",
+      "source_location": "L298",
       "weight": 1.0
     },
     {
@@ -7023,7 +7028,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L320",
+      "source_location": "L321",
       "weight": 1.0
     },
     {
@@ -7032,7 +7037,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L327",
+      "source_location": "L328",
       "weight": 1.0
     },
     {
@@ -7041,7 +7046,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L328",
+      "source_location": "L329",
       "weight": 1.0
     },
     {
@@ -7050,7 +7055,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L329",
+      "source_location": "L330",
       "weight": 1.0
     },
     {
@@ -7059,7 +7064,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L339",
+      "source_location": "L340",
       "weight": 1.0
     },
     {
@@ -7068,7 +7073,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L341",
+      "source_location": "L342",
       "weight": 1.0
     },
     {
@@ -7077,7 +7082,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L344",
+      "source_location": "L345",
       "weight": 1.0
     },
     {
@@ -7086,7 +7091,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L357",
+      "source_location": "L358",
       "weight": 1.0
     },
     {
@@ -7095,7 +7100,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L371",
+      "source_location": "L372",
       "weight": 1.0
     },
     {
@@ -7104,7 +7109,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L374",
+      "source_location": "L375",
       "weight": 1.0
     },
     {
@@ -7113,7 +7118,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L382",
+      "source_location": "L383",
       "weight": 1.0
     },
     {
@@ -7122,7 +7127,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L417",
+      "source_location": "L418",
       "weight": 1.0
     },
     {
@@ -7131,7 +7136,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L423",
+      "source_location": "L424",
       "weight": 1.0
     },
     {
@@ -7140,7 +7145,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L429",
+      "source_location": "L430",
       "weight": 1.0
     },
     {
@@ -7149,7 +7154,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L435",
+      "source_location": "L436",
       "weight": 1.0
     },
     {
@@ -7158,7 +7163,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L442",
+      "source_location": "L443",
       "weight": 1.0
     },
     {
@@ -7167,7 +7172,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L454",
+      "source_location": "L455",
       "weight": 1.0
     },
     {
@@ -7176,7 +7181,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L466",
+      "source_location": "L467",
       "weight": 1.0
     },
     {
@@ -7185,7 +7190,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L505",
+      "source_location": "L506",
       "weight": 1.0
     },
     {
@@ -7194,7 +7199,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L513",
+      "source_location": "L514",
       "weight": 1.0
     },
     {
@@ -7203,7 +7208,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L517",
+      "source_location": "L518",
       "weight": 1.0
     },
     {
@@ -7212,7 +7217,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L524",
+      "source_location": "L525",
       "weight": 1.0
     },
     {
@@ -7221,7 +7226,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L527",
+      "source_location": "L528",
       "weight": 1.0
     },
     {
@@ -7230,7 +7235,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L530",
+      "source_location": "L531",
       "weight": 1.0
     },
     {
@@ -7239,7 +7244,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L538",
+      "source_location": "L539",
       "weight": 1.0
     },
     {
@@ -7248,7 +7253,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L545",
+      "source_location": "L546",
       "weight": 1.0
     },
     {
@@ -7257,7 +7262,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L559",
+      "source_location": "L560",
       "weight": 1.0
     },
     {
@@ -7266,7 +7271,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L561",
+      "source_location": "L562",
       "weight": 1.0
     },
     {
@@ -7275,7 +7280,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L564",
+      "source_location": "L565",
       "weight": 1.0
     },
     {
@@ -7284,7 +7289,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L568",
+      "source_location": "L569",
       "weight": 1.0
     },
     {
@@ -7293,7 +7298,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L570",
+      "source_location": "L571",
       "weight": 1.0
     },
     {
@@ -7302,16 +7307,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L573",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_minigames_stable_footing_stable_footing_gd__start_auto_return",
-      "target": "return_to_lobby",
-      "relation": "calls_rpc",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L578",
+      "source_location": "L574",
       "weight": 1.0
     },
     {
@@ -7320,7 +7316,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L581",
+      "source_location": "L582",
       "weight": 1.0
     },
     {
@@ -7329,7 +7325,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L594",
+      "source_location": "L596",
       "weight": 1.0
     },
     {
@@ -7338,7 +7334,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L600",
+      "source_location": "L602",
       "weight": 1.0
     },
     {
@@ -7347,22 +7343,13 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L604",
+      "source_location": "L606",
       "weight": 1.0
     },
     {
       "source": "scripts_minigames_stable_footing_stable_footing_gd",
       "target": "scripts_minigames_stable_footing_stable_footing_gd__on_return_pressed",
       "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L610",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_minigames_stable_footing_stable_footing_gd__on_return_pressed",
-      "target": "return_to_lobby",
-      "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
       "source_location": "L612",
@@ -7374,22 +7361,13 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L614",
+      "source_location": "L616",
       "weight": 1.0
     },
     {
       "source": "scripts_minigames_stable_footing_stable_footing_gd",
       "target": "scripts_minigames_stable_footing_stable_footing_gd_request_return_to_lobby",
       "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L617",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_minigames_stable_footing_stable_footing_gd_request_return_to_lobby",
-      "target": "return_to_lobby",
-      "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
       "source_location": "L619",
@@ -7401,7 +7379,25 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L622",
+      "source_location": "L623",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_stable_footing_stable_footing_gd_return_to_lobby",
+      "target": "return_to_lobby_rpc",
+      "relation": "calls_rpc",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
+      "source_location": "L635",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_stable_footing_stable_footing_gd",
+      "target": "scripts_minigames_stable_footing_stable_footing_gd_return_to_lobby_rpc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
+      "source_location": "L642",
       "weight": 1.0
     },
     {
@@ -7410,7 +7406,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L631",
+      "source_location": "L645",
       "weight": 1.0
     },
     {
