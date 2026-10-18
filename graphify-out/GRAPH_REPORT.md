@@ -5,7 +5,7 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 379 nodes · 400 edges · 32 communities (3 shown, 29 thin omitted)
+- 383 nodes · 404 edges · 32 communities (3 shown, 29 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -44,7 +44,7 @@
 ## Communities (32 total, 29 thin omitted)
 
 ### Community 0 - "main.gd"
-Cohesion: 0.06
+Cohesion: 0.05
 Nodes (9): func _on_character_confirmed(), func _on_connected_to_server(), func _on_copy_code_pressed(), func _on_deferred_register_player(), func _on_invite_pressed(), func _on_leave_pressed(), func _ready(), func _restore_lobby_session() (+1 more)
 
 ### Community 4 - "networking.gd"
@@ -53,26 +53,26 @@ Nodes (21): func _on_host_failed(), func _exit_tree(), func _process(), func _re
 
 ### Community 5 - "character_select.gd"
 Cohesion: 0.08
-Nodes (15): func start_game(), func initialize_game(), func initialize_game(), func _ready(), func _on_confirm_pressed(), func _select_character(), func _select_color(), func _select_face() (+7 more)
+Nodes (15): func _change_to_minigame(), func initialize_game(), func initialize_game(), func _ready(), func _on_confirm_pressed(), func _select_character(), func _select_color(), func _select_face() (+7 more)
 
 ## Knowledge Gaps
 - **12 isolated node(s):** `signal host_created`, `signal host_failed`, `signal client_connected`, `signal avatar_updated`, `signal settings_changed` (+7 more)
-  These have ≤1 connection - possible missing edges. (Counts symbols only; 311 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges. (Counts symbols only; 315 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **29 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `func _ready()` connect `character_select.gd` to `player.gd`?**
-  _High betweenness centrality (0.182) - this node is a cross-community bridge._
+  _High betweenness centrality (0.180) - this node is a cross-community bridge._
 - **What connects `signal host_created`, `signal host_failed`, `signal client_connected` to the rest of the system?**
   _12 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `main.gd` be split into smaller, more focused modules?**
-  _Cohesion score 0.05537098560354374 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.052525252525252523 - nodes in this community are weakly interconnected._
 - **Why does `func _on_host_pressed()` connect `networking.gd` to `character_select.gd`?**
-  _High betweenness centrality (0.118) - this node is a cross-community bridge._
+  _High betweenness centrality (0.116) - this node is a cross-community bridge._
 - **Should `stable_footing.gd` be split into smaller, more focused modules?**
-  _Cohesion score 0.04878048780487805 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.047619047619047616 - nodes in this community are weakly interconnected._
 - **Why does `func initialize_game()` connect `character_select.gd` to `stable_footing.gd`?**
   _High betweenness centrality (0.052) - this node is a cross-community bridge._
 - **Should `audio_manager.gd` be split into smaller, more focused modules?**

@@ -681,12 +681,17 @@ func start_game(map_name: String) -> void:
 			p.set_physics_process(false)
 
 	if multiplayer.is_server():
+		prepare_start_game_rpc.rpc()
+		await get_tree().create_timer(0.1).timeout
+		if not is_inside_tree():
+			return
 		start_game_rpc.rpc(map_name)
-		await get_tree().create_timer(0.15).timeout
 
+	_change_to_minigame(map_name)
+
+func _change_to_minigame(map_name: String) -> void:
 	if not is_inside_tree():
 		return
-
 	if map_name == "HotBomb":
 		GameSession.minigame_players = player_info.duplicate(true)
 		get_tree().change_scene_to_file("res://scenes/minigames/hot_bomb/hot_bomb.tscn")
@@ -697,5 +702,15 @@ func start_game(map_name: String) -> void:
 		print("[GAME] Map %s is lobby, nothing to start" % map_name)
 
 @rpc("authority", "call_remote", "reliable")
+func prepare_start_game_rpc() -> void:
+	is_starting = true
+	set_process(false)
+	set_physics_process(false)
+	for pid in players:
+		var p = players[pid]
+		if is_instance_valid(p):
+			p.set_physics_process(false)
+
+@rpc("authority", "call_remote", "reliable")
 func start_game_rpc(map_name: String) -> void:
-	start_game(map_name)
+	_change_to_minigame(map_name)

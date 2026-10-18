@@ -284,6 +284,16 @@
       "source_location": "L518"
     },
     {
+      "id": "scripts_core_main_gd_prepare_start_game_rpc",
+      "label": "rpc func prepare_start_game_rpc()",
+      "community": 0,
+      "community_name": "main.gd",
+      "file_type": "code",
+      "norm_label": "rpc func prepare_start_game_rpc()",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L705"
+    },
+    {
       "id": "scripts_core_main_gd_register_player",
       "label": "rpc func register_player()",
       "community": 0,
@@ -374,6 +384,16 @@
       "source_location": "L415"
     },
     {
+      "id": "scripts_core_main_gd_start_game",
+      "label": "func start_game()",
+      "community": 0,
+      "community_name": "main.gd",
+      "file_type": "code",
+      "norm_label": "func start_game()",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L669"
+    },
+    {
       "id": "scripts_core_main_gd_start_game_rpc",
       "label": "rpc func start_game_rpc()",
       "community": 0,
@@ -381,7 +401,7 @@
       "file_type": "code",
       "norm_label": "rpc func start_game_rpc()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L700"
+      "source_location": "L715"
     },
     {
       "id": "scripts_core_main_gd_sync_player_state",
@@ -521,7 +541,7 @@
       "file_type": "code",
       "norm_label": "func _on_peer_disconnected()",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L645"
+      "source_location": "L659"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__on_return_pressed",
@@ -674,6 +694,16 @@
       "source_location": "L518"
     },
     {
+      "id": "scripts_minigames_stable_footing_stable_footing_gd_prepare_return_to_lobby_rpc",
+      "label": "rpc func prepare_return_to_lobby_rpc()",
+      "community": 1,
+      "community_name": "stable_footing.gd",
+      "file_type": "code",
+      "norm_label": "rpc func prepare_return_to_lobby_rpc()",
+      "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
+      "source_location": "L645"
+    },
+    {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_remove_dead_player",
       "label": "func remove_dead_player()",
       "community": 1,
@@ -751,7 +781,7 @@
       "file_type": "code",
       "norm_label": "rpc func return_to_lobby_rpc()",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L642"
+      "source_location": "L655"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_show_winner_banner",
@@ -1801,7 +1831,7 @@
       "file_type": "code",
       "norm_label": "func _on_peer_disconnected()",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L484"
+      "source_location": "L500"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd__on_return_pressed",
@@ -1851,7 +1881,7 @@
       "file_type": "code",
       "norm_label": "rpc func apply_knockback_rpc()",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L459"
+      "source_location": "L475"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_bomb_caught_rpc",
@@ -1924,6 +1954,16 @@
       "source_location": "L341"
     },
     {
+      "id": "scripts_minigames_hot_bomb_hot_bomb_gd_prepare_return_to_lobby_rpc",
+      "label": "rpc func prepare_return_to_lobby_rpc()",
+      "community": 3,
+      "community_name": "hot_bomb.gd",
+      "file_type": "code",
+      "norm_label": "rpc func prepare_return_to_lobby_rpc()",
+      "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
+      "source_location": "L441"
+    },
+    {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_remove_dead_player",
       "label": "func remove_dead_player()",
       "community": 3,
@@ -1951,7 +1991,7 @@
       "file_type": "code",
       "norm_label": "rpc func request_push()",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L442"
+      "source_location": "L458"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_request_return_to_lobby",
@@ -1991,7 +2031,7 @@
       "file_type": "code",
       "norm_label": "rpc func return_to_lobby_rpc()",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L438"
+      "source_location": "L453"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_show_winner_banner",
@@ -2041,7 +2081,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_bomb_timer()",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L476"
+      "source_location": "L492"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_sync_game_state",
@@ -2061,7 +2101,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_match_timer()",
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L468"
+      "source_location": "L484"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_sync_player_state",
@@ -2534,14 +2574,14 @@
       "source_location": "L1"
     },
     {
-      "id": "scripts_core_main_gd_start_game",
-      "label": "func start_game()",
+      "id": "scripts_core_main_gd__change_to_minigame",
+      "label": "func _change_to_minigame()",
       "community": 5,
       "community_name": "character_select.gd",
       "file_type": "code",
-      "norm_label": "func start_game()",
+      "norm_label": "func _change_to_minigame()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L669"
+      "source_location": "L692"
     },
     {
       "id": "scripts_minigames_hot_bomb_hot_bomb_gd_initialize_game",
@@ -4197,12 +4237,32 @@
     },
     {
       "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd__change_to_minigame",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L692",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_prepare_start_game_rpc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L705",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
       "target": "scripts_core_main_gd_start_game_rpc",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L700",
+      "source_location": "L715",
       "weight": 1.0
     },
     {
@@ -4627,12 +4687,22 @@
     },
     {
       "source": "scripts_minigames_hot_bomb_hot_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_hot_bomb_gd_prepare_return_to_lobby_rpc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
+      "source_location": "L441",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_hot_bomb_gd",
       "target": "scripts_minigames_hot_bomb_hot_bomb_gd_return_to_lobby_rpc",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L438",
+      "source_location": "L453",
       "weight": 1.0
     },
     {
@@ -4642,7 +4712,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L442",
+      "source_location": "L458",
       "weight": 1.0
     },
     {
@@ -4652,7 +4722,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L459",
+      "source_location": "L475",
       "weight": 1.0
     },
     {
@@ -4662,7 +4732,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L468",
+      "source_location": "L484",
       "weight": 1.0
     },
     {
@@ -4672,7 +4742,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L476",
+      "source_location": "L492",
       "weight": 1.0
     },
     {
@@ -4682,7 +4752,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/hot_bomb.gd",
-      "source_location": "L484",
+      "source_location": "L500",
       "weight": 1.0
     },
     {
@@ -5097,17 +5167,7 @@
     },
     {
       "source": "scripts_minigames_stable_footing_stable_footing_gd",
-      "target": "scripts_minigames_stable_footing_stable_footing_gd_return_to_lobby_rpc",
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L642",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_minigames_stable_footing_stable_footing_gd",
-      "target": "scripts_minigames_stable_footing_stable_footing_gd__on_peer_disconnected",
+      "target": "scripts_minigames_stable_footing_stable_footing_gd_prepare_return_to_lobby_rpc",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -5123,6 +5183,26 @@
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
       "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_stable_footing_stable_footing_gd",
+      "target": "scripts_minigames_stable_footing_stable_footing_gd_return_to_lobby_rpc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
+      "source_location": "L655",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_stable_footing_stable_footing_gd",
+      "target": "scripts_minigames_stable_footing_stable_footing_gd__on_peer_disconnected",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
+      "source_location": "L659",
       "weight": 1.0
     },
     {
@@ -7316,6 +7396,16 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_core_main_gd__change_to_minigame",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L699",
+      "weight": 1.0
+    },
+    {
       "source": "scripts_core_main_gd__on_character_confirmed",
       "target": "gamesession",
       "relation": "uses_singleton",
@@ -7463,16 +7553,6 @@
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
       "source_location": "L353",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_core_main_gd_start_game",
-      "target": "gamesession",
-      "relation": "uses_singleton",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/core/main.gd",
-      "source_location": "L694",
       "weight": 1.0
     },
     {
@@ -7797,5 +7877,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "1e98c036ba336a0f9ce54f684e1121704bdecf78"
+  "built_at_commit": "6b81d0fc3fd44896db805123178c261e4b346ccc"
 }

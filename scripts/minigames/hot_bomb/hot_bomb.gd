@@ -428,15 +428,31 @@ func return_to_lobby() -> void:
 		bomb.set_physics_process(false)
 
 	if multiplayer.is_server():
+		prepare_return_to_lobby_rpc.rpc()
+		await get_tree().create_timer(0.1).timeout
+		if not is_inside_tree():
+			return
 		return_to_lobby_rpc.rpc()
-		await get_tree().create_timer(0.15).timeout
 
 	if is_inside_tree():
 		get_tree().change_scene_to_file("res://scenes/core/main.tscn")
 
 @rpc("authority", "call_remote", "reliable")
+func prepare_return_to_lobby_rpc() -> void:
+	is_returning = true
+	set_process(false)
+	set_physics_process(false)
+	for pid in players:
+		var p = players[pid]
+		if is_instance_valid(p):
+			p.set_physics_process(false)
+	if bomb and is_instance_valid(bomb):
+		bomb.set_physics_process(false)
+
+@rpc("authority", "call_remote", "reliable")
 func return_to_lobby_rpc() -> void:
-	return_to_lobby()
+	if is_inside_tree():
+		get_tree().change_scene_to_file("res://scenes/core/main.tscn")
 
 @rpc("any_peer", "reliable")
 func request_push(target_peer_id: int, push_dir: Vector3) -> void:
