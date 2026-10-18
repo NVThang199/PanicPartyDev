@@ -18,7 +18,7 @@ var knockback_velocity: Vector3 = Vector3.ZERO
 var player_name: String = ""
 var steam_id: int = 0
 var ping_ms: int = 0
-var character_path: String = ""
+var character_path: String = "res://assets/characters/Blank_Character/Blank_Character.glb"
 var character_color: Color = Color(0.95, 0.95, 0.95)
 var character_face: String = "res://assets/characters/face/robloxmanface.png"
 var character_hat: String = ""
@@ -343,12 +343,26 @@ func play_anim(anim_name: String, force_restart: bool = false):
 			anim_player.play(anim_name)
 			current_anim = anim_name
 
+func _clear_materials_recursive(node: Node) -> void:
+	if node is MeshInstance3D:
+		var m: Mesh = node.mesh
+		if m:
+			for s in range(m.get_surface_count()):
+				node.set_surface_override_material(s, null)
+	for child in node.get_children():
+		_clear_materials_recursive(child)
+
 func switch_character(glb_path: String) -> void:
-	print("[PLAYER %s] switch_character called with path: %s" % [name, glb_path])
 	_ensure_nodes()
+	if glb_path == "":
+		return
+	if model and is_instance_valid(model) and character_path == glb_path:
+		return
+	print("[PLAYER %s] switch_character called with path: %s" % [name, glb_path])
 	character_path = glb_path
 	if model:
 		print("[PLAYER %s] Removing old model: %s" % [name, model.name])
+		_clear_materials_recursive(model)
 		remove_child(model)
 		model.queue_free()
 	var new_scene = load(glb_path)
@@ -392,6 +406,7 @@ func _apply_character_hat() -> void:
 	if not socket:
 		return
 	for child in socket.get_children():
+		_clear_materials_recursive(child)
 		socket.remove_child(child)
 		child.queue_free()
 	if character_hat != "" and ResourceLoader.exists(character_hat):

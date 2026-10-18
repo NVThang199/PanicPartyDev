@@ -126,7 +126,7 @@ func spawn_player(peer_id: int, character_path: String, player_name: String, ste
 		"name": player_name
 	}
 
-	if character_path:
+	if character_path and character_path != player.character_path:
 		player.switch_character(character_path)
 		player.set_character_customization(color, face, hat)
 

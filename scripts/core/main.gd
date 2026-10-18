@@ -470,7 +470,7 @@ func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: St
 			player_info[peer_id]["ready"] = false
 
 	# Switch character after player is fully in tree
-	if character_path:
+	if character_path and character_path != player.character_path:
 		await get_tree().process_frame
 		if is_instance_valid(player) and player.is_inside_tree():
 			player.switch_character(character_path)

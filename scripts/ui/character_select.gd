@@ -300,6 +300,15 @@ func _select_hat(hat_path: String, active_btn: Button = null) -> void:
 			btn.add_theme_stylebox_override("pressed", new_sb)
 	_apply_hat_to_preview()
 
+func _clear_materials_recursive(node: Node) -> void:
+	if node is MeshInstance3D:
+		var m: Mesh = node.mesh
+		if m:
+			for s in range(m.get_surface_count()):
+				node.set_surface_override_material(s, null)
+	for child in node.get_children():
+		_clear_materials_recursive(child)
+
 func _apply_hat_to_preview() -> void:
 	if not model or not is_instance_valid(model):
 		return
@@ -314,6 +323,7 @@ func _apply_hat_to_preview() -> void:
 		skel.add_child(attachment)
 
 	for child in attachment.get_children():
+		_clear_materials_recursive(child)
 		attachment.remove_child(child)
 		child.queue_free()
 
