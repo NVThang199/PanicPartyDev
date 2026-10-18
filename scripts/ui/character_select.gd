@@ -134,19 +134,22 @@ func _apply_face_to_preview() -> void:
 	_apply_face_recursive(model, current_face, current_color)
 
 func _apply_face_recursive(node: Node, face_path: String, col: Color) -> void:
+	if face_path == "":
+		face_path = "res://assets/characters/face/robloxmanface.png"
 	if node is MeshInstance3D and node.name == "Blank_Head":
 		var m: Mesh = node.mesh
 		if m and m.get_surface_count() > 1:
-			var tex = load(face_path) as Texture2D
-			if tex:
-				var mat: StandardMaterial3D = node.get_surface_override_material(1) as StandardMaterial3D
-				if not mat:
-					mat = StandardMaterial3D.new()
-				mat.albedo_texture = tex
-				mat.albedo_color = col
-				mat.roughness = 0.5
-				node.set_surface_override_material(1, mat)
-				return
+			var mat: StandardMaterial3D = node.get_surface_override_material(1) as StandardMaterial3D
+			if not mat:
+				mat = StandardMaterial3D.new()
+			if ResourceLoader.exists(face_path):
+				var tex = load(face_path) as Texture2D
+				if tex:
+					mat.albedo_texture = tex
+			mat.albedo_color = col
+			mat.roughness = 0.5
+			node.set_surface_override_material(1, mat)
+			return
 	for child in node.get_children():
 		_apply_face_recursive(child, face_path, col)
 

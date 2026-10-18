@@ -89,7 +89,7 @@ func initialize_game() -> void:
 	for peer_id in minigame_data:
 		var info = minigame_data[peer_id]
 		var col: Color = info.get("color", Color.WHITE)
-		var face: String = info.get("face", "")
+		var face: String = info.get("face", "res://assets/characters/face/robloxmanface.png")
 		var hat: String = info.get("hat", "")
 		spawn_player.rpc(peer_id, info.character, info.name, info.steam_id, spawn_positions[idx % spawn_positions.size()], col, face, hat)
 		player_states[peer_id] = {
@@ -334,7 +334,7 @@ func request_game_sync() -> void:
 			var c_path = p.character_path if "character_path" in p else ""
 			var p_name = p.player_name if p.player_name != "" else ("Player %d" % pid)
 			var col: Color = p.character_color if "character_color" in p else Color.WHITE
-			var face: String = p.character_face if "character_face" in p else ""
+			var face: String = p.character_face if "character_face" in p and p.character_face != "" else "res://assets/characters/face/robloxmanface.png"
 			var hat: String = p.character_hat if "character_hat" in p else ""
 			spawn_player.rpc_id(caller_id, pid, c_path, p_name, p.steam_id, p.position, col, face, hat)
 
@@ -379,7 +379,7 @@ func apply_knockback_rpc(push_dir: Vector3) -> void:
 		players[my_id].apply_knockback(push_dir)
 
 @rpc("authority", "call_local", "reliable")
-func spawn_player(peer_id: int, character_path: String, player_name: String, steam_id: int, pos: Vector3, color: Color = Color.WHITE, face: String = "", hat: String = "") -> void:
+func spawn_player(peer_id: int, character_path: String, player_name: String, steam_id: int, pos: Vector3, color: Color = Color.WHITE, face: String = "res://assets/characters/face/robloxmanface.png", hat: String = "") -> void:
 	if not is_inside_tree():
 		return
 	if peer_id in players and is_instance_valid(players[peer_id]):

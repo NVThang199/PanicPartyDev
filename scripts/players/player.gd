@@ -33,7 +33,7 @@ func set_character_color(col: Color) -> void:
 	_apply_character_color()
 
 func set_character_face(face_path: String) -> void:
-	character_face = face_path
+	character_face = face_path if face_path != "" else "res://assets/characters/face/robloxmanface.png"
 	_apply_character_color()
 
 func set_character_hat(hat_path: String) -> void:
@@ -42,7 +42,7 @@ func set_character_hat(hat_path: String) -> void:
 
 func set_character_customization(col: Color, face_path: String, hat_path: String = "") -> void:
 	character_color = col
-	character_face = face_path
+	character_face = face_path if face_path != "" else "res://assets/characters/face/robloxmanface.png"
 	character_hat = hat_path
 	_apply_character_color()
 	_apply_character_hat()
@@ -54,7 +54,7 @@ func sync_character_color(col: Color) -> void:
 
 @rpc("any_peer", "call_local", "reliable")
 func sync_character_face(face_path: String) -> void:
-	character_face = face_path
+	character_face = face_path if face_path != "" else "res://assets/characters/face/robloxmanface.png"
 	_apply_character_color()
 
 @rpc("any_peer", "call_local", "reliable")
@@ -65,7 +65,7 @@ func sync_character_hat(hat_path: String) -> void:
 @rpc("any_peer", "call_local", "reliable")
 func sync_character_customization(col: Color, face_path: String, hat_path: String = "") -> void:
 	character_color = col
-	character_face = face_path
+	character_face = face_path if face_path != "" else "res://assets/characters/face/robloxmanface.png"
 	character_hat = hat_path
 	_apply_character_color()
 	_apply_character_hat()
@@ -79,19 +79,22 @@ func _apply_character_color() -> void:
 func _apply_face_recursive(node: Node, face_path: String, col: Color) -> void:
 	if node.name == "HeadAttachment" or node.name == "Hat":
 		return
+	if face_path == "":
+		face_path = "res://assets/characters/face/robloxmanface.png"
 	if node is MeshInstance3D and node.name == "Blank_Head":
 		var m: Mesh = node.mesh
 		if m and m.get_surface_count() > 1:
-			var tex = load(face_path) as Texture2D
-			if tex:
-				var mat: StandardMaterial3D = node.get_surface_override_material(1) as StandardMaterial3D
-				if not mat:
-					mat = StandardMaterial3D.new()
-				mat.albedo_texture = tex
-				mat.albedo_color = col
-				mat.roughness = 0.5
-				node.set_surface_override_material(1, mat)
-				return
+			var mat: StandardMaterial3D = node.get_surface_override_material(1) as StandardMaterial3D
+			if not mat:
+				mat = StandardMaterial3D.new()
+			if ResourceLoader.exists(face_path):
+				var tex = load(face_path) as Texture2D
+				if tex:
+					mat.albedo_texture = tex
+			mat.albedo_color = col
+			mat.roughness = 0.5
+			node.set_surface_override_material(1, mat)
+			return
 	for child in node.get_children():
 		_apply_face_recursive(child, face_path, col)
 
@@ -391,7 +394,7 @@ func _apply_character_hat() -> void:
 	for child in socket.get_children():
 		socket.remove_child(child)
 		child.queue_free()
-	if character_hat != "":
+	if character_hat != "" and ResourceLoader.exists(character_hat):
 		var hat_scene = load(character_hat)
 		if hat_scene:
 			var hat_instance = hat_scene.instantiate()

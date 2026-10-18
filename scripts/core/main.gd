@@ -379,9 +379,11 @@ func _restore_lobby_session() -> void:
 		register_player.rpc_id(1, char_path, my_name, my_steam_id, col, face, hat)
 
 @rpc("any_peer", "reliable")
-func register_player(character_path: String, player_name: String = "", steam_id: int = 0, color: Color = Color.WHITE, face: String = "", hat: String = "") -> void:
+func register_player(character_path: String, player_name: String = "", steam_id: int = 0, color: Color = Color.WHITE, face: String = "res://assets/characters/face/robloxmanface.png", hat: String = "") -> void:
 	if not is_inside_tree() or not multiplayer.is_server():
 		return
+	if face == "":
+		face = "res://assets/characters/face/robloxmanface.png"
 	var caller_id := multiplayer.get_remote_sender_id()
 	if caller_id in players:
 		remove_player(caller_id)
@@ -401,7 +403,7 @@ func register_player(character_path: String, player_name: String = "", steam_id:
 	for pid in player_info:
 		if pid != caller_id:
 			var info = player_info[pid]
-			spawn_player_rpc.rpc_id(caller_id, pid, info.character, info.name, info.steam_id, info.get("color", Color.WHITE), info.get("face", ""), info.get("hat", ""))
+			spawn_player_rpc.rpc_id(caller_id, pid, info.character, info.name, info.steam_id, info.get("color", Color.WHITE), info.get("face", "res://assets/characters/face/robloxmanface.png"), info.get("hat", ""))
 
 	# Spawn new joiner for everyone (host call_local + all clients)
 	spawn_player_rpc.rpc(caller_id, character_path, player_name, steam_id, color, face, hat)
@@ -409,9 +411,11 @@ func register_player(character_path: String, player_name: String = "", steam_id:
 	sync_ready_states.rpc(get_ready_states())
 
 @rpc("authority", "call_local", "reliable")
-func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: String = "", steam_id: int = 0, color: Color = Color.WHITE, face: String = "", hat: String = "") -> void:
+func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: String = "", steam_id: int = 0, color: Color = Color.WHITE, face: String = "res://assets/characters/face/robloxmanface.png", hat: String = "") -> void:
 	if not is_inside_tree():
 		return
+	if face == "":
+		face = "res://assets/characters/face/robloxmanface.png"
 	print("[DEBUG %d] spawn_player_rpc called: peer=%d, char=%s, name=%s, color=%s, hat=%s" % [multiplayer.get_unique_id(), peer_id, character_path, player_name, color, hat])
 
 	# Check if already exists with same character and customization - update only if different
