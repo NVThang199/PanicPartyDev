@@ -231,6 +231,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_0" unique_id=612529172]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_0/StaticBody" unique_id=1781050537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_0_0")
 
 [node name="Tile_0_1" type="StaticBody3D" parent="TileGrid" unique_id=1108667791]
@@ -242,6 +243,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_1" unique_id=1813594437]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_1/StaticBody" unique_id=239535010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_0_1")
 
 [node name="Tile_0_2" type="StaticBody3D" parent="TileGrid" unique_id=4106018]
@@ -253,6 +255,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_2" unique_id=307716407]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_2/StaticBody" unique_id=2018476296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_0_2")
 
 [node name="Tile_0_3" type="StaticBody3D" parent="TileGrid" unique_id=1808091836]
@@ -264,6 +267,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_3" unique_id=424688480]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_3/StaticBody" unique_id=995362796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_0_3")
 
 [node name="Tile_0_4" type="StaticBody3D" parent="TileGrid" unique_id=1138353906]
@@ -275,6 +279,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_4" unique_id=1926737169]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_4/StaticBody" unique_id=458390004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_0_4")
 
 [node name="Tile_0_5" type="StaticBody3D" parent="TileGrid" unique_id=1685261668]
@@ -286,6 +291,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_5" unique_id=409346209]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_5/StaticBody" unique_id=256341201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_0_5")
 
 [node name="Tile_0_6" type="StaticBody3D" parent="TileGrid" unique_id=1433312087]
@@ -297,6 +303,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_0_6" unique_id=1636470086]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_0_6/StaticBody" unique_id=1183979028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_0_6")
 
 [node name="Tile_1_0" type="StaticBody3D" parent="TileGrid" unique_id=266857534]
@@ -308,6 +315,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_0" unique_id=419868222]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_0/StaticBody" unique_id=1630742932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_1_0")
 
 [node name="Tile_1_1" type="StaticBody3D" parent="TileGrid" unique_id=444150390]
@@ -319,6 +327,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_1" unique_id=1947318051]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_1/StaticBody" unique_id=469424509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_1_1")
 
 [node name="Tile_1_2" type="StaticBody3D" parent="TileGrid" unique_id=601368101]
@@ -330,6 +339,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_2" unique_id=591881580]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_2/StaticBody" unique_id=1096008208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_1_2")
 
 [node name="Tile_1_3" type="StaticBody3D" parent="TileGrid" unique_id=784930704]
@@ -341,6 +351,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_3" unique_id=1411099927]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_3/StaticBody" unique_id=1566940682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_1_3")
 
 [node name="Tile_1_4" type="StaticBody3D" parent="TileGrid" unique_id=163151787]
@@ -352,6 +363,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_4" unique_id=2059799315]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_4/StaticBody" unique_id=1157934129]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_1_4")
 
 [node name="Tile_1_5" type="StaticBody3D" parent="TileGrid" unique_id=2042420390]
@@ -363,6 +375,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_5" unique_id=800772114]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_5/StaticBody" unique_id=1680565201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_1_5")
 
 [node name="Tile_1_6" type="StaticBody3D" parent="TileGrid" unique_id=1984741766]
@@ -374,6 +387,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_1_6" unique_id=1356829387]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_1_6/StaticBody" unique_id=1522138396]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_1_6")
 
 [node name="Tile_2_0" type="StaticBody3D" parent="TileGrid" unique_id=740046143]
@@ -385,6 +399,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_0" unique_id=1301771166]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_0/StaticBody" unique_id=1157058080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_2_0")
 
 [node name="Tile_2_1" type="StaticBody3D" parent="TileGrid" unique_id=468774898]
@@ -396,6 +411,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_1" unique_id=314370532]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_1/StaticBody" unique_id=575564284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_2_1")
 
 [node name="Tile_2_2" type="StaticBody3D" parent="TileGrid" unique_id=406785745]
@@ -407,6 +423,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_2" unique_id=25564532]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_2/StaticBody" unique_id=1066135904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_2_2")
 
 [node name="Tile_2_3" type="StaticBody3D" parent="TileGrid" unique_id=1476054886]
@@ -418,6 +435,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_3" unique_id=2038445419]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_3/StaticBody" unique_id=912054320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_2_3")
 
 [node name="Tile_2_4" type="StaticBody3D" parent="TileGrid" unique_id=1916350600]
@@ -429,6 +447,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_4" unique_id=1810941083]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_4/StaticBody" unique_id=901350641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_2_4")
 
 [node name="Tile_2_5" type="StaticBody3D" parent="TileGrid" unique_id=1130868945]
@@ -440,6 +459,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_5" unique_id=1197443869]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_5/StaticBody" unique_id=1426315166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_2_5")
 
 [node name="Tile_2_6" type="StaticBody3D" parent="TileGrid" unique_id=195076338]
@@ -451,6 +471,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_2_6" unique_id=750954004]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_2_6/StaticBody" unique_id=600153690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_2_6")
 
 [node name="Tile_3_0" type="StaticBody3D" parent="TileGrid" unique_id=207376613]
@@ -462,6 +483,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_0" unique_id=1126231441]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_0/StaticBody" unique_id=106769467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_3_0")
 
 [node name="Tile_3_1" type="StaticBody3D" parent="TileGrid" unique_id=1379534580]
@@ -473,6 +495,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_1" unique_id=2011890399]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_1/StaticBody" unique_id=1274312237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_3_1")
 
 [node name="Tile_3_2" type="StaticBody3D" parent="TileGrid" unique_id=1380962674]
@@ -484,6 +507,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_2" unique_id=1345310531]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_2/StaticBody" unique_id=1548557310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_3_2")
 
 [node name="Tile_3_3" type="StaticBody3D" parent="TileGrid" unique_id=283519796]
@@ -495,6 +519,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_3" unique_id=816704007]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_3/StaticBody" unique_id=1738301964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_3_3")
 
 [node name="Tile_3_4" type="StaticBody3D" parent="TileGrid" unique_id=1046999538]
@@ -506,6 +531,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_4" unique_id=939883167]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_4/StaticBody" unique_id=105758369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_3_4")
 
 [node name="Tile_3_5" type="StaticBody3D" parent="TileGrid" unique_id=714867912]
@@ -517,6 +543,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_5" unique_id=1646810072]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_5/StaticBody" unique_id=1784643837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_3_5")
 
 [node name="Tile_3_6" type="StaticBody3D" parent="TileGrid" unique_id=728925755]
@@ -528,6 +555,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_3_6" unique_id=881821137]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_3_6/StaticBody" unique_id=1499124044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_3_6")
 
 [node name="Tile_4_0" type="StaticBody3D" parent="TileGrid" unique_id=219039955]
@@ -539,6 +567,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_0" unique_id=2070106785]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_0/StaticBody" unique_id=1693005431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_4_0")
 
 [node name="Tile_4_1" type="StaticBody3D" parent="TileGrid" unique_id=1739051962]
@@ -550,6 +579,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_1" unique_id=1956801456]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_1/StaticBody" unique_id=1533478977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_4_1")
 
 [node name="Tile_4_2" type="StaticBody3D" parent="TileGrid" unique_id=1563628257]
@@ -561,6 +591,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_2" unique_id=80887192]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_2/StaticBody" unique_id=1390039606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_4_2")
 
 [node name="Tile_4_3" type="StaticBody3D" parent="TileGrid" unique_id=1396422331]
@@ -571,6 +602,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_3" unique_id=1754236455]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_3/StaticBody" unique_id=930725586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_4_3")
 
 [node name="Tile_4_4" type="StaticBody3D" parent="TileGrid" unique_id=1740985934]
@@ -582,6 +614,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_4" unique_id=1089120503]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_4/StaticBody" unique_id=1912251624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_4_4")
 
 [node name="Tile_4_5" type="StaticBody3D" parent="TileGrid" unique_id=153107639]
@@ -593,6 +626,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_5" unique_id=22163950]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_5/StaticBody" unique_id=65006214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_4_5")
 
 [node name="Tile_4_6" type="StaticBody3D" parent="TileGrid" unique_id=1299845442]
@@ -604,6 +638,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_4_6" unique_id=888184072]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_4_6/StaticBody" unique_id=1152727764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_4_6")
 
 [node name="Tile_5_0" type="StaticBody3D" parent="TileGrid" unique_id=1188935543]
@@ -615,6 +650,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_0" unique_id=970941629]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_0/StaticBody" unique_id=43060309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_5_0")
 
 [node name="Tile_5_1" type="StaticBody3D" parent="TileGrid" unique_id=1901667790]
@@ -626,6 +662,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_1" unique_id=1391117465]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_1/StaticBody" unique_id=2037282594]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_5_1")
 
 [node name="Tile_5_2" type="StaticBody3D" parent="TileGrid" unique_id=1317518329]
@@ -637,6 +674,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_2" unique_id=1742924519]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_2/StaticBody" unique_id=1308624961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_5_2")
 
 [node name="Tile_5_3" type="StaticBody3D" parent="TileGrid" unique_id=1257413082]
@@ -648,6 +686,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_3" unique_id=437049797]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_3/StaticBody" unique_id=15516956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_5_3")
 
 [node name="Tile_5_4" type="StaticBody3D" parent="TileGrid" unique_id=816344737]
@@ -659,6 +698,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_4" unique_id=344136230]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_4/StaticBody" unique_id=427879834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_5_4")
 
 [node name="Tile_5_5" type="StaticBody3D" parent="TileGrid" unique_id=251664961]
@@ -670,6 +710,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_5" unique_id=1612583093]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_5/StaticBody" unique_id=1113382608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_5_5")
 
 [node name="Tile_5_6" type="StaticBody3D" parent="TileGrid" unique_id=447255012]
@@ -681,6 +722,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_5_6" unique_id=673317507]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_5_6/StaticBody" unique_id=71555064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_5_6")
 
 [node name="Tile_6_0" type="StaticBody3D" parent="TileGrid" unique_id=177901807]
@@ -692,6 +734,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_0" unique_id=1722807257]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_0/StaticBody" unique_id=1902389769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_6_0")
 
 [node name="Tile_6_1" type="StaticBody3D" parent="TileGrid" unique_id=850360165]
@@ -703,6 +746,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_1" unique_id=645294493]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_1/StaticBody" unique_id=512211458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_6_1")
 
 [node name="Tile_6_2" type="StaticBody3D" parent="TileGrid" unique_id=1325401925]
@@ -714,6 +758,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_2" unique_id=2071131462]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_2/StaticBody" unique_id=314512712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_6_2")
 
 [node name="Tile_6_3" type="StaticBody3D" parent="TileGrid" unique_id=2001842176]
@@ -725,6 +770,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_3" unique_id=959021303]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_3/StaticBody" unique_id=646402053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_6_3")
 
 [node name="Tile_6_4" type="StaticBody3D" parent="TileGrid" unique_id=1803170550]
@@ -736,6 +782,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_4" unique_id=225374873]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_4/StaticBody" unique_id=1917896485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_6_4")
 
 [node name="Tile_6_5" type="StaticBody3D" parent="TileGrid" unique_id=2044750869]
@@ -747,6 +794,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_5" unique_id=1545610829]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_5/StaticBody" unique_id=2054089914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_6_5")
 
 [node name="Tile_6_6" type="StaticBody3D" parent="TileGrid" unique_id=378798118]
@@ -758,6 +806,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_6_6" unique_id=932374390]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_6_6/StaticBody" unique_id=109166768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_6_6")
 
 [node name="Tile_7_0" type="StaticBody3D" parent="TileGrid" unique_id=1989881256]
@@ -769,6 +818,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_0" unique_id=994370884]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_0/StaticBody" unique_id=90811336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_7_0")
 
 [node name="Tile_7_1" type="StaticBody3D" parent="TileGrid" unique_id=1996442911]
@@ -780,6 +830,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_1" unique_id=548142370]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_1/StaticBody" unique_id=156156552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_7_1")
 
 [node name="Tile_7_2" type="StaticBody3D" parent="TileGrid" unique_id=1803011276]
@@ -791,6 +842,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_2" unique_id=1771740261]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_2/StaticBody" unique_id=1345140918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_7_2")
 
 [node name="Tile_7_3" type="StaticBody3D" parent="TileGrid" unique_id=819996230]
@@ -802,6 +854,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_3" unique_id=601241120]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_3/StaticBody" unique_id=696836249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_7_3")
 
 [node name="Tile_7_4" type="StaticBody3D" parent="TileGrid" unique_id=990630508]
@@ -813,6 +866,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_4" unique_id=179691712]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_4/StaticBody" unique_id=21442817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_7_4")
 
 [node name="Tile_7_5" type="StaticBody3D" parent="TileGrid" unique_id=1495645756]
@@ -824,6 +878,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_5" unique_id=1032265596]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_5/StaticBody" unique_id=192298095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_7_5")
 
 [node name="Tile_7_6" type="StaticBody3D" parent="TileGrid" unique_id=964557819]
@@ -835,6 +890,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_7_6" unique_id=569575063]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_7_6/StaticBody" unique_id=111721532]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_7_6")
 
 [node name="Tile_8_0" type="StaticBody3D" parent="TileGrid" unique_id=1583656031]
@@ -846,6 +902,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_8_0" unique_id=1152586673]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_8_0/StaticBody" unique_id=1722548981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_8_0")
 
 [node name="Tile_8_1" type="StaticBody3D" parent="TileGrid" unique_id=1907269917]
@@ -857,6 +914,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_8_1" unique_id=1541562425]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_8_1/StaticBody" unique_id=1077245670]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_8_1")
 
 [node name="Tile_8_2" type="StaticBody3D" parent="TileGrid" unique_id=621862649]
@@ -868,6 +926,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_8_2" unique_id=387743421]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_8_2/StaticBody" unique_id=1654984332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_8_2")
 
 [node name="Tile_8_3" type="StaticBody3D" parent="TileGrid" unique_id=1956395727]
@@ -879,6 +938,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_8_3" unique_id=479388629]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_8_3/StaticBody" unique_id=1472807127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_8_3")
 
 [node name="Tile_8_4" type="StaticBody3D" parent="TileGrid" unique_id=496871181]
@@ -890,6 +950,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_8_4" unique_id=76757569]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_8_4/StaticBody" unique_id=1795698018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_8_4")
 
 [node name="Tile_8_5" type="StaticBody3D" parent="TileGrid" unique_id=1734553632]
@@ -901,6 +962,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_8_5" unique_id=1632922413]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_8_5/StaticBody" unique_id=29712614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_8_5")
 
 [node name="Tile_8_6" type="StaticBody3D" parent="TileGrid" unique_id=113825329]
@@ -912,6 +974,7 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 [node name="StaticBody" type="StaticBody3D" parent="TileGrid/Tile_8_6" unique_id=1533152084]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TileGrid/Tile_8_6/StaticBody" unique_id=103476991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_tile_8_6")
 
 [node name="FallDetector" type="Area3D" parent="." unique_id=382807375]
