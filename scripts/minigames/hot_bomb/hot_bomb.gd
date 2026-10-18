@@ -52,7 +52,10 @@ func initialize_game() -> void:
 
 	for peer_id in minigame_data:
 		var info = minigame_data[peer_id]
-		spawn_player.rpc(peer_id, info.character, info.name, info.steam_id, spawn_positions[idx % spawn_positions.size()])
+		var col: Color = info.get("color", Color.WHITE)
+		var face: String = info.get("face", "")
+		var hat: String = info.get("hat", "")
+		spawn_player.rpc(peer_id, info.character, info.name, info.steam_id, spawn_positions[idx % spawn_positions.size()], col, face, hat)
 		player_states[peer_id] = {
 			"alive": true,
 			"death_timer": 0.0,
@@ -85,14 +88,17 @@ func request_game_sync() -> void:
 		if is_instance_valid(p):
 			var c_path = p.character_path if "character_path" in p else ""
 			var p_name = p.player_name if p.player_name != "" else ("Player %d" % pid)
-			spawn_player.rpc_id(caller_id, pid, c_path, p_name, p.steam_id, p.position)
+			var col: Color = p.character_color if "character_color" in p else Color.WHITE
+			var face: String = p.character_face if "character_face" in p else ""
+			var hat: String = p.character_hat if "character_hat" in p else ""
+			spawn_player.rpc_id(caller_id, pid, c_path, p_name, p.steam_id, p.position, col, face, hat)
 
 	if current_bomb_holder != -1 and bomb and is_instance_valid(bomb):
 		spawn_bomb_rpc.rpc_id(caller_id, current_bomb_holder)
 		sync_bomb_timer.rpc_id(caller_id, bomb.timer)
 
 @rpc("authority", "call_local", "reliable")
-func spawn_player(peer_id: int, character_path: String, player_name: String, steam_id: int, pos: Vector3) -> void:
+func spawn_player(peer_id: int, character_path: String, player_name: String, steam_id: int, pos: Vector3, color: Color = Color.WHITE, face: String = "", hat: String = "") -> void:
 	if peer_id in players and is_instance_valid(players[peer_id]):
 		return
 	var old_node = get_node_or_null(str(peer_id))
@@ -107,8 +113,12 @@ func spawn_player(peer_id: int, character_path: String, player_name: String, ste
 	player.set_player_name(player_name)
 	player.steam_id = steam_id
 	player.character_path = character_path
+	player.character_color = color
+	player.character_face = face
+	player.character_hat = hat
 	player.add_to_group("player")
 	add_child(player)
+	player.set_character_customization(color, face, hat)
 	players[peer_id] = player
 	player_states[peer_id] = {
 		"alive": true,
@@ -118,6 +128,7 @@ func spawn_player(peer_id: int, character_path: String, player_name: String, ste
 
 	if character_path:
 		player.switch_character(character_path)
+		player.set_character_customization(color, face, hat)
 
 func spawn_bomb(holder_id: int) -> void:
 	if not multiplayer.is_server():

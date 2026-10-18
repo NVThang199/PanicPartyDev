@@ -1,6 +1,6 @@
 extends Control
 
-signal character_confirmed(character_path: String)
+signal character_confirmed(character_path: String, color: Color, face: String, hat: String)
 signal selection_cancelled()
 
 const GAME_SCENE := "res://scenes/core/main.tscn"
@@ -356,7 +356,7 @@ func _select_character(_character_name: String = "Blank") -> void:
 		anim_player.play("general/Idle_A")
 
 func _on_confirm_pressed() -> void:
-	character_confirmed.emit(GameSession.selected_character)
+	character_confirmed.emit(GameSession.selected_character, GameSession.selected_color, GameSession.selected_face, GameSession.selected_hat)
 	if is_inside_tree() and get_tree().current_scene == self:
 		get_tree().change_scene_to_file(GAME_SCENE)
 

@@ -28,6 +28,7 @@ var selected_map: String = "Lobby"
 
 func _ready() -> void:
 	Networking.host_created.connect(on_host_created)
+	Networking.host_failed.connect(_on_host_failed)
 	Networking.client_connected.connect(on_client_connected)
 	Networking.avatar_updated.connect(_on_avatar_updated)
 	multiplayer.connected_to_server.connect(_on_connected_to_server)
@@ -271,8 +272,11 @@ func show_character_select() -> void:
 	char_select.character_confirmed.connect(_on_character_confirmed)
 	char_select.selection_cancelled.connect(_on_leave_pressed)
 
-func _on_character_confirmed(character_path: String) -> void:
+func _on_character_confirmed(character_path: String, color: Color = Color.WHITE, face: String = "", hat: String = "") -> void:
 	GameSession.selected_character = character_path
+	GameSession.selected_color = color
+	GameSession.selected_face = face
+	GameSession.selected_hat = hat
 	var char_select = $UI.get_node_or_null("CharacterSelect")
 	if char_select:
 		char_select.queue_free()
@@ -299,14 +303,17 @@ func _on_character_confirmed(character_path: String) -> void:
 			"character": character_path,
 			"name": my_name,
 			"steam_id": my_steam_id,
+			"color": color,
+			"face": face,
+			"hat": hat,
 			"ping": 0,
 			"ready": false
 		}
-		spawn_player_rpc(1, character_path, my_name, my_steam_id)
+		spawn_player_rpc(1, character_path, my_name, my_steam_id, color, face, hat)
 		sync_ready_states.rpc({})
 	else:
 		if multiplayer.multiplayer_peer != null and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
-			register_player.rpc_id(1, character_path, my_name, my_steam_id)
+			register_player.rpc_id(1, character_path, my_name, my_steam_id, color, face, hat)
 		else:
 			print("[CLIENT] Peer not connected yet, deferring register_player until connected_to_server...")
 			if not multiplayer.connected_to_server.is_connected(_on_deferred_register_player):
@@ -316,9 +323,12 @@ func _on_deferred_register_player() -> void:
 	var char_path = GameSession.selected_character
 	var my_name = Networking.get_local_player_name()
 	var my_steam_id = Networking.get_local_steam_id()
+	var col = GameSession.selected_color
+	var face = GameSession.selected_face
+	var hat = GameSession.selected_hat
 	if char_path != "" and not multiplayer.is_server():
 		print("[CLIENT] Connection established! Sending deferred register_player...")
-		register_player.rpc_id(1, char_path, my_name, my_steam_id)
+		register_player.rpc_id(1, char_path, my_name, my_steam_id, col, face, hat)
 
 func _restore_lobby_session() -> void:
 	print("[LOBBY] Restoring lobby session after minigame...")
@@ -337,6 +347,9 @@ func _restore_lobby_session() -> void:
 	var my_name = Networking.get_local_player_name()
 	var my_steam_id = Networking.get_local_steam_id()
 	var char_path = GameSession.selected_character
+	var col = GameSession.selected_color
+	var face = GameSession.selected_face
+	var hat = GameSession.selected_hat
 
 	if multiplayer.is_server():
 		if map_select_panel:
@@ -352,18 +365,21 @@ func _restore_lobby_session() -> void:
 			"character": char_path,
 			"name": my_name,
 			"steam_id": my_steam_id,
+			"color": col,
+			"face": face,
+			"hat": hat,
 			"ping": 0,
 			"ready": false
 		}
-		spawn_player_rpc(1, char_path, my_name, my_steam_id)
+		spawn_player_rpc(1, char_path, my_name, my_steam_id, col, face, hat)
 		sync_ready_states.rpc({})
 	else:
 		if map_select_panel:
 			map_select_panel.visible = false
-		register_player.rpc_id(1, char_path, my_name, my_steam_id)
+		register_player.rpc_id(1, char_path, my_name, my_steam_id, col, face, hat)
 
 @rpc("any_peer", "reliable")
-func register_player(character_path: String, player_name: String = "", steam_id: int = 0) -> void:
+func register_player(character_path: String, player_name: String = "", steam_id: int = 0, color: Color = Color.WHITE, face: String = "", hat: String = "") -> void:
 	if not is_inside_tree() or not multiplayer.is_server():
 		return
 	var caller_id := multiplayer.get_remote_sender_id()
@@ -373,36 +389,39 @@ func register_player(character_path: String, player_name: String = "", steam_id:
 		"character": character_path,
 		"name": player_name if player_name != "" else "Player %d" % caller_id,
 		"steam_id": steam_id,
+		"color": color,
+		"face": face,
+		"hat": hat,
 		"ping": 0,
 		"ready": false
 	}
-	print("[HOST] Registered player %d (%s) with %s" % [caller_id, player_name, character_path])
+	print("[HOST] Registered player %d (%s) with %s, color=%s, hat=%s" % [caller_id, player_name, character_path, color, hat])
 
 	# Sync existing players to new joiner
 	for pid in player_info:
 		if pid != caller_id:
 			var info = player_info[pid]
-			spawn_player_rpc.rpc_id(caller_id, pid, info.character, info.name, info.steam_id)
+			spawn_player_rpc.rpc_id(caller_id, pid, info.character, info.name, info.steam_id, info.get("color", Color.WHITE), info.get("face", ""), info.get("hat", ""))
 
 	# Spawn new joiner for everyone (host call_local + all clients)
-	spawn_player_rpc.rpc(caller_id, character_path, player_name, steam_id)
+	spawn_player_rpc.rpc(caller_id, character_path, player_name, steam_id, color, face, hat)
 
 	sync_ready_states.rpc(get_ready_states())
 
 @rpc("authority", "call_local", "reliable")
-func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: String = "", steam_id: int = 0) -> void:
+func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: String = "", steam_id: int = 0, color: Color = Color.WHITE, face: String = "", hat: String = "") -> void:
 	if not is_inside_tree():
 		return
-	print("[DEBUG %d] spawn_player_rpc called: peer=%d, char=%s, name=%s" % [multiplayer.get_unique_id(), peer_id, character_path, player_name])
+	print("[DEBUG %d] spawn_player_rpc called: peer=%d, char=%s, name=%s, color=%s, hat=%s" % [multiplayer.get_unique_id(), peer_id, character_path, player_name, color, hat])
 
-	# Check if already exists with same character - update only if different
+	# Check if already exists with same character and customization - update only if different
 	if peer_id in players and is_instance_valid(players[peer_id]):
 		var existing_player = players[peer_id]
-		if existing_player.character_path == character_path:
-			print("[DEBUG] Player %d already spawned with same character, skipping" % peer_id)
+		if existing_player.character_path == character_path and existing_player.character_color == color and existing_player.character_face == face and existing_player.character_hat == hat:
+			print("[DEBUG] Player %d already spawned with same customization, skipping" % peer_id)
 			return
 		else:
-			print("[DEBUG] Player %d character changed from %s to %s, re-spawning" % [peer_id, existing_player.character_path, character_path])
+			print("[DEBUG] Player %d customization changed, re-spawning" % peer_id)
 			remove_player(peer_id)
 
 	var old_node := get_node_or_null(str(peer_id))
@@ -414,12 +433,15 @@ func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: St
 	var player := PLAYER_SCENE.instantiate()
 	player.name = str(peer_id)
 	player.position = Vector3((idx % 4) * 2.0, 0.1, (idx / 4.0) * 2.0)
-	add_child(player)
-	player.name = str(peer_id)
 	player.set_multiplayer_authority(peer_id)
 	player.set_player_name(player_name)
 	player.steam_id = steam_id
 	player.character_path = character_path
+	player.character_color = color
+	player.character_face = face
+	player.character_hat = hat
+	add_child(player)
+	player.set_character_customization(color, face, hat)
 	players[peer_id] = player
 	if AudioManager and peer_id != multiplayer.get_unique_id():
 		AudioManager.play_player_join()
@@ -428,12 +450,18 @@ func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: St
 			"character": character_path,
 			"name": player_name if player_name != "" else "Player %d" % peer_id,
 			"steam_id": steam_id,
+			"color": color,
+			"face": face,
+			"hat": hat,
 			"ping": 0,
 			"ready": false
 		}
 	else:
 		player_info[peer_id].name = player_name
 		player_info[peer_id].steam_id = steam_id
+		player_info[peer_id]["color"] = color
+		player_info[peer_id]["face"] = face
+		player_info[peer_id]["hat"] = hat
 		if not ("ready" in player_info[peer_id]):
 			player_info[peer_id]["ready"] = false
 
@@ -442,6 +470,7 @@ func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: St
 		await get_tree().process_frame
 		if is_instance_valid(player) and player.is_inside_tree():
 			player.switch_character(character_path)
+			player.set_character_customization(color, face, hat)
 
 	if tab_overlay.visible:
 		update_tab_overlay()
@@ -485,6 +514,19 @@ func on_host_created() -> void:
 	status_label.visible = false
 	clear_all_players()
 	show_character_select()
+
+func _on_host_failed(err_code: int) -> void:
+	if loading_overlay:
+		loading_overlay.visible = false
+	if status_label:
+		status_label.visible = true
+		status_label.text = "Failed to create Steam lobby (Error %d)" % err_code
+	if leave_button:
+		leave_button.visible = true
+	get_tree().create_timer(2.0).timeout.connect(func():
+		if is_inside_tree() and not $UI.has_node("CharacterSelect"):
+			_on_leave_pressed()
+	)
 
 func on_client_connected() -> void:
 	status_label.visible = false

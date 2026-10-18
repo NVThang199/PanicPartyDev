@@ -76,8 +76,13 @@ func _ready():
 	update_resolution_options()
 	populate_audio_devices()
 	populate_keybinds()
-	sfx_slider.drag_ended.connect(func(_val): if AudioManager: AudioManager.play_ui_click())
+	sfx_slider.drag_ended.connect(_on_sfx_slider_drag_ended)
 	_setup_graphic_tooltips()
+
+func _on_sfx_slider_drag_ended(_val: bool) -> void:
+	var am = _get_audio_mgr()
+	if am:
+		am.play_ui_click()
 
 func _notification(what: int):
 	if what == NOTIFICATION_TRANSLATION_CHANGED:
@@ -182,8 +187,9 @@ func populate_keybinds():
 		keybind_list.add_child(hbox)
 
 func _on_keybind_button_pressed(action: String, button: Button):
-	if AudioManager:
-		AudioManager.play_ui_click()
+	var am = _get_audio_mgr()
+	if am:
+		am.play_ui_click()
 	if listening_button:
 		populate_keybinds()
 	listening_action = action
@@ -294,13 +300,18 @@ func _on_apply_pressed():
 
 	sm.apply_settings()
 	sm.save_settings()
-	if AudioManager:
-		AudioManager.play_ui_click()
+	var am = _get_audio_mgr()
+	if am:
+		am.play_ui_click()
 
 	preset_option.select(4) # Custom
 
 func _on_close_pressed():
-	if AudioManager:
-		AudioManager.play_ui_click()
+	var am = _get_audio_mgr()
+	if am:
+		am.play_ui_click()
 	settings_closed.emit()
 	queue_free()
+
+func _get_audio_mgr() -> Node:
+	return get_node_or_null("/root/AudioManager")

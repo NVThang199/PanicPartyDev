@@ -43,17 +43,23 @@ func _ready() -> void:
 		_start_pulse()
 
 func _on_button_pressed() -> void:
+	if not is_inside_tree():
+		return
 	reset_tween()
 	tween.tween_property(button, "scale", scale_amount, anim_duration).from(Vector2(0.8,0.8))
 	tween.tween_property(button, "rotation_degrees", rotation_amount * [-1, 1].pick_random(), anim_duration).from(0)
 	if sound_pressed_button:
 		sound_player.stream = sound_pressed_button
 		sound_player.play()
-	elif AudioManager:
-		AudioManager.play_ui_click()
+	elif is_inside_tree():
+		var am = get_tree().root.get_node_or_null("AudioManager")
+		if am:
+			am.play_ui_click()
 
 
 func _on_mouse_hovered(hovered: bool) -> void:
+	if not is_inside_tree():
+		return
 	reset_tween()
 	tween.tween_property(button, "scale", scale_amount if hovered else Vector2.ONE, anim_duration)
 	tween.tween_property(button, "rotation_degrees", rotation_amount * [-1, 1].pick_random() if hovered else 0.0, anim_duration)
@@ -61,8 +67,10 @@ func _on_mouse_hovered(hovered: bool) -> void:
 		if hovered == true:
 			sound_player.stream = sound_hovered_button
 			sound_player.play()
-	elif hovered and AudioManager:
-		AudioManager.play_ui_hover()
+	elif hovered and is_inside_tree():
+		var am = get_tree().root.get_node_or_null("AudioManager")
+		if am:
+			am.play_ui_hover()
 	button.modulate = hover_modulate if hovered else normal_modulate
 
 func reset_tween() -> void:

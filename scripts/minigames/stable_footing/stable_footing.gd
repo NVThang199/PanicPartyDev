@@ -88,7 +88,10 @@ func initialize_game() -> void:
 
 	for peer_id in minigame_data:
 		var info = minigame_data[peer_id]
-		spawn_player.rpc(peer_id, info.character, info.name, info.steam_id, spawn_positions[idx % spawn_positions.size()])
+		var col: Color = info.get("color", Color.WHITE)
+		var face: String = info.get("face", "")
+		var hat: String = info.get("hat", "")
+		spawn_player.rpc(peer_id, info.character, info.name, info.steam_id, spawn_positions[idx % spawn_positions.size()], col, face, hat)
 		player_states[peer_id] = {
 			"alive": true,
 			"death_timer": 0.0,
@@ -330,7 +333,10 @@ func request_game_sync() -> void:
 		if is_instance_valid(p):
 			var c_path = p.character_path if "character_path" in p else ""
 			var p_name = p.player_name if p.player_name != "" else ("Player %d" % pid)
-			spawn_player.rpc_id(caller_id, pid, c_path, p_name, p.steam_id, p.position)
+			var col: Color = p.character_color if "character_color" in p else Color.WHITE
+			var face: String = p.character_face if "character_face" in p else ""
+			var hat: String = p.character_hat if "character_hat" in p else ""
+			spawn_player.rpc_id(caller_id, pid, c_path, p_name, p.steam_id, p.position, col, face, hat)
 
 	sync_all_tile_colors.rpc_id(caller_id, tile_colors)
 
@@ -373,7 +379,7 @@ func apply_knockback_rpc(push_dir: Vector3) -> void:
 		players[my_id].apply_knockback(push_dir)
 
 @rpc("authority", "call_local", "reliable")
-func spawn_player(peer_id: int, character_path: String, player_name: String, steam_id: int, pos: Vector3) -> void:
+func spawn_player(peer_id: int, character_path: String, player_name: String, steam_id: int, pos: Vector3, color: Color = Color.WHITE, face: String = "", hat: String = "") -> void:
 	if not is_inside_tree():
 		return
 	if peer_id in players and is_instance_valid(players[peer_id]):
@@ -390,8 +396,12 @@ func spawn_player(peer_id: int, character_path: String, player_name: String, ste
 	player.set_player_name(player_name)
 	player.steam_id = steam_id
 	player.character_path = character_path
+	player.character_color = color
+	player.character_face = face
+	player.character_hat = hat
 	player.add_to_group("player")
 	add_child(player)
+	player.set_character_customization(color, face, hat)
 	players[peer_id] = player
 	player_states[peer_id] = {
 		"alive": true,
@@ -401,6 +411,7 @@ func spawn_player(peer_id: int, character_path: String, player_name: String, ste
 
 	if character_path:
 		player.switch_character(character_path)
+		player.set_character_customization(color, face, hat)
 
 @rpc("authority", "call_local", "reliable")
 func sync_game_state(new_state: int) -> void:

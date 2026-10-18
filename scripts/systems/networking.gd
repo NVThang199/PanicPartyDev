@@ -1,6 +1,7 @@
 extends Node
 
 signal host_created()
+signal host_failed(error_code: int)
 signal client_connected()
 signal avatar_updated(steam_id: int, texture: Texture2D)
 
@@ -62,6 +63,7 @@ func on_lobby_created(_connect: int, lobby_id: int) -> void:
 		host_created.emit()
 	else:
 		push_error("Failed to create Steam lobby: %s" % _connect)
+		host_failed.emit(_connect)
 
 func on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response: int) -> void:
 	if response != Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
