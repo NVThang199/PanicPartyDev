@@ -19,12 +19,101 @@ var player_name: String = ""
 var steam_id: int = 0
 var ping_ms: int = 0
 var character_path: String = ""
-var step_timer: float = 0.0
+var character_color: Color = Color(0.95, 0.95, 0.95)
+var character_face: String = "res://assets/characters/face/robloxmanface.png"
+var character_hat: String = ""
 
 # Hot Bomb Minigame state
 var is_holding_bomb: bool = false
 var is_dead_in_minigame: bool = false
 var held_bomb: Node = null
+
+func set_character_color(col: Color) -> void:
+	character_color = col
+	_apply_character_color()
+
+func set_character_face(face_path: String) -> void:
+	character_face = face_path
+	_apply_character_color()
+
+func set_character_hat(hat_path: String) -> void:
+	character_hat = hat_path
+	_apply_character_hat()
+
+func set_character_customization(col: Color, face_path: String, hat_path: String = "") -> void:
+	character_color = col
+	character_face = face_path
+	character_hat = hat_path
+	_apply_character_color()
+	_apply_character_hat()
+
+@rpc("any_peer", "call_local", "reliable")
+func sync_character_color(col: Color) -> void:
+	character_color = col
+	_apply_character_color()
+
+@rpc("any_peer", "call_local", "reliable")
+func sync_character_face(face_path: String) -> void:
+	character_face = face_path
+	_apply_character_color()
+
+@rpc("any_peer", "call_local", "reliable")
+func sync_character_hat(hat_path: String) -> void:
+	character_hat = hat_path
+	_apply_character_hat()
+
+@rpc("any_peer", "call_local", "reliable")
+func sync_character_customization(col: Color, face_path: String, hat_path: String = "") -> void:
+	character_color = col
+	character_face = face_path
+	character_hat = hat_path
+	_apply_character_color()
+	_apply_character_hat()
+
+func _apply_character_color() -> void:
+	if not model:
+		return
+	_apply_color_recursive(model, character_color)
+	_apply_face_recursive(model, character_face, character_color)
+
+func _apply_face_recursive(node: Node, face_path: String, col: Color) -> void:
+	if node.name == "HeadAttachment" or node.name == "Hat":
+		return
+	if node is MeshInstance3D and node.name == "Blank_Head":
+		var m: Mesh = node.mesh
+		if m and m.get_surface_count() > 1:
+			var tex = load(face_path) as Texture2D
+			if tex:
+				var mat: StandardMaterial3D = node.get_surface_override_material(1) as StandardMaterial3D
+				if not mat:
+					mat = StandardMaterial3D.new()
+				mat.albedo_texture = tex
+				mat.albedo_color = col
+				mat.roughness = 0.5
+				node.set_surface_override_material(1, mat)
+				return
+	for child in node.get_children():
+		_apply_face_recursive(child, face_path, col)
+
+func _apply_color_recursive(node: Node, col: Color) -> void:
+	if node.name == "HeadAttachment" or node.name == "Hat":
+		return
+	if node is MeshInstance3D:
+		var m: Mesh = node.mesh
+		if m:
+			for s in range(m.get_surface_count()):
+				if node.name == "Blank_Head" and s == 1:
+					continue
+				var mat = node.get_surface_override_material(s)
+				if mat is StandardMaterial3D:
+					mat.albedo_color = col
+				else:
+					var new_mat := StandardMaterial3D.new()
+					new_mat.albedo_color = col
+					new_mat.roughness = 0.5
+					node.set_surface_override_material(s, new_mat)
+	for child in node.get_children():
+		_apply_color_recursive(child, col)
 
 func set_player_name(p_name: String) -> void:
 	player_name = p_name
@@ -180,14 +269,7 @@ func _physics_process(delta):
 					else:
 						play_anim("movement/Walking_A")
 
-					if is_on_floor():
-						step_timer -= delta
-						if step_timer <= 0.0:
-							step_timer = 0.35
-							if AudioManager:
-								AudioManager.play_footstep(global_position)
 				else:
-					step_timer = 0.0
 					velocity.x = move_toward(velocity.x, 0, SPEED)
 					velocity.z = move_toward(velocity.z, 0, SPEED)
 					if is_holding_bomb:
@@ -203,16 +285,6 @@ func _physics_process(delta):
 			var main_node = get_parent()
 			if main_node and is_instance_valid(main_node) and main_node.is_inside_tree() and main_node.has_method("sync_player_state"):
 				main_node.sync_player_state.rpc(multiplayer.get_unique_id(), position, rot_y, current_anim)
-	else:
-		# Remote players: play footstep when moving
-		if current_anim in ["movement/Walking_A", "hot_bomb/Running_HoldingRifle"]:
-			step_timer -= delta
-			if step_timer <= 0.0:
-				step_timer = 0.38
-				if AudioManager:
-					AudioManager.play_footstep(global_position)
-		else:
-			step_timer = 0.0
 
 func _ready():
 	_ensure_nodes()
@@ -245,6 +317,19 @@ func _ready():
 			if hb_lib:
 				anim_player.add_animation_library("hot_bomb", hb_lib)
 	_setup_hand_socket()
+	_setup_head_socket()
+	if is_multiplayer_authority():
+		character_color = GameSession.selected_color
+		character_face = GameSession.selected_face
+		character_hat = GameSession.selected_hat
+		var has_peer = multiplayer and multiplayer.multiplayer_peer and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED
+		if has_peer:
+			sync_character_customization.rpc(GameSession.selected_color, GameSession.selected_face, GameSession.selected_hat)
+		else:
+			set_character_customization(GameSession.selected_color, GameSession.selected_face, GameSession.selected_hat)
+	else:
+		_apply_character_color()
+		_apply_character_hat()
 	play_anim("general/Idle_A")
 
 func play_anim(anim_name: String, force_restart: bool = false):
@@ -279,7 +364,40 @@ func switch_character(glb_path: String) -> void:
 	if is_inside_tree():
 		await get_tree().process_frame
 	_setup_hand_socket()
+	_setup_head_socket()
+	_apply_character_color()
+	_apply_character_hat()
 	play_anim("general/Idle_A")
+
+func _setup_head_socket() -> BoneAttachment3D:
+	if not model:
+		return null
+	var skel: Skeleton3D = model.get_node_or_null("Rig_Medium/Skeleton3D")
+	if not skel:
+		return null
+	var existing = skel.get_node_or_null("HeadAttachment")
+	if not existing:
+		var ba = BoneAttachment3D.new()
+		ba.name = "HeadAttachment"
+		ba.bone_name = "head"
+		skel.add_child(ba)
+		return ba
+	return existing
+
+func _apply_character_hat() -> void:
+	var socket = _setup_head_socket()
+	if not socket:
+		return
+	for child in socket.get_children():
+		socket.remove_child(child)
+		child.queue_free()
+	if character_hat != "":
+		var hat_scene = load(character_hat)
+		if hat_scene:
+			var hat_instance = hat_scene.instantiate()
+			hat_instance.name = "Hat"
+			socket.add_child(hat_instance)
+			hat_instance.position = Vector3(0, 0.78, 0)
 
 func _setup_hand_socket() -> void:
 	if not model:

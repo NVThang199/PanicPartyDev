@@ -31,6 +31,9 @@ func _update_ui_text() -> void:
 		code_input.placeholder_text = tr("ENTER_ROOM_CODE")
 	if btn_join_code:
 		btn_join_code.text = tr("JOIN_ROOM")
+	if credits:
+		credits.title = tr("CREDITS_DIALOG_TITLE")
+		credits.dialog_text = tr("CREDITS_DIALOG_TEXT")
 	if steam_warning_dialog and is_instance_valid(steam_warning_dialog):
 		steam_warning_dialog.title = tr("STEAM_REQUIRED_TITLE")
 		steam_warning_dialog.dialog_text = tr("STEAM_REQUIRED_MSG")
@@ -90,7 +93,10 @@ func _on_join_pressed() -> void:
 	Steam.activateGameOverlay("Friends")
 
 func _on_credits_pressed() -> void:
-	credits.popup_centered()
+	if credits:
+		credits.title = tr("CREDITS_DIALOG_TITLE")
+		credits.dialog_text = tr("CREDITS_DIALOG_TEXT")
+		credits.popup_centered()
 
 func _on_settings_pressed() -> void:
 	var settings = SETTINGS_SCENE.instantiate()

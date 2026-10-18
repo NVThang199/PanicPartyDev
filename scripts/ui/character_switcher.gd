@@ -1,11 +1,7 @@
 extends CanvasLayer
 
 const CHARACTERS := {
-	"Knight": "res://assets/characters/KayKit_Adventurers_2.0_FREE/Characters/gltf/Knight.glb",
-	"Barbarian": "res://assets/characters/KayKit_Adventurers_2.0_FREE/Characters/gltf/Barbarian.glb",
-	"Mage": "res://assets/characters/KayKit_Adventurers_2.0_FREE/Characters/gltf/Mage.glb",
-	"Ranger": "res://assets/characters/KayKit_Adventurers_2.0_FREE/Characters/gltf/Ranger.glb",
-	"Rogue": "res://assets/characters/KayKit_Adventurers_2.0_FREE/Characters/gltf/Rogue.glb"
+	"Blank": "res://assets/characters/Blank_Character/Blank_Character.glb"
 }
 
 @onready var option_button: OptionButton = $Control/OptionButton

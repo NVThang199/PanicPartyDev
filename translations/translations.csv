@@ -33,28 +33,116 @@ RETRY,Retry,Thử lại,Reintentar,Réessayer,Wiederholen,Tentar Novamente,По�
 Thử Lại,Retry,Thử lại,Reintentar,Réessayer,Wiederholen,Tentar Novamente,Повторить,再試行,다시 시도,重试,Riprova
 CREDITS_DIALOG_TITLE,Credits,Tác giả,Créditos,Crédits,Mitwirkende,Créditos,Авторы,クレジット,크레딧,制作人员,Riconoscimenti
 CREDITS_DIALOG_TEXT,"Party Panic
-Developed with Godot Engine
-Free assets by KayKit","Party Panic
-Phát triển bằng Godot Engine
-Tài nguyên miễn phí từ KayKit","Party Panic
-Desarrollado con Godot Engine
-Recursos gratis de KayKit","Party Panic
-Développé avec Godot Engine
-Ressources gratuites par KayKit","Party Panic
-Entwickelt mit Godot Engine
-Kostenlose Assets von KayKit","Party Panic
-Desenvolvido com Godot Engine
-Recursos gratuitos por KayKit","Party Panic
-Разработано на Godot Engine
-Бесплатные ассеты от KayKit","Party Panic
-Godot Engineで開発
-無料アセット: KayKit","Party Panic
-Godot Engine으로 개발
-무료 에셋: KayKit","Party Panic
-基于 Godot 引擎开发
-免费资源来自 KayKit","Party Panic
-Sviluppato con Godot Engine
-Risorse gratuite di KayKit"
+Developed with Godot Engine | Free assets by KayKit
+Inspired by Pummel Party & Machine Party
+
+Graduation Project - Software Engineering
+FPT University
+Team Members:
+- Nguyễn Việt Thắng
+- Nguyễn Bá Quyền
+- Đặng Quang Khải
+- ...","Party Panic
+Phát triển bằng Godot Engine | Tài nguyên miễn phí: KayKit
+Lấy cảm hứng từ Pummel Party & Machine Party
+
+Đồ án tốt nghiệp - Software Engineering
+FPT University
+Thành viên nhóm:
+- Nguyễn Việt Thắng
+- Nguyễn Bá Quyền
+- Đặng Quang Khải
+- ...","Party Panic
+Desarrollado con Godot Engine | Recursos gratis: KayKit
+Inspirado en Pummel Party y Machine Party
+
+Proyecto de Graduación - Software Engineering
+FPT University
+Miembros del equipo:
+- Nguyễn Việt Thắng
+- Nguyễn Bá Quyền
+- Đặng Quang Khải
+- ...","Party Panic
+Développé avec Godot Engine | Ressources gratuites : KayKit
+Inspiré par Pummel Party & Machine Party
+
+Projet de Fin d'Études - Software Engineering
+FPT University
+Membres de l'équipe :
+- Nguyễn Việt Thắng
+- Nguyễn Bá Quyền
+- Đặng Quang Khải
+- ...","Party Panic
+Entwickelt mit Godot Engine | Kostenlose Assets: KayKit
+Inspiriert von Pummel Party & Machine Party
+
+Abschlussarbeit - Software Engineering
+FPT University
+Teammitglieder:
+- Nguyễn Việt Thắng
+- Nguyễn Bá Quyền
+- Đặng Quang Khải
+- ...","Party Panic
+Desenvolvido com Godot Engine | Recursos gratuitos: KayKit
+Inspirado em Pummel Party e Machine Party
+
+Projeto de Graduação - Software Engineering
+FPT University
+Membros da equipe:
+- Nguyễn Việt Thắng
+- Nguyễn Bá Quyền
+- Đặng Quang Khải
+- ...","Party Panic
+Разработано на Godot Engine | Бесплатные ассеты: KayKit
+Вдохновлено Pummel Party и Machine Party
+
+Выпускной проект - Software Engineering
+FPT University
+Участники команды:
+- Nguyễn Việt Thắng
+- Nguyễn Bá Quyền
+- Đặng Quang Khải
+- ...","Party Panic
+Godot Engineで開発 | 無料アセット: KayKit
+『Pummel Party』『Machine Party』から着想
+
+卒業制作 - ソフトウェアエンジニアリング
+FPT大学
+チームメンバー:
+- Nguyễn Việt Thắng
+- Nguyễn Bá Quyền
+- Đặng Quang Khải
+- ...","Party Panic
+Godot Engine으로 개발 | 무료 에셋: KayKit
+『Pummel Party』, 『Machine Party』에서 영감을 받음
+
+졸업 프로젝트 - 소프트웨어 공학
+FPT 대학교
+팀원:
+- Nguyễn Việt Thắng
+- Nguyễn Bá Quyền
+- Đặng Quang Khải
+- ...","Party Panic
+基于 Godot 引擎开发 | 免费资源来自: KayKit
+灵感源自《Pummel Party》与《Machine Party》
+
+毕业设计 - 软件工程
+FPT大学
+团队成员:
+- Nguyễn Việt Thắng
+- Nguyễn Bá Quyền
+- Đặng Quang Khải
+- ...","Party Panic
+Sviluppato con Godot Engine | Risorse gratuite: KayKit
+Ispirato a Pummel Party e Machine Party
+
+Progetto di Laurea - Software Engineering
+FPT University
+Membri del team:
+- Nguyễn Việt Thắng
+- Nguyễn Bá Quyền
+- Đặng Quang Khải
+- ..."
 SETTINGS_TITLE,SETTINGS,CÀI ĐẶT,AJUSTES,PARAMÈTRES,EINSTELLUNGEN,CONFIGURAÇÕES,НАСТРОЙКИ,設定,설정,设置,IMPOSTAZIONI
 TAB_DISPLAY,Display,Hiển thị,Pantalla,Affichage,Anzeige,Tela,Экран,画面,디스플레이,显示,Schermo
 Display,Display,Hiển thị,Pantalla,Affichage,Anzeige,Tela,Экран,画面,디스플레이,显示,Schermo
@@ -155,6 +243,8 @@ CHAR_RANGER,Ranger,Cung thủ,Explorador,Rôdeur,Waldläufer,Patrulheiro,Сле�
 Ranger,Ranger,Cung thủ,Explorador,Rôdeur,Waldläufer,Patrulheiro,Следопыт,レンジャー,레인저,游侠,Ranger
 CHAR_ROGUE,Rogue,Sát thủ,Pícaro,Voleur,Schurke,Ladino,Разбойник,ローグ,도적,刺客,Ladro
 Rogue,Rogue,Sát thủ,Pícaro,Voleur,Schurke,Ladino,Разбойник,ローグ,도적,刺客,Ladro
+CHAR_BLANK,Blank,Trống,En blanco,Vierge,Blanko,Em branco,Пустой,ブランク,블랭크,空白,Vuoto
+Blank,Blank,Trống,En blanco,Vierge,Blanko,Em branco,Пустой,ブランク,블랭크,空白,Vuoto
 MENU,MENU,MENU,MENÚ,MENU,MENÜ,MENU,МЕНЮ,メニュー,메뉴,菜单,MENU
 LOADING,Loading...,Đang tải...,Cargando...,Chargement...,Laden...,Carregando...,Загрузка...,読み込み中...,로딩 중...,加载中...,Caricamento...
 Loading...,Loading...,Đang tải...,Cargando...,Chargement...,Laden...,Carregando...,Загрузка...,読み込み中...,로딩 중...,加载中...,Caricamento...
@@ -177,6 +267,14 @@ COPIED,COPIED!,ĐÃ SAO CHÉP!,¡COPIADO!,COPIÉ !,KOPIERT!,COPIADO!,СКОПИ�
 ĐÃ COPY!,COPIED!,ĐÃ SAO CHÉP!,¡COPIADO!,COPIÉ !,KOPIERT!,COPIADO!,СКОПИРОВАНО!,コピー完了!,복사됨!,已复制!,COPIATO!
 PLAYERS,PLAYERS,NGƯỜI CHƠI,JUGADORES,JOUEURS,SPIELER,JOGADORES,ИГРОКИ,プレイヤー,플레이어,玩家列表,GIOCATORI
 PING,PING,PING,PING,PING,PING,PING,ПИНГ,PING,핑,延迟 (PING),PING
+COLOR_SELECT,Color,Màu sắc,Color,Couleur,Farbe,Cor,Цвет,色,색상,颜色,Colore
+FACE_SELECT,Face,Gương mặt,Cara,Visage,Gesicht,Rosto,Лицо,顔,얼굴,表情,Faccia
+HAT_SELECT,Hat,Mũ / Phụ kiện,Sombrero,Chapeau,Hut,Chapéu,Шляпа,帽子,모자,帽子,Cappello
+HAT_NONE,None,Không,Ninguno,Aucun,Kein,Nenhum,Нет,なし,없음,无,Nessuno
+HAT_CROWN,Crown,Vương miện,Corona,Couronne,Krone,Coroa,Корона,王冠,왕관,皇冠,Corona
+HAT_PIRATE,Pirate,Cướp biển,Pirata,Pirate,Pirat,Pirata,Пират,海賊,해적,海盗,Pirata
+HAT_PAPER,Paper,Mũ giấy,Papel,Papier,Papier,Papel,Бумага,紙,종이,纸,Carta
+HAT_SUBMARINE,Submarine,Tàu ngầm,Submarino,Sous-marin,U-Boot,Submarino,Подлодка,潜水艦,잠수함,潜水艇,Sottomarino
 HOST,HOST,CHỦ PHÒNG,ANFITRIÓN,HÔTE,HOST,ANFITRIÃO,ХОСТ,ホスト,방장,房主,HOST
 STATUS_READY,[READY],[SẴN SÀNG],[LISTO],[PRÊT],[BEREIT],[PRONTO],[ГОТОВ],[準備完了],[준비 완료],[已准备],[PRONTO]
 STATUS_NOT_READY,[NOT READY],[CHƯA SẴN SÀNG],[NO LISTO],[PAS PRÊT],[NICHT BEREIT],[NÃO PRONTO],[НЕ ГОТОВ],[未準備],[준비 안 됨],[未准备],[NON PRONTO]
@@ -190,3 +288,4 @@ SURVIVORS,SURVIVORS!,SỐNG SÓT!,¡SUPERVIVIENTES!,SURVIVANTS !,ÜBERLEBENDE!,S
 SURVIVORS!,SURVIVORS!,SỐNG SÓT!,¡SUPERVIVIENTES!,SURVIVANTS !,ÜBERLEBENDE!,SOBREVIVENTES!,ВЫЖИВШИЕ!,生存者!,생존자!,幸存者!,SOPRAVVISSUTI!
 RETURN_TO_LOBBY,Return to Lobby,Về phòng chờ,Volver a la Sala,Retour au Salon,Zurück zur Lobby,Voltar ao Lobby,Вернуться в лобби,ロビーに戻る,로비로 돌아가기,返回大厅,Torna alla Lobby
 Return to Lobby,Return to Lobby,Về phòng chờ,Volver a la Sala,Retour au Salon,Zurück zur Lobby,Voltar ao Lobby,Вернуться в лобби,ロビーに戻る,로비로 돌아가기,返回大厅,Torna alla Lobby
+CUSTOMIZE_YOUR_CHARACTER,CUSTOMIZE CHARACTER,TÙY CHỈNH NHÂN VẬT,PERSONALIZAR PERSONAJE,PERSONNALISER LE PERSONNAGE,CHARAKTER ANPASSEN,PERSONALIZAR PERSONAGEM,НАСТРОЙКА ПЕРСОНАЖА,キャラクターカスタマイズ,캐릭터 꾸미기,自定义角色,PERSONALIZZA PERSONAGGIO

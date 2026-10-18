@@ -47,7 +47,7 @@ theme_override_constants/separation = 20
 [node name="Title" type="Label" parent="Margin/Content" unique_id=105001914]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "CHOOSE YOUR CHARACTER"
+text = "CUSTOMIZE CHARACTER"
 horizontal_alignment = 1
 
 [node name="Body" type="HBoxContainer" parent="Margin/Content" unique_id=1756814741]
@@ -56,20 +56,60 @@ size_flags_vertical = 3
 theme_override_constants/separation = 32
 
 [node name="LeftPanel" type="VBoxContainer" parent="Margin/Content/Body" unique_id=505814308]
-custom_minimum_size = Vector2(230, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 16
 
-[node name="Instruction" type="Label" parent="Margin/Content/Body/LeftPanel" unique_id=682650461]
+[node name="ColorSection" type="VBoxContainer" parent="Margin/Content/Body/LeftPanel" unique_id=987654321]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ColorTitle" type="Label" parent="Margin/Content/Body/LeftPanel/ColorSection" unique_id=987654322]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "Select a character"
+text = "Color"
 horizontal_alignment = 1
 
-[node name="CharacterButtons" type="VBoxContainer" parent="Margin/Content/Body/LeftPanel" unique_id=1280480422]
+[node name="ColorGrid" type="GridContainer" parent="Margin/Content/Body/LeftPanel/ColorSection" unique_id=987654323]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 10
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 6
+
+[node name="FaceSection" type="VBoxContainer" parent="Margin/Content/Body/LeftPanel" unique_id=987654324]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="FaceTitle" type="Label" parent="Margin/Content/Body/LeftPanel/FaceSection" unique_id=987654325]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Face"
+horizontal_alignment = 1
+
+[node name="FaceGrid" type="GridContainer" parent="Margin/Content/Body/LeftPanel/FaceSection" unique_id=987654326]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 5
+
+[node name="HatSection" type="VBoxContainer" parent="Margin/Content/Body/LeftPanel" unique_id=987654327]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HatTitle" type="Label" parent="Margin/Content/Body/LeftPanel/HatSection" unique_id=987654328]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Hat"
+horizontal_alignment = 1
+
+[node name="HatGrid" type="GridContainer" parent="Margin/Content/Body/LeftPanel/HatSection" unique_id=987654329]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 5
 
 [node name="PreviewPanel" type="PanelContainer" parent="Margin/Content/Body" unique_id=217385993]
 layout_mode = 2
@@ -113,7 +153,7 @@ text = "Back"
 custom_minimum_size = Vector2(220, 48)
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
-text = "Knight"
+text = "Blank"
 horizontal_alignment = 1
 vertical_alignment = 1
 

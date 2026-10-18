@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://iqi1e25qulnn"]
 
 [ext_resource type="Script" uid="uid://c34ptqiayeqdm" path="res://scripts/players/player.gd" id="1_script"]
-[ext_resource type="PackedScene" uid="uid://dyxo436lfocwn" path="res://assets/characters/KayKit_Adventurers_2.0_FREE/Characters/gltf/Knight.glb" id="2_knight"]
+[ext_resource type="PackedScene" uid="uid://dyp1tshbl57re" path="res://assets/characters/Blank_Character/Blank_Character.glb" id="2_blank"]
 [ext_resource type="FontFile" path="res://assets/ui/FSEX300.ttf" id="3_font"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
@@ -11,7 +11,7 @@ height = 1.8
 [node name="Player" type="CharacterBody3D" uid="uid://iqi1e25qulnn"]
 script = ExtResource("1_script")
 
-[node name="Model" parent="." uid="uid://dyxo436lfocwn" instance=ExtResource("2_knight")]
+[node name="Model" parent="." uid="uid://dyp1tshbl57re" instance=ExtResource("2_blank")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." uid="uid://c34ptqiayeqdm"]
 root_node = NodePath("../Model")

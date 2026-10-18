@@ -103,10 +103,18 @@ trans_type = 2
 oversampling_override = 1.0
 title = "Credits"
 initial_position = 1
-size = Vector2i(420, 140)
+size = Vector2i(520, 290)
 dialog_text = "Party Panic
-Developed with Godot Engine
-Free assets by KayKit"
+Developed with Godot Engine | Free assets by KayKit
+Inspired by Pummel Party & Machine Party
+
+Graduation Project - Software Engineering
+FPT University
+Team Members:
+- Nguyễn Việt Thắng
+- Nguyễn Bá Quyền
+- Đặng Quang Khải
+- ..."
 
 [node name="JoinCodePanel" type="PanelContainer" parent="."]
 anchors_preset = 7
