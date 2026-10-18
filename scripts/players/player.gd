@@ -287,7 +287,7 @@ func _physics_process(delta):
 			var rot_y: float = model.rotation.y if model else 0.0
 			var main_node = get_parent()
 			if main_node and is_instance_valid(main_node) and main_node.is_inside_tree() and main_node.has_method("sync_player_state"):
-				if ("is_returning" in main_node and main_node.is_returning) or ("state" in main_node and main_node.state == 2):
+				if ("is_returning" in main_node and main_node.is_returning) or ("is_starting" in main_node and main_node.is_starting) or ("state" in main_node and main_node.state == 2):
 					pass
 				else:
 					main_node.sync_player_state.rpc(multiplayer.get_unique_id(), position, rot_y, current_anim)

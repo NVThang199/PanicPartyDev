@@ -80,6 +80,18 @@ transform = Transform3D(0.9154931, 0, 0.4023337, 0, 1, 0, -0.4023337, 0, 0.91549
 shape = SubResource("BoxShape3D_mgwo4")
 debug_color = Color(0.3879037, 0.3935868, 1, 0.41960785)
 
+[node name="Floor_Dirt" parent="Floor" unique_id=829164664 instance=ExtResource("9_fu2j5")]
+transform = Transform3D(2.0420392, 0, 0, 0, 2.0420392, 0, 0, 0, 2.0420392, 0, -0.92, -7.543)
+
+[node name="Floor_Dirt2" parent="Floor" unique_id=1634566119 instance=ExtResource("9_fu2j5")]
+transform = Transform3D(2.0420392, 0, 0, 0, 2.0420392, 0, 0, 0, 2.0420392, 0, -0.92, -0.5430002)
+
+[node name="Floor_Dirt3" parent="Floor" unique_id=319529187 instance=ExtResource("9_fu2j5")]
+transform = Transform3D(2.0420392, 0, 0, 0, 2.0420392, 0, 0, 0, 2.0420392, 0, -0.92, 6.457)
+
+[node name="Floor_Dirt4" parent="Floor" unique_id=292740230 instance=ExtResource("9_fu2j5")]
+transform = Transform3D(2.0420392, 0, 0, 0, 2.0420392, 0, 0, 0, 2.0420392, 0, -0.92, 13.457)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1934731168]
 transform = Transform3D(-0.98510927, 0.15996589, 0.06301223, 0, -0.36650127, 0.93041784, 0.17192906, 0.9165633, 0.3610438, 0, 5, 0)
 light_color = Color(1, 0.9607843, 0.91764706, 1)
@@ -353,8 +365,6 @@ fov = 57.329388
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=914881435]
 environment = ExtResource("2_lwqq7")
 
-[node name="Decorations" type="Node3D" parent="." unique_id=1704144862]
-
 [node name="Castle" type="Node3D" parent="." unique_id=4004391]
 
 [node name="wall_straight" parent="Castle" unique_id=993549169 instance=ExtResource("2_m8j4h")]
@@ -381,19 +391,10 @@ transform = Transform3D(-16.754732, 0, 1.4647451e-06, 0, 16.754732, 0, -1.464745
 [node name="building_tower_base_blue2" parent="Castle" unique_id=1502391664 instance=ExtResource("17_lwqq7")]
 transform = Transform3D(-16.754732, 0, 1.4647451e-06, 0, 16.754732, 0, -1.4647451e-06, 0, -16.754732, 78.498405, 0, -26.537418)
 
-[node name="Floor_Dirt" parent="." unique_id=829164664 instance=ExtResource("9_fu2j5")]
-transform = Transform3D(2.0420392, 0, 0, 0, 2.0420392, 0, 0, 0, 2.0420392, 0, -0.92, -7.543)
-
-[node name="Floor_Dirt2" parent="." unique_id=1634566119 instance=ExtResource("9_fu2j5")]
-transform = Transform3D(2.0420392, 0, 0, 0, 2.0420392, 0, 0, 0, 2.0420392, 0, -0.92, -0.5430002)
-
-[node name="Floor_Dirt3" parent="." unique_id=319529187 instance=ExtResource("9_fu2j5")]
-transform = Transform3D(2.0420392, 0, 0, 0, 2.0420392, 0, 0, 0, 2.0420392, 0, -0.92, 6.457)
-
-[node name="Floor_Dirt4" parent="." unique_id=292740230 instance=ExtResource("9_fu2j5")]
-transform = Transform3D(2.0420392, 0, 0, 0, 2.0420392, 0, 0, 0, 2.0420392, 0, -0.92, 13.457)
-
 [node name="Deco_Left" type="Node3D" parent="." unique_id=780921082]
+
+[node name="Grass_2_D_Singlesided_Color1" parent="Deco_Left" unique_id=369651107 instance=ExtResource("20_mgwo4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.523903, 0.1460407, 4.0233154)
 
 [node name="Rock_1_E_Color1" parent="Deco_Left" unique_id=570450439 instance=ExtResource("15_ns4lk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.811321, 0, -5.924698)
@@ -486,6 +487,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.117388, 0.1460396, -6.8937
 
 [node name="Grass_2_C_Singlesided_Color7" parent="Deco_Right" unique_id=1606598720 instance=ExtResource("2_fu2j5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.652071, 0.1460396, 4.2349243)
-
-[node name="Grass_2_D_Singlesided_Color1" parent="." unique_id=369651107 instance=ExtResource("20_mgwo4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.523903, 0.1460407, 4.0233154)

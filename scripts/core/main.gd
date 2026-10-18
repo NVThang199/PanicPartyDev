@@ -25,6 +25,7 @@ var player_info: Dictionary = {}
 var ping_timer: float = 0.0
 var is_ready: bool = false
 var selected_map: String = "Lobby"
+var is_starting: bool = false
 
 func _ready() -> void:
 	Networking.host_created.connect(on_host_created)
@@ -120,7 +121,7 @@ func _process(delta: float) -> void:
 	elif not Input.is_key_pressed(KEY_TAB) and tab_overlay.visible:
 		tab_overlay.visible = false
 
-	if multiplayer.multiplayer_peer != null and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
+	if not is_starting and multiplayer.multiplayer_peer != null and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
 		ping_timer += delta
 		if ping_timer >= 1.0:
 			ping_timer = 0.0
@@ -129,7 +130,7 @@ func _process(delta: float) -> void:
 
 @rpc("any_peer", "unreliable")
 func sync_player_state(peer_id: int, pos: Vector3, rot_y: float, anim_name: String) -> void:
-	if not is_inside_tree():
+	if not is_inside_tree() or is_starting:
 		return
 	if not multiplayer or not multiplayer.multiplayer_peer or multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
 		return
@@ -170,7 +171,7 @@ func apply_knockback_rpc(push_dir: Vector3) -> void:
 
 @rpc("any_peer", "unreliable")
 func request_ping(client_time: int) -> void:
-	if not is_inside_tree() or not multiplayer.is_server():
+	if not is_inside_tree() or is_starting or not multiplayer.is_server():
 		return
 	var sender = multiplayer.get_remote_sender_id()
 	respond_ping.rpc_id(sender, client_time)
@@ -663,10 +664,12 @@ func update_start_button() -> void:
 func _on_start_pressed() -> void:
 	if not multiplayer.is_server():
 		return
-	start_game.rpc(selected_map)
+	start_game(selected_map)
 
-@rpc("authority", "call_local", "reliable")
 func start_game(map_name: String) -> void:
+	if is_starting:
+		return
+	is_starting = true
 	print("[GAME] Starting match on map: ", map_name)
 	if AudioManager:
 		AudioManager.play_match_start()
@@ -676,6 +679,14 @@ func start_game(map_name: String) -> void:
 		var p = players[pid]
 		if is_instance_valid(p):
 			p.set_physics_process(false)
+
+	if multiplayer.is_server():
+		start_game_rpc.rpc(map_name)
+		await get_tree().create_timer(0.15).timeout
+
+	if not is_inside_tree():
+		return
+
 	if map_name == "HotBomb":
 		GameSession.minigame_players = player_info.duplicate(true)
 		get_tree().change_scene_to_file("res://scenes/minigames/hot_bomb/hot_bomb.tscn")
@@ -684,3 +695,7 @@ func start_game(map_name: String) -> void:
 		get_tree().change_scene_to_file("res://scenes/minigames/stable_footing/stable_footing.tscn")
 	else:
 		print("[GAME] Map %s is lobby, nothing to start" % map_name)
+
+@rpc("authority", "call_remote", "reliable")
+func start_game_rpc(map_name: String) -> void:
+	start_game(map_name)
