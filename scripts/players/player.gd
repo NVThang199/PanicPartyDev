@@ -345,6 +345,10 @@ func _ready():
 		if not anim_player.has_animation_library("hot_bomb"):
 			var hb_lib = load("res://assets/animations/hot_bomb_animations.res")
 			if hb_lib:
+				if hb_lib.has_animation("Running_HoldingRifle"):
+					hb_lib.get_animation("Running_HoldingRifle").loop_mode = Animation.LOOP_LINEAR
+				if hb_lib.has_animation("Holding_A"):
+					hb_lib.get_animation("Holding_A").loop_mode = Animation.LOOP_LINEAR
 				anim_player.add_animation_library("hot_bomb", hb_lib)
 	_setup_hand_socket()
 	_setup_head_socket()
