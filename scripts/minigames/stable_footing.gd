@@ -43,7 +43,8 @@ func _ready() -> void:
 		return_button.pressed.connect(_on_return_pressed)
 
 	if fall_detector:
-		fall_detector.body_exited.connect(_on_body_exited)
+		fall_detector.body_entered.connect(_on_fall_detected)
+		fall_detector.body_exited.connect(_on_fall_detected)
 
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 
@@ -161,7 +162,7 @@ func _add_tile_model(tile_node: Node3D, color: TileColor) -> void:
 func _randomize_tiles() -> void:
 	for i in range(tiles.size()):
 		tile_colors[i] = TileColor.GREEN if randf() > 0.5 else TileColor.RED
-		sync_tile_color.rpc(i, tile_colors[i])
+	sync_all_tile_colors.rpc(tile_colors)
 
 func _process(delta: float) -> void:
 	if not is_inside_tree():
@@ -205,10 +206,18 @@ func _process(delta: float) -> void:
 				if player_states[peer_id].death_timer <= 0.0:
 					remove_dead_player(peer_id)
 
-		# Check if no players alive
-		var alive_count = get_alive_player_ids().size()
-		if alive_count == 0:
-			end_game_timeout()
+		# Position fallback for falling players below arena floor
+		for peer_id in players:
+			var p = players[peer_id]
+			if is_instance_valid(p) and player_states.get(peer_id, {}).get("alive", false):
+				if p.global_position.y < -2.0:
+					player_died(peer_id)
+
+		# Check if match ended by elimination
+		var alive_ids = get_alive_player_ids()
+		var total_players = player_states.size()
+		if (total_players >= 2 and alive_ids.size() <= 1) or alive_ids.size() == 0:
+			_check_game_over()
 			return
 
 	# Update UI
@@ -259,6 +268,8 @@ func _schedule_reset_tiles() -> void:
 
 @rpc("authority", "call_local", "reliable")
 func reset_tiles_rpc() -> void:
+	if not is_inside_tree():
+		return
 	for tile in tiles:
 		if tile and is_instance_valid(tile):
 			tile.visible = true
@@ -293,7 +304,7 @@ func _create_walls() -> void:
 
 @rpc("any_peer", "reliable")
 func request_game_sync() -> void:
-	if not multiplayer.is_server():
+	if not is_inside_tree() or not multiplayer.is_server():
 		return
 	var caller_id = multiplayer.get_remote_sender_id()
 	if caller_id == 0:
@@ -310,11 +321,50 @@ func request_game_sync() -> void:
 			var p_name = p.player_name if p.player_name != "" else ("Player %d" % pid)
 			spawn_player.rpc_id(caller_id, pid, c_path, p_name, p.steam_id, p.position)
 
-	for i in range(tile_colors.size()):
-		sync_tile_color.rpc_id(caller_id, i, tile_colors[i])
+	sync_all_tile_colors.rpc_id(caller_id, tile_colors)
+
+@rpc("any_peer", "unreliable")
+func sync_player_state(peer_id: int, pos: Vector3, rot_y: float, anim_name: String) -> void:
+	if not is_inside_tree():
+		return
+	if not multiplayer or not multiplayer.multiplayer_peer or multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_CONNECTED:
+		return
+	var local_id := multiplayer.get_unique_id()
+	if local_id == 0 or peer_id == local_id:
+		return
+	var player = players.get(peer_id)
+	if player and is_instance_valid(player) and player.is_inside_tree():
+		player._apply_state(pos, rot_y, anim_name)
+
+@rpc("any_peer", "reliable")
+func request_push(target_peer_id: int, push_dir: Vector3) -> void:
+	if not is_inside_tree() or not multiplayer.is_server():
+		return
+	var sender_id = multiplayer.get_remote_sender_id()
+	var sender_player = players.get(sender_id)
+	var target_player = players.get(target_peer_id)
+	if not sender_player or not target_player:
+		return
+	var dist = sender_player.global_position.distance_to(target_player.global_position)
+	if dist > 2.2 + 1.5:
+		return
+	if target_peer_id == multiplayer.get_unique_id():
+		target_player.apply_knockback(push_dir)
+	else:
+		apply_knockback_rpc.rpc_id(target_peer_id, push_dir)
+
+@rpc("authority", "reliable")
+func apply_knockback_rpc(push_dir: Vector3) -> void:
+	if not is_inside_tree():
+		return
+	var my_id = multiplayer.get_unique_id()
+	if my_id in players and is_instance_valid(players[my_id]):
+		players[my_id].apply_knockback(push_dir)
 
 @rpc("authority", "call_local", "reliable")
 func spawn_player(peer_id: int, character_path: String, player_name: String, steam_id: int, pos: Vector3) -> void:
+	if not is_inside_tree():
+		return
 	if peer_id in players and is_instance_valid(players[peer_id]):
 		return
 	var old_node = get_node_or_null(str(peer_id))
@@ -343,22 +393,36 @@ func spawn_player(peer_id: int, character_path: String, player_name: String, ste
 
 @rpc("authority", "call_local", "reliable")
 func sync_game_state(new_state: int) -> void:
+	if not is_inside_tree():
+		return
 	state = new_state as GameState
 
 @rpc("authority", "unreliable")
 func sync_match_timer(time_left: float) -> void:
-	if multiplayer.is_server():
+	if not is_inside_tree() or multiplayer.is_server():
 		return
 	match_timer = time_left
 
 @rpc("authority", "unreliable")
 func sync_cycle_timer(time_left: float) -> void:
-	if multiplayer.is_server():
+	if not is_inside_tree() or multiplayer.is_server():
 		return
 	cycle_timer = time_left
 
 @rpc("authority", "call_local", "reliable")
+func sync_all_tile_colors(colors: Array[int]) -> void:
+	if not is_inside_tree():
+		return
+	tile_colors = colors
+	for i in range(mini(tiles.size(), colors.size())):
+		var tile = tiles[i]
+		if tile and is_instance_valid(tile):
+			_add_tile_model(tile, colors[i])
+
+@rpc("authority", "call_local", "reliable")
 func sync_tile_color(tile_idx: int, color: int) -> void:
+	if not is_inside_tree():
+		return
 	if tile_idx < 0 or tile_idx >= tiles.size():
 		return
 	if tile_idx < tile_colors.size():
@@ -369,6 +433,8 @@ func sync_tile_color(tile_idx: int, color: int) -> void:
 
 @rpc("authority", "call_local", "reliable")
 func drop_tiles_rpc(red_indices: Array[int]) -> void:
+	if not is_inside_tree():
+		return
 	# Disable all red tile collisions immediately
 	for idx in red_indices:
 		if idx >= 0 and idx < tiles.size():
@@ -404,12 +470,15 @@ func drop_tiles_rpc(red_indices: Array[int]) -> void:
 				tile.visible = false
 
 func player_died(peer_id: int) -> void:
-	if not is_inside_tree():
+	if not is_inside_tree() or not multiplayer.is_server():
+		return
+	if not (peer_id in player_states) or not player_states[peer_id].alive:
 		return
 	player_states[peer_id].alive = false
 	player_states[peer_id].death_timer = 2.0
 
 	player_died_rpc.rpc(peer_id)
+	_check_game_over()
 
 @rpc("authority", "call_local", "reliable")
 func player_died_rpc(peer_id: int) -> void:
@@ -420,6 +489,14 @@ func player_died_rpc(peer_id: int) -> void:
 		player.die_in_minigame()
 
 func remove_dead_player(peer_id: int) -> void:
+	if not multiplayer.is_server():
+		return
+	remove_player_rpc.rpc(peer_id)
+
+@rpc("authority", "call_local", "reliable")
+func remove_player_rpc(peer_id: int) -> void:
+	if not is_inside_tree():
+		return
 	var player = players.get(peer_id)
 	if player and is_instance_valid(player):
 		player.queue_free()
@@ -432,11 +509,30 @@ func get_alive_player_ids() -> Array:
 			alive.append(peer_id)
 	return alive
 
+func _check_game_over() -> void:
+	if state != GameState.PLAYING or not multiplayer.is_server():
+		return
+	var alive_ids = get_alive_player_ids()
+	var total_players = player_states.size()
+	if total_players >= 2:
+		if alive_ids.size() == 1:
+			end_game_winner(alive_ids[0])
+		elif alive_ids.size() == 0:
+			end_game_timeout()
+	else:
+		if alive_ids.size() == 0:
+			end_game_timeout()
+
+func end_game_winner(winner_id: int) -> void:
+	state = GameState.ENDED
+	show_winner_banner.rpc(winner_id)
+	_start_auto_return()
+
 func end_game_timeout() -> void:
 	state = GameState.ENDED
 	var alive = get_alive_player_ids()
-	if alive.size() > 0:
-		show_winner_banner.rpc(-1)  # Draw / all survivors
+	if alive.size() == 1:
+		show_winner_banner.rpc(alive[0])
 	else:
 		show_winner_banner.rpc(-1)
 	_start_auto_return()
@@ -450,6 +546,8 @@ func _start_auto_return() -> void:
 
 @rpc("authority", "call_local", "reliable")
 func show_winner_banner(winner_id: int) -> void:
+	if not is_inside_tree():
+		return
 	if winner_banner:
 		winner_banner.visible = true
 	if winner_label:
@@ -458,12 +556,12 @@ func show_winner_banner(winner_id: int) -> void:
 		else:
 			winner_label.text = "SURVIVORS!"
 
-func _on_body_exited(body: Node3D) -> void:
+func _on_fall_detected(body: Node3D) -> void:
 	if not multiplayer.is_server():
 		return
 	if body.is_in_group("player"):
 		var peer_id = int(str(body.name))
-		if peer_id in players and player_states[peer_id].alive:
+		if peer_id in player_states and player_states[peer_id].alive:
 			player_died(peer_id)
 
 func _on_return_pressed() -> void:
@@ -489,7 +587,10 @@ func return_to_lobby() -> void:
 
 func _on_peer_disconnected(peer_id: int) -> void:
 	if peer_id in players:
-		players[peer_id].queue_free()
+		if is_instance_valid(players[peer_id]):
+			players[peer_id].queue_free()
 		players.erase(peer_id)
 	if peer_id in player_states:
 		player_states.erase(peer_id)
+	if multiplayer.is_server() and state == GameState.PLAYING:
+		_check_game_over()
