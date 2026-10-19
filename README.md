@@ -14,6 +14,7 @@
   Trò chơi minigame nhiều người chơi (Multiplayer Party Game) góc nhìn thứ 3 được xây dựng trên nền tảng <b>Godot 4.7</b>, kết hợp cùng <b>Jolt 3D Physics</b> và <b>Steamworks P2P Relay</b>.
 </p>
 
+[Tải Game Chơi Ngay](#-tải-game-chơi-ngay-dành-cho-người-chơi) •
 [Tính Năng](#-tính-năng-nổi-bật) •
 [Danh Sách Minigames](#-danh-sách-minigames) •
 [Kiến Trúc & Mạng](#-kiến-trúc-hệ-thống--multiplayer) •
@@ -25,7 +26,23 @@
 
 ---
 
-## 🌟 Giới Thiệu
+## 📥 Tải Game Chơi Ngay (Dành Cho Người Chơi)
+
+Bạn không cần cài đặt Godot hay các công cụ lập trình, chỉ cần tải bản đóng gói sẵn:
+
+1. **Tải bản cài đặt**: Truy cập [**GitHub Releases**](https://github.com/NVThang199/PanicPartyDev/releases) và tải file zip mới nhất (ví dụ: `PanicParty-v1.0.0-windows.zip`).
+2. **Giải nén**: Giải nén file `.zip` vào một thư mục bất kỳ trên máy tính.
+3. **Mở Steam**: Đảm bảo ứng dụng **Steam đang chạy ngầm** và đã đăng nhập tài khoản của bạn.
+4. **Vào game**: Chạy file `PanicParty.exe`.
+
+### 🎮 Cách Chơi Cùng Bạn Bè:
+- **Người tạo phòng (Host)**: Bấm `Host Server` → Vào phòng chờ (Lobby) → Bấm nút `COPY MÃ PHÒNG` ở thanh menu dưới cùng để sao chép mã.
+- **Người tham gia (Client)**: Khởi động game → Tại Menu chính, dán mã vào ô `Nhập mã phòng...` → Bấm nút `Vào`.
+- *Không cần kết bạn Steam, hỗ trợ cả tài khoản Steam chưa nạp tiền (Limited Account).*
+
+---
+
+## 🌟 Giới Thiệu Game
 
 **PanicParty** là tựa game tiệc tùng 3D (3D Party Game) nơi người chơi cạnh tranh qua hàng loạt màn chơi nhỏ (minigames) dồn dập. Mỗi vòng chơi thử thách phản xạ, độ khéo léo và khả năng phối hợp hoặc "chơi khăm" bạn bè. Người chơi tích lũy điểm số qua từng minigame để tìm ra nhà vô địch cuối cùng.
 
@@ -55,23 +72,23 @@
 
 ```mermaid
 graph TD
-    subgraph Client ["Client (Peer)"]
-        C_Input["Nhận Input (WASD / Space / F)"]
-        C_Pred["Client Prediction & Interpolation"]
-        C_UI["HUD & Render Interpolated State"]
-    end
+	subgraph Client ["Client (Peer)"]
+		C_Input["Nhận Input (WASD / Space / F)"]
+		C_Pred["Client Prediction & Interpolation"]
+		C_UI["HUD & Render Interpolated State"]
+	end
 
-    subgraph Server ["Host (Authority)"]
-        S_Val["Server Validation"]
-        S_Phys["Jolt 3D Physics & Logic"]
-        S_State["GameState, Timers & Entities"]
-    end
+	subgraph Server ["Host (Authority)"]
+		S_Val["Server Validation"]
+		S_Phys["Jolt 3D Physics & Logic"]
+		S_State["GameState, Timers & Entities"]
+	end
 
-    C_Input -->|"request_action.rpc_id(1) / sync_player_state"| S_Val
-    S_Val --> S_Phys
-    S_Phys --> S_State
-    S_State -->|"@rpc('authority', 'unreliable') broadcast"| C_Pred
-    C_Pred --> C_UI
+	C_Input -->|"request_action.rpc_id(1) / sync_player_state"| S_Val
+	S_Val --> S_Phys
+	S_Phys --> S_State
+	S_State -->|"@rpc('authority', 'unreliable') broadcast"| C_Pred
+	C_Pred --> C_UI
 ```
 
 ### Quy tắc Multiplayer cốt lõi:
@@ -121,8 +138,8 @@ graph TD
 4. **Kiểm tra Multiplayer nội bộ (2 Người Chơi)**:
    - **Cách 1**: Dùng tính năng *Debug > Run Multiple Instances (2 instances)* trong Godot Editor.
    - **Cách 2**: Export bản build Windows Desktop.
-     - **Máy 1 (Host)**: Bấm `Host Server` → Vào Lobby → Nhấn nút `COPY MÃ PHÒNG` dưới màn hình.
-     - **Máy 2 (Client)**: Tại Main Menu, dán mã phòng vào ô `Nhập mã phòng...` và nhấn `Vào`.
+	 - **Máy 1 (Host)**: Bấm `Host Server` → Vào Lobby → Nhấn nút `COPY MÃ PHÒNG` dưới màn hình.
+	 - **Máy 2 (Client)**: Tại Main Menu, dán mã phòng vào ô `Nhập mã phòng...` và nhấn `Vào`.
 
 ---
 
