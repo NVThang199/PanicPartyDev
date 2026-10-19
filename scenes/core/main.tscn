@@ -312,6 +312,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Stable Footing"
 
+[node name="BtnMimic" type="Button" parent="UI/MapSelectPanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Voice Mimic"
+
 [node name="HSeparator2" type="HSeparator" parent="UI/MapSelectPanel/Margin/VBox"]
 layout_mode = 2
 

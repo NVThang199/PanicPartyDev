@@ -17,6 +17,7 @@ var player_info: Dictionary = {}
 @onready var btn_random_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnRandom
 @onready var btn_hotbomb_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnHotBomb
 @onready var btn_stablefooting_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnStableFooting
+@onready var btn_mimic_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnMimic
 @onready var campaign_box: VBoxContainer = $UI/MapSelectPanel/Margin/VBox/CampaignBox
 @onready var check_campaign: CheckBox = $UI/MapSelectPanel/Margin/VBox/CampaignBox/CheckCampaign
 @onready var btn_win_1: Button = $UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox/BtnWin1
@@ -55,6 +56,8 @@ func _ready() -> void:
 		btn_hotbomb_map.pressed.connect(_on_map_selected.bind("HotBomb"))
 	if btn_stablefooting_map:
 		btn_stablefooting_map.pressed.connect(_on_map_selected.bind("StableFooting"))
+	if btn_mimic_map:
+		btn_mimic_map.pressed.connect(_on_map_selected.bind("Mimic"))
 	if check_campaign:
 		check_campaign.toggled.connect(_on_campaign_toggled)
 	if btn_win_1:
@@ -682,7 +685,7 @@ func _on_map_selected(map_name: String) -> void:
 		map_info_popup.show_map_info(map_name)
 
 func _pick_random_map() -> String:
-	var maps := ["HotBomb", "StableFooting"]
+	var maps := ["HotBomb", "StableFooting", "Mimic"]
 	return maps[randi() % maps.size()]
 
 func _on_campaign_toggled(enabled: bool) -> void:
@@ -916,6 +919,9 @@ func _change_to_minigame(map_name: String) -> void:
 	elif map_name == "StableFooting":
 		GameSession.minigame_players = player_info.duplicate(true)
 		get_tree().change_scene_to_file("res://scenes/minigames/stable_footing/stable_footing.tscn")
+	elif map_name == "Mimic":
+		GameSession.minigame_players = player_info.duplicate(true)
+		get_tree().change_scene_to_file("res://scenes/minigames/mimic/mimic.tscn")
 	else:
 		print("[GAME] Map %s is lobby, nothing to start" % map_name)
 
