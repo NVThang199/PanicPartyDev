@@ -295,6 +295,3 @@ Dự án đã tích hợp Graphify knowledge graph tại `graphify-out/graph.jso
 4. **Font & Glyph Rendering**:
    - Font chính `assets/ui/FSEX300.ttf` đã hỗ trợ đầy đủ Latin mở rộng, tiếng Việt có dấu (`àáạảãâ...`), tiếng Nga (Cyrillic).
    - `assets/ui/FSEX300.ttf.import` đã bật `allow_system_fallback=true` để tự động render mượt mà các ký tự CJK (Nhật/Hàn/Trung) từ font hệ thống của OS mà không bị ô vuông (tofu).
-
-
-
