@@ -35,6 +35,8 @@ var ping_timer: float = 0.0
 var is_ready: bool = false
 var selected_map: String = "Random"
 var is_starting: bool = false
+var last_campaign_winner_name: String = ""
+var last_campaign_wins: int = 0
 
 func _ready() -> void:
 	Networking.host_created.connect(on_host_created)
@@ -478,6 +480,8 @@ func register_player(character_path: String, player_name: String = "", steam_id:
 	sync_ready_states.rpc(get_ready_states())
 	_sync_all_wins_to_all()
 	sync_campaign_config.rpc_id(caller_id, GameSession.campaign_active, GameSession.wins_to_win)
+	if campaign_victory_popup and campaign_victory_popup.visible and last_campaign_winner_name != "":
+		show_campaign_victory_rpc.rpc_id(caller_id, last_campaign_winner_name, last_campaign_wins)
 
 @rpc("authority", "call_local", "reliable")
 func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: String = "", steam_id: int = 0, color: Color = Color.WHITE, face: String = "res://assets/characters/face/robloxmanface.png", hat: String = "") -> void:
@@ -755,13 +759,41 @@ func _process_match_result() -> void:
 		update_tab_overlay()
 	var current_wins: int = GameSession.player_wins[winner_id]
 	if GameSession.campaign_active and current_wins >= GameSession.wins_to_win:
-		var winner_name: String = player_info.get(winner_id, {}).get("name", "Player %d" % winner_id)
+		var winner_name: String = ""
+		var winner_steam_id: int = 0
+
+		if winner_id in GameSession.minigame_players:
+			var m_info: Dictionary = GameSession.minigame_players[winner_id]
+			winner_name = m_info.get("name", "")
+			winner_steam_id = m_info.get("steam_id", 0)
+		elif winner_id in player_info:
+			var p_info: Dictionary = player_info[winner_id]
+			winner_name = p_info.get("name", "")
+			winner_steam_id = p_info.get("steam_id", 0)
+
+		if Steam.isSteamRunning():
+			if winner_id == 1 or (winner_steam_id != 0 and winner_steam_id == Steam.getSteamID()):
+				var local_name = Steam.getPersonaName()
+				if local_name != "":
+					winner_name = local_name
+			elif winner_steam_id != 0:
+				var friend_name = Steam.getFriendPersonaName(winner_steam_id)
+				if friend_name != "":
+					winner_name = friend_name
+
+		if winner_name == "" or winner_name == ("Player %d" % winner_id):
+			winner_name = str(winner_id)
+		elif winner_name.begins_with("Player ") and winner_name.substr(7).is_valid_int():
+			winner_name = winner_name.substr(7)
+
 		show_campaign_victory_rpc.rpc(winner_name, current_wins)
 
 @rpc("authority", "call_local", "reliable")
 func show_campaign_victory_rpc(winner_name: String, wins_count: int) -> void:
 	if not is_inside_tree():
 		return
+	last_campaign_winner_name = winner_name
+	last_campaign_wins = wins_count
 	if campaign_victory_popup:
 		campaign_victory_popup.show_victory(winner_name, wins_count, multiplayer.is_server())
 
@@ -777,6 +809,8 @@ func _on_campaign_play_again() -> void:
 func reset_campaign_wins_rpc() -> void:
 	if not is_inside_tree():
 		return
+	last_campaign_winner_name = ""
+	last_campaign_wins = 0
 	GameSession.player_wins.clear()
 	for pid in player_info:
 		player_info[pid]["wins"] = 0

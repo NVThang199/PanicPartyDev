@@ -303,7 +303,7 @@ KEY_SPACE,Space,Phím cách,Espacio,Espace,Leertaste,Espaço,Пробел,スペ
 MAP_RANDOM,Random,Ngẫu nhiên,Aleatorio,Aléatoire,Zufällig,Aleatório,Случайно,ランダム,무작위,随机,Casuale
 Random,Random,Ngẫu nhiên,Aleatorio,Aléatoire,Zufällig,Aleatório,Случайно,ランダム,무작위,随机,Casuale
 CAMPAIGN_VICTORY,CAMPAIGN VICTORY!,CHIẾN DỊCH THẮNG LỢI!,¡VICTORIA DE CAMPAÑA!,VICTOIRE DE CAMPAGNE !,KAMPAGNENSIEG!,VITÓRIA DA CAMPANHA!,ПОБЕДА В КАМПАНИИ!,キャンペーン勝利!,캠페인 승리!,战役胜利!,VITTORIA CAMPAGNA!
-CAMPAIGN_WINNER_TEXT,%s reached %d wins!,%s đạt %d trận thắng!,¡%s alcanzó %d victorias!,%s a atteint %d victoires !,%s hat %d Siege erreicht!,%s alcançou %d vitórias!,%s достиг %d побед!,%sが%d勝に到達!,%s님이 %d승 달성!,%s达到%d胜!,%s ha raggiunto %d vittorie!
+CAMPAIGN_WINNER_TEXT,Player %s reached %d wins!,Người chơi %s đạt %d trận thắng!,¡El jugador %s alcanzó %d victorias!,Le joueur %s a atteint %d victoires !,Spieler %s hat %d Siege erreicht!,O jogador %s alcançou %d vitórias!,Игрок %s достиг %d побед!,プレイヤー %sが%d勝に到達!,플레이어 %s님이 %d승 달성!,玩家 %s达到%d胜!,Il giocatore %s ha raggiunto %d vittorie!
 PLAY_AGAIN,PLAY AGAIN,CHƠI LẠI,JUGAR DE NUEVO,REJOUER,NOCHMAL SPIELEN,JOGAR NOVAMENTE,ИГРАТЬ СНОВА,もう一度プレイ,다시 플레이,再玩一次,GIOCA ANCORA
 CAMPAIGN_MODE,Campaign Mode,Chế độ chiến dịch,Modo Campaña,Mode Campagne,Kampagnenmodus,Modo Campanha,Режим кампании,キャンペーンモード,캠페인 모드,战役模式,Modalità Campagna
 FIRST_TO,First to,Đích thắng,Primero a,Premier à,Erster bis,Primeiro a,До побед,先取,목표 승수,抢,Primo a
