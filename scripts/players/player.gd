@@ -311,10 +311,14 @@ func _physics_process(delta):
 			var rot_y: float = model.rotation.y if model else 0.0
 			var main_node = get_parent()
 			if main_node and is_instance_valid(main_node) and main_node.is_inside_tree() and main_node.has_method("sync_player_state"):
-				if ("is_returning" in main_node and main_node.is_returning) or ("is_starting" in main_node and main_node.is_starting) or ("state" in main_node and main_node.state == 2):
+				if ("is_returning" in main_node and main_node.is_returning) or ("is_starting" in main_node and main_node.is_starting) or ("is_switching_round" in main_node and main_node.is_switching_round):
 					pass
 				else:
-					main_node.sync_player_state.rpc(multiplayer.get_unique_id(), position, rot_y, current_anim)
+					var my_id = multiplayer.get_unique_id()
+					var target_peers = main_node.synced_peers if ("synced_peers" in main_node) else (main_node.players if ("players" in main_node) else {})
+					for pid in target_peers:
+						if pid != my_id:
+							main_node.sync_player_state.rpc_id(pid, my_id, position, rot_y, current_anim)
 
 func _ready():
 	_ensure_nodes()

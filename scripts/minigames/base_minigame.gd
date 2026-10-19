@@ -6,10 +6,24 @@ extends Node3D
 ## late-join handshake, two-phase scene transitions, player lifecycle,
 ## push/knockback validation, match timers, tutorial overlay,
 ## elimination-order scoring, and round scoreboard across minigames.
+##
+## [NETWORKING ARCHITECTURE CONTRACT]
+## 1. TUYỆT ĐỐI KHÔNG dùng .rpc(...) broadcast toàn mạng Steam.
+##    RPC broadcast sẽ gửi đến mọi peer kể cả peer còn ở MainMenu/Main3D làm sinh lỗi:
+##    "Node not found: <SceneName>" và "Failed to get path from RPC".
+## 2. Server chỉ gửi RPC cho peer đã xác nhận load xong scene (nằm trong `synced_peers`).
+##    Cú pháp chuẩn khi Server phát trạng thái:
+##        for pid in synced_peers:
+##            if pid != 1:
+##                my_rpc.rpc_id(pid, arg1, ...)
+## 3. Client chủ động pull dữ liệu khi _ready(): `request_game_sync.rpc_id(1)`.
+##    Khi Server nhận sẽ thêm caller vào `synced_peers` và gửi snapshot qua `rpc_id(caller_id, ...)`.
+## 4. Minigame con ghi đè `_on_sync_custom_entities(caller_id)` để gửi dữ liệu entity đặc thù.
 
 enum GameState { INITIALIZING, TUTORIAL, PLAYING, ENDED }
 
 const PLAYER_SCENE = preload("res://scenes/players/player.tscn")
+const CHARACTER_SELECT_SCENE = preload("res://scenes/menus/character_select.tscn")
 const DEFAULT_MATCH_DURATION = 60.0
 const TUTORIAL_DURATION = 5.0
 
@@ -18,6 +32,7 @@ var players: Dictionary = {}  # peer_id -> player node
 var player_states: Dictionary = {}  # peer_id -> {alive: bool, death_timer: float, name: String}
 var match_timer: float = DEFAULT_MATCH_DURATION
 var is_returning: bool = false
+var synced_peers: Dictionary = {1: true}
 
 # Tutorial Phase
 var tutorial_timer: float = TUTORIAL_DURATION
@@ -43,19 +58,48 @@ var match_timer_label: Label = null
 var winner_banner: PanelContainer = null
 var winner_label: Label = null
 var return_button: Button = null
+var spectator_overlay: PanelContainer = null
+var spectator_label: Label = null
+var spectator_change_btn: Button = null
 
 
 func _ready() -> void:
 	_init_base_ui()
 	_create_tutorial_overlay()
 	_create_round_scoreboard_overlay()
+	_create_spectator_overlay()
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
+	multiplayer.server_disconnected.connect(_on_server_disconnected)
 	_on_minigame_ready()
 
 	if multiplayer.is_server():
 		call_deferred("initialize_game")
 	else:
-		request_game_sync.rpc_id(1)
+		var my_info = {
+			"character": GameSession.selected_character,
+			"name": Networking.get_local_player_name(),
+			"steam_id": Networking.get_local_steam_id(),
+			"color": GameSession.selected_color,
+			"face": GameSession.selected_face,
+			"hat": GameSession.selected_hat
+		}
+		request_game_sync.rpc_id(1, my_info)
+
+
+func _exit_tree() -> void:
+	if multiplayer:
+		if multiplayer.peer_disconnected.is_connected(_on_peer_disconnected):
+			multiplayer.peer_disconnected.disconnect(_on_peer_disconnected)
+		if multiplayer.server_disconnected.is_connected(_on_server_disconnected):
+			multiplayer.server_disconnected.disconnect(_on_server_disconnected)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED:
+		if spectator_label:
+			spectator_label.text = tr("SPECTATING_HINT")
+		if spectator_change_btn:
+			spectator_change_btn.text = tr("CHANGE_CHARACTER")
 
 
 func _init_base_ui() -> void:
@@ -242,6 +286,123 @@ func _create_round_scoreboard_overlay() -> void:
 	ui.add_child(round_scoreboard_overlay)
 
 
+func _create_spectator_overlay() -> void:
+	var ui = get_node_or_null("UI")
+	if not ui:
+		return
+
+	spectator_overlay = PanelContainer.new()
+	spectator_overlay.name = "SpectatorOverlay"
+	spectator_overlay.visible = false
+	spectator_overlay.anchors_preset = Control.PRESET_TOP_WIDE
+	spectator_overlay.offset_top = 16
+	spectator_overlay.offset_left = 120
+	spectator_overlay.offset_right = -120
+	spectator_overlay.offset_bottom = 58
+
+	var style = StyleBoxFlat.new()
+	style.bg_color = Color(0.08, 0.1, 0.18, 0.92)
+	style.set_corner_radius_all(8)
+	style.border_width_left = 1
+	style.border_width_right = 1
+	style.border_width_top = 1
+	style.border_width_bottom = 1
+	style.border_color = Color(0.4, 0.6, 1.0, 0.7)
+	spectator_overlay.add_theme_stylebox_override("panel", style)
+
+	var margin = MarginContainer.new()
+	margin.add_theme_constant_override("margin_left", 16)
+	margin.add_theme_constant_override("margin_right", 16)
+	margin.add_theme_constant_override("margin_top", 6)
+	margin.add_theme_constant_override("margin_bottom", 6)
+	spectator_overlay.add_child(margin)
+
+	var hbox = HBoxContainer.new()
+	hbox.add_theme_constant_override("separation", 16)
+	margin.add_child(hbox)
+
+	spectator_label = Label.new()
+	spectator_label.text = tr("SPECTATING_HINT")
+	spectator_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	spectator_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	spectator_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	spectator_label.add_theme_font_size_override("font_size", 15)
+	spectator_label.modulate = Color(0.8, 0.9, 1.0)
+	hbox.add_child(spectator_label)
+
+	spectator_change_btn = Button.new()
+	spectator_change_btn.text = tr("CHANGE_CHARACTER")
+	spectator_change_btn.custom_minimum_size = Vector2(140, 30)
+	spectator_change_btn.add_theme_font_size_override("font_size", 13)
+	spectator_change_btn.pressed.connect(show_spectator_character_select)
+	hbox.add_child(spectator_change_btn)
+
+	ui.add_child(spectator_overlay)
+
+
+func _update_spectator_ui() -> void:
+	if not spectator_overlay or multiplayer.is_server():
+		return
+	var my_id = multiplayer.get_unique_id()
+	var is_spectator = (state == GameState.PLAYING or state == GameState.TUTORIAL or state == GameState.ENDED) and (my_id not in player_states)
+	spectator_overlay.visible = is_spectator
+	if is_spectator and not GameSession.has_selected_character:
+		show_spectator_character_select()
+
+
+func show_spectator_character_select() -> void:
+	var ui = get_node_or_null("UI")
+	if not ui or ui.has_node("CharacterSelect"):
+		return
+	var char_select = CHARACTER_SELECT_SCENE.instantiate()
+	char_select.name = "CharacterSelect"
+	ui.add_child(char_select)
+	char_select.character_confirmed.connect(_on_spectator_character_confirmed)
+	char_select.selection_cancelled.connect(_on_spectator_character_cancelled)
+
+
+func _on_spectator_character_confirmed(character_path: String, color: Color = Color.WHITE, face: String = "", hat: String = "") -> void:
+	GameSession.selected_character = character_path
+	GameSession.selected_color = color
+	GameSession.selected_face = face
+	GameSession.selected_hat = hat
+	GameSession.has_selected_character = true
+	var ui = get_node_or_null("UI")
+	if ui:
+		var char_select = ui.get_node_or_null("CharacterSelect")
+		if char_select:
+			char_select.queue_free()
+	_update_spectator_ui()
+	update_spectator_character.rpc_id(1, character_path, color, face, hat)
+
+
+func _on_spectator_character_cancelled() -> void:
+	var ui = get_node_or_null("UI")
+	if ui:
+		var char_select = ui.get_node_or_null("CharacterSelect")
+		if char_select:
+			char_select.queue_free()
+	if not GameSession.has_selected_character:
+		Networking.disconnect_and_return_to_menu()
+
+
+@rpc("any_peer", "reliable")
+func update_spectator_character(character_path: String, color: Color, face: String, hat: String) -> void:
+	if not is_inside_tree() or not multiplayer.is_server():
+		return
+	var caller_id = multiplayer.get_remote_sender_id()
+	if caller_id == 0:
+		caller_id = multiplayer.get_unique_id()
+	if caller_id in GameSession.minigame_players:
+		GameSession.minigame_players[caller_id]["character"] = character_path
+		GameSession.minigame_players[caller_id]["color"] = color
+		GameSession.minigame_players[caller_id]["face"] = face
+		GameSession.minigame_players[caller_id]["hat"] = hat
+		for pid in synced_peers:
+			if pid != 1:
+				sync_minigame_players.rpc_id(pid, GameSession.minigame_players)
+
+
 func initialize_game() -> void:
 	if not multiplayer.is_server():
 		return
@@ -263,7 +424,11 @@ func initialize_game() -> void:
 		var face: String = info.get("face", "res://assets/characters/face/robloxmanface.png")
 		var hat: String = info.get("hat", "")
 		var pos: Vector3 = spawn_positions[idx % spawn_positions.size()] if not spawn_positions.is_empty() else Vector3(0, 1, 0)
-		spawn_player.rpc(peer_id, info.character, info.name, info.steam_id, pos, col, face, hat)
+		for pid in synced_peers:
+			if pid == 1:
+				spawn_player(peer_id, info.character, info.name, info.steam_id, pos, col, face, hat)
+			else:
+				spawn_player.rpc_id(pid, peer_id, info.character, info.name, info.steam_id, pos, col, face, hat)
 		player_states[peer_id] = {
 			"alive": true,
 			"death_timer": 0.0,
@@ -278,12 +443,21 @@ func initialize_game() -> void:
 	if not tut_data.is_empty():
 		state = GameState.TUTORIAL
 		tutorial_timer = TUTORIAL_DURATION
-		sync_game_state.rpc(GameState.TUTORIAL)
-		start_tutorial_rpc.rpc(tut_data, tutorial_timer)
+		for pid in synced_peers:
+			if pid == 1:
+				sync_game_state(GameState.TUTORIAL)
+				start_tutorial_rpc(tut_data, tutorial_timer)
+			else:
+				sync_game_state.rpc_id(pid, GameState.TUTORIAL)
+				start_tutorial_rpc.rpc_id(pid, tut_data, tutorial_timer)
 		_freeze_all_players(true)
 	else:
 		state = GameState.PLAYING
-		sync_game_state.rpc(GameState.PLAYING)
+		for pid in synced_peers:
+			if pid == 1:
+				sync_game_state(GameState.PLAYING)
+			else:
+				sync_game_state.rpc_id(pid, GameState.PLAYING)
 
 
 func _process(delta: float) -> void:
@@ -293,7 +467,9 @@ func _process(delta: float) -> void:
 	if state == GameState.TUTORIAL:
 		if multiplayer.is_server():
 			tutorial_timer -= delta
-			sync_tutorial_timer.rpc(tutorial_timer)
+			for pid in synced_peers:
+				if pid != 1:
+					sync_tutorial_timer.rpc_id(pid, tutorial_timer)
 			if tutorial_timer <= 0.0:
 				_finish_tutorial()
 				return
@@ -315,7 +491,9 @@ func _process(delta: float) -> void:
 				if player_states[peer_id].death_timer <= 0.0:
 					remove_dead_player(peer_id)
 
-		sync_match_timer.rpc(match_timer)
+		for pid in synced_peers:
+			if pid != 1:
+				sync_match_timer.rpc_id(pid, match_timer)
 
 	if match_timer_label:
 		match_timer_label.text = tr("MATCH_TIMER") % int(max(0, match_timer))
@@ -331,8 +509,13 @@ func _finish_tutorial() -> void:
 	if not multiplayer.is_server():
 		return
 	state = GameState.PLAYING
-	sync_game_state.rpc(GameState.PLAYING)
-	finish_tutorial_rpc.rpc()
+	for pid in synced_peers:
+		if pid == 1:
+			sync_game_state(GameState.PLAYING)
+			finish_tutorial_rpc()
+		else:
+			sync_game_state.rpc_id(pid, GameState.PLAYING)
+			finish_tutorial_rpc.rpc_id(pid)
 	_freeze_all_players(false)
 	_on_tutorial_finished()
 
@@ -353,6 +536,7 @@ func finish_tutorial_rpc() -> void:
 	_freeze_all_players(false)
 	if not multiplayer.is_server():
 		_on_tutorial_finished()
+	_update_spectator_ui()
 
 
 @rpc("authority", "unreliable")
@@ -402,12 +586,39 @@ func _freeze_all_players(frozen: bool) -> void:
 # ==============================================================================
 
 @rpc("any_peer", "reliable")
-func request_game_sync() -> void:
+func request_game_sync(client_info: Dictionary = {}) -> void:
 	if not is_inside_tree() or not multiplayer.is_server():
 		return
 	var caller_id = multiplayer.get_remote_sender_id()
 	if caller_id == 0:
 		caller_id = multiplayer.get_unique_id()
+	synced_peers[caller_id] = true
+
+	if caller_id not in GameSession.minigame_players:
+		var p_name = client_info.get("name", "Player %d" % caller_id)
+		var s_id = client_info.get("steam_id", 0)
+		var c_path = client_info.get("character", "res://assets/characters/Blank_Character/Blank_Character.glb")
+		var col: Color = client_info.get("color", Color.WHITE)
+		var face: String = client_info.get("face", "res://assets/characters/face/robloxmanface.png")
+		var hat: String = client_info.get("hat", "")
+		GameSession.minigame_players[caller_id] = {
+			"character": c_path,
+			"name": p_name,
+			"steam_id": s_id,
+			"ready": true,
+			"wins": 0,
+			"score": 0,
+			"color": col,
+			"face": face,
+			"hat": hat
+		}
+		for pid in synced_peers:
+			if pid == 1:
+				sync_minigame_players(GameSession.minigame_players)
+			else:
+				sync_minigame_players.rpc_id(pid, GameSession.minigame_players)
+	else:
+		sync_minigame_players.rpc_id(caller_id, GameSession.minigame_players)
 
 	sync_game_state.rpc_id(caller_id, state)
 	sync_campaign_state.rpc_id(caller_id, GameSession.campaign_active, GameSession.target_score, GameSession.player_scores)
@@ -430,10 +641,18 @@ func request_game_sync() -> void:
 
 
 @rpc("authority", "call_local", "reliable")
+func sync_minigame_players(all_players: Dictionary) -> void:
+	if not is_inside_tree():
+		return
+	GameSession.minigame_players = all_players.duplicate(true)
+
+
+@rpc("authority", "call_local", "reliable")
 func sync_game_state(new_state: int) -> void:
 	if not is_inside_tree():
 		return
 	state = new_state as GameState
+	_update_spectator_ui()
 
 
 @rpc("authority", "reliable")
@@ -483,6 +702,8 @@ func spawn_player(peer_id: int, character_path: String, player_name: String, ste
 
 	if state == GameState.TUTORIAL:
 		player.set_physics_process(false)
+
+	_update_spectator_ui()
 
 
 @rpc("any_peer", "unreliable")
@@ -550,7 +771,11 @@ func player_died(peer_id: int) -> void:
 	if peer_id not in elimination_order:
 		elimination_order.append(peer_id)
 
-	player_died_rpc.rpc(peer_id)
+	for pid in synced_peers:
+		if pid == 1:
+			player_died_rpc(peer_id)
+		else:
+			player_died_rpc.rpc_id(pid, peer_id)
 	_on_player_died(peer_id)
 
 
@@ -566,7 +791,11 @@ func player_died_rpc(peer_id: int) -> void:
 func remove_dead_player(peer_id: int) -> void:
 	if not multiplayer.is_server():
 		return
-	remove_player_rpc.rpc(peer_id)
+	for pid in synced_peers:
+		if pid == 1:
+			remove_player_rpc(peer_id)
+		else:
+			remove_player_rpc.rpc_id(pid, peer_id)
 
 
 @rpc("authority", "call_local", "reliable")
@@ -666,7 +895,11 @@ func _process_round_end(winner_id: int) -> void:
 				if tournament_winner_id == -1 or GameSession.player_scores[pid] > GameSession.player_scores[tournament_winner_id]:
 					tournament_winner_id = pid
 
-	show_round_scoreboard_rpc.rpc(round_scores, GameSession.player_scores, tournament_winner_id)
+	for pid in synced_peers:
+		if pid == 1:
+			show_round_scoreboard_rpc(round_scores, GameSession.player_scores, tournament_winner_id)
+		else:
+			show_round_scoreboard_rpc.rpc_id(pid, round_scores, GameSession.player_scores, tournament_winner_id)
 
 	if tournament_winner_id > 0:
 		_start_auto_return()
@@ -707,6 +940,7 @@ func show_round_scoreboard_rpc(round_scores: Dictionary, total_scores: Dictionar
 	state = GameState.ENDED
 	if not is_inside_tree():
 		return
+	_update_spectator_ui()
 	GameSession.player_scores = total_scores.duplicate(true)
 	if AudioManager:
 		AudioManager.play_game_win()
@@ -719,7 +953,7 @@ func show_round_scoreboard_rpc(round_scores: Dictionary, total_scores: Dictionar
 	round_scoreboard_overlay.visible = true
 
 	if tournament_winner_id > 0:
-		var w_name = player_states.get(tournament_winner_id, {}).get("name", "Player %d" % tournament_winner_id)
+		var w_name = player_states.get(tournament_winner_id, {}).get("name", GameSession.minigame_players.get(tournament_winner_id, {}).get("name", "Player %d" % tournament_winner_id))
 		round_scoreboard_title.text = tr("TOURNAMENT_WINNER") % w_name
 		round_scoreboard_title.modulate = Color(1.0, 0.85, 0.2)
 		round_scoreboard_status.text = tr("CAMPAIGN_SCORE_WINNER_TEXT") % [w_name, total_scores.get(tournament_winner_id, 0)]
@@ -744,7 +978,7 @@ func show_round_scoreboard_rpc(round_scores: Dictionary, total_scores: Dictionar
 
 	for rank_idx in range(sorted_pids.size()):
 		var pid = sorted_pids[rank_idx]
-		var p_name = player_states.get(pid, {}).get("name", "Player %d" % pid)
+		var p_name = player_states.get(pid, {}).get("name", GameSession.minigame_players.get(pid, {}).get("name", "Player %d" % pid))
 		var p_round_score = round_scores.get(pid, 0)
 		var p_total_score = total_scores.get(pid, 0)
 
@@ -791,6 +1025,7 @@ func show_winner_banner(winner_id: int) -> void:
 	state = GameState.ENDED
 	if not is_inside_tree():
 		return
+	_update_spectator_ui()
 	if AudioManager:
 		AudioManager.play_game_win()
 	if winner_banner:
@@ -836,11 +1071,15 @@ func return_to_lobby() -> void:
 	_on_prepare_return_to_lobby()
 
 	if multiplayer.is_server():
-		prepare_return_to_lobby_rpc.rpc()
+		for pid in synced_peers:
+			if pid != 1:
+				prepare_return_to_lobby_rpc.rpc_id(pid)
 		await get_tree().create_timer(0.1).timeout
 		if not is_inside_tree():
 			return
-		return_to_lobby_rpc.rpc()
+		for pid in synced_peers:
+			if pid != 1:
+				return_to_lobby_rpc.rpc_id(pid)
 
 	if is_inside_tree():
 		get_tree().change_scene_to_file("res://scenes/core/main.tscn")
@@ -877,11 +1116,15 @@ func switch_to_next_minigame(next_scene_path: String) -> void:
 	_on_prepare_return_to_lobby()
 
 	if multiplayer.is_server():
-		prepare_switch_minigame_rpc.rpc(next_scene_path)
+		for pid in synced_peers:
+			if pid != 1:
+				prepare_switch_minigame_rpc.rpc_id(pid, next_scene_path)
 		await get_tree().create_timer(0.1).timeout
 		if not is_inside_tree():
 			return
-		switch_minigame_rpc.rpc(next_scene_path)
+		for pid in synced_peers:
+			if pid != 1:
+				switch_minigame_rpc.rpc_id(pid, next_scene_path)
 
 	if is_inside_tree():
 		get_tree().change_scene_to_file(next_scene_path)
@@ -906,6 +1149,10 @@ func switch_minigame_rpc(next_scene_path: String) -> void:
 
 
 func _on_peer_disconnected(peer_id: int) -> void:
+	if peer_id == 1 and not multiplayer.is_server():
+		print("[MINIGAME] Host left, returning to menu")
+		Networking.disconnect_and_return_to_menu()
+		return
 	if peer_id in players:
 		if is_instance_valid(players[peer_id]):
 			players[peer_id].queue_free()
@@ -914,7 +1161,13 @@ func _on_peer_disconnected(peer_id: int) -> void:
 		player_states.erase(peer_id)
 	if peer_id in GameSession.minigame_players:
 		GameSession.minigame_players.erase(peer_id)
+	synced_peers.erase(peer_id)
 	_on_player_disconnected(peer_id)
+
+
+func _on_server_disconnected() -> void:
+	print("[MINIGAME] Server disconnected, returning to menu")
+	Networking.disconnect_and_return_to_menu()
 
 
 # ==============================================================================

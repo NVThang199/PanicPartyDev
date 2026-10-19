@@ -1,5 +1,12 @@
 # PanicParty Development Guide
 
+## Codebase Navigation & Knowledge Graph
+- **Dependency Graph**: Toàn bộ kiến trúc và quan hệ file nằm tại `graphify-out/graph.json`.
+- **Quy tắc điều hướng**:
+  1. Tra cứu `graphify-out/graph.json` trước khi tìm kiếm file.
+  2. Chỉ đọc trực tiếp các file liên quan, không quét hàng loạt bằng Grep/Glob.
+  3. Cập nhật graph sau khi tạo module mới: `python update_graph.py`.
+
 ## Project Info
 - **Engine**: Godot 4.7.2
 - **Architecture**: Server-authoritative multiplayer với SteamMultiplayerPeer
@@ -16,7 +23,13 @@
 3. **RPC direction**:
    - `@rpc("authority", ...)` - Server → Client broadcast
    - `@rpc("any_peer", ...)` - Client → Server request
-4. **RPC Call Syntax**: Khi muốn gửi RPC qua mạng, **BẮT BUỘC** gọi `method_name.rpc(...)` hoặc `method_name.rpc_id(target_id, ...)`. Gọi `method_name(...)` trực tiếp chỉ chạy local trên máy hiện tại, **KHÔNG** gửi qua mạng dù có khai báo `@rpc`!
+4. **RPC Targeting Policy (CỰC KỲ QUAN TRỌNG - CHỐNG NODE NOT FOUND)**:
+   - **TUYỆT ĐỐI KHÔNG DÙNG `.rpc(...)` broadcast toàn mạng**: Trong mạng SteamMultiplayerPeer, gọi `.rpc(...)` sẽ phát gói tin tới TẤT CẢ các peer trong Steam lobby kể cả các peer đang ở scene khác (ví dụ: đang ở `MainMenu`, đang tải scene, hoặc còn ở `Main3D` khi Host đã sang `HotBomb`). Khi nhận gói tin broadcast cho NodePath không tồn tại trong scene của mình, Godot lập tức báo lỗi: `Node not found: "Main3D"` / `"HotBomb"` và `Failed to get path from RPC`.
+   - **BẮT BUỘC DÙNG `rpc_id(target_id, ...)` ĐÍCH DANH**:
+     - Trong Lobby (`main.gd`): Lặp gửi cho các peer đã đăng ký trong `player_info` (`for pid in player_info: if pid != 1: method.rpc_id(pid, ...)`).
+     - Trong Minigame (`base_minigame.gd`): Lặp gửi cho các peer đã hoàn tất handshake tải scene (`synced_peers`) (`for pid in synced_peers: if pid != 1: method.rpc_id(pid, ...)`).
+     - Trong Player (`player.gd`): Gửi `sync_player_state.rpc_id(pid, ...)` cho các peer trong `synced_peers` (hoặc `players` ở lobby), không broadcast cho người đang ở menu.
+     - Gọi `method_name(...)` trực tiếp chỉ chạy local trên máy hiện tại, **KHÔNG** gửi qua mạng dù có khai báo `@rpc`!
 
 ---
 
@@ -24,15 +37,18 @@
 
 #### 1. Entity Spawning & Deduplication
 ```gdscript
-# Server spawns & broadcasts
+# Server spawns & sends to synced peers
 func initialize_entities() -> void:
     if not multiplayer.is_server():
         return
     for pid in player_data:
-        spawn_player.rpc(pid, ...)  # ← BẮT BUỘC .rpc, KHÔNG gọi spawn_player() trực tiếp
+        spawn_player_rpc(pid, ...)  # Chạy local trên Server
+        for target_id in synced_peers:  # Gửi đích danh tới các client đã load xong
+            if target_id != 1:
+                spawn_player_rpc.rpc_id(target_id, pid, ...)
 
 @rpc("authority", "call_local", "reliable")
-func spawn_player(peer_id: int, char_path: String, p_name: String, s_id: int, pos: Vector3) -> void:
+func spawn_player_rpc(peer_id: int, char_path: String, p_name: String, s_id: int, pos: Vector3) -> void:
     # Tránh spawn trùng lặp khi nhận broadcast + sync trễ
     if peer_id in players and is_instance_valid(players[peer_id]):
         return
@@ -69,6 +85,7 @@ func request_game_sync() -> void:
     var caller_id = multiplayer.get_remote_sender_id()
     if caller_id == 0:
         caller_id = multiplayer.get_unique_id()
+    synced_peers[caller_id] = true
     
     # 1. Gửi GameState & Timer hiện tại
     sync_game_state.rpc_id(caller_id, state)
@@ -78,7 +95,7 @@ func request_game_sync() -> void:
     for pid in players:
         var p = players[pid]
         if is_instance_valid(p):
-            spawn_player.rpc_id(caller_id, pid, p.character_path, p.player_name, p.steam_id, p.position)
+            spawn_player_rpc.rpc_id(caller_id, pid, p.character_path, p.player_name, p.steam_id, p.position)
 ```
 
 #### 3. GameState & Timer Sync
@@ -88,13 +105,15 @@ func request_game_sync() -> void:
 func sync_game_state(new_state: int) -> void:
     state = new_state as GameState
 
-# Server broadcast timer mỗi frame
+# Server gửi timer mỗi frame tới synced_peers
 func _process(delta: float) -> void:
     if state != GameState.PLAYING:
         return
     if multiplayer.is_server():
         match_timer -= delta
-        sync_match_timer.rpc(match_timer)
+        for pid in synced_peers:
+            if pid != 1:
+                sync_match_timer.rpc_id(pid, match_timer)
     
     # Cập nhật UI trên cả Server lẫn Client
     if match_timer_label:
@@ -105,6 +124,9 @@ func sync_match_timer(time_left: float) -> void:
     if multiplayer.is_server():
         return
     match_timer = time_left
+    if match_timer_label:
+        match_timer_label.text = "Match: %d" % int(max(0, match_timer))
+```
     if match_timer_label:
         match_timer_label.text = "Match: %d" % int(max(0, match_timer))
 ```
@@ -178,11 +200,12 @@ func request_action() -> void:
     - Trong Godot 4, khi một animation đang chạy bị ngắt bởi `play()` hoặc `stop()` khác (ví dụ: đang bị ngã mà nhấn ném bom hoặc bị đá tiếp), engine **KHÔNG BAO GIỜ** phát tín hiệu `animation_finished`.
     - Coroutine bị treo vĩnh viễn, cờ trạng thái (`is_knocked_down = true`) không bao giờ được reset về `false`, khiến nhân vật bị đơ/đứng im vĩnh viễn không thể di chuyển hay nhận input.
     - Cần bọc input action (`throw_bomb`, `push`) với điều kiện `not is_knocked_down`, và thay `await anim_player.animation_finished` bằng hàm đợi an toàn có giới hạn thời gian (timer timeout fallback + frame check).
+18. Dùng `.rpc(...)` broadcast toàn mạng thay vì `.rpc_id(...)` theo danh sách `synced_peers` / `player_info` → Làm phát sinh hàng loạt lỗi `Node not found: "Main3D"`, `Node not found: "HotBomb"`, `Failed to get path from RPC` trên các client đang ở MainMenu hoặc đang load scene dở dang.
 
 ✅ **Đúng**:
-1. Luôn dùng `method.rpc(...)` để gửi RPC.
+1. Luôn dùng `method.rpc_id(target_id, ...)` gửi đích danh theo danh sách peer trong scene (`player_info` ở lobby, `synced_peers` ở minigame). Tuyệt đối không dùng `.rpc(...)` broadcast toàn mạng.
 2. Dùng pattern `request_game_sync.rpc_id(1)` từ Client lên Host khi `_ready()`.
-3. Đồng bộ cả GameState và Timers mỗi frame qua RPC unreliable.
+3. Đồng bộ cả GameState và Timers mỗi frame qua RPC unreliable tới `synced_peers`.
 4. Kiểm tra 4 lớp an toàn trong mọi RPC nhận state (`is_inside_tree`, `multiplayer`, `local_id`, `is_instance_valid`).
 5. Giữ các node mạng (như Bomb) ở NodePath cố định (trực tiếp dưới root minigame), bám theo tay nhân vật bằng cách gán `global_position` trong `_physics_process` thay vì `reparent()`.
 6. Luôn gọi `remove_child(old_node)` trước `old_node.queue_free()` để giữ sạch tên node.
@@ -190,14 +213,25 @@ func request_action() -> void:
 8. Trở về lobby dùng mô hình Client-pull: Client vào `_ready()` tự gửi `register_player.rpc_id(1)` lên Server, Server không broadcast trước.
 9. Gọi `set_process(false)` và `set_physics_process(false)` trước khi gọi `get_tree().change_scene_to_file(...)`, kèm `if not is_inside_tree(): return` ở đầu tất cả các hàm RPC.
 10. **Quy trình chuyển scene 2 giai đoạn (Two-Phase Scene Transition)**:
-    - **Giai đoạn 1 (Freeze traffic)**: Server phát RPC `prepare_start_game_rpc.rpc()` (hoặc `prepare_return_to_lobby_rpc.rpc()`). Toàn bộ client đặt `is_starting = true` / `is_returning = true`, tắt `_process`, tắt `set_physics_process` trên tất cả players, ngừng bắn `sync_player_state` và ping.
+    - **Giai đoạn 1 (Freeze traffic)**: Server gửi RPC `prepare_start_game_rpc.rpc_id(pid)` (hoặc `prepare_return_to_lobby_rpc.rpc_id(pid)`) tới các peer trong scene. Toàn bộ client đặt `is_starting = true` / `is_returning = true`, tắt `_process`, tắt `set_physics_process` trên tất cả players, ngừng bắn `sync_player_state` và ping.
     - **Xả mạng (Drain)**: Server đợi `await get_tree().create_timer(0.1).timeout` để các gói tin in-flight đến nốt và rơi vào node cũ an toàn.
-    - **Giai đoạn 2 (Switch scene)**: Server phát RPC `start_game_rpc.rpc()` / `return_to_lobby_rpc.rpc()` rồi Server đổi scene ngay. Client nhận được RPC mới bắt đầu đổi scene. Server luôn sang scene mới trước hoặc cùng lúc Client, sẵn sàng nhận `request_game_sync`.
+    - **Giai đoạn 2 (Switch scene)**: Server phát RPC `start_game_rpc.rpc_id(pid)` / `return_to_lobby_rpc.rpc_id(pid)` rồi Server đổi scene ngay. Client nhận được RPC mới bắt đầu đổi scene. Server luôn sang scene mới trước hoặc cùng lúc Client, sẵn sàng nhận `request_game_sync`.
 11. **Dọn dẹp Material trước khi queue_free**: Luôn gọi `_clear_materials_recursive(node)` (set surface override material về `null`) trước khi `queue_free()` bất kỳ mesh/model/phụ kiện nào.
 12. **Kiểm tra đường dẫn tài nguyên**: Luôn check `if path != "" and ResourceLoader.exists(path):` trước khi `load(path)`. Đường dẫn face mặc định fallback về `"res://assets/characters/face/robloxmanface.png"`.
 13. **Đợi Animation an toàn (Safe Animation Await Pattern)**:
     - Dùng `_safe_wait_animation(anim_name, duration)` kiểm tra mỗi frame `timer.time_left > 0` và `anim_player.current_animation == anim_name`. Nếu bị ngắt bởi animation khác hoặc hết thời gian thì tự động thoát loop, đảm bảo cờ trạng thái (`is_knocked_down = false`, `is_pushing = false`) luôn luôn được giải phóng.
     - Luôn chặn các hành động input (`throw_bomb`, `push`) khi đang ở trạng thái bị khống chế (`is_knocked_down`).
+14. **Minigame Framework Architecture (`BaseMinigame` & `synced_peers`)**:
+    - Tất cả minigame mới **BẮT BUỘC** kế thừa `BaseMinigame`.
+    - Server tự động quản lý `synced_peers = {1: true}` và nạp client khi nhận `request_game_sync.rpc_id(1)`.
+    - Mọi timer, gameplay event hoặc entity spawning đều lặp gửi qua `synced_peers`:
+      ```gdscript
+      for pid in synced_peers:
+          if pid != 1:
+              my_event_rpc.rpc_id(pid, ...)
+      ```
+    - Override `_on_sync_custom_entities(caller_id)` để gửi dữ liệu entity đặc thù (vị trí bom, màu sàn gạch...) cho client vừa handshake.
+    - Chuyển màn/vòng kế tiếp tận dụng sẵn `return_to_lobby()` hoặc `switch_to_next_minigame()` trong `BaseMinigame` đã tích hợp an toàn Two-Phase transition.
 
 ---
 

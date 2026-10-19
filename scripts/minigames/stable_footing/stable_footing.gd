@@ -47,13 +47,13 @@ func _on_minigame_ready() -> void:
 		_generate_tile_grid()
 	else:
 		_collect_existing_tiles()
+	_create_walls()
 
 
 func _on_pre_initialize() -> bool:
 	if tiles.is_empty():
 		push_error("[StableFooting] No tiles found in scene")
 		return false
-	_create_walls()
 	return true
 
 
@@ -83,14 +83,19 @@ func _on_minigame_tick(delta: float) -> void:
 				flip_timer = TILE_FLIP_INTERVAL
 		elif cycle_timer > 0.0:
 			if is_random_phase:
-				trigger_crumble_warning_rpc.rpc()
+				trigger_crumble_warning_rpc()
+				for pid in synced_peers:
+					if pid != 1:
+						trigger_crumble_warning_rpc.rpc_id(pid)
 			is_random_phase = false
 		elif not is_dropping:
 			is_dropping = true
 			_drop_red_tiles()
 			_schedule_reset_tiles()
 
-		sync_cycle_timer.rpc(cycle_timer)
+		for pid in synced_peers:
+			if pid != 1:
+				sync_cycle_timer.rpc_id(pid, cycle_timer)
 
 		for peer_id in players:
 			var p = players[peer_id]
@@ -205,7 +210,9 @@ func _add_tile_model(tile_node: Node3D, color: TileColor) -> void:
 func _randomize_tiles() -> void:
 	for i in range(tiles.size()):
 		tile_colors[i] = TileColor.GREEN if randf() > 0.5 else TileColor.RED
-	sync_all_tile_colors.rpc(tile_colors)
+	for pid in synced_peers:
+		if pid != 1:
+			sync_all_tile_colors.rpc_id(pid, tile_colors)
 
 
 func _drop_red_tiles() -> void:
@@ -214,11 +221,17 @@ func _drop_red_tiles() -> void:
 		if tile_colors[i] == TileColor.RED:
 			red_indices.append(i)
 
-	drop_tiles_rpc.rpc(red_indices)
+	drop_tiles_rpc(red_indices)
+	for pid in synced_peers:
+		if pid != 1:
+			drop_tiles_rpc.rpc_id(pid, red_indices)
 
 
 func _reset_all_tiles() -> void:
-	reset_tiles_rpc.rpc()
+	reset_tiles_rpc()
+	for pid in synced_peers:
+		if pid != 1:
+			reset_tiles_rpc.rpc_id(pid)
 	cycle_timer = CYCLE_DURATION
 	reset_scheduled = false
 	is_dropping = false
@@ -353,7 +366,10 @@ func _on_fall_detected(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		var peer_id = int(str(body.name))
 		if peer_id in player_states and player_states[peer_id].alive:
-			play_player_fall_rpc.rpc(body.global_position)
+			play_player_fall_rpc(body.global_position)
+			for pid in synced_peers:
+				if pid != 1:
+					play_player_fall_rpc.rpc_id(pid, body.global_position)
 			player_died(peer_id)
 
 

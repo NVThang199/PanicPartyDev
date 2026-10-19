@@ -70,7 +70,11 @@ func _physics_process(delta: float) -> void:
 			if AudioManager:
 				AudioManager.play_bomb_rush(global_position)
 			if has_peer and is_inside_tree():
-				sync_bomb_state.rpc(global_position, state)
+				var minigame = get_parent()
+				if minigame and ("synced_peers" in minigame):
+					for pid in minigame.synced_peers:
+						if pid != 1:
+							sync_bomb_state.rpc_id(pid, global_position, state)
 			update_target()
 			if not target_player or not is_instance_valid(target_player):
 				explode()
@@ -112,7 +116,11 @@ func _physics_process(delta: float) -> void:
 			_rush_process(delta)
 
 	if state != State.HELD and is_inside_tree() and has_peer:
-		sync_bomb_state.rpc(global_position, state)
+		var minigame = get_parent()
+		if minigame and ("synced_peers" in minigame):
+			for pid in minigame.synced_peers:
+				if pid != 1:
+					sync_bomb_state.rpc_id(pid, global_position, state)
 
 func _rush_process(_delta: float) -> void:
 	update_target()
@@ -255,7 +263,12 @@ func explode() -> void:
 	var has_peer = multiplayer and multiplayer.multiplayer_peer and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED
 	if has_peer:
 		if multiplayer.is_server():
-			explode_rpc.rpc()
+			explode_rpc()
+			var minigame = get_parent()
+			if minigame and ("synced_peers" in minigame):
+				for pid in minigame.synced_peers:
+					if pid != 1:
+						explode_rpc.rpc_id(pid)
 	else:
 		explode_rpc()
 	bomb_exploded.emit(holder_id)

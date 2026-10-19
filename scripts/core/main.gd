@@ -223,7 +223,7 @@ func respond_ping(client_time: int) -> void:
 	var my_id = multiplayer.get_unique_id()
 	if my_id in player_info:
 		player_info[my_id].ping = rtt
-	report_ping.rpc(rtt)
+	report_ping.rpc_id(1, rtt)
 
 @rpc("any_peer", "unreliable")
 func report_ping(ping_val: int) -> void:
@@ -264,6 +264,7 @@ func _on_character_confirmed(character_path: String, color: Color = Color.WHITE,
 	GameSession.selected_color = color
 	GameSession.selected_face = face
 	GameSession.selected_hat = hat
+	GameSession.has_selected_character = true
 	var char_select = $UI.get_node_or_null("CharacterSelect")
 	if char_select:
 		char_select.queue_free()
@@ -274,7 +275,7 @@ func _on_character_confirmed(character_path: String, color: Color = Color.WHITE,
 
 	# Show map/ready UI
 	if map_select_panel:
-		map_select_panel.visible = true
+		map_select_panel.visible = multiplayer.is_server()
 	if lobby_panel:
 		lobby_panel.visible = true
 	if btn_start and multiplayer.is_server():
@@ -299,9 +300,11 @@ func _on_character_confirmed(character_path: String, color: Color = Color.WHITE,
 			"wins": existing_wins
 		}
 		spawn_player_rpc(1, character_path, my_name, my_steam_id, color, face, hat)
-		sync_ready_states.rpc({})
+		for pid in player_info:
+			if pid != 1:
+				sync_ready_states.rpc_id(pid, get_ready_states())
+				sync_campaign_config.rpc_id(pid, GameSession.campaign_active, GameSession.target_score)
 		_sync_all_wins_to_all()
-		sync_campaign_config.rpc(GameSession.campaign_active, GameSession.wins_to_win)
 	else:
 		if multiplayer.multiplayer_peer != null and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
 			register_player.rpc_id(1, character_path, my_name, my_steam_id, color, face, hat)
@@ -366,9 +369,6 @@ func _restore_lobby_session() -> void:
 			"wins": host_wins
 		}
 		spawn_player_rpc(1, char_path, my_name, my_steam_id, col, face, hat)
-		sync_ready_states.rpc({})
-		_sync_all_wins_to_all()
-		_sync_all_scores_to_all()
 		if tab_overlay and tab_overlay.visible:
 			update_tab_overlay()
 	else:
@@ -405,10 +405,20 @@ func register_player(character_path: String, player_name: String = "", steam_id:
 			var info = player_info[pid]
 			spawn_player_rpc.rpc_id(caller_id, pid, info.character, info.name, info.steam_id, info.get("color", Color.WHITE), info.get("face", "res://assets/characters/face/robloxmanface.png"), info.get("hat", ""))
 
-	# Spawn new joiner for everyone (host call_local + all clients)
-	spawn_player_rpc.rpc(caller_id, character_path, player_name, steam_id, color, face, hat)
+	# Spawn new joiner for everyone in player_info
+	for pid in player_info:
+		if pid == 1:
+			spawn_player_rpc(caller_id, character_path, player_name, steam_id, color, face, hat)
+		elif pid != caller_id:
+			spawn_player_rpc.rpc_id(pid, caller_id, character_path, player_name, steam_id, color, face, hat)
+	spawn_player_rpc.rpc_id(caller_id, caller_id, character_path, player_name, steam_id, color, face, hat)
 
-	sync_ready_states.rpc(get_ready_states())
+	var ready_states = get_ready_states()
+	for pid in player_info:
+		if pid == 1:
+			sync_ready_states(ready_states)
+		else:
+			sync_ready_states.rpc_id(pid, ready_states)
 	_sync_all_wins_to_all()
 	_sync_all_scores_to_all()
 	sync_campaign_config.rpc_id(caller_id, GameSession.campaign_active, GameSession.target_score)
@@ -504,6 +514,10 @@ func clear_all_players() -> void:
 		update_tab_overlay()
 
 func remove_player(peer_id: int) -> void:
+	if peer_id == 1 and not multiplayer.is_server():
+		print("[CLIENT] Host left lobby, returning to menu")
+		Networking.disconnect_and_return_to_menu()
+		return
 	if AudioManager:
 		AudioManager.play_player_leave()
 	player_info.erase(peer_id)
@@ -558,8 +572,9 @@ func _on_connected_to_server() -> void:
 		show_character_select()
 
 func _on_server_disconnected() -> void:
-	print("[CLIENT] server_disconnected, cleaning up players")
+	print("[CLIENT] server_disconnected, returning to menu")
 	clear_all_players()
+	Networking.disconnect_and_return_to_menu()
 
 func _on_peer_connected(peer_id: int) -> void:
 	if not multiplayer.is_server():
@@ -621,13 +636,21 @@ func _on_campaign_toggled(enabled: bool) -> void:
 	if not multiplayer.is_server():
 		return
 	GameSession.campaign_active = enabled
-	sync_campaign_config.rpc(enabled, GameSession.target_score)
+	for pid in player_info:
+		if pid == 1:
+			sync_campaign_config(enabled, GameSession.target_score)
+		else:
+			sync_campaign_config.rpc_id(pid, enabled, GameSession.target_score)
 
 func _on_target_score_pressed(target_val: int) -> void:
 	if not multiplayer.is_server():
 		return
 	GameSession.target_score = target_val
-	sync_campaign_config.rpc(GameSession.campaign_active, target_val)
+	for pid in player_info:
+		if pid == 1:
+			sync_campaign_config(GameSession.campaign_active, target_val)
+		else:
+			sync_campaign_config.rpc_id(pid, GameSession.campaign_active, target_val)
 
 @rpc("authority", "call_local", "reliable")
 func sync_campaign_config(active: bool, target_val: int) -> void:
@@ -651,7 +674,11 @@ func _update_score_buttons_style(target_val: int) -> void:
 func _sync_all_scores_to_all() -> void:
 	if not multiplayer.is_server():
 		return
-	sync_all_scores.rpc(GameSession.player_scores)
+	for pid in player_info:
+		if pid == 1:
+			sync_all_scores(GameSession.player_scores)
+		else:
+			sync_all_scores.rpc_id(pid, GameSession.player_scores)
 
 @rpc("authority", "call_local", "reliable")
 func sync_all_scores(scores_dict: Dictionary) -> void:
@@ -667,7 +694,11 @@ func _sync_all_wins_to_all() -> void:
 	var wins_dict := {}
 	for pid in player_info:
 		wins_dict[pid] = player_info[pid].get("wins", 0)
-	sync_all_wins.rpc(wins_dict)
+	for pid in player_info:
+		if pid == 1:
+			sync_all_wins(wins_dict)
+		else:
+			sync_all_wins.rpc_id(pid, wins_dict)
 
 @rpc("authority", "call_local", "reliable")
 func sync_all_wins(wins_dict: Dictionary) -> void:
@@ -731,7 +762,11 @@ func _process_match_result() -> void:
 		elif winner_name.begins_with("Player ") and winner_name.substr(7).is_valid_int():
 			winner_name = winner_name.substr(7)
 
-		show_campaign_victory_rpc.rpc(winner_name, current_wins)
+		for pid in player_info:
+			if pid == 1:
+				show_campaign_victory_rpc(winner_name, current_wins)
+			else:
+				show_campaign_victory_rpc.rpc_id(pid, winner_name, current_wins)
 
 @rpc("authority", "call_local", "reliable")
 func show_campaign_victory_rpc(winner_name: String, wins_count: int) -> void:
@@ -748,7 +783,11 @@ func _on_campaign_play_again() -> void:
 	GameSession.reset_campaign_scores()
 	for pid in player_info:
 		player_info[pid]["wins"] = 0
-	reset_campaign_wins_rpc.rpc()
+	for pid in player_info:
+		if pid == 1:
+			reset_campaign_wins_rpc()
+		else:
+			reset_campaign_wins_rpc.rpc_id(pid)
 
 @rpc("authority", "call_local", "reliable")
 func reset_campaign_wins_rpc() -> void:
@@ -773,7 +812,12 @@ func _on_ready_pressed() -> void:
 		btn_ready.modulate = Color(0.3, 0.9, 0.3) if is_ready else Color(1, 1, 1)
 	if multiplayer.is_server():
 		player_info[1]["ready"] = is_ready
-		sync_ready_states.rpc(get_ready_states())
+		var ready_states = get_ready_states()
+		for pid in player_info:
+			if pid == 1:
+				sync_ready_states(ready_states)
+			else:
+				sync_ready_states.rpc_id(pid, ready_states)
 		update_start_button()
 		if tab_overlay.visible:
 			update_tab_overlay()
@@ -787,7 +831,12 @@ func set_ready_state(p_ready: bool) -> void:
 	var sender = multiplayer.get_remote_sender_id()
 	if sender in player_info:
 		player_info[sender]["ready"] = p_ready
-	sync_ready_states.rpc(get_ready_states())
+	var ready_states = get_ready_states()
+	for pid in player_info:
+		if pid == 1:
+			sync_ready_states(ready_states)
+		else:
+			sync_ready_states.rpc_id(pid, ready_states)
 	update_start_button()
 	if tab_overlay and tab_overlay.visible:
 		update_tab_overlay()
@@ -844,11 +893,15 @@ func start_game(map_name: String) -> void:
 			p.set_physics_process(false)
 
 	if multiplayer.is_server():
-		prepare_start_game_rpc.rpc()
+		for pid in player_info:
+			if pid != 1:
+				prepare_start_game_rpc.rpc_id(pid)
 		await get_tree().create_timer(0.1).timeout
 		if not is_inside_tree():
 			return
-		start_game_rpc.rpc(actual_map)
+		for pid in player_info:
+			if pid != 1:
+				start_game_rpc.rpc_id(pid, actual_map)
 
 	_change_to_minigame(actual_map)
 

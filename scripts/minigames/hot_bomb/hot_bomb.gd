@@ -46,7 +46,9 @@ func _on_minigame_tick(_delta: float) -> void:
 	if bomb_timer_label and bomb and is_instance_valid(bomb):
 		bomb_timer_label.text = tr("BOMB_TIMER") % int(max(0, bomb.timer))
 		if multiplayer.is_server():
-			sync_bomb_timer.rpc(bomb.timer)
+			for pid in synced_peers:
+				if pid != 1:
+					sync_bomb_timer.rpc_id(pid, bomb.timer)
 
 		if bomb.timer > 0.0 and bomb.timer <= 3.0:
 			var sec = int(ceil(bomb.timer))
@@ -72,7 +74,10 @@ func _on_prepare_return_to_lobby() -> void:
 func spawn_bomb(holder_id: int) -> void:
 	if not multiplayer.is_server():
 		return
-	spawn_bomb_rpc.rpc(holder_id)
+	spawn_bomb_rpc(holder_id)
+	for pid in synced_peers:
+		if pid != 1:
+			spawn_bomb_rpc.rpc_id(pid, holder_id)
 
 
 @rpc("authority", "call_local", "reliable")
@@ -138,13 +143,18 @@ func throw_bomb(thrower_id: int, direction: Vector3) -> void:
 
 	var has_peer = multiplayer and multiplayer.multiplayer_peer and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED
 	if has_peer:
-		throw_bomb_rpc.rpc(thrower_id, throw_origin, direction)
+		throw_bomb_rpc(thrower_id, throw_origin, direction)
+		for pid in synced_peers:
+			if pid != 1:
+				throw_bomb_rpc.rpc_id(pid, thrower_id, throw_origin, direction)
 	else:
 		throw_bomb_rpc(thrower_id, throw_origin, direction)
 
 
 @rpc("authority", "call_local", "reliable")
 func throw_bomb_rpc(thrower_id: int, origin: Vector3, direction: Vector3) -> void:
+	if not is_inside_tree():
+		return
 	if not bomb or not is_instance_valid(bomb):
 		bomb = BOMB_SCENE.instantiate()
 		bomb.name = "Bomb"
@@ -177,13 +187,18 @@ func _on_bomb_caught(catcher_id: int) -> void:
 
 	var has_peer = multiplayer and multiplayer.multiplayer_peer and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED
 	if has_peer:
-		bomb_caught_rpc.rpc(catcher_id)
+		bomb_caught_rpc(catcher_id)
+		for pid in synced_peers:
+			if pid != 1:
+				bomb_caught_rpc.rpc_id(pid, catcher_id)
 	else:
 		bomb_caught_rpc(catcher_id)
 
 
 @rpc("authority", "call_local", "reliable")
 func bomb_caught_rpc(catcher_id: int) -> void:
+	if not is_inside_tree():
+		return
 	if not bomb or not is_instance_valid(bomb):
 		bomb = BOMB_SCENE.instantiate()
 		bomb.name = "Bomb"

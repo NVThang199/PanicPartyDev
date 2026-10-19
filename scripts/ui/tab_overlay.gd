@@ -153,9 +153,13 @@ func refresh() -> void:
 		var status_lbl := Label.new()
 		status_lbl.add_theme_font_size_override("font_size", 14)
 		if not p_states.is_empty():
-			var is_alive: bool = p_states.get(pid, {}).get("alive", true)
-			status_lbl.text = tr("STATUS_ALIVE") if is_alive else tr("STATUS_ELIMINATED")
-			status_lbl.modulate = Color(0.3, 0.9, 0.3) if is_alive else Color(0.9, 0.3, 0.3)
+			if pid in p_states:
+				var is_alive: bool = p_states.get(pid, {}).get("alive", true)
+				status_lbl.text = tr("STATUS_ALIVE") if is_alive else tr("STATUS_ELIMINATED")
+				status_lbl.modulate = Color(0.3, 0.9, 0.3) if is_alive else Color(0.9, 0.3, 0.3)
+			else:
+				status_lbl.text = tr("STATUS_SPECTATING")
+				status_lbl.modulate = Color(0.7, 0.7, 0.9)
 		else:
 			var is_p_ready: bool = info.get("ready", false)
 			status_lbl.text = tr("STATUS_READY") if is_p_ready else tr("STATUS_NOT_READY")
