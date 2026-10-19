@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://d2nrdepxweej3" path="res://assets/terrains/nature/Grass_1_C_Singlesided_Color1.fbx" id="18_mgwo4"]
 [ext_resource type="PackedScene" uid="uid://cl5d7bo3tyu6" path="res://assets/terrains/nature/Grass_2_D_Singlesided_Color1.fbx" id="20_mgwo4"]
 [ext_resource type="PackedScene" uid="uid://cppnx2c8gn5sb" path="res://assets/terrains/nature/Grass_1_B_Singlesided_Color1.fbx" id="20_uyqaj"]
+[ext_resource type="PackedScene" uid="uid://mapinfopopup01" path="res://scenes/ui/map_info_popup.tscn" id="21_map_info"]
+[ext_resource type="PackedScene" uid="uid://campaignvictorypopup01" path="res://scenes/ui/campaign_victory_popup.tscn" id="22_victory_popup"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
 size = Vector3(40.15973, 0.2, 29.845337)
@@ -292,11 +294,11 @@ horizontal_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="UI/MapSelectPanel/Margin/VBox" unique_id=402816610]
 layout_mode = 2
 
-[node name="BtnLobby" type="Button" parent="UI/MapSelectPanel/Margin/VBox" unique_id=834789915]
+[node name="BtnRandom" type="Button" parent="UI/MapSelectPanel/Margin/VBox" unique_id=834789915]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
-text = "Lobby"
+text = "Random"
 
 [node name="BtnHotBomb" type="Button" parent="UI/MapSelectPanel/Margin/VBox" unique_id=821303639]
 custom_minimum_size = Vector2(0, 40)
@@ -309,6 +311,64 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Stable Footing"
+
+[node name="HSeparator2" type="HSeparator" parent="UI/MapSelectPanel/Margin/VBox"]
+layout_mode = 2
+
+[node name="CampaignBox" type="VBoxContainer" parent="UI/MapSelectPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="CheckCampaign" type="CheckBox" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Campaign Mode"
+
+[node name="WinsHBox" type="HBoxContainer" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="WinsLabel" type="Label" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 13
+text = "First to:"
+
+[node name="BtnWin1" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "1"
+
+[node name="BtnWin3" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "3"
+
+[node name="BtnWin5" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "5"
+
+[node name="BtnWin7" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "7"
+
+[node name="BtnWin10" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "10"
+
+[node name="MapInfoPopup" parent="UI" instance=ExtResource("21_map_info")]
+visible = false
+
+[node name="CampaignVictoryPopup" parent="UI" instance=ExtResource("22_victory_popup")]
+visible = false
 
 [node name="LobbyPanel" type="PanelContainer" parent="UI" unique_id=22028294]
 anchors_preset = 7

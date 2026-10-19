@@ -559,6 +559,8 @@ func _check_game_over() -> void:
 
 func end_game_winner(winner_id: int) -> void:
 	state = GameState.ENDED
+	if multiplayer.is_server():
+		GameSession.pending_match_winner = winner_id
 	show_winner_banner.rpc(winner_id)
 	_start_auto_return()
 
@@ -566,8 +568,12 @@ func end_game_timeout() -> void:
 	state = GameState.ENDED
 	var alive = get_alive_player_ids()
 	if alive.size() == 1:
+		if multiplayer.is_server():
+			GameSession.pending_match_winner = alive[0]
 		show_winner_banner.rpc(alive[0])
 	else:
+		if multiplayer.is_server():
+			GameSession.pending_match_winner = -1
 		show_winner_banner.rpc(-1)
 	_start_auto_return()
 
@@ -663,5 +669,7 @@ func _on_peer_disconnected(peer_id: int) -> void:
 		players.erase(peer_id)
 	if peer_id in player_states:
 		player_states.erase(peer_id)
+	if peer_id in GameSession.minigame_players:
+		GameSession.minigame_players.erase(peer_id)
 	if multiplayer.is_server() and state == GameState.PLAYING:
 		_check_game_over()

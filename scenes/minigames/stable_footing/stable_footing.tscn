@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d0u2b6317nvvf" path="res://assets/terrains/Prototype Bits/Coin_A.fbx" id="10_brxn4"]
 [ext_resource type="PackedScene" uid="uid://mn8nmqo17j32" path="res://assets/terrains/Prototype Bits/Coin_C.fbx" id="11_nbv2g"]
 [ext_resource type="PackedScene" uid="uid://de3kjvubuir35" path="res://assets/terrains/Prototype Bits/Box_C.fbx" id="12_brxn4"]
+[ext_resource type="PackedScene" uid="uid://c8q5vy4d2nlae" path="res://scenes/ui/in_game_menu.tscn" id="13_in_game_menu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tile_0_0"]
 size = Vector3(1.8, 0.2, 1.8)
@@ -1108,3 +1109,6 @@ transform = Transform3D(2.8092904, 0, 1.5296783, 0, 3.198754, 0, -1.5296783, 0, 
 
 [node name="Box_C2" parent="." unique_id=1884075299 instance=ExtResource("12_brxn4")]
 transform = Transform3D(2.454394, 0, -2.0513353, 0, 3.198754, 0, 2.0513353, 0, 2.454394, 12.895, 1.047, -4.714137)
+
+[node name="InGameMenu" parent="." instance=ExtResource("13_in_game_menu")]
+
