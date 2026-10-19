@@ -14,6 +14,7 @@
   Trò chơi minigame nhiều người chơi (Multiplayer Party Game) góc nhìn thứ 3 được xây dựng trên nền tảng <b>Godot 4.7</b>, kết hợp cùng <b>Jolt 3D Physics</b> và <b>Steamworks P2P Relay</b>.
 </p>
 
+[Tải Game Chơi Ngay](#-tải-game-chơi-ngay-dành-cho-người-chơi) •
 [Tính Năng](#-tính-năng-nổi-bật) •
 [Danh Sách Minigames](#-danh-sách-minigames) •
 [Kiến Trúc & Mạng](#-kiến-trúc-hệ-thống--multiplayer) •
@@ -22,6 +23,22 @@
 [AI Development](#-phát-triển-cùng-ai-agents--graphify)
 
 </div>
+
+---
+
+## 📥 Tải Game Chơi Ngay (Dành Cho Người Chơi)
+
+Bạn không cần cài đặt Godot hay các công cụ lập trình, chỉ cần tải bản đóng gói sẵn:
+
+1. **Tải bản cài đặt**: Truy cập [**GitHub Releases**](https://github.com/NVThang199/PanicPartyDev/releases) và tải file zip mới nhất (ví dụ: `PanicParty-v1.0.0-windows.zip`).
+2. **Giải nén**: Giải nén file `.zip` vào một thư mục bất kỳ trên máy tính.
+3. **Mở Steam**: Đảm bảo ứng dụng **Steam đang chạy ngầm** và đã đăng nhập tài khoản của bạn.
+4. **Vào game**: Chạy file `PanicParty.exe`.
+
+### 🎮 Cách Chơi Cùng Bạn Bè:
+- **Người tạo phòng (Host)**: Bấm `Host Server` → Vào phòng chờ (Lobby) → Bấm nút `COPY MÃ PHÒNG` ở thanh menu dưới cùng để sao chép mã.
+- **Người tham gia (Client)**: Khởi động game → Tại Menu chính, dán mã vào ô `Nhập mã phòng...` → Bấm nút `Vào`.
+- *Không cần kết bạn Steam, hỗ trợ cả tài khoản Steam chưa nạp tiền (Limited Account).*
 
 ---
 
