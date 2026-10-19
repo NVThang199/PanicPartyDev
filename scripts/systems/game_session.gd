@@ -11,4 +11,5 @@ var campaign_active := false
 var wins_to_win := 3
 var campaign_map_mode := "manual"
 var pending_match_winner := -1
+var player_wins: Dictionary = {}
 

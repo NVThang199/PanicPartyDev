@@ -5,13 +5,14 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 426 nodes · 462 edges · 38 communities (5 shown, 33 thin omitted)
+- 426 nodes · 464 edges · 38 communities (5 shown, 33 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
 - Gamesession
 - networking.gd
+- player.gd
 - settings_menu.gd
 - bomb.gd
 - button_effects_config.gd
@@ -35,6 +36,8 @@
 ## Surprising Connections (you probably didn't know these)
 - `func _on_character_confirmed()` --uses_singleton--> `Gamesession`  [EXTRACTED]
   scripts/core/main.gd → core  _Bridges community 0 → community 13_
+- `func _ready()` --uses_singleton--> `Gamesession`  [EXTRACTED]
+  scripts/players/player.gd → core  _Bridges community 0 → community 6_
 - `func _on_peer_disconnected()` --uses_singleton--> `Gamesession`  [EXTRACTED]
   scripts/ui/in_game_menu.gd → core  _Bridges community 0 → community 12_
 - `func _on_host_pressed()` --uses_singleton--> `Gamesession`  [EXTRACTED]
@@ -50,8 +53,8 @@
 ## Communities (38 total, 33 thin omitted)
 
 ### Community 0 - "Gamesession"
-Cohesion: 0.06
-Nodes (26): func _change_to_minigame(), func _on_campaign_toggled(), func _on_win_target_pressed(), func _process_match_result(), rpc func register_player(), rpc func sync_campaign_config(), func _on_peer_disconnected(), func end_game_timeout() (+18 more)
+Cohesion: 0.05
+Nodes (27): func _change_to_minigame(), func _on_campaign_play_again(), func _on_campaign_toggled(), func _on_win_target_pressed(), func _process_match_result(), rpc func register_player(), rpc func reset_campaign_wins_rpc(), rpc func sync_campaign_config() (+19 more)
 
 ### Community 5 - "networking.gd"
 Cohesion: 0.08
@@ -71,22 +74,22 @@ Nodes (9): func _on_character_confirmed(), func _on_connected_to_server(), func 
 
 ## Knowledge Gaps
 - **15 isolated node(s):** `signal host_created`, `signal host_failed`, `signal client_connected`, `signal avatar_updated`, `signal settings_changed` (+10 more)
-  These have ≤1 connection - possible missing edges. (Counts symbols only; 337 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges. (Counts symbols only; 335 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **33 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `func _ready()` connect `Gamesession` to `player.gd`?**
+- **Why does `func _ready()` connect `player.gd` to `Gamesession`?**
   _High betweenness centrality (0.170) - this node is a cross-community bridge._
 - **What connects `signal host_created`, `signal host_failed`, `signal client_connected` to the rest of the system?**
   _15 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Gamesession` be split into smaller, more focused modules?**
-  _Cohesion score 0.05574912891986063 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05426356589147287 - nodes in this community are weakly interconnected._
 - **Why does `func _on_host_pressed()` connect `networking.gd` to `Gamesession`?**
   _High betweenness centrality (0.119) - this node is a cross-community bridge._
 - **Should `main.gd` be split into smaller, more focused modules?**
-  _Cohesion score 0.047619047619047616 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05 - nodes in this community are weakly interconnected._
 - **Should `audio_manager.gd` be split into smaller, more focused modules?**
   _Cohesion score 0.05 - nodes in this community are weakly interconnected._
 - **Should `stable_footing.gd` be split into smaller, more focused modules?**

@@ -419,7 +419,8 @@ func _restore_lobby_session() -> void:
 		if btn_copy_code:
 			btn_copy_code.visible = true
 
-		var host_wins: int = player_info.get(1, {}).get("wins", 0)
+		_process_match_result()
+		var host_wins: int = GameSession.player_wins.get(1, 0)
 		player_info.clear()
 		player_info[1] = {
 			"character": char_path,
@@ -434,7 +435,9 @@ func _restore_lobby_session() -> void:
 		}
 		spawn_player_rpc(1, char_path, my_name, my_steam_id, col, face, hat)
 		sync_ready_states.rpc({})
-		call_deferred("_process_match_result")
+		_sync_all_wins_to_all()
+		if tab_overlay and tab_overlay.visible:
+			update_tab_overlay()
 	else:
 		if map_select_panel:
 			map_select_panel.visible = false
@@ -449,7 +452,7 @@ func register_player(character_path: String, player_name: String = "", steam_id:
 	var caller_id := multiplayer.get_remote_sender_id()
 	if caller_id in players:
 		remove_player(caller_id)
-	var prev_wins: int = player_info.get(caller_id, {}).get("wins", 0)
+	var prev_wins: int = GameSession.player_wins.get(caller_id, 0)
 	player_info[caller_id] = {
 		"character": character_path,
 		"name": player_name if player_name != "" else "Player %d" % caller_id,
@@ -744,14 +747,16 @@ func _process_match_result() -> void:
 	if winner_id <= 0:
 		return
 	print("[LOBBY] Processing match winner: ", winner_id)
+	GameSession.player_wins[winner_id] = GameSession.player_wins.get(winner_id, 0) + 1
 	if winner_id in player_info:
-		player_info[winner_id]["wins"] = player_info[winner_id].get("wins", 0) + 1
-		_sync_all_wins_to_all()
-		if tab_overlay and tab_overlay.visible:
-			update_tab_overlay()
-		if GameSession.campaign_active and player_info[winner_id]["wins"] >= GameSession.wins_to_win:
-			var winner_name: String = player_info[winner_id].get("name", "Player %d" % winner_id)
-			show_campaign_victory_rpc.rpc(winner_name, player_info[winner_id]["wins"])
+		player_info[winner_id]["wins"] = GameSession.player_wins[winner_id]
+	_sync_all_wins_to_all()
+	if tab_overlay and tab_overlay.visible:
+		update_tab_overlay()
+	var current_wins: int = GameSession.player_wins[winner_id]
+	if GameSession.campaign_active and current_wins >= GameSession.wins_to_win:
+		var winner_name: String = player_info.get(winner_id, {}).get("name", "Player %d" % winner_id)
+		show_campaign_victory_rpc.rpc(winner_name, current_wins)
 
 @rpc("authority", "call_local", "reliable")
 func show_campaign_victory_rpc(winner_name: String, wins_count: int) -> void:
@@ -763,6 +768,7 @@ func show_campaign_victory_rpc(winner_name: String, wins_count: int) -> void:
 func _on_campaign_play_again() -> void:
 	if not multiplayer.is_server():
 		return
+	GameSession.player_wins.clear()
 	for pid in player_info:
 		player_info[pid]["wins"] = 0
 	reset_campaign_wins_rpc.rpc()
@@ -771,6 +777,7 @@ func _on_campaign_play_again() -> void:
 func reset_campaign_wins_rpc() -> void:
 	if not is_inside_tree():
 		return
+	GameSession.player_wins.clear()
 	for pid in player_info:
 		player_info[pid]["wins"] = 0
 	if campaign_victory_popup:
