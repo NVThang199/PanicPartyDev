@@ -25,7 +25,7 @@
 
 ---
 
-## 🌟 Giới Thiệu
+## 🌟 Giới Thiệu Game
 
 **PanicParty** là tựa game tiệc tùng 3D (3D Party Game) nơi người chơi cạnh tranh qua hàng loạt màn chơi nhỏ (minigames) dồn dập. Mỗi vòng chơi thử thách phản xạ, độ khéo léo và khả năng phối hợp hoặc "chơi khăm" bạn bè. Người chơi tích lũy điểm số qua từng minigame để tìm ra nhà vô địch cuối cùng.
 
@@ -55,23 +55,23 @@
 
 ```mermaid
 graph TD
-    subgraph Client ["Client (Peer)"]
-        C_Input["Nhận Input (WASD / Space / F)"]
-        C_Pred["Client Prediction & Interpolation"]
-        C_UI["HUD & Render Interpolated State"]
-    end
+	subgraph Client ["Client (Peer)"]
+		C_Input["Nhận Input (WASD / Space / F)"]
+		C_Pred["Client Prediction & Interpolation"]
+		C_UI["HUD & Render Interpolated State"]
+	end
 
-    subgraph Server ["Host (Authority)"]
-        S_Val["Server Validation"]
-        S_Phys["Jolt 3D Physics & Logic"]
-        S_State["GameState, Timers & Entities"]
-    end
+	subgraph Server ["Host (Authority)"]
+		S_Val["Server Validation"]
+		S_Phys["Jolt 3D Physics & Logic"]
+		S_State["GameState, Timers & Entities"]
+	end
 
-    C_Input -->|"request_action.rpc_id(1) / sync_player_state"| S_Val
-    S_Val --> S_Phys
-    S_Phys --> S_State
-    S_State -->|"@rpc('authority', 'unreliable') broadcast"| C_Pred
-    C_Pred --> C_UI
+	C_Input -->|"request_action.rpc_id(1) / sync_player_state"| S_Val
+	S_Val --> S_Phys
+	S_Phys --> S_State
+	S_State -->|"@rpc('authority', 'unreliable') broadcast"| C_Pred
+	C_Pred --> C_UI
 ```
 
 ### Quy tắc Multiplayer cốt lõi:
@@ -121,8 +121,8 @@ graph TD
 4. **Kiểm tra Multiplayer nội bộ (2 Người Chơi)**:
    - **Cách 1**: Dùng tính năng *Debug > Run Multiple Instances (2 instances)* trong Godot Editor.
    - **Cách 2**: Export bản build Windows Desktop.
-     - **Máy 1 (Host)**: Bấm `Host Server` → Vào Lobby → Nhấn nút `COPY MÃ PHÒNG` dưới màn hình.
-     - **Máy 2 (Client)**: Tại Main Menu, dán mã phòng vào ô `Nhập mã phòng...` và nhấn `Vào`.
+	 - **Máy 1 (Host)**: Bấm `Host Server` → Vào Lobby → Nhấn nút `COPY MÃ PHÒNG` dưới màn hình.
+	 - **Máy 2 (Client)**: Tại Main Menu, dán mã phòng vào ô `Nhập mã phòng...` và nhấn `Vào`.
 
 ---
 
