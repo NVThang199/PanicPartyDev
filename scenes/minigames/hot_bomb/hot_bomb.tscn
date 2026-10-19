@@ -56,7 +56,7 @@ shadow_enabled = true
 environment = ExtResource("2_env")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1223199760]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 20)
+transform = Transform3D(1, 0, 0, 0, 0.745988, 0.66595936, 0, -0.66595936, 0.745988, 0, 18.781473, 19.117085)
 current = true
 fov = 55.0
 
@@ -312,4 +312,4 @@ transform = Transform3D(-0.20701659, 0, 29.999289, 0, 29.999998, 0, -29.999289, 
 [node name="hex_grass" parent="." unique_id=1575705418 instance=ExtResource("22_j2ctx")]
 transform = Transform3D(95.54515, 0, 0, 0, 17.67718, 0, 0, 0, 95.54515, -4.639515, 0.11, -30.556969)
 
-[node name="InGameMenu" parent="." instance=ExtResource("23_in_game_menu")]
+[node name="InGameMenu" parent="." unique_id=1017189052 instance=ExtResource("23_in_game_menu")]
