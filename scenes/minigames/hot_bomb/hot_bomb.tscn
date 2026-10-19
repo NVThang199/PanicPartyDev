@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dqe3bxlypgc8o" path="res://assets/terrains/medieval/decoration/nature/mountain_A_grass_trees.fbx" id="20_2m1ut"]
 [ext_resource type="PackedScene" uid="uid://ew4avpbsf41y" path="res://assets/terrains/medieval/tiles/roads/hex_road_B.fbx" id="21_afkkf"]
 [ext_resource type="PackedScene" uid="uid://dfu56org4iyqf" path="res://assets/terrains/medieval/tiles/base/hex_grass.fbx" id="22_j2ctx"]
+[ext_resource type="PackedScene" uid="uid://c8q5vy4d2nlae" path="res://scenes/ui/in_game_menu.tscn" id="23_in_game_menu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
 size = Vector3(30, 0.2, 30)
@@ -310,3 +311,5 @@ transform = Transform3D(-0.20701659, 0, 29.999289, 0, 29.999998, 0, -29.999289, 
 
 [node name="hex_grass" parent="." unique_id=1575705418 instance=ExtResource("22_j2ctx")]
 transform = Transform3D(95.54515, 0, 0, 0, 17.67718, 0, 0, 0, 95.54515, -4.639515, 0.11, -30.556969)
+
+[node name="InGameMenu" parent="." instance=ExtResource("23_in_game_menu")]

@@ -19,3 +19,12 @@ __pycache__/
 Thumbs.db
 Desktop.ini
 *.log
+
+# Environment & Secrets
+.env
+.env.*
+*.key
+*.pem
+credentials.json
+secrets/
+

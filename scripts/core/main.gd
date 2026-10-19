@@ -14,9 +14,18 @@ var player_info: Dictionary = {}
 @onready var pause_menu: PanelContainer = $UI/PauseMenu
 @onready var loading_overlay: ColorRect = $UI/LoadingOverlay
 @onready var map_select_panel: PanelContainer = $UI/MapSelectPanel
-@onready var btn_lobby_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnLobby
+@onready var btn_random_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnRandom
 @onready var btn_hotbomb_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnHotBomb
 @onready var btn_stablefooting_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnStableFooting
+@onready var campaign_box: VBoxContainer = $UI/MapSelectPanel/Margin/VBox/CampaignBox
+@onready var check_campaign: CheckBox = $UI/MapSelectPanel/Margin/VBox/CampaignBox/CheckCampaign
+@onready var btn_win_1: Button = $UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox/BtnWin1
+@onready var btn_win_3: Button = $UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox/BtnWin3
+@onready var btn_win_5: Button = $UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox/BtnWin5
+@onready var btn_win_7: Button = $UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox/BtnWin7
+@onready var btn_win_10: Button = $UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox/BtnWin10
+@onready var map_info_popup: Control = $UI/MapInfoPopup
+@onready var campaign_victory_popup: Control = $UI/CampaignVictoryPopup
 @onready var lobby_panel: PanelContainer = $UI/LobbyPanel
 @onready var btn_ready: Button = $UI/LobbyPanel/Margin/HBox/BtnReady
 @onready var btn_start: Button = $UI/LobbyPanel/Margin/HBox/BtnStart
@@ -24,8 +33,10 @@ var player_info: Dictionary = {}
 
 var ping_timer: float = 0.0
 var is_ready: bool = false
-var selected_map: String = "Lobby"
+var selected_map: String = "Random"
 var is_starting: bool = false
+var last_campaign_winner_name: String = ""
+var last_campaign_wins: int = 0
 
 func _ready() -> void:
 	Networking.host_created.connect(on_host_created)
@@ -38,12 +49,27 @@ func _ready() -> void:
 	multiplayer.peer_disconnected.connect(remove_player)
 	leave_button.pressed.connect(_on_leave_pressed)
 
-	if btn_lobby_map:
-		btn_lobby_map.pressed.connect(_on_map_selected.bind("Lobby"))
+	if btn_random_map:
+		btn_random_map.pressed.connect(_on_map_selected.bind("Random"))
 	if btn_hotbomb_map:
 		btn_hotbomb_map.pressed.connect(_on_map_selected.bind("HotBomb"))
 	if btn_stablefooting_map:
 		btn_stablefooting_map.pressed.connect(_on_map_selected.bind("StableFooting"))
+	if check_campaign:
+		check_campaign.toggled.connect(_on_campaign_toggled)
+	if btn_win_1:
+		btn_win_1.pressed.connect(_on_win_target_pressed.bind(1))
+	if btn_win_3:
+		btn_win_3.pressed.connect(_on_win_target_pressed.bind(3))
+	if btn_win_5:
+		btn_win_5.pressed.connect(_on_win_target_pressed.bind(5))
+	if btn_win_7:
+		btn_win_7.pressed.connect(_on_win_target_pressed.bind(7))
+	if btn_win_10:
+		btn_win_10.pressed.connect(_on_win_target_pressed.bind(10))
+	if campaign_victory_popup:
+		campaign_victory_popup.play_again_requested.connect(_on_campaign_play_again)
+		campaign_victory_popup.return_to_menu_requested.connect(_on_leave_pressed)
 	if btn_ready:
 		btn_ready.pressed.connect(_on_ready_pressed)
 	if btn_start:
@@ -102,6 +128,12 @@ func _update_ui_text() -> void:
 		btn_ready.text = tr("UNREADY") if is_ready else tr("READY")
 	if btn_copy_code:
 		btn_copy_code.text = tr("COPY_ROOM_CODE")
+	if check_campaign:
+		check_campaign.text = tr("CAMPAIGN_MODE")
+	if campaign_box:
+		var wins_label = campaign_box.get_node_or_null("WinsHBox/WinsLabel")
+		if wins_label:
+			wins_label.text = tr("FIRST_TO")
 	if tab_overlay and tab_overlay.visible:
 		update_tab_overlay()
 
@@ -199,16 +231,33 @@ func report_ping(ping_val: int) -> void:
 func update_tab_overlay() -> void:
 	for child in player_list_vbox.get_children():
 		child.queue_free()
-	
-	for pid in player_info:
+
+	var sorted_pids = player_info.keys()
+	sorted_pids.sort_custom(func(a, b):
+		return player_info[a].get("wins", 0) > player_info[b].get("wins", 0)
+	)
+
+	for idx in range(sorted_pids.size()):
+		var pid = sorted_pids[idx]
 		var info = player_info[pid]
 		var p_name: String = info.get("name", "Player %d" % pid)
 		var p_steam_id: int = info.get("steam_id", 0)
 		var p_ping: int = info.get("ping", 0)
-		
+		var p_wins: int = info.get("wins", 0)
+
 		var row := HBoxContainer.new()
 		row.add_theme_constant_override("separation", 12)
-		
+
+		var rank_lbl := Label.new()
+		rank_lbl.text = "#%d" % (idx + 1)
+		rank_lbl.custom_minimum_size = Vector2(28, 0)
+		rank_lbl.add_theme_font_size_override("font_size", 16)
+		if idx == 0 and p_wins > 0:
+			rank_lbl.modulate = Color(1.0, 0.85, 0.2)
+		else:
+			rank_lbl.modulate = Color(0.7, 0.7, 0.7)
+		row.add_child(rank_lbl)
+
 		var avatar_rect := TextureRect.new()
 		avatar_rect.custom_minimum_size = Vector2(36, 36)
 		avatar_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -219,7 +268,7 @@ func update_tab_overlay() -> void:
 		else:
 			avatar_rect.texture = _create_placeholder_avatar(p_name)
 		row.add_child(avatar_rect)
-		
+
 		var name_lbl := Label.new()
 		name_lbl.text = p_name
 		name_lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -229,7 +278,14 @@ func update_tab_overlay() -> void:
 		if pid == multiplayer.get_unique_id():
 			name_lbl.modulate = Color(0.4, 0.9, 1.0)
 		row.add_child(name_lbl)
-		
+
+		var wins_lbl := Label.new()
+		wins_lbl.text = "%d %s" % [p_wins, tr("WINS")]
+		wins_lbl.custom_minimum_size = Vector2(65, 0)
+		wins_lbl.add_theme_font_size_override("font_size", 14)
+		wins_lbl.modulate = Color(1.0, 0.85, 0.3) if p_wins > 0 else Color(0.6, 0.6, 0.6)
+		row.add_child(wins_lbl)
+
 		var is_p_ready: bool = info.get("ready", false)
 		var ready_lbl := Label.new()
 		ready_lbl.text = tr("STATUS_READY") if is_p_ready else tr("STATUS_NOT_READY")
@@ -250,7 +306,7 @@ func update_tab_overlay() -> void:
 			else:
 				ping_lbl.modulate = Color(0.9, 0.3, 0.3)
 		row.add_child(ping_lbl)
-		
+
 		player_list_vbox.add_child(row)
 
 func _create_placeholder_avatar(display_name: String) -> ImageTexture:
@@ -300,6 +356,7 @@ func _on_character_confirmed(character_path: String, color: Color = Color.WHITE,
 	var my_name = Networking.get_local_player_name()
 	var my_steam_id = Networking.get_local_steam_id()
 	if multiplayer.is_server():
+		var existing_wins: int = player_info.get(1, {}).get("wins", 0)
 		player_info[1] = {
 			"character": character_path,
 			"name": my_name,
@@ -308,10 +365,13 @@ func _on_character_confirmed(character_path: String, color: Color = Color.WHITE,
 			"face": face,
 			"hat": hat,
 			"ping": 0,
-			"ready": false
+			"ready": false,
+			"wins": existing_wins
 		}
 		spawn_player_rpc(1, character_path, my_name, my_steam_id, color, face, hat)
 		sync_ready_states.rpc({})
+		_sync_all_wins_to_all()
+		sync_campaign_config.rpc(GameSession.campaign_active, GameSession.wins_to_win)
 	else:
 		if multiplayer.multiplayer_peer != null and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
 			register_player.rpc_id(1, character_path, my_name, my_steam_id, color, face, hat)
@@ -361,6 +421,8 @@ func _restore_lobby_session() -> void:
 		if btn_copy_code:
 			btn_copy_code.visible = true
 
+		_process_match_result()
+		var host_wins: int = GameSession.player_wins.get(1, 0)
 		player_info.clear()
 		player_info[1] = {
 			"character": char_path,
@@ -370,10 +432,14 @@ func _restore_lobby_session() -> void:
 			"face": face,
 			"hat": hat,
 			"ping": 0,
-			"ready": false
+			"ready": false,
+			"wins": host_wins
 		}
 		spawn_player_rpc(1, char_path, my_name, my_steam_id, col, face, hat)
 		sync_ready_states.rpc({})
+		_sync_all_wins_to_all()
+		if tab_overlay and tab_overlay.visible:
+			update_tab_overlay()
 	else:
 		if map_select_panel:
 			map_select_panel.visible = false
@@ -388,6 +454,7 @@ func register_player(character_path: String, player_name: String = "", steam_id:
 	var caller_id := multiplayer.get_remote_sender_id()
 	if caller_id in players:
 		remove_player(caller_id)
+	var prev_wins: int = GameSession.player_wins.get(caller_id, 0)
 	player_info[caller_id] = {
 		"character": character_path,
 		"name": player_name if player_name != "" else "Player %d" % caller_id,
@@ -396,7 +463,8 @@ func register_player(character_path: String, player_name: String = "", steam_id:
 		"face": face,
 		"hat": hat,
 		"ping": 0,
-		"ready": false
+		"ready": false,
+		"wins": prev_wins
 	}
 	print("[HOST] Registered player %d (%s) with %s, color=%s, hat=%s" % [caller_id, player_name, character_path, color, hat])
 
@@ -410,6 +478,10 @@ func register_player(character_path: String, player_name: String = "", steam_id:
 	spawn_player_rpc.rpc(caller_id, character_path, player_name, steam_id, color, face, hat)
 
 	sync_ready_states.rpc(get_ready_states())
+	_sync_all_wins_to_all()
+	sync_campaign_config.rpc_id(caller_id, GameSession.campaign_active, GameSession.wins_to_win)
+	if campaign_victory_popup and campaign_victory_popup.visible and last_campaign_winner_name != "":
+		show_campaign_victory_rpc.rpc_id(caller_id, last_campaign_winner_name, last_campaign_wins)
 
 @rpc("authority", "call_local", "reliable")
 func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: String = "", steam_id: int = 0, color: Color = Color.WHITE, face: String = "res://assets/characters/face/robloxmanface.png", hat: String = "") -> void:
@@ -459,7 +531,8 @@ func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: St
 			"face": face,
 			"hat": hat,
 			"ping": 0,
-			"ready": false
+			"ready": false,
+			"wins": 0
 		}
 	else:
 		player_info[peer_id].name = player_name
@@ -469,6 +542,8 @@ func spawn_player_rpc(peer_id: int, character_path: String = "", player_name: St
 		player_info[peer_id]["hat"] = hat
 		if not ("ready" in player_info[peer_id]):
 			player_info[peer_id]["ready"] = false
+		if not ("wins" in player_info[peer_id]):
+			player_info[peer_id]["wins"] = 0
 
 	# Switch character after player is fully in tree
 	if character_path and character_path != player.character_path:
@@ -603,6 +678,146 @@ func _on_copy_code_pressed() -> void:
 func _on_map_selected(map_name: String) -> void:
 	selected_map = map_name
 	print("[LOBBY] Selected map: ", map_name)
+	if map_info_popup:
+		map_info_popup.show_map_info(map_name)
+
+func _pick_random_map() -> String:
+	var maps := ["HotBomb", "StableFooting"]
+	return maps[randi() % maps.size()]
+
+func _on_campaign_toggled(enabled: bool) -> void:
+	if not multiplayer.is_server():
+		return
+	GameSession.campaign_active = enabled
+	sync_campaign_config.rpc(enabled, GameSession.wins_to_win)
+
+func _on_win_target_pressed(target_wins: int) -> void:
+	if not multiplayer.is_server():
+		return
+	GameSession.wins_to_win = target_wins
+	sync_campaign_config.rpc(GameSession.campaign_active, target_wins)
+
+@rpc("authority", "call_local", "reliable")
+func sync_campaign_config(active: bool, wins: int) -> void:
+	GameSession.campaign_active = active
+	GameSession.wins_to_win = wins
+	if check_campaign:
+		check_campaign.set_pressed_no_signal(active)
+	_update_win_buttons_style(wins)
+
+func _update_win_buttons_style(target_wins: int) -> void:
+	var win_buttons = [btn_win_1, btn_win_3, btn_win_5, btn_win_7, btn_win_10]
+	var win_values = [1, 3, 5, 7, 10]
+	for i in range(win_buttons.size()):
+		var btn = win_buttons[i]
+		if btn:
+			if win_values[i] == target_wins:
+				btn.modulate = Color(1.0, 0.85, 0.2)
+			else:
+				btn.modulate = Color(1, 1, 1)
+
+func _sync_all_wins_to_all() -> void:
+	if not multiplayer.is_server():
+		return
+	var wins_dict := {}
+	for pid in player_info:
+		wins_dict[pid] = player_info[pid].get("wins", 0)
+	sync_all_wins.rpc(wins_dict)
+
+@rpc("authority", "call_local", "reliable")
+func sync_all_wins(wins_dict: Dictionary) -> void:
+	if not is_inside_tree():
+		return
+	for pid in wins_dict:
+		if pid in player_info:
+			player_info[pid]["wins"] = wins_dict[pid]
+	if tab_overlay and tab_overlay.visible:
+		update_tab_overlay()
+
+@rpc("authority", "call_local", "reliable")
+func sync_player_wins(peer_id: int, new_wins: int) -> void:
+	if not is_inside_tree():
+		return
+	if peer_id in player_info:
+		player_info[peer_id]["wins"] = new_wins
+	if tab_overlay and tab_overlay.visible:
+		update_tab_overlay()
+
+func _process_match_result() -> void:
+	if not multiplayer.is_server():
+		return
+	var winner_id = GameSession.pending_match_winner
+	GameSession.pending_match_winner = -1
+	if winner_id <= 0:
+		return
+	print("[LOBBY] Processing match winner: ", winner_id)
+	GameSession.player_wins[winner_id] = GameSession.player_wins.get(winner_id, 0) + 1
+	if winner_id in player_info:
+		player_info[winner_id]["wins"] = GameSession.player_wins[winner_id]
+	_sync_all_wins_to_all()
+	if tab_overlay and tab_overlay.visible:
+		update_tab_overlay()
+	var current_wins: int = GameSession.player_wins[winner_id]
+	if GameSession.campaign_active and current_wins >= GameSession.wins_to_win:
+		var winner_name: String = ""
+		var winner_steam_id: int = 0
+
+		if winner_id in GameSession.minigame_players:
+			var m_info: Dictionary = GameSession.minigame_players[winner_id]
+			winner_name = m_info.get("name", "")
+			winner_steam_id = m_info.get("steam_id", 0)
+		elif winner_id in player_info:
+			var p_info: Dictionary = player_info[winner_id]
+			winner_name = p_info.get("name", "")
+			winner_steam_id = p_info.get("steam_id", 0)
+
+		if Steam.isSteamRunning():
+			if winner_id == 1 or (winner_steam_id != 0 and winner_steam_id == Steam.getSteamID()):
+				var local_name = Steam.getPersonaName()
+				if local_name != "":
+					winner_name = local_name
+			elif winner_steam_id != 0:
+				var friend_name = Steam.getFriendPersonaName(winner_steam_id)
+				if friend_name != "":
+					winner_name = friend_name
+
+		if winner_name == "" or winner_name == ("Player %d" % winner_id):
+			winner_name = str(winner_id)
+		elif winner_name.begins_with("Player ") and winner_name.substr(7).is_valid_int():
+			winner_name = winner_name.substr(7)
+
+		show_campaign_victory_rpc.rpc(winner_name, current_wins)
+
+@rpc("authority", "call_local", "reliable")
+func show_campaign_victory_rpc(winner_name: String, wins_count: int) -> void:
+	if not is_inside_tree():
+		return
+	last_campaign_winner_name = winner_name
+	last_campaign_wins = wins_count
+	if campaign_victory_popup:
+		campaign_victory_popup.show_victory(winner_name, wins_count, multiplayer.is_server())
+
+func _on_campaign_play_again() -> void:
+	if not multiplayer.is_server():
+		return
+	GameSession.player_wins.clear()
+	for pid in player_info:
+		player_info[pid]["wins"] = 0
+	reset_campaign_wins_rpc.rpc()
+
+@rpc("authority", "call_local", "reliable")
+func reset_campaign_wins_rpc() -> void:
+	if not is_inside_tree():
+		return
+	last_campaign_winner_name = ""
+	last_campaign_wins = 0
+	GameSession.player_wins.clear()
+	for pid in player_info:
+		player_info[pid]["wins"] = 0
+	if campaign_victory_popup:
+		campaign_victory_popup.visible = false
+	if tab_overlay and tab_overlay.visible:
+		update_tab_overlay()
 
 func _on_ready_pressed() -> void:
 	is_ready = not is_ready
@@ -669,8 +884,11 @@ func _on_start_pressed() -> void:
 func start_game(map_name: String) -> void:
 	if is_starting:
 		return
+	var actual_map = map_name
+	if actual_map == "Random":
+		actual_map = _pick_random_map()
 	is_starting = true
-	print("[GAME] Starting match on map: ", map_name)
+	print("[GAME] Starting match on map: ", actual_map)
 	if AudioManager:
 		AudioManager.play_match_start()
 	set_process(false)
@@ -685,9 +903,9 @@ func start_game(map_name: String) -> void:
 		await get_tree().create_timer(0.1).timeout
 		if not is_inside_tree():
 			return
-		start_game_rpc.rpc(map_name)
+		start_game_rpc.rpc(actual_map)
 
-	_change_to_minigame(map_name)
+	_change_to_minigame(actual_map)
 
 func _change_to_minigame(map_name: String) -> void:
 	if not is_inside_tree():

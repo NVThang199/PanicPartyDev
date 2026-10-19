@@ -278,6 +278,8 @@ HAT_SUBMARINE,Submarine,Tàu ngầm,Submarino,Sous-marin,U-Boot,Submarino,Под
 HOST,HOST,CHỦ PHÒNG,ANFITRIÓN,HÔTE,HOST,ANFITRIÃO,ХОСТ,ホスト,방장,房主,HOST
 STATUS_READY,[READY],[SẴN SÀNG],[LISTO],[PRÊT],[BEREIT],[PRONTO],[ГОТОВ],[準備完了],[준비 완료],[已准备],[PRONTO]
 STATUS_NOT_READY,[NOT READY],[CHƯA SẴN SÀNG],[NO LISTO],[PAS PRÊT],[NICHT BEREIT],[NÃO PRONTO],[НЕ ГОТОВ],[未準備],[준비 안 됨],[未准备],[NON PRONTO]
+STATUS_ALIVE,[ALIVE],[CÒN SỐNG],[VIVO],[VIVANT],[LEBENDIG],[VIVO],[ЖИВ],[生存],[생존],[存活],[VIVO]
+STATUS_ELIMINATED,[ELIMINATED],[BỊ LOẠI],[ELIMINADO],[ÉLIMINÉ],[ELIMINIERT],[ELIMINADO],[ВЫБЫЛ],[脱落],[탈락],[淘汰],[ELIMINATO]
 MATCH_TIMER,Match: %d,Trận đấu: %d,Partida: %d,Partie : %d,Spiel: %d,Partida: %d,Матч: %d,試合: %d,경기: %d,比赛: %d,Partita: %d
 BOMB_TIMER,Bomb: %d,Bom: %d,Bomba: %d,Bombe : %d,Bombe: %d,Bomba: %d,Бомба: %d,爆弾: %d,폭탄: %d,炸弹: %d,Bomba: %d
 PLAYER_WINS,%s WINS!,%s THẮNG!,¡%s GANA!,%s GAGNE !,%s GEWINNT!,%s VENCEU!,%s ПОБЕДИЛ!,%s の勝利!,%s 승리!,%s 获胜!,%s VINCE!
@@ -289,3 +291,20 @@ SURVIVORS!,SURVIVORS!,SỐNG SÓT!,¡SUPERVIVIENTES!,SURVIVANTS !,ÜBERLEBENDE!,
 RETURN_TO_LOBBY,Return to Lobby,Về phòng chờ,Volver a la Sala,Retour au Salon,Zurück zur Lobby,Voltar ao Lobby,Вернуться в лобби,ロビーに戻る,로비로 돌아가기,返回大厅,Torna alla Lobby
 Return to Lobby,Return to Lobby,Về phòng chờ,Volver a la Sala,Retour au Salon,Zurück zur Lobby,Voltar ao Lobby,Вернуться в лобби,ロビーに戻る,로비로 돌아가기,返回大厅,Torna alla Lobby
 CUSTOMIZE_YOUR_CHARACTER,CUSTOMIZE CHARACTER,TÙY CHỈNH NHÂN VẬT,PERSONALIZAR PERSONAJE,PERSONNALISER LE PERSONNAGE,CHARAKTER ANPASSEN,PERSONALIZAR PERSONAGEM,НАСТРОЙКА ПЕРСОНАЖА,キャラクターカスタマイズ,캐릭터 꾸미기,自定义角色,PERSONALIZZA PERSONAGGIO
+RANK,Rank,Hạng,Rango,Rang,Rang,Classificação,Ранг,ランク,순위,排名,Classifica
+WINS,Wins,Thắng,Victorias,Victoires,Siege,Vitórias,Победы,勝利,승리,胜利,Vittorie
+CONTROLS,Controls,Điều khiển,Controles,Contrôles,Steuerung,Controles,Управление,操作,조작,控制,Controlli
+MOVE,Movement,Di chuyển,Movimiento,Déplacement,Bewegung,Movimento,Движение,移動,이동,移动,Movimento
+MOVE_KEYS,W A S D / Arrow Keys,W A S D / Phím mũi tên,W A S D / Flechas,Z Q S D / Flèches,W A S D / Pfeiltasten,W A S D / Setas,W A S D / Стрелки,W A S D / 矢印キー,W A S D / 방향키,W A S D / 方向键,W A S D / Frecce
+THROW_BOMB,Throw Bomb,Ném bom,Lanzar bomba,Lancer bombe,Bombe werfen,Lançar bomba,Бросить бомбу,爆弾を投げる,폭탄 던지기,扔炸弹,Lancia bomba
+PUSH,Push,Đẩy,Empujar,Pousser,Schieben,Empurrar,Толкать,押す,밀기,推,Spingi
+KEY_E,E,E,E,E,E,E,E,E,E,E,E
+KEY_SPACE,Space,Phím cách,Espacio,Espace,Leertaste,Espaço,Пробел,スペース,스페이스,空格,Spazio
+MAP_RANDOM,Random,Ngẫu nhiên,Aleatorio,Aléatoire,Zufällig,Aleatório,Случайно,ランダム,무작위,随机,Casuale
+Random,Random,Ngẫu nhiên,Aleatorio,Aléatoire,Zufällig,Aleatório,Случайно,ランダム,무작위,随机,Casuale
+CAMPAIGN_VICTORY,CAMPAIGN VICTORY!,CHIẾN DỊCH THẮNG LỢI!,¡VICTORIA DE CAMPAÑA!,VICTOIRE DE CAMPAGNE !,KAMPAGNENSIEG!,VITÓRIA DA CAMPANHA!,ПОБЕДА В КАМПАНИИ!,キャンペーン勝利!,캠페인 승리!,战役胜利!,VITTORIA CAMPAGNA!
+CAMPAIGN_WINNER_TEXT,Player %s reached %d wins!,Người chơi %s đạt %d trận thắng!,¡El jugador %s alcanzó %d victorias!,Le joueur %s a atteint %d victoires !,Spieler %s hat %d Siege erreicht!,O jogador %s alcançou %d vitórias!,Игрок %s достиг %d побед!,プレイヤー %sが%d勝に到達!,플레이어 %s님이 %d승 달성!,玩家 %s达到%d胜!,Il giocatore %s ha raggiunto %d vittorie!
+PLAY_AGAIN,PLAY AGAIN,CHƠI LẠI,JUGAR DE NUEVO,REJOUER,NOCHMAL SPIELEN,JOGAR NOVAMENTE,ИГРАТЬ СНОВА,もう一度プレイ,다시 플레이,再玩一次,GIOCA ANCORA
+CAMPAIGN_MODE,Campaign Mode,Chế độ chiến dịch,Modo Campaña,Mode Campagne,Kampagnenmodus,Modo Campanha,Режим кампании,キャンペーンモード,캠페인 모드,战役模式,Modalità Campagna
+FIRST_TO,First to,Đích thắng,Primero a,Premier à,Erster bis,Primeiro a,До побед,先取,목표 승수,抢,Primo a
+CLOSE,CLOSE,ĐÓNG,CERRAR,FERMER,SCHLIEßEN,FECHAR,ЗАКРЫТЬ,閉じる,닫기,关闭,CHIUDI

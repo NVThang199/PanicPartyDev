@@ -78,6 +78,10 @@ push={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://translations/translations.en.translation", "res://translations/translations.vi.translation", "res://translations/translations.es.translation", "res://translations/translations.fr.translation", "res://translations/translations.de.translation", "res://translations/translations.pt_BR.translation", "res://translations/translations.ru.translation", "res://translations/translations.ja.translation", "res://translations/translations.ko.translation", "res://translations/translations.zh_CN.translation", "res://translations/translations.it.translation")
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -95,9 +99,3 @@ initialization/app_id=480
 initialization/initialize_on_startup=true
 initialization/embed_callbacks=false
 multiplayer_peer/max_channels=4
-
-[internationalization]
-
-locale/translations=PackedStringArray("res://translations/translations.en.translation", "res://translations/translations.vi.translation", "res://translations/translations.es.translation", "res://translations/translations.fr.translation", "res://translations/translations.de.translation", "res://translations/translations.pt_BR.translation", "res://translations/translations.ru.translation", "res://translations/translations.ja.translation", "res://translations/translations.ko.translation", "res://translations/translations.zh_CN.translation", "res://translations/translations.it.translation")
-locale/fallback="en"
-
