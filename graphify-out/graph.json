@@ -1471,7 +1471,7 @@
       "file_type": "code",
       "norm_label": "func _create_placeholder_avatar()",
       "source_file": "scripts/ui/tab_overlay.gd",
-      "source_location": "L185"
+      "source_location": "L178"
     },
     {
       "id": "scripts_ui_tab_overlay_gd__exit_tree",
@@ -8557,22 +8557,22 @@
     },
     {
       "source": "scripts_ui_tab_overlay_gd",
+      "target": "scripts_ui_tab_overlay_gd__create_placeholder_avatar",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/ui/tab_overlay.gd",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_ui_tab_overlay_gd",
       "target": "scripts_ui_tab_overlay_gd__notification",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/ui/tab_overlay.gd",
       "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_ui_tab_overlay_gd",
-      "target": "scripts_ui_tab_overlay_gd__create_placeholder_avatar",
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/ui/tab_overlay.gd",
-      "source_location": "L185",
       "weight": 1.0
     },
     {
@@ -10042,7 +10042,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/ui/tab_overlay.gd",
-      "source_location": "L115",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -10052,10 +10052,10 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/ui/tab_overlay.gd",
-      "source_location": "L142",
+      "source_location": "L143",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a623abe9c7b2e5ee1e09dd1436a16b4547d24fc7"
+  "built_at_commit": "a08faf964f2d1c793f8021214355fe208ad42aee"
 }

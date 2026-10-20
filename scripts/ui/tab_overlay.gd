@@ -78,11 +78,15 @@ func refresh() -> void:
 			var score_b = GameSession.player_scores.get(b, 0)
 			if score_a != score_b:
 				return score_a > score_b
-			return players_data[a].get("wins", 0) > players_data[b].get("wins", 0)
+			return a < b
 		)
 	else:
 		sorted_pids.sort_custom(func(a, b):
-			return players_data[a].get("wins", 0) > players_data[b].get("wins", 0)
+			if a == 1:
+				return true
+			if b == 1:
+				return false
+			return a < b
 		)
 
 	for idx in range(sorted_pids.size()):
@@ -91,7 +95,6 @@ func refresh() -> void:
 		var p_name: String = info.get("name", "Player %d" % pid)
 		var p_steam_id: int = info.get("steam_id", 0)
 		var p_ping: int = info.get("ping", 0)
-		var p_wins: int = info.get("wins", 0)
 		var p_score: int = GameSession.player_scores.get(pid, 0) if not in_lobby else 0
 
 		var row := HBoxContainer.new()
@@ -101,7 +104,7 @@ func refresh() -> void:
 		rank_lbl.text = "#%d" % (idx + 1)
 		rank_lbl.custom_minimum_size = Vector2(28, 0)
 		rank_lbl.add_theme_font_size_override("font_size", 16)
-		var has_lead = (p_score > 0) if (is_campaign and not in_lobby) else (p_wins > 0)
+		var has_lead = (p_score > 0) if (is_campaign and not in_lobby) else false
 		if idx == 0 and has_lead:
 			rank_lbl.modulate = Color(1.0, 0.85, 0.2)
 		else:
@@ -129,8 +132,8 @@ func refresh() -> void:
 			name_lbl.modulate = Color(0.4, 0.9, 1.0)
 		row.add_child(name_lbl)
 
-		var score_lbl := Label.new()
 		if is_campaign and not in_lobby:
+			var score_lbl := Label.new()
 			if GameSession.target_score > 0:
 				score_lbl.text = "%d / %d pts" % [p_score, GameSession.target_score]
 			else:
@@ -138,17 +141,7 @@ func refresh() -> void:
 			score_lbl.custom_minimum_size = Vector2(95, 0)
 			score_lbl.add_theme_font_size_override("font_size", 14)
 			score_lbl.modulate = Color(1.0, 0.85, 0.3) if p_score >= GameSession.target_score else (Color(1.0, 0.85, 0.3) if p_score > 0 else Color(0.6, 0.6, 0.6))
-		elif is_campaign and in_lobby:
-			score_lbl.text = "0 / %d pts" % GameSession.target_score
-			score_lbl.custom_minimum_size = Vector2(95, 0)
-			score_lbl.add_theme_font_size_override("font_size", 14)
-			score_lbl.modulate = Color(0.6, 0.6, 0.6)
-		else:
-			score_lbl.text = "%d %s" % [p_wins, tr("WINS")]
-			score_lbl.custom_minimum_size = Vector2(65, 0)
-			score_lbl.add_theme_font_size_override("font_size", 14)
-			score_lbl.modulate = Color(1.0, 0.85, 0.3) if p_wins > 0 else Color(0.6, 0.6, 0.6)
-		row.add_child(score_lbl)
+			row.add_child(score_lbl)
 
 		var status_lbl := Label.new()
 		status_lbl.add_theme_font_size_override("font_size", 14)

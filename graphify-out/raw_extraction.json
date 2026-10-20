@@ -2742,7 +2742,7 @@
       "label": "func _create_placeholder_avatar()",
       "file_type": "code",
       "source_file": "scripts/ui/tab_overlay.gd",
-      "source_location": "L185"
+      "source_location": "L178"
     },
     {
       "id": "scripts_minigames_hot_bomb_bomb_gd",
@@ -9269,7 +9269,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/ui/tab_overlay.gd",
-      "source_location": "L95",
+      "source_location": "L98",
       "weight": 1.0
     },
     {
@@ -9278,7 +9278,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/ui/tab_overlay.gd",
-      "source_location": "L115",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -9287,7 +9287,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/ui/tab_overlay.gd",
-      "source_location": "L134",
+      "source_location": "L137",
       "weight": 1.0
     },
     {
@@ -9296,7 +9296,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/ui/tab_overlay.gd",
-      "source_location": "L135",
+      "source_location": "L138",
       "weight": 1.0
     },
     {
@@ -9305,16 +9305,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/ui/tab_overlay.gd",
-      "source_location": "L140",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_ui_tab_overlay_gd_refresh",
-      "target": "gamesession",
-      "relation": "uses_singleton",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/ui/tab_overlay.gd",
-      "source_location": "L142",
+      "source_location": "L143",
       "weight": 1.0
     },
     {
@@ -9323,7 +9314,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/ui/tab_overlay.gd",
-      "source_location": "L185",
+      "source_location": "L178",
       "weight": 1.0
     },
     {
