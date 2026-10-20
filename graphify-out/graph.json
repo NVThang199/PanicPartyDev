@@ -541,7 +541,7 @@
       "file_type": "code",
       "norm_label": "func _on_host_failed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L544"
+      "source_location": "L547"
     },
     {
       "id": "scripts_core_main_gd__on_invite_pressed",
@@ -551,7 +551,7 @@
       "file_type": "code",
       "norm_label": "func _on_invite_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L584"
+      "source_location": "L586"
     },
     {
       "id": "scripts_core_main_gd__process_match_result",
@@ -561,7 +561,7 @@
       "file_type": "code",
       "norm_label": "func _process_match_result()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L722"
+      "source_location": "L724"
     },
     {
       "id": "scripts_systems_networking_gd",
@@ -1331,7 +1331,7 @@
       "file_type": "code",
       "norm_label": "func _on_character_confirmed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L262"
+      "source_location": "L265"
     },
     {
       "id": "scripts_core_main_gd__on_connected_to_server",
@@ -1341,7 +1341,7 @@
       "file_type": "code",
       "norm_label": "func _on_connected_to_server()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L562"
+      "source_location": "L565"
     },
     {
       "id": "scripts_core_main_gd__on_copy_code_pressed",
@@ -1351,7 +1351,7 @@
       "file_type": "code",
       "norm_label": "func _on_copy_code_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L612"
+      "source_location": "L614"
     },
     {
       "id": "scripts_core_main_gd__on_deferred_register_player",
@@ -1361,7 +1361,7 @@
       "file_type": "code",
       "norm_label": "func _on_deferred_register_player()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L316"
+      "source_location": "L319"
     },
     {
       "id": "scripts_core_main_gd__on_leave_pressed",
@@ -1371,7 +1371,7 @@
       "file_type": "code",
       "norm_label": "func _on_leave_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L592"
+      "source_location": "L594"
     },
     {
       "id": "scripts_core_main_gd__on_server_disconnected",
@@ -1381,7 +1381,7 @@
       "file_type": "code",
       "norm_label": "func _on_server_disconnected()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L574"
+      "source_location": "L576"
     },
     {
       "id": "scripts_core_main_gd__restore_lobby_session",
@@ -1391,7 +1391,7 @@
       "file_type": "code",
       "norm_label": "func _restore_lobby_session()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L327"
+      "source_location": "L330"
     },
     {
       "id": "scripts_core_main_gd_remove_player",
@@ -1401,7 +1401,7 @@
       "file_type": "code",
       "norm_label": "func remove_player()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L516"
+      "source_location": "L519"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__on_peer_disconnected",
@@ -1851,7 +1851,7 @@
       "file_type": "code",
       "norm_label": "func _change_to_minigame()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L908"
+      "source_location": "L910"
     },
     {
       "id": "scripts_core_main_gd__on_campaign_play_again",
@@ -1861,7 +1861,7 @@
       "file_type": "code",
       "norm_label": "func _on_campaign_play_again()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L780"
+      "source_location": "L782"
     },
     {
       "id": "scripts_core_main_gd__on_campaign_toggled",
@@ -1871,7 +1871,7 @@
       "file_type": "code",
       "norm_label": "func _on_campaign_toggled()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L635"
+      "source_location": "L637"
     },
     {
       "id": "scripts_core_main_gd__on_target_score_pressed",
@@ -1881,7 +1881,7 @@
       "file_type": "code",
       "norm_label": "func _on_target_score_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L645"
+      "source_location": "L647"
     },
     {
       "id": "scripts_core_main_gd__sync_all_scores_to_all",
@@ -1891,7 +1891,7 @@
       "file_type": "code",
       "norm_label": "func _sync_all_scores_to_all()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L674"
+      "source_location": "L676"
     },
     {
       "id": "scripts_core_main_gd_register_player",
@@ -1901,7 +1901,7 @@
       "file_type": "code",
       "norm_label": "rpc func register_player()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L380"
+      "source_location": "L383"
     },
     {
       "id": "scripts_core_main_gd_reset_campaign_wins_rpc",
@@ -1911,7 +1911,7 @@
       "file_type": "code",
       "norm_label": "rpc func reset_campaign_wins_rpc()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L793"
+      "source_location": "L795"
     },
     {
       "id": "scripts_core_main_gd_sync_all_scores",
@@ -1921,7 +1921,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_all_scores()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L684"
+      "source_location": "L686"
     },
     {
       "id": "scripts_core_main_gd_sync_campaign_config",
@@ -1931,7 +1931,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_campaign_config()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L656"
+      "source_location": "L658"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__on_spectator_character_confirmed",
@@ -3021,7 +3021,7 @@
       "file_type": "code",
       "norm_label": "func _create_placeholder_avatar()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L242"
+      "source_location": "L245"
     },
     {
       "id": "scripts_core_main_gd__notification",
@@ -3031,7 +3031,7 @@
       "file_type": "code",
       "norm_label": "func _notification()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L127"
+      "source_location": "L130"
     },
     {
       "id": "scripts_core_main_gd__on_avatar_updated",
@@ -3041,7 +3041,7 @@
       "file_type": "code",
       "norm_label": "func _on_avatar_updated()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L249"
+      "source_location": "L252"
     },
     {
       "id": "scripts_core_main_gd__on_map_selected",
@@ -3051,7 +3051,7 @@
       "file_type": "code",
       "norm_label": "func _on_map_selected()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L625"
+      "source_location": "L627"
     },
     {
       "id": "scripts_core_main_gd__on_pause_invite_pressed",
@@ -3061,7 +3061,7 @@
       "file_type": "code",
       "norm_label": "func _on_pause_invite_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L604"
+      "source_location": "L606"
     },
     {
       "id": "scripts_core_main_gd__on_pause_menu_pressed",
@@ -3071,7 +3071,7 @@
       "file_type": "code",
       "norm_label": "func _on_pause_menu_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L609"
+      "source_location": "L611"
     },
     {
       "id": "scripts_core_main_gd__on_pause_settings_pressed",
@@ -3081,7 +3081,7 @@
       "file_type": "code",
       "norm_label": "func _on_pause_settings_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L599"
+      "source_location": "L601"
     },
     {
       "id": "scripts_core_main_gd__on_peer_connected",
@@ -3091,7 +3091,7 @@
       "file_type": "code",
       "norm_label": "func _on_peer_connected()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L579"
+      "source_location": "L581"
     },
     {
       "id": "scripts_core_main_gd__on_ready_pressed",
@@ -3101,7 +3101,7 @@
       "file_type": "code",
       "norm_label": "func _on_ready_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L806"
+      "source_location": "L808"
     },
     {
       "id": "scripts_core_main_gd__on_start_pressed",
@@ -3111,7 +3111,7 @@
       "file_type": "code",
       "norm_label": "func _on_start_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L873"
+      "source_location": "L875"
     },
     {
       "id": "scripts_core_main_gd__pick_random_map",
@@ -3121,7 +3121,7 @@
       "file_type": "code",
       "norm_label": "func _pick_random_map()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L631"
+      "source_location": "L633"
     },
     {
       "id": "scripts_core_main_gd__process",
@@ -3131,7 +3131,7 @@
       "file_type": "code",
       "norm_label": "func _process()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L147"
+      "source_location": "L150"
     },
     {
       "id": "scripts_core_main_gd__sync_all_wins_to_all",
@@ -3141,7 +3141,7 @@
       "file_type": "code",
       "norm_label": "func _sync_all_wins_to_all()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L691"
+      "source_location": "L693"
     },
     {
       "id": "scripts_core_main_gd__update_score_buttons_style",
@@ -3151,7 +3151,7 @@
       "file_type": "code",
       "norm_label": "func _update_score_buttons_style()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L663"
+      "source_location": "L665"
     },
     {
       "id": "scripts_core_main_gd__update_ui_text",
@@ -3161,7 +3161,7 @@
       "file_type": "code",
       "norm_label": "func _update_ui_text()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L133"
+      "source_location": "L136"
     },
     {
       "id": "scripts_core_main_gd_apply_knockback_rpc",
@@ -3171,7 +3171,7 @@
       "file_type": "code",
       "norm_label": "rpc func apply_knockback_rpc()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L204"
+      "source_location": "L207"
     },
     {
       "id": "scripts_core_main_gd_clear_all_players",
@@ -3181,7 +3181,7 @@
       "file_type": "code",
       "norm_label": "func clear_all_players()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L500"
+      "source_location": "L503"
     },
     {
       "id": "scripts_core_main_gd_get_ready_states",
@@ -3191,7 +3191,7 @@
       "file_type": "code",
       "norm_label": "func get_ready_states()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L854"
+      "source_location": "L856"
     },
     {
       "id": "scripts_core_main_gd_on_client_connected",
@@ -3201,7 +3201,7 @@
       "file_type": "code",
       "norm_label": "func on_client_connected()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L557"
+      "source_location": "L560"
     },
     {
       "id": "scripts_core_main_gd_on_host_created",
@@ -3211,7 +3211,7 @@
       "file_type": "code",
       "norm_label": "func on_host_created()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L539"
+      "source_location": "L542"
     },
     {
       "id": "scripts_core_main_gd_prepare_start_game_rpc",
@@ -3221,7 +3221,7 @@
       "file_type": "code",
       "norm_label": "rpc func prepare_start_game_rpc()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L921"
+      "source_location": "L923"
     },
     {
       "id": "scripts_core_main_gd_report_ping",
@@ -3231,7 +3231,7 @@
       "file_type": "code",
       "norm_label": "rpc func report_ping()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L229"
+      "source_location": "L232"
     },
     {
       "id": "scripts_core_main_gd_request_ping",
@@ -3241,7 +3241,7 @@
       "file_type": "code",
       "norm_label": "rpc func request_ping()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L212"
+      "source_location": "L215"
     },
     {
       "id": "scripts_core_main_gd_request_push",
@@ -3251,7 +3251,7 @@
       "file_type": "code",
       "norm_label": "rpc func request_push()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L184"
+      "source_location": "L187"
     },
     {
       "id": "scripts_core_main_gd_respond_ping",
@@ -3261,7 +3261,7 @@
       "file_type": "code",
       "norm_label": "rpc func respond_ping()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L219"
+      "source_location": "L222"
     },
     {
       "id": "scripts_core_main_gd_set_ready_state",
@@ -3271,7 +3271,7 @@
       "file_type": "code",
       "norm_label": "rpc func set_ready_state()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L828"
+      "source_location": "L830"
     },
     {
       "id": "scripts_core_main_gd_show_campaign_victory_rpc",
@@ -3281,7 +3281,7 @@
       "file_type": "code",
       "norm_label": "rpc func show_campaign_victory_rpc()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L772"
+      "source_location": "L774"
     },
     {
       "id": "scripts_core_main_gd_show_character_select",
@@ -3291,7 +3291,7 @@
       "file_type": "code",
       "norm_label": "func show_character_select()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L253"
+      "source_location": "L256"
     },
     {
       "id": "scripts_core_main_gd_spawn_player_rpc",
@@ -3301,7 +3301,7 @@
       "file_type": "code",
       "norm_label": "rpc func spawn_player_rpc()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L429"
+      "source_location": "L432"
     },
     {
       "id": "scripts_core_main_gd_start_game",
@@ -3311,7 +3311,7 @@
       "file_type": "code",
       "norm_label": "func start_game()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L878"
+      "source_location": "L880"
     },
     {
       "id": "scripts_core_main_gd_start_game_rpc",
@@ -3321,7 +3321,7 @@
       "file_type": "code",
       "norm_label": "rpc func start_game_rpc()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L931"
+      "source_location": "L933"
     },
     {
       "id": "scripts_core_main_gd_sync_all_wins",
@@ -3331,7 +3331,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_all_wins()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L704"
+      "source_location": "L706"
     },
     {
       "id": "scripts_core_main_gd_sync_player_state",
@@ -3341,7 +3341,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_player_state()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L171"
+      "source_location": "L174"
     },
     {
       "id": "scripts_core_main_gd_sync_player_wins",
@@ -3351,7 +3351,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_player_wins()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L714"
+      "source_location": "L716"
     },
     {
       "id": "scripts_core_main_gd_sync_ready_states",
@@ -3361,7 +3361,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_ready_states()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L845"
+      "source_location": "L847"
     },
     {
       "id": "scripts_core_main_gd_update_start_button",
@@ -3371,7 +3371,7 @@
       "file_type": "code",
       "norm_label": "func update_start_button()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L860"
+      "source_location": "L862"
     },
     {
       "id": "scripts_core_main_gd_update_tab_overlay",
@@ -3381,7 +3381,7 @@
       "file_type": "code",
       "norm_label": "func update_tab_overlay()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L238"
+      "source_location": "L241"
     },
     {
       "id": "scenes_menus_character_select_tscn",
@@ -3781,7 +3781,7 @@
       "file_type": "code",
       "norm_label": "func _apply_character_color()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L73"
+      "source_location": "L78"
     },
     {
       "id": "scripts_players_player_gd__apply_character_hat",
@@ -3791,7 +3791,7 @@
       "file_type": "code",
       "norm_label": "func _apply_character_hat()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L435"
+      "source_location": "L454"
     },
     {
       "id": "scripts_players_player_gd__apply_color_recursive",
@@ -3801,7 +3801,7 @@
       "file_type": "code",
       "norm_label": "func _apply_color_recursive()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L101"
+      "source_location": "L106"
     },
     {
       "id": "scripts_players_player_gd__apply_face_recursive",
@@ -3811,7 +3811,7 @@
       "file_type": "code",
       "norm_label": "func _apply_face_recursive()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L79"
+      "source_location": "L84"
     },
     {
       "id": "scripts_players_player_gd__apply_state",
@@ -3821,7 +3821,7 @@
       "file_type": "code",
       "norm_label": "func _apply_state()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L135"
+      "source_location": "L140"
     },
     {
       "id": "scripts_players_player_gd__clear_materials_recursive",
@@ -3831,7 +3831,7 @@
       "file_type": "code",
       "norm_label": "func _clear_materials_recursive()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L377"
+      "source_location": "L396"
     },
     {
       "id": "scripts_players_player_gd__ensure_nodes",
@@ -3841,7 +3841,7 @@
       "file_type": "code",
       "norm_label": "func _ensure_nodes()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L129"
+      "source_location": "L134"
     },
     {
       "id": "scripts_players_player_gd__find_push_target",
@@ -3851,7 +3851,7 @@
       "file_type": "code",
       "norm_label": "func _find_push_target()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L182"
+      "source_location": "L201"
     },
     {
       "id": "scripts_players_player_gd__physics_process",
@@ -3861,7 +3861,17 @@
       "file_type": "code",
       "norm_label": "func _physics_process()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L252"
+      "source_location": "L271"
+    },
+    {
+      "id": "scripts_players_player_gd__process",
+      "label": "func _process()",
+      "community": 6,
+      "community_name": "player.gd",
+      "file_type": "code",
+      "norm_label": "func _process()",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L151"
     },
     {
       "id": "scripts_players_player_gd__ready",
@@ -3871,7 +3881,7 @@
       "file_type": "code",
       "norm_label": "func _ready()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L323"
+      "source_location": "L342"
     },
     {
       "id": "scripts_players_player_gd__safe_wait_animation",
@@ -3881,7 +3891,7 @@
       "file_type": "code",
       "norm_label": "func _safe_wait_animation()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L142"
+      "source_location": "L161"
     },
     {
       "id": "scripts_players_player_gd__setup_hand_socket",
@@ -3891,7 +3901,7 @@
       "file_type": "code",
       "norm_label": "func _setup_hand_socket()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L451"
+      "source_location": "L470"
     },
     {
       "id": "scripts_players_player_gd__setup_head_socket",
@@ -3901,7 +3911,7 @@
       "file_type": "code",
       "norm_label": "func _setup_head_socket()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L420"
+      "source_location": "L439"
     },
     {
       "id": "scripts_players_player_gd_apply_knockback",
@@ -3911,7 +3921,7 @@
       "file_type": "code",
       "norm_label": "func apply_knockback()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L158"
+      "source_location": "L177"
     },
     {
       "id": "scripts_players_player_gd_die_in_minigame",
@@ -3921,7 +3931,7 @@
       "file_type": "code",
       "norm_label": "func die_in_minigame()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L511"
+      "source_location": "L530"
     },
     {
       "id": "scripts_players_player_gd_get_hand_socket",
@@ -3931,7 +3941,7 @@
       "file_type": "code",
       "norm_label": "func get_hand_socket()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L464"
+      "source_location": "L483"
     },
     {
       "id": "scripts_players_player_gd_perform_push",
@@ -3941,7 +3951,7 @@
       "file_type": "code",
       "norm_label": "func perform_push()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L209"
+      "source_location": "L228"
     },
     {
       "id": "scripts_players_player_gd_pick_up_bomb",
@@ -3951,7 +3961,7 @@
       "file_type": "code",
       "norm_label": "func pick_up_bomb()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L475"
+      "source_location": "L494"
     },
     {
       "id": "scripts_players_player_gd_play_anim",
@@ -3961,7 +3971,7 @@
       "file_type": "code",
       "norm_label": "func play_anim()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L369"
+      "source_location": "L388"
     },
     {
       "id": "scripts_players_player_gd_release_bomb",
@@ -3971,7 +3981,7 @@
       "file_type": "code",
       "norm_label": "func release_bomb()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L482"
+      "source_location": "L501"
     },
     {
       "id": "scripts_players_player_gd_set_character_color",
@@ -3981,7 +3991,7 @@
       "file_type": "code",
       "norm_label": "func set_character_color()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L31"
+      "source_location": "L36"
     },
     {
       "id": "scripts_players_player_gd_set_character_customization",
@@ -3991,7 +4001,7 @@
       "file_type": "code",
       "norm_label": "func set_character_customization()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L43"
+      "source_location": "L48"
     },
     {
       "id": "scripts_players_player_gd_set_character_face",
@@ -4001,7 +4011,7 @@
       "file_type": "code",
       "norm_label": "func set_character_face()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L35"
+      "source_location": "L40"
     },
     {
       "id": "scripts_players_player_gd_set_character_hat",
@@ -4011,7 +4021,7 @@
       "file_type": "code",
       "norm_label": "func set_character_hat()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L39"
+      "source_location": "L44"
     },
     {
       "id": "scripts_players_player_gd_set_player_name",
@@ -4021,7 +4031,7 @@
       "file_type": "code",
       "norm_label": "func set_player_name()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L121"
+      "source_location": "L126"
     },
     {
       "id": "scripts_players_player_gd_switch_character",
@@ -4031,7 +4041,7 @@
       "file_type": "code",
       "norm_label": "func switch_character()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L386"
+      "source_location": "L405"
     },
     {
       "id": "scripts_players_player_gd_sync_character_color",
@@ -4041,7 +4051,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_character_color()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L51"
+      "source_location": "L56"
     },
     {
       "id": "scripts_players_player_gd_sync_character_customization",
@@ -4051,7 +4061,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_character_customization()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L66"
+      "source_location": "L71"
     },
     {
       "id": "scripts_players_player_gd_sync_character_face",
@@ -4061,7 +4071,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_character_face()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L56"
+      "source_location": "L61"
     },
     {
       "id": "scripts_players_player_gd_sync_character_hat",
@@ -4071,7 +4081,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_character_hat()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L61"
+      "source_location": "L66"
     },
     {
       "id": "scripts_players_player_gd_throw_held_bomb",
@@ -4081,7 +4091,7 @@
       "file_type": "code",
       "norm_label": "func throw_held_bomb()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L487"
+      "source_location": "L506"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd",
@@ -4111,7 +4121,7 @@
       "file_type": "code",
       "norm_label": "func _check_game_over()",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L384"
+      "source_location": "L385"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__collect_existing_tiles",
@@ -4131,7 +4141,7 @@
       "file_type": "code",
       "norm_label": "func _create_walls()",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L264"
+      "source_location": "L265"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__drop_red_tiles",
@@ -4141,7 +4151,7 @@
       "file_type": "code",
       "norm_label": "func _drop_red_tiles()",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L218"
+      "source_location": "L219"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__generate_tile_grid",
@@ -4181,7 +4191,7 @@
       "file_type": "code",
       "norm_label": "func _on_fall_detected()",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L363"
+      "source_location": "L364"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__on_minigame_ready",
@@ -4271,7 +4281,7 @@
       "file_type": "code",
       "norm_label": "func _reset_all_tiles()",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L230"
+      "source_location": "L231"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__schedule_reset_tiles",
@@ -4281,7 +4291,7 @@
       "file_type": "code",
       "norm_label": "func _schedule_reset_tiles()",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L240"
+      "source_location": "L241"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_drop_tiles_rpc",
@@ -4291,7 +4301,7 @@
       "file_type": "code",
       "norm_label": "rpc func drop_tiles_rpc()",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L327"
+      "source_location": "L328"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_play_player_fall_rpc",
@@ -4301,7 +4311,7 @@
       "file_type": "code",
       "norm_label": "rpc func play_player_fall_rpc()",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L377"
+      "source_location": "L378"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_reset_tiles_rpc",
@@ -4311,7 +4321,7 @@
       "file_type": "code",
       "norm_label": "rpc func reset_tiles_rpc()",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L250"
+      "source_location": "L251"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_stablefooting",
@@ -4331,7 +4341,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_all_tile_colors()",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L301"
+      "source_location": "L302"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_sync_cycle_timer",
@@ -4341,7 +4351,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_cycle_timer()",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L286"
+      "source_location": "L287"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_sync_tile_color",
@@ -4351,7 +4361,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_tile_color()",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L314"
+      "source_location": "L315"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_trigger_crumble_warning_rpc",
@@ -4361,7 +4371,7 @@
       "file_type": "code",
       "norm_label": "rpc func trigger_crumble_warning_rpc()",
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L293"
+      "source_location": "L294"
     },
     {
       "id": "scripts_ui_settings_menu_gd",
@@ -4772,7 +4782,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L127",
+      "source_location": "L130",
       "weight": 1.0
     },
     {
@@ -4782,7 +4792,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L133",
+      "source_location": "L136",
       "weight": 1.0
     },
     {
@@ -4792,7 +4802,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L147",
+      "source_location": "L150",
       "weight": 1.0
     },
     {
@@ -4802,7 +4812,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L171",
+      "source_location": "L174",
       "weight": 1.0
     },
     {
@@ -4812,7 +4822,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L184",
+      "source_location": "L187",
       "weight": 1.0
     },
     {
@@ -4822,7 +4832,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L204",
+      "source_location": "L207",
       "weight": 1.0
     },
     {
@@ -4832,7 +4842,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L212",
+      "source_location": "L215",
       "weight": 1.0
     },
     {
@@ -4842,7 +4852,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L219",
+      "source_location": "L222",
       "weight": 1.0
     },
     {
@@ -4852,7 +4862,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L229",
+      "source_location": "L232",
       "weight": 1.0
     },
     {
@@ -4862,7 +4872,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L238",
+      "source_location": "L241",
       "weight": 1.0
     },
     {
@@ -4872,7 +4882,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L242",
+      "source_location": "L245",
       "weight": 1.0
     },
     {
@@ -4882,7 +4892,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L249",
+      "source_location": "L252",
       "weight": 1.0
     },
     {
@@ -4892,7 +4902,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L253",
+      "source_location": "L256",
       "weight": 1.0
     },
     {
@@ -4902,7 +4912,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L262",
+      "source_location": "L265",
       "weight": 1.0
     },
     {
@@ -4912,7 +4922,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L316",
+      "source_location": "L319",
       "weight": 1.0
     },
     {
@@ -4922,7 +4932,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L327",
+      "source_location": "L330",
       "weight": 1.0
     },
     {
@@ -4932,7 +4942,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L380",
+      "source_location": "L383",
       "weight": 1.0
     },
     {
@@ -4952,7 +4962,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L429",
+      "source_location": "L432",
       "weight": 1.0
     },
     {
@@ -4962,7 +4972,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L500",
+      "source_location": "L503",
       "weight": 1.0
     },
     {
@@ -4972,7 +4982,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L516",
+      "source_location": "L519",
       "weight": 1.0
     },
     {
@@ -4982,7 +4992,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L539",
+      "source_location": "L542",
       "weight": 1.0
     },
     {
@@ -4992,7 +5002,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L544",
+      "source_location": "L547",
       "weight": 1.0
     },
     {
@@ -5002,7 +5012,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L557",
+      "source_location": "L560",
       "weight": 1.0
     },
     {
@@ -5012,7 +5022,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L562",
+      "source_location": "L565",
       "weight": 1.0
     },
     {
@@ -5022,7 +5032,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L574",
+      "source_location": "L576",
       "weight": 1.0
     },
     {
@@ -5032,7 +5042,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L579",
+      "source_location": "L581",
       "weight": 1.0
     },
     {
@@ -5042,7 +5052,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L584",
+      "source_location": "L586",
       "weight": 1.0
     },
     {
@@ -5052,7 +5062,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L592",
+      "source_location": "L594",
       "weight": 1.0
     },
     {
@@ -5062,7 +5072,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L599",
+      "source_location": "L601",
       "weight": 1.0
     },
     {
@@ -5072,7 +5082,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L604",
+      "source_location": "L606",
       "weight": 1.0
     },
     {
@@ -5082,7 +5092,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L609",
+      "source_location": "L611",
       "weight": 1.0
     },
     {
@@ -5092,7 +5102,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L612",
+      "source_location": "L614",
       "weight": 1.0
     },
     {
@@ -5102,7 +5112,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L625",
+      "source_location": "L627",
       "weight": 1.0
     },
     {
@@ -5112,7 +5122,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L631",
+      "source_location": "L633",
       "weight": 1.0
     },
     {
@@ -5122,7 +5132,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L635",
+      "source_location": "L637",
       "weight": 1.0
     },
     {
@@ -5132,7 +5142,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L645",
+      "source_location": "L647",
       "weight": 1.0
     },
     {
@@ -5142,7 +5152,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L656",
+      "source_location": "L658",
       "weight": 1.0
     },
     {
@@ -5152,7 +5162,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L663",
+      "source_location": "L665",
       "weight": 1.0
     },
     {
@@ -5162,7 +5172,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L674",
+      "source_location": "L676",
       "weight": 1.0
     },
     {
@@ -5172,7 +5182,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L684",
+      "source_location": "L686",
       "weight": 1.0
     },
     {
@@ -5182,7 +5192,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L691",
+      "source_location": "L693",
       "weight": 1.0
     },
     {
@@ -5192,7 +5202,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L704",
+      "source_location": "L706",
       "weight": 1.0
     },
     {
@@ -5202,7 +5212,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L714",
+      "source_location": "L716",
       "weight": 1.0
     },
     {
@@ -5212,7 +5222,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L722",
+      "source_location": "L724",
       "weight": 1.0
     },
     {
@@ -5222,7 +5232,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L772",
+      "source_location": "L774",
       "weight": 1.0
     },
     {
@@ -5232,7 +5242,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L780",
+      "source_location": "L782",
       "weight": 1.0
     },
     {
@@ -5242,7 +5252,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L793",
+      "source_location": "L795",
       "weight": 1.0
     },
     {
@@ -5252,7 +5262,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L806",
+      "source_location": "L808",
       "weight": 1.0
     },
     {
@@ -5262,7 +5272,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L828",
+      "source_location": "L830",
       "weight": 1.0
     },
     {
@@ -5272,7 +5282,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L845",
+      "source_location": "L847",
       "weight": 1.0
     },
     {
@@ -5282,7 +5292,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L854",
+      "source_location": "L856",
       "weight": 1.0
     },
     {
@@ -5292,7 +5302,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L860",
+      "source_location": "L862",
       "weight": 1.0
     },
     {
@@ -5302,7 +5312,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L873",
+      "source_location": "L875",
       "weight": 1.0
     },
     {
@@ -5312,7 +5322,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L878",
+      "source_location": "L880",
       "weight": 1.0
     },
     {
@@ -5322,7 +5332,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L908",
+      "source_location": "L910",
       "weight": 1.0
     },
     {
@@ -5332,7 +5342,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L921",
+      "source_location": "L923",
       "weight": 1.0
     },
     {
@@ -5342,7 +5352,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L931",
+      "source_location": "L933",
       "weight": 1.0
     },
     {
@@ -6422,7 +6432,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L218",
+      "source_location": "L219",
       "weight": 1.0
     },
     {
@@ -6432,7 +6442,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L230",
+      "source_location": "L231",
       "weight": 1.0
     },
     {
@@ -6442,7 +6452,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L240",
+      "source_location": "L241",
       "weight": 1.0
     },
     {
@@ -6452,7 +6462,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L250",
+      "source_location": "L251",
       "weight": 1.0
     },
     {
@@ -6462,7 +6472,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L264",
+      "source_location": "L265",
       "weight": 1.0
     },
     {
@@ -6472,7 +6482,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L286",
+      "source_location": "L287",
       "weight": 1.0
     },
     {
@@ -6482,7 +6492,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L293",
+      "source_location": "L294",
       "weight": 1.0
     },
     {
@@ -6492,7 +6502,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L301",
+      "source_location": "L302",
       "weight": 1.0
     },
     {
@@ -6502,7 +6512,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L314",
+      "source_location": "L315",
       "weight": 1.0
     },
     {
@@ -6522,7 +6532,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L327",
+      "source_location": "L328",
       "weight": 1.0
     },
     {
@@ -6532,7 +6542,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L363",
+      "source_location": "L364",
       "weight": 1.0
     },
     {
@@ -6542,7 +6552,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L377",
+      "source_location": "L378",
       "weight": 1.0
     },
     {
@@ -6552,7 +6562,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/stable_footing/stable_footing.gd",
-      "source_location": "L384",
+      "source_location": "L385",
       "weight": 1.0
     },
     {
@@ -6642,7 +6652,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L101",
+      "source_location": "L106",
       "weight": 1.0
     },
     {
@@ -6652,7 +6662,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L121",
+      "source_location": "L126",
       "weight": 1.0
     },
     {
@@ -6662,7 +6672,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L129",
+      "source_location": "L134",
       "weight": 1.0
     },
     {
@@ -6672,7 +6682,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L135",
+      "source_location": "L140",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd__process",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L151",
       "weight": 1.0
     },
     {
@@ -6682,7 +6702,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L142",
+      "source_location": "L161",
       "weight": 1.0
     },
     {
@@ -6692,7 +6712,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L158",
+      "source_location": "L177",
       "weight": 1.0
     },
     {
@@ -6702,7 +6722,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L182",
+      "source_location": "L201",
       "weight": 1.0
     },
     {
@@ -6712,7 +6732,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L209",
+      "source_location": "L228",
       "weight": 1.0
     },
     {
@@ -6722,17 +6742,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L252",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_players_player_gd",
-      "target": "scripts_players_player_gd_set_character_color",
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/players/player.gd",
-      "source_location": "L31",
+      "source_location": "L271",
       "weight": 1.0
     },
     {
@@ -6742,17 +6752,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L323",
+      "source_location": "L342",
       "weight": 1.0
     },
     {
       "source": "scripts_players_player_gd",
-      "target": "scripts_players_player_gd_set_character_face",
+      "target": "scripts_players_player_gd_set_character_color",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -6762,7 +6772,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L369",
+      "source_location": "L388",
       "weight": 1.0
     },
     {
@@ -6772,7 +6782,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L377",
+      "source_location": "L396",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd_set_character_face",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -6782,17 +6802,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L386",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_players_player_gd",
-      "target": "scripts_players_player_gd_set_character_hat",
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/players/player.gd",
-      "source_location": "L39",
+      "source_location": "L405",
       "weight": 1.0
     },
     {
@@ -6802,17 +6812,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L420",
+      "source_location": "L439",
       "weight": 1.0
     },
     {
       "source": "scripts_players_player_gd",
-      "target": "scripts_players_player_gd_set_character_customization",
+      "target": "scripts_players_player_gd_set_character_hat",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L43",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -6822,7 +6832,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L435",
+      "source_location": "L454",
       "weight": 1.0
     },
     {
@@ -6832,7 +6842,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L451",
+      "source_location": "L470",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd_set_character_customization",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
@@ -6842,7 +6862,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L464",
+      "source_location": "L483",
       "weight": 1.0
     },
     {
@@ -6852,7 +6872,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L475",
+      "source_location": "L494",
       "weight": 1.0
     },
     {
@@ -6862,7 +6882,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L482",
+      "source_location": "L501",
       "weight": 1.0
     },
     {
@@ -6872,17 +6892,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L487",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_players_player_gd",
-      "target": "scripts_players_player_gd_sync_character_color",
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/players/player.gd",
-      "source_location": "L51",
+      "source_location": "L506",
       "weight": 1.0
     },
     {
@@ -6892,12 +6902,12 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L511",
+      "source_location": "L530",
       "weight": 1.0
     },
     {
       "source": "scripts_players_player_gd",
-      "target": "scripts_players_player_gd_sync_character_face",
+      "target": "scripts_players_player_gd_sync_character_color",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -6907,7 +6917,7 @@
     },
     {
       "source": "scripts_players_player_gd",
-      "target": "scripts_players_player_gd_sync_character_hat",
+      "target": "scripts_players_player_gd_sync_character_face",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -6917,7 +6927,7 @@
     },
     {
       "source": "scripts_players_player_gd",
-      "target": "scripts_players_player_gd_sync_character_customization",
+      "target": "scripts_players_player_gd_sync_character_hat",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -6927,12 +6937,22 @@
     },
     {
       "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd_sync_character_customization",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
       "target": "scripts_players_player_gd__apply_character_color",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L73",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -6942,7 +6962,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L79",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -9212,7 +9232,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L915",
+      "source_location": "L917",
       "weight": 1.0
     },
     {
@@ -9222,7 +9242,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L783",
+      "source_location": "L785",
       "weight": 1.0
     },
     {
@@ -9232,7 +9252,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L643",
+      "source_location": "L645",
       "weight": 1.0
     },
     {
@@ -9242,7 +9262,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L288",
+      "source_location": "L291",
       "weight": 1.0
     },
     {
@@ -9252,17 +9272,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L306",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_core_main_gd__on_connected_to_server",
-      "target": "gamesession",
-      "relation": "uses_singleton",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/core/main.gd",
-      "source_location": "L565",
+      "source_location": "L309",
       "weight": 1.0
     },
     {
@@ -9272,7 +9282,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L568",
+      "source_location": "L570",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_connected_to_server",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L572",
       "weight": 1.0
     },
     {
@@ -9282,7 +9302,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L613",
+      "source_location": "L615",
       "weight": 1.0
     },
     {
@@ -9292,7 +9312,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L319",
+      "source_location": "L322",
       "weight": 1.0
     },
     {
@@ -9302,7 +9322,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L322",
+      "source_location": "L325",
       "weight": 1.0
     },
     {
@@ -9312,7 +9332,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L549",
+      "source_location": "L552",
       "weight": 1.0
     },
     {
@@ -9322,7 +9342,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L588",
+      "source_location": "L590",
       "weight": 1.0
     },
     {
@@ -9332,7 +9352,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L588",
+      "source_location": "L590",
       "weight": 1.0
     },
     {
@@ -9342,7 +9362,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L595",
+      "source_location": "L597",
       "weight": 1.0
     },
     {
@@ -9352,7 +9372,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L577",
+      "source_location": "L579",
       "weight": 1.0
     },
     {
@@ -9362,7 +9382,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L653",
+      "source_location": "L655",
       "weight": 1.0
     },
     {
@@ -9372,7 +9392,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L742",
+      "source_location": "L744",
       "weight": 1.0
     },
     {
@@ -9382,7 +9402,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L756",
+      "source_location": "L758",
       "weight": 1.0
     },
     {
@@ -9402,7 +9422,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L117",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -9412,7 +9432,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L342",
+      "source_location": "L345",
       "weight": 1.0
     },
     {
@@ -9422,7 +9442,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L358",
+      "source_location": "L361",
       "weight": 1.0
     },
     {
@@ -9432,7 +9452,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L681",
+      "source_location": "L683",
       "weight": 1.0
     },
     {
@@ -9442,7 +9462,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L424",
+      "source_location": "L427",
       "weight": 1.0
     },
     {
@@ -9452,7 +9472,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L519",
+      "source_location": "L522",
       "weight": 1.0
     },
     {
@@ -9462,7 +9482,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L798",
+      "source_location": "L800",
       "weight": 1.0
     },
     {
@@ -9472,7 +9492,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L687",
+      "source_location": "L689",
       "weight": 1.0
     },
     {
@@ -9482,7 +9502,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L658",
+      "source_location": "L660",
       "weight": 1.0
     },
     {
@@ -9672,7 +9692,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L363",
+      "source_location": "L382",
       "weight": 1.0
     },
     {
@@ -10037,5 +10057,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "4e02d2729f8d51e38afc268eb02a809eb5a719ac"
+  "built_at_commit": "a623abe9c7b2e5ee1e09dd1436a16b4547d24fc7"
 }

@@ -114,8 +114,11 @@ func _ready() -> void:
 		clear_all_players()
 		Networking.host_lobby()
 	elif multiplayer.multiplayer_peer != null and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
-		GameSession.reset_campaign_scores()
-		_restore_lobby_session()
+		if GameSession.has_selected_character:
+			GameSession.reset_campaign_scores()
+			_restore_lobby_session()
+		else:
+			show_character_select()
 	elif multiplayer.multiplayer_peer != null and not multiplayer.is_server():
 		show_character_select()
 
@@ -562,12 +565,11 @@ func on_client_connected() -> void:
 func _on_connected_to_server() -> void:
 	print("[CLIENT] connected_to_server fired")
 	status_label.visible = false
-	var char_path = GameSession.selected_character
-	if char_path != "" and not multiplayer.is_server():
+	if GameSession.has_selected_character and not multiplayer.is_server():
 		var my_name = Networking.get_local_player_name()
 		var my_steam_id = Networking.get_local_steam_id()
-		print("[CLIENT] Auto-registering previously selected character: %s" % char_path)
-		register_player.rpc_id(1, char_path, my_name, my_steam_id)
+		print("[CLIENT] Auto-registering previously selected character: %s" % GameSession.selected_character)
+		register_player.rpc_id(1, GameSession.selected_character, my_name, my_steam_id, GameSession.selected_color, GameSession.selected_face, GameSession.selected_hat)
 	else:
 		show_character_select()
 

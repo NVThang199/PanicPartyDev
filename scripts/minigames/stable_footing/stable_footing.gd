@@ -210,6 +210,7 @@ func _add_tile_model(tile_node: Node3D, color: TileColor) -> void:
 func _randomize_tiles() -> void:
 	for i in range(tiles.size()):
 		tile_colors[i] = TileColor.GREEN if randf() > 0.5 else TileColor.RED
+	sync_all_tile_colors(tile_colors)
 	for pid in synced_peers:
 		if pid != 1:
 			sync_all_tile_colors.rpc_id(pid, tile_colors)

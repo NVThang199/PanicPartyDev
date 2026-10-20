@@ -28,6 +28,11 @@ var is_holding_bomb: bool = false
 var is_dead_in_minigame: bool = false
 var held_bomb: Node = null
 
+# Network Interpolation
+var target_pos: Vector3 = Vector3.ZERO
+var target_rot_y: float = 0.0
+var has_synced_pos: bool = false
+
 func set_character_color(col: Color) -> void:
 	character_color = col
 	_apply_character_color()
@@ -133,11 +138,25 @@ func _ensure_nodes():
 		anim_player = get_node_or_null("AnimationPlayer")
 
 func _apply_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
-	position = new_pos
-	if model:
-		model.rotation.y = rot_y
+	target_pos = new_pos
+	target_rot_y = rot_y
+	if not has_synced_pos or position.distance_squared_to(new_pos) > 16.0:
+		position = new_pos
+		has_synced_pos = true
+		if model:
+			model.rotation.y = rot_y
 	if anim_name and anim_name != current_anim:
 		play_anim(anim_name)
+
+func _process(delta: float) -> void:
+	if not is_inside_tree():
+		return
+	var has_peer = multiplayer and multiplayer.multiplayer_peer and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED
+	var has_authority = is_multiplayer_authority() if has_peer else true
+	if not has_authority and has_synced_pos:
+		position = position.lerp(target_pos, 25.0 * delta)
+		if model:
+			model.rotation.y = lerp_angle(model.rotation.y, target_rot_y, 25.0 * delta)
 
 func _safe_wait_animation(anim_name: String, fallback_duration: float = 0.5) -> void:
 	if not is_inside_tree():
