@@ -542,7 +542,7 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.825, 0.103, -5.5509996)
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.825, 0.103, -8.551)
 
 [node name="Rock_1_B_Color1" parent="Deco_Right" unique_id=236898368 instance=ExtResource("3_83agg")]
-transform = Transform3D(4.2, 0, 0, 0, 4.2, 0, 0, 0, 4.2, 12.383611, 0.09985355, -8.369843)
+transform = Transform3D(4.2, 0, 0, 0, 4.2, 0, 0, 0, 4.2, 12.886837, 0.09985355, -9.706617)
 
 [node name="Rock_1_D_Color1" parent="Deco_Right" unique_id=57105939 instance=ExtResource("5_n74up")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 15.812044, 0.09985359, 3.4802094)

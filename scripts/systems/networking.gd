@@ -174,6 +174,12 @@ func join_lobby_by_id(lobby_id: int) -> void:
 	await get_tree().process_frame
 	Steam.joinLobby(lobby_id)
 
+func open_invite_overlay() -> void:
+	if current_lobby_id != 0:
+		Steam.activateGameOverlayInviteDialog(current_lobby_id)
+	else:
+		print("[STEAM] No active lobby to invite")
+
 func get_lobby_code() -> String:
 	if current_lobby_id == 0:
 		return ""

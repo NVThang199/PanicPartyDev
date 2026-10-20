@@ -56,7 +56,7 @@ shadow_enabled = true
 environment = ExtResource("2_env")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1223199760]
-transform = Transform3D(1, 0, 0, 0, 0.745988, 0.66595936, 0, -0.66595936, 0.745988, 0, 18.781473, 19.117085)
+transform = Transform3D(1, 0, 0, 0, 0.68700546, 0.72665226, 0, -0.72665226, 0.68700546, 0, 19.115622, 18.350409)
 current = true
 fov = 55.0
 
