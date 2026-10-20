@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://c34ptqiayeqdm" path="res://scripts/players/player.gd" id="1_script"]
 [ext_resource type="PackedScene" uid="uid://dyp1tshbl57re" path="res://assets/characters/Blank_Character/Blank_Character.glb" id="2_blank"]
-[ext_resource type="FontFile" uid="uid://b8ivjlv86nkrp" path="res://assets/ui/FSEX300.ttf" id="3_font"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
 radius = 0.3
@@ -19,18 +18,3 @@ root_node = NodePath("../Model")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1145646670]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_player")
-
-[node name="NameLabel" type="Label3D" parent="." unique_id=1502927976]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
-pixel_size = 0.008
-billboard = 1
-double_sided = false
-no_depth_test = true
-alpha_cut = 2
-alpha_antialiasing_mode = 1
-alpha_antialiasing_edge = 0.5
-render_priority = 10
-text = "Player"
-font = ExtResource("3_font")
-font_size = 36
-outline_size = 6

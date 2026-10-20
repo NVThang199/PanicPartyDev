@@ -1153,224 +1153,245 @@
       "label": "func set_character_color()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L36"
+      "source_location": "L38"
     },
     {
       "id": "scripts_players_player_gd_set_character_face",
       "label": "func set_character_face()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L40"
+      "source_location": "L42"
     },
     {
       "id": "scripts_players_player_gd_set_character_hat",
       "label": "func set_character_hat()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L44"
+      "source_location": "L46"
     },
     {
       "id": "scripts_players_player_gd_set_character_customization",
       "label": "func set_character_customization()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L48"
+      "source_location": "L50"
     },
     {
       "id": "scripts_players_player_gd_sync_character_color",
       "label": "rpc func sync_character_color()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L56"
+      "source_location": "L58"
     },
     {
       "id": "scripts_players_player_gd_sync_character_face",
       "label": "rpc func sync_character_face()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L61"
+      "source_location": "L63"
     },
     {
       "id": "scripts_players_player_gd_sync_character_hat",
       "label": "rpc func sync_character_hat()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L66"
+      "source_location": "L68"
     },
     {
       "id": "scripts_players_player_gd_sync_character_customization",
       "label": "rpc func sync_character_customization()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L71"
+      "source_location": "L73"
     },
     {
       "id": "scripts_players_player_gd__apply_character_color",
       "label": "func _apply_character_color()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L78"
+      "source_location": "L80"
     },
     {
       "id": "scripts_players_player_gd__apply_face_recursive",
       "label": "func _apply_face_recursive()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L84"
+      "source_location": "L86"
     },
     {
       "id": "scripts_players_player_gd__apply_color_recursive",
       "label": "func _apply_color_recursive()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L106"
+      "source_location": "L108"
     },
     {
       "id": "scripts_players_player_gd_set_player_name",
       "label": "func set_player_name()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L128"
+      "source_location": "L130"
+    },
+    {
+      "id": "scripts_players_player_gd__ensure_name_label",
+      "label": "func _ensure_name_label()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L136"
+    },
+    {
+      "id": "scripts_players_player_gd__exit_tree",
+      "label": "func _exit_tree()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L159"
     },
     {
       "id": "scripts_players_player_gd__ensure_nodes",
       "label": "func _ensure_nodes()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L136"
+      "source_location": "L165"
     },
     {
       "id": "scripts_players_player_gd__apply_state",
       "label": "func _apply_state()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L142"
+      "source_location": "L171"
     },
     {
       "id": "scripts_players_player_gd__process",
       "label": "func _process()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L153"
+      "source_location": "L182"
+    },
+    {
+      "id": "scripts_players_player_gd__update_name_label_screen_pos",
+      "label": "func _update_name_label_screen_pos()",
+      "file_type": "code",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L193"
     },
     {
       "id": "scripts_players_player_gd__safe_wait_animation",
       "label": "func _safe_wait_animation()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L163"
+      "source_location": "L209"
     },
     {
       "id": "scripts_players_player_gd_apply_knockback",
       "label": "func apply_knockback()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L179"
+      "source_location": "L225"
     },
     {
       "id": "scripts_players_player_gd__find_push_target",
       "label": "func _find_push_target()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L203"
+      "source_location": "L249"
     },
     {
       "id": "scripts_players_player_gd_perform_push",
       "label": "func perform_push()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L230"
+      "source_location": "L276"
     },
     {
       "id": "scripts_players_player_gd__physics_process",
       "label": "func _physics_process()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L273"
+      "source_location": "L319"
     },
     {
       "id": "scripts_players_player_gd__ready",
       "label": "func _ready()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L344"
+      "source_location": "L390"
     },
     {
       "id": "scripts_players_player_gd_play_anim",
       "label": "func play_anim()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L392"
+      "source_location": "L433"
     },
     {
       "id": "scripts_players_player_gd__clear_materials_recursive",
       "label": "func _clear_materials_recursive()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L400"
+      "source_location": "L441"
     },
     {
       "id": "scripts_players_player_gd_switch_character",
       "label": "func switch_character()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L409"
+      "source_location": "L450"
     },
     {
       "id": "scripts_players_player_gd__setup_head_socket",
       "label": "func _setup_head_socket()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L443"
+      "source_location": "L484"
     },
     {
       "id": "scripts_players_player_gd__apply_character_hat",
       "label": "func _apply_character_hat()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L458"
+      "source_location": "L499"
     },
     {
       "id": "scripts_players_player_gd__setup_hand_socket",
       "label": "func _setup_hand_socket()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L474"
+      "source_location": "L515"
     },
     {
       "id": "scripts_players_player_gd_get_hand_socket",
       "label": "func get_hand_socket()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L487"
+      "source_location": "L528"
     },
     {
       "id": "scripts_players_player_gd_pick_up_bomb",
       "label": "func pick_up_bomb()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L498"
+      "source_location": "L539"
     },
     {
       "id": "scripts_players_player_gd_release_bomb",
       "label": "func release_bomb()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L505"
+      "source_location": "L546"
     },
     {
       "id": "scripts_players_player_gd_throw_held_bomb",
       "label": "func throw_held_bomb()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L510"
+      "source_location": "L551"
     },
     {
       "id": "scripts_players_player_gd_die_in_minigame",
       "label": "func die_in_minigame()",
       "file_type": "code",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L534"
+      "source_location": "L575"
     },
     {
       "id": "scripts_systems_audio_manager_gd",
@@ -6976,7 +6997,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L36",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -6985,7 +7006,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L40",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -6994,7 +7015,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L44",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -7003,7 +7024,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L48",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -7012,7 +7033,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L56",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -7021,7 +7042,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L61",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -7030,7 +7051,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L66",
+      "source_location": "L68",
       "weight": 1.0
     },
     {
@@ -7039,7 +7060,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L71",
+      "source_location": "L73",
       "weight": 1.0
     },
     {
@@ -7048,7 +7069,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L78",
+      "source_location": "L80",
       "weight": 1.0
     },
     {
@@ -7057,7 +7078,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L84",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -7066,7 +7087,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L106",
+      "source_location": "L108",
       "weight": 1.0
     },
     {
@@ -7075,12 +7096,12 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L128",
+      "source_location": "L130",
       "weight": 1.0
     },
     {
       "source": "scripts_players_player_gd",
-      "target": "scripts_players_player_gd__ensure_nodes",
+      "target": "scripts_players_player_gd__ensure_name_label",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
@@ -7089,11 +7110,29 @@
     },
     {
       "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd__exit_tree",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd__ensure_nodes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L165",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
       "target": "scripts_players_player_gd__apply_state",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L142",
+      "source_location": "L171",
       "weight": 1.0
     },
     {
@@ -7102,7 +7141,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L153",
+      "source_location": "L182",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd__update_name_label_screen_pos",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L193",
       "weight": 1.0
     },
     {
@@ -7111,7 +7159,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L163",
+      "source_location": "L209",
       "weight": 1.0
     },
     {
@@ -7120,7 +7168,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L179",
+      "source_location": "L225",
       "weight": 1.0
     },
     {
@@ -7129,7 +7177,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L203",
+      "source_location": "L249",
       "weight": 1.0
     },
     {
@@ -7138,7 +7186,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L230",
+      "source_location": "L276",
       "weight": 1.0
     },
     {
@@ -7147,7 +7195,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L255",
+      "source_location": "L301",
       "weight": 1.0
     },
     {
@@ -7156,7 +7204,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L257",
+      "source_location": "L303",
       "weight": 1.0
     },
     {
@@ -7165,7 +7213,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L273",
+      "source_location": "L319",
       "weight": 1.0
     },
     {
@@ -7174,7 +7222,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L342",
+      "source_location": "L388",
       "weight": 1.0
     },
     {
@@ -7183,7 +7231,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L344",
+      "source_location": "L390",
       "weight": 1.0
     },
     {
@@ -7192,7 +7240,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L383",
+      "source_location": "L424",
       "weight": 1.0
     },
     {
@@ -7201,7 +7249,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L384",
+      "source_location": "L425",
       "weight": 1.0
     },
     {
@@ -7210,7 +7258,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L385",
+      "source_location": "L426",
       "weight": 1.0
     },
     {
@@ -7219,7 +7267,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L386",
+      "source_location": "L427",
       "weight": 1.0
     },
     {
@@ -7228,7 +7276,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L392",
+      "source_location": "L433",
       "weight": 1.0
     },
     {
@@ -7237,7 +7285,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L400",
+      "source_location": "L441",
       "weight": 1.0
     },
     {
@@ -7246,7 +7294,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L409",
+      "source_location": "L450",
       "weight": 1.0
     },
     {
@@ -7255,7 +7303,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L443",
+      "source_location": "L484",
       "weight": 1.0
     },
     {
@@ -7264,7 +7312,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L458",
+      "source_location": "L499",
       "weight": 1.0
     },
     {
@@ -7273,7 +7321,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L474",
+      "source_location": "L515",
       "weight": 1.0
     },
     {
@@ -7282,7 +7330,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L487",
+      "source_location": "L528",
       "weight": 1.0
     },
     {
@@ -7291,7 +7339,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L498",
+      "source_location": "L539",
       "weight": 1.0
     },
     {
@@ -7300,7 +7348,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L505",
+      "source_location": "L546",
       "weight": 1.0
     },
     {
@@ -7309,7 +7357,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L510",
+      "source_location": "L551",
       "weight": 1.0
     },
     {
@@ -7318,7 +7366,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L529",
+      "source_location": "L570",
       "weight": 1.0
     },
     {
@@ -7327,7 +7375,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L534",
+      "source_location": "L575",
       "weight": 1.0
     },
     {
