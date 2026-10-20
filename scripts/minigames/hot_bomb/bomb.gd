@@ -29,10 +29,30 @@ const BOUNCE_DAMPING = 0.4
 @onready var explosion_particles: GPUParticles3D = $ExplosionParticles
 @onready var catch_area: Area3D = $CatchArea
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
+var anim_player: AnimationPlayer = null
 
 func _ready() -> void:
 	if catch_area:
 		catch_area.body_entered.connect(_on_body_entered)
+	if model:
+		anim_player = model.get_node_or_null("AnimationPlayer")
+	_update_animation()
+
+func _update_animation() -> void:
+	if not anim_player:
+		return
+	var target_anim = "run"
+	if state == State.HELD:
+		target_anim = "held" if anim_player.has_animation("held") else "run"
+	elif state == State.HOMING or state == State.RUSHING or state == State.THROWN:
+		target_anim = "run"
+
+	if anim_player.has_animation(target_anim):
+		var anim = anim_player.get_animation(target_anim)
+		if anim:
+			anim.loop_mode = Animation.LOOP_LINEAR
+		if anim_player.current_animation != target_anim:
+			anim_player.play(target_anim)
 
 func _physics_process(delta: float) -> void:
 	if not is_inside_tree():
@@ -55,7 +75,14 @@ func _physics_process(delta: float) -> void:
 			_update_held_transform()
 		elif _client_target_pos != Vector3.ZERO:
 			var interp_speed = 35.0 if state == State.RUSHING else _client_interp_speed
+			var old_pos = global_position
 			global_position = global_position.lerp(_client_target_pos, interp_speed * delta)
+			var diff = global_position - old_pos
+			diff.y = 0.0
+			if diff.length_squared() > 0.0001:
+				var target_rot_y = atan2(diff.x, diff.z) + PI
+				rotation.y = lerp_angle(rotation.y, target_rot_y, 10.0 * delta)
+			_update_animation()
 		return
 
 	timer -= delta
@@ -108,6 +135,7 @@ func _physics_process(delta: float) -> void:
 					AudioManager.play_bomb_bounce(global_position)
 				if throw_velocity.length() < 2.0:
 					state = State.HOMING
+					_update_animation()
 
 		State.HOMING:
 			_homing_process(delta)
@@ -181,6 +209,9 @@ func _move_towards_target(speed: float) -> void:
 	velocity.x = move_dir.x * speed
 	velocity.z = move_dir.z * speed
 	velocity.y = -GRAVITY
+	if move_dir.length_squared() > 0.01:
+		var target_rot_y = atan2(move_dir.x, move_dir.z) + PI
+		rotation.y = lerp_angle(rotation.y, target_rot_y, 10.0 * get_physics_process_delta_time())
 	move_and_slide()
 
 @rpc("authority", "unreliable")
@@ -193,6 +224,7 @@ func sync_bomb_state(pos: Vector3, new_state: int) -> void:
 		if AudioManager:
 			AudioManager.play_bomb_rush(global_position)
 	state = new_state as State
+	_update_animation()
 	if state != State.HELD:
 		_client_target_pos = pos
 
@@ -217,6 +249,7 @@ func update_target() -> void:
 
 func throw(direction: Vector3) -> void:
 	state = State.THROWN
+	_update_animation()
 	var throw_dir = (direction.normalized() + Vector3(0, 0.35, 0)).normalized()
 	throw_velocity = throw_dir * 12.0
 	throw_grace_timer = 0.8
@@ -224,6 +257,7 @@ func throw(direction: Vector3) -> void:
 
 func attach_to_holder(_player: Node, peer_id: int) -> void:
 	state = State.HELD
+	_update_animation()
 	holder_id = peer_id
 	last_thrower_id = -1
 	throw_grace_timer = 0.0

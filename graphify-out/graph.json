@@ -3801,7 +3801,7 @@
       "file_type": "code",
       "norm_label": "func _apply_character_hat()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L456"
+      "source_location": "L458"
     },
     {
       "id": "scripts_players_player_gd__apply_color_recursive",
@@ -3831,7 +3831,7 @@
       "file_type": "code",
       "norm_label": "func _apply_state()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L140"
+      "source_location": "L142"
     },
     {
       "id": "scripts_players_player_gd__clear_materials_recursive",
@@ -3841,7 +3841,7 @@
       "file_type": "code",
       "norm_label": "func _clear_materials_recursive()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L398"
+      "source_location": "L400"
     },
     {
       "id": "scripts_players_player_gd__ensure_nodes",
@@ -3851,7 +3851,7 @@
       "file_type": "code",
       "norm_label": "func _ensure_nodes()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L134"
+      "source_location": "L136"
     },
     {
       "id": "scripts_players_player_gd__find_push_target",
@@ -3861,7 +3861,7 @@
       "file_type": "code",
       "norm_label": "func _find_push_target()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L201"
+      "source_location": "L203"
     },
     {
       "id": "scripts_players_player_gd__physics_process",
@@ -3871,7 +3871,7 @@
       "file_type": "code",
       "norm_label": "func _physics_process()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L271"
+      "source_location": "L273"
     },
     {
       "id": "scripts_players_player_gd__process",
@@ -3881,7 +3881,7 @@
       "file_type": "code",
       "norm_label": "func _process()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L151"
+      "source_location": "L153"
     },
     {
       "id": "scripts_players_player_gd__ready",
@@ -3891,7 +3891,7 @@
       "file_type": "code",
       "norm_label": "func _ready()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L342"
+      "source_location": "L344"
     },
     {
       "id": "scripts_players_player_gd__safe_wait_animation",
@@ -3901,7 +3901,7 @@
       "file_type": "code",
       "norm_label": "func _safe_wait_animation()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L161"
+      "source_location": "L163"
     },
     {
       "id": "scripts_players_player_gd__setup_hand_socket",
@@ -3911,7 +3911,7 @@
       "file_type": "code",
       "norm_label": "func _setup_hand_socket()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L472"
+      "source_location": "L474"
     },
     {
       "id": "scripts_players_player_gd__setup_head_socket",
@@ -3921,7 +3921,7 @@
       "file_type": "code",
       "norm_label": "func _setup_head_socket()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L441"
+      "source_location": "L443"
     },
     {
       "id": "scripts_players_player_gd_apply_knockback",
@@ -3931,7 +3931,7 @@
       "file_type": "code",
       "norm_label": "func apply_knockback()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L177"
+      "source_location": "L179"
     },
     {
       "id": "scripts_players_player_gd_die_in_minigame",
@@ -3941,7 +3941,7 @@
       "file_type": "code",
       "norm_label": "func die_in_minigame()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L532"
+      "source_location": "L534"
     },
     {
       "id": "scripts_players_player_gd_get_hand_socket",
@@ -3951,7 +3951,7 @@
       "file_type": "code",
       "norm_label": "func get_hand_socket()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L485"
+      "source_location": "L487"
     },
     {
       "id": "scripts_players_player_gd_perform_push",
@@ -3961,7 +3961,7 @@
       "file_type": "code",
       "norm_label": "func perform_push()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L228"
+      "source_location": "L230"
     },
     {
       "id": "scripts_players_player_gd_pick_up_bomb",
@@ -3971,7 +3971,7 @@
       "file_type": "code",
       "norm_label": "func pick_up_bomb()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L496"
+      "source_location": "L498"
     },
     {
       "id": "scripts_players_player_gd_play_anim",
@@ -3981,7 +3981,7 @@
       "file_type": "code",
       "norm_label": "func play_anim()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L390"
+      "source_location": "L392"
     },
     {
       "id": "scripts_players_player_gd_release_bomb",
@@ -3991,7 +3991,7 @@
       "file_type": "code",
       "norm_label": "func release_bomb()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L503"
+      "source_location": "L505"
     },
     {
       "id": "scripts_players_player_gd_set_character_color",
@@ -4041,7 +4041,7 @@
       "file_type": "code",
       "norm_label": "func set_player_name()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L126"
+      "source_location": "L128"
     },
     {
       "id": "scripts_players_player_gd_switch_character",
@@ -4051,7 +4051,7 @@
       "file_type": "code",
       "norm_label": "func switch_character()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L407"
+      "source_location": "L409"
     },
     {
       "id": "scripts_players_player_gd_sync_character_color",
@@ -4101,7 +4101,7 @@
       "file_type": "code",
       "norm_label": "func throw_held_bomb()",
       "source_file": "scripts/players/player.gd",
-      "source_location": "L508"
+      "source_location": "L510"
     },
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd",
@@ -4621,7 +4621,7 @@
       "file_type": "code",
       "norm_label": "func _get_holder_player()",
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L248"
+      "source_location": "L282"
     },
     {
       "id": "scripts_minigames_hot_bomb_bomb_gd__homing_process",
@@ -4631,7 +4631,7 @@
       "file_type": "code",
       "norm_label": "func _homing_process()",
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L148"
+      "source_location": "L176"
     },
     {
       "id": "scripts_minigames_hot_bomb_bomb_gd__move_towards_target",
@@ -4641,7 +4641,7 @@
       "file_type": "code",
       "norm_label": "func _move_towards_target()",
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L165"
+      "source_location": "L193"
     },
     {
       "id": "scripts_minigames_hot_bomb_bomb_gd__on_body_entered",
@@ -4651,7 +4651,7 @@
       "file_type": "code",
       "norm_label": "func _on_body_entered()",
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L302"
+      "source_location": "L336"
     },
     {
       "id": "scripts_minigames_hot_bomb_bomb_gd__physics_process",
@@ -4661,7 +4661,7 @@
       "file_type": "code",
       "norm_label": "func _physics_process()",
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L37"
+      "source_location": "L57"
     },
     {
       "id": "scripts_minigames_hot_bomb_bomb_gd__ready",
@@ -4671,7 +4671,7 @@
       "file_type": "code",
       "norm_label": "func _ready()",
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L33"
+      "source_location": "L34"
     },
     {
       "id": "scripts_minigames_hot_bomb_bomb_gd__rush_process",
@@ -4681,7 +4681,17 @@
       "file_type": "code",
       "norm_label": "func _rush_process()",
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L125"
+      "source_location": "L153"
+    },
+    {
+      "id": "scripts_minigames_hot_bomb_bomb_gd__update_animation",
+      "label": "func _update_animation()",
+      "community": 9,
+      "community_name": "bomb.gd",
+      "file_type": "code",
+      "norm_label": "func _update_animation()",
+      "source_file": "scripts/minigames/hot_bomb/bomb.gd",
+      "source_location": "L41"
     },
     {
       "id": "scripts_minigames_hot_bomb_bomb_gd__update_held_transform",
@@ -4691,7 +4701,7 @@
       "file_type": "code",
       "norm_label": "func _update_held_transform()",
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L238"
+      "source_location": "L272"
     },
     {
       "id": "scripts_minigames_hot_bomb_bomb_gd_attach_to_holder",
@@ -4701,7 +4711,7 @@
       "file_type": "code",
       "norm_label": "func attach_to_holder()",
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L225"
+      "source_location": "L258"
     },
     {
       "id": "scripts_minigames_hot_bomb_bomb_gd_detach_from_holder",
@@ -4711,7 +4721,7 @@
       "file_type": "code",
       "norm_label": "func detach_from_holder()",
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L235"
+      "source_location": "L269"
     },
     {
       "id": "scripts_minigames_hot_bomb_bomb_gd_explode",
@@ -4721,7 +4731,7 @@
       "file_type": "code",
       "norm_label": "func explode()",
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L256"
+      "source_location": "L290"
     },
     {
       "id": "scripts_minigames_hot_bomb_bomb_gd_explode_rpc",
@@ -4731,7 +4741,7 @@
       "file_type": "code",
       "norm_label": "rpc func explode_rpc()",
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L277"
+      "source_location": "L311"
     },
     {
       "id": "scripts_minigames_hot_bomb_bomb_gd_sig_bomb_caught",
@@ -4761,7 +4771,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_bomb_state()",
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L187"
+      "source_location": "L218"
     },
     {
       "id": "scripts_minigames_hot_bomb_bomb_gd_throw",
@@ -4771,7 +4781,7 @@
       "file_type": "code",
       "norm_label": "func throw()",
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L218"
+      "source_location": "L250"
     },
     {
       "id": "scripts_minigames_hot_bomb_bomb_gd_update_target",
@@ -4781,7 +4791,7 @@
       "file_type": "code",
       "norm_label": "func update_target()",
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L199"
+      "source_location": "L231"
     }
   ],
   "links": [
@@ -6032,7 +6042,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L125",
+      "source_location": "L153",
       "weight": 1.0
     },
     {
@@ -6042,7 +6052,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L148",
+      "source_location": "L176",
       "weight": 1.0
     },
     {
@@ -6052,7 +6062,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L165",
+      "source_location": "L193",
       "weight": 1.0
     },
     {
@@ -6062,7 +6072,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L187",
+      "source_location": "L218",
       "weight": 1.0
     },
     {
@@ -6072,7 +6082,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L199",
+      "source_location": "L231",
       "weight": 1.0
     },
     {
@@ -6082,7 +6092,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L218",
+      "source_location": "L250",
       "weight": 1.0
     },
     {
@@ -6092,7 +6102,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L225",
+      "source_location": "L258",
       "weight": 1.0
     },
     {
@@ -6102,7 +6112,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L235",
+      "source_location": "L269",
       "weight": 1.0
     },
     {
@@ -6112,7 +6122,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L238",
+      "source_location": "L272",
       "weight": 1.0
     },
     {
@@ -6122,7 +6132,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L248",
+      "source_location": "L282",
       "weight": 1.0
     },
     {
@@ -6132,7 +6142,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L256",
+      "source_location": "L290",
       "weight": 1.0
     },
     {
@@ -6142,7 +6152,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L277",
+      "source_location": "L311",
       "weight": 1.0
     },
     {
@@ -6152,7 +6162,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L302",
+      "source_location": "L336",
       "weight": 1.0
     },
     {
@@ -6162,7 +6172,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L33",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_hot_bomb_bomb_gd",
+      "target": "scripts_minigames_hot_bomb_bomb_gd__update_animation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/minigames/hot_bomb/bomb.gd",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -6172,7 +6192,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/hot_bomb/bomb.gd",
-      "source_location": "L37",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
@@ -6672,7 +6692,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L126",
+      "source_location": "L128",
       "weight": 1.0
     },
     {
@@ -6682,7 +6702,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L134",
+      "source_location": "L136",
       "weight": 1.0
     },
     {
@@ -6692,7 +6712,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L140",
+      "source_location": "L142",
       "weight": 1.0
     },
     {
@@ -6702,7 +6722,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L151",
+      "source_location": "L153",
       "weight": 1.0
     },
     {
@@ -6712,7 +6732,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L161",
+      "source_location": "L163",
       "weight": 1.0
     },
     {
@@ -6722,7 +6742,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L177",
+      "source_location": "L179",
       "weight": 1.0
     },
     {
@@ -6732,7 +6752,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L201",
+      "source_location": "L203",
       "weight": 1.0
     },
     {
@@ -6742,7 +6762,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L228",
+      "source_location": "L230",
       "weight": 1.0
     },
     {
@@ -6752,7 +6772,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L271",
+      "source_location": "L273",
       "weight": 1.0
     },
     {
@@ -6762,7 +6782,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L342",
+      "source_location": "L344",
       "weight": 1.0
     },
     {
@@ -6782,17 +6802,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L390",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_players_player_gd",
-      "target": "scripts_players_player_gd__clear_materials_recursive",
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/players/player.gd",
-      "source_location": "L398",
+      "source_location": "L392",
       "weight": 1.0
     },
     {
@@ -6807,12 +6817,22 @@
     },
     {
       "source": "scripts_players_player_gd",
+      "target": "scripts_players_player_gd__clear_materials_recursive",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/players/player.gd",
+      "source_location": "L400",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_players_player_gd",
       "target": "scripts_players_player_gd_switch_character",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L407",
+      "source_location": "L409",
       "weight": 1.0
     },
     {
@@ -6832,7 +6852,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L441",
+      "source_location": "L443",
       "weight": 1.0
     },
     {
@@ -6842,7 +6862,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L456",
+      "source_location": "L458",
       "weight": 1.0
     },
     {
@@ -6852,7 +6872,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L472",
+      "source_location": "L474",
       "weight": 1.0
     },
     {
@@ -6872,7 +6892,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L485",
+      "source_location": "L487",
       "weight": 1.0
     },
     {
@@ -6882,7 +6902,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L496",
+      "source_location": "L498",
       "weight": 1.0
     },
     {
@@ -6892,7 +6912,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L503",
+      "source_location": "L505",
       "weight": 1.0
     },
     {
@@ -6902,7 +6922,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L508",
+      "source_location": "L510",
       "weight": 1.0
     },
     {
@@ -6912,7 +6932,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L532",
+      "source_location": "L534",
       "weight": 1.0
     },
     {
@@ -9712,7 +9732,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/players/player.gd",
-      "source_location": "L384",
+      "source_location": "L386",
       "weight": 1.0
     },
     {
@@ -10087,5 +10107,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "050b2985f1d05969566f3211c23e2b21abada22f"
+  "built_at_commit": "3986a6cb67c03fefb85f4fdc69a6b93966c05c0b"
 }

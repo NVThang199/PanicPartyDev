@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://hotbomb001"]
 
 [ext_resource type="Script" path="res://scripts/minigames/hot_bomb/bomb.gd" id="1_bomb_script"]
-[ext_resource type="PackedScene" path="res://assets/characters/KayKit_Adventurers_2.0_FREE/Assets/fbx/smokebomb.fbx" id="2_bomb_model"]
+[ext_resource type="PackedScene" path="res://assets/minigames/hot_bomb/bomb_robot.glb" id="2_bomb_model"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_body"]
 radius = 0.55
@@ -31,18 +31,21 @@ collision_layer = 4
 script = ExtResource("1_bomb_script")
 
 [node name="Model" parent="." unique_id=78790842 instance=ExtResource("2_bomb_model")]
-transform = Transform3D(2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1083504457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_body")
 
 [node name="CatchArea" type="Area3D" parent="." unique_id=498656582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CatchArea" unique_id=1165537974]
 shape = SubResource("SphereShape3D_catch")
 
 [node name="ExplosionParticles" type="GPUParticles3D" parent="." unique_id=1849489366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 emitting = false
 amount = 40
 one_shot = true

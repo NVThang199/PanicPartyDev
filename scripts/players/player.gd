@@ -115,10 +115,12 @@ func _apply_color_recursive(node: Node, col: Color) -> void:
 				var mat = node.get_surface_override_material(s)
 				if mat is StandardMaterial3D:
 					mat.albedo_color = col
+					mat.cull_mode = BaseMaterial3D.CULL_DISABLED
 				else:
 					var new_mat := StandardMaterial3D.new()
 					new_mat.albedo_color = col
 					new_mat.roughness = 0.5
+					new_mat.cull_mode = BaseMaterial3D.CULL_DISABLED
 					node.set_surface_override_material(s, new_mat)
 	for child in node.get_children():
 		_apply_color_recursive(child, col)
