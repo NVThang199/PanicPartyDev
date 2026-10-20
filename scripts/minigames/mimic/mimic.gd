@@ -338,6 +338,11 @@ func sync_sample_info(path: String) -> void:
 @rpc("authority", "call_local", "reliable")
 func spawn_player(peer_id: int, character_path: String, player_name: String, steam_id: int, pos: Vector3, color: Color = Color.WHITE, face: String = "res://assets/characters/face/robloxmanface.png", hat: String = "") -> void:
 	player_spawn_positions[peer_id] = pos
+	player_scores[peer_id] = {
+		"name": player_name,
+		"scores": [],
+		"total": 0
+	}
 	if peer_id in players and is_instance_valid(players[peer_id]):
 		return
 	var old_node = get_node_or_null(str(peer_id))
@@ -891,7 +896,11 @@ func show_player_performance(peer_id: int, score: int, wav_bytes: PackedByteArra
 		await playback_player.finished
 
 	if score_label:
-		var p_name = player_scores.get(peer_id, {}).get("name", "Player")
+		var p_name = "Player"
+		if peer_id in players and is_instance_valid(players[peer_id]) and players[peer_id].player_name != "":
+			p_name = players[peer_id].player_name
+		else:
+			p_name = player_scores.get(peer_id, {}).get("name", "Player")
 		score_label.text = "%s\n%d / 100" % [p_name, score]
 		score_label.visible = true
 		await get_timer_delay(2.5).timeout if false else await get_tree().create_timer(2.5).timeout
@@ -971,18 +980,24 @@ func _end_game() -> void:
 	sync_game_state.rpc(GameState.ENDED)
 
 	var winner_id = -1
+	var winner_name = "Unknown"
 	var max_score = -1
 	for peer_id in player_scores:
 		if player_scores[peer_id].total > max_score:
 			max_score = player_scores[peer_id].total
 			winner_id = peer_id
+			winner_name = player_scores[peer_id].get("name", "Unknown")
 
-	show_winner.rpc(winner_id, max_score)
+	show_winner.rpc(winner_id, winner_name, max_score)
 
 @rpc("authority", "call_local", "reliable")
-func show_winner(winner_id: int, score: int) -> void:
+func show_winner(winner_id: int, winner_name: String, score: int) -> void:
 	if winner_banner and winner_label:
-		var winner_name = player_scores.get(winner_id, {}).get("name", "Unknown")
+		if winner_name == "" or winner_name == "Unknown":
+			if winner_id in players and is_instance_valid(players[winner_id]) and players[winner_id].player_name != "":
+				winner_name = players[winner_id].player_name
+			else:
+				winner_name = player_scores.get(winner_id, {}).get("name", "Unknown")
 		winner_label.text = "%s wins with %d points!" % [winner_name, score]
 		winner_banner.visible = true
 
