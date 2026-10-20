@@ -52,6 +52,7 @@ var settings = {
 		"music_volume": 0.8,
 		"sfx_volume": 0.8,
 		"output_device": "Default",
+		"input_device": "Default",
 		"speaker_mode": "Stereo"
 	},
 	"keybinds": {}
@@ -175,6 +176,11 @@ func apply_audio_settings():
 	var dev = settings["audio"].get("output_device", "Default")
 	if dev != "" and dev in AudioServer.get_output_device_list():
 		AudioServer.set_output_device(dev)
+
+	# Input device (Microphone)
+	var in_dev = settings["audio"].get("input_device", "Default")
+	if in_dev != "" and in_dev in AudioServer.get_input_device_list():
+		AudioServer.input_device = in_dev
 
 	# Speaker mode: Stereo vs Mono (Master Bus StereoEnhance Effect)
 	var master_idx = AudioServer.get_bus_index("Master")

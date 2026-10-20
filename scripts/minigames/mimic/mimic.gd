@@ -29,6 +29,16 @@ var player_spawn_positions: Dictionary = {}
 var _sample_pool: Array = []
 var _used_samples: Array = []
 
+var tutorial_overlay: PanelContainer = null
+var tutorial_countdown_label: Label = null
+var tutorial_timer: float = 5.0
+var is_showing_tutorial: bool = false
+var round_scoreboard_overlay: PanelContainer = null
+var round_scoreboard_title: Label = null
+var round_scoreboard_list: VBoxContainer = null
+var round_scoreboard_status: Label = null
+var round_scoreboard_return_btn: Button = null
+
 @onready var sample_player: AudioStreamPlayer = $SamplePlayer
 @onready var playback_player: AudioStreamPlayer = $PlaybackPlayer
 @onready var countdown_label: Label = $UI/CountdownLabel
@@ -99,8 +109,14 @@ func _ready() -> void:
 	else:
 		push_warning("[Mimic] Microphone permission denied or not requested")
 
+	_create_tutorial_overlay()
+	_create_round_scoreboard_overlay()
+
+	var saved_in_dev = SettingsManager.get_setting("audio", "input_device")
 	var input_devices = AudioServer.get_input_device_list()
-	if input_devices.size() > 0:
+	if saved_in_dev != "" and saved_in_dev != "Default" and saved_in_dev in input_devices:
+		AudioServer.input_device = saved_in_dev
+	elif input_devices.size() > 0:
 		AudioServer.input_device = input_devices[0]
 
 	_setup_audio_capture()
@@ -191,10 +207,15 @@ func initialize_game() -> void:
 	_build_sample_pool()
 	_load_next_sample()
 
-	state = GameState.LISTENING
-	sync_game_state.rpc(GameState.LISTENING)
 	current_round = 1
 	sync_round.rpc(current_round)
+
+	show_tutorial_rpc.rpc()
+	await get_tree().create_timer(5.0).timeout
+	hide_tutorial_rpc.rpc()
+
+	state = GameState.LISTENING
+	sync_game_state.rpc(GameState.LISTENING)
 	_start_listening_phase()
 
 func _build_sample_pool() -> void:
@@ -408,6 +429,11 @@ func _stop_listen_preview() -> void:
 func _process(delta: float) -> void:
 	if not is_inside_tree():
 		return
+
+	if is_showing_tutorial:
+		tutorial_timer -= delta
+		if tutorial_countdown_label:
+			tutorial_countdown_label.text = "%d" % max(1, int(ceil(tutorial_timer)))
 
 	if is_countdown_active:
 		countdown_timer -= delta
@@ -980,13 +1006,69 @@ func _end_game() -> void:
 	var winner_id = -1
 	var winner_name = "Unknown"
 	var max_score = -1
-	for peer_id in player_scores:
-		if player_scores[peer_id].total > max_score:
-			max_score = player_scores[peer_id].total
-			winner_id = peer_id
-			winner_name = player_scores[peer_id].get("name", "Unknown")
 
-	show_winner.rpc(winner_id, winner_name, max_score)
+	# Sắp xếp xếp hạng người chơi theo tổng điểm
+	var ranked_peers = player_scores.keys()
+	ranked_peers.sort_custom(func(a, b): return player_scores[a].total > player_scores[b].total)
+
+	if not ranked_peers.is_empty():
+		winner_id = ranked_peers[0]
+		winner_name = player_scores[winner_id].get("name", "Unknown")
+		max_score = player_scores[winner_id].total
+
+	if GameSession.campaign_active:
+		# Phân bổ điểm Campaign theo thứ hạng (1st: 1000, 2nd: 600, 3rd: 300, 4th: 100)
+		var rank_pts = [1000, 600, 300, 100]
+		for i in range(ranked_peers.size()):
+			var pid = ranked_peers[i]
+			var pts = rank_pts[i] if i < rank_pts.size() else 50
+			GameSession.player_scores[pid] = GameSession.player_scores.get(pid, 0) + pts
+
+		if winner_id != -1:
+			GameSession.player_wins[winner_id] = GameSession.player_wins.get(winner_id, 0) + 1
+
+		# Chuẩn bị danh sách hiển thị bảng điểm
+		var entries = []
+		for i in range(ranked_peers.size()):
+			var pid = ranked_peers[i]
+			entries.append({
+				"rank": i + 1,
+				"name": player_scores[pid].get("name", "Player"),
+				"score": GameSession.player_scores.get(pid, 0)
+			})
+
+		var has_campaign_winner = false
+		for pid in GameSession.player_scores:
+			if GameSession.player_scores[pid] >= GameSession.target_score:
+				has_campaign_winner = true
+				break
+
+		var status_msg = tr("NEXT_MINIGAME_IN") % 5 if not has_campaign_winner else tr("CAMPAIGN_FINISHED")
+		show_round_scoreboard.rpc(tr("CAMPAIGN_SCOREBOARD"), entries, status_msg, has_campaign_winner)
+
+		await get_tree().create_timer(5.0).timeout
+
+		if has_campaign_winner:
+			_return_to_lobby()
+		else:
+			_switch_to_next_minigame("res://scenes/minigames/hot_bomb/hot_bomb.tscn")
+	else:
+		show_winner.rpc(winner_id, winner_name, max_score)
+
+func _switch_to_next_minigame(next_scene_path: String) -> void:
+	if not multiplayer.is_server() or is_returning:
+		return
+	is_returning = true
+	set_process(false)
+	prepare_return_to_lobby.rpc()
+	await get_tree().create_timer(0.1).timeout
+	switch_minigame_rpc.rpc(next_scene_path)
+	get_tree().change_scene_to_file(next_scene_path)
+
+@rpc("authority", "call_local", "reliable")
+func switch_minigame_rpc(scene_path: String) -> void:
+	if not multiplayer.is_server():
+		get_tree().change_scene_to_file(scene_path)
 
 @rpc("authority", "call_local", "reliable")
 func show_winner(winner_id: int, winner_name: String, score: int) -> void:
@@ -1040,3 +1122,239 @@ func _on_peer_disconnected(peer_id: int) -> void:
 		players.erase(peer_id)
 	player_scores.erase(peer_id)
 	player_recordings.erase(peer_id)
+
+func _create_tutorial_overlay() -> void:
+	var ui = get_node_or_null("UI")
+	if not ui:
+		return
+
+	tutorial_overlay = PanelContainer.new()
+	tutorial_overlay.name = "TutorialOverlay"
+	tutorial_overlay.visible = false
+	tutorial_overlay.anchors_preset = Control.PRESET_FULL_RECT
+	tutorial_overlay.anchor_right = 1.0
+	tutorial_overlay.anchor_bottom = 1.0
+
+	var bg_style = StyleBoxFlat.new()
+	bg_style.bg_color = Color(0.05, 0.06, 0.1, 0.94)
+	tutorial_overlay.add_theme_stylebox_override("panel", bg_style)
+
+	var center = CenterContainer.new()
+	center.anchors_preset = Control.PRESET_FULL_RECT
+	center.anchor_right = 1.0
+	center.anchor_bottom = 1.0
+	tutorial_overlay.add_child(center)
+
+	var card = PanelContainer.new()
+	var card_style = StyleBoxFlat.new()
+	card_style.bg_color = Color(0.12, 0.14, 0.22, 0.98)
+	card_style.set_corner_radius_all(16)
+	card_style.border_width_left = 2
+	card_style.border_width_top = 2
+	card_style.border_width_right = 2
+	card_style.border_width_bottom = 2
+	card_style.border_color = Color(1.0, 0.85, 0.2, 0.8)
+	card.add_theme_stylebox_override("panel", card_style)
+	card.custom_minimum_size = Vector2(760, 520)
+	center.add_child(card)
+
+	var margin = MarginContainer.new()
+	margin.add_theme_constant_override("margin_left", 24)
+	margin.add_theme_constant_override("margin_top", 18)
+	margin.add_theme_constant_override("margin_right", 24)
+	margin.add_theme_constant_override("margin_bottom", 18)
+	card.add_child(margin)
+
+	var vbox = VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 8)
+	margin.add_child(vbox)
+
+	var title_lbl = Label.new()
+	title_lbl.text = tr("MINIGAME_MIMIC")
+	title_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title_lbl.add_theme_font_size_override("font_size", 26)
+	title_lbl.modulate = Color(1.0, 0.85, 0.2)
+	vbox.add_child(title_lbl)
+
+	var img_container = AspectRatioContainer.new()
+	img_container.ratio = 16.0 / 9.0
+	img_container.custom_minimum_size = Vector2(440, 247)
+	img_container.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	vbox.add_child(img_container)
+
+	var img_rect = TextureRect.new()
+	img_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	img_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	var tex_path = "res://assets/ui/tutorial/mimic.png"
+	var loaded_tex: Texture2D = null
+	if ResourceLoader.exists(tex_path):
+		loaded_tex = load(tex_path) as Texture2D
+	if not loaded_tex:
+		var img = Image.new()
+		var abs_path = ProjectSettings.globalize_path(tex_path)
+		if img.load(abs_path) == OK:
+			loaded_tex = ImageTexture.create_from_image(img)
+	if loaded_tex:
+		img_rect.texture = loaded_tex
+	img_container.add_child(img_rect)
+
+	var rules_lbl = Label.new()
+	rules_lbl.text = tr("MIMIC_RULES")
+	rules_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	rules_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	rules_lbl.add_theme_font_size_override("font_size", 15)
+	vbox.add_child(rules_lbl)
+
+	var ctrl_lbl = Label.new()
+	ctrl_lbl.text = tr("MIMIC_CONTROLS_HINT")
+	ctrl_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	ctrl_lbl.add_theme_font_size_override("font_size", 13)
+	ctrl_lbl.modulate = Color(0.6, 0.9, 1.0)
+	vbox.add_child(ctrl_lbl)
+
+	var hsep = HSeparator.new()
+	vbox.add_child(hsep)
+
+	tutorial_countdown_label = Label.new()
+	tutorial_countdown_label.text = "5"
+	tutorial_countdown_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	tutorial_countdown_label.add_theme_font_size_override("font_size", 24)
+	tutorial_countdown_label.modulate = Color(0.3, 1.0, 0.4)
+	vbox.add_child(tutorial_countdown_label)
+
+	ui.add_child(tutorial_overlay)
+
+func _create_round_scoreboard_overlay() -> void:
+	var ui = get_node_or_null("UI")
+	if not ui:
+		return
+
+	round_scoreboard_overlay = PanelContainer.new()
+	round_scoreboard_overlay.name = "RoundScoreboardOverlay"
+	round_scoreboard_overlay.visible = false
+	round_scoreboard_overlay.anchors_preset = Control.PRESET_FULL_RECT
+	round_scoreboard_overlay.anchor_right = 1.0
+	round_scoreboard_overlay.anchor_bottom = 1.0
+
+	var bg_style = StyleBoxFlat.new()
+	bg_style.bg_color = Color(0.05, 0.06, 0.1, 0.94)
+	round_scoreboard_overlay.add_theme_stylebox_override("panel", bg_style)
+
+	var center = CenterContainer.new()
+	center.anchors_preset = Control.PRESET_FULL_RECT
+	center.anchor_right = 1.0
+	center.anchor_bottom = 1.0
+	round_scoreboard_overlay.add_child(center)
+
+	var card = PanelContainer.new()
+	var card_style = StyleBoxFlat.new()
+	card_style.bg_color = Color(0.1, 0.12, 0.2, 0.98)
+	card_style.set_corner_radius_all(16)
+	card_style.border_width_left = 2
+	card_style.border_width_top = 2
+	card_style.border_width_right = 2
+	card_style.border_width_bottom = 2
+	card_style.border_color = Color(0.3, 0.7, 1.0, 0.8)
+	card.add_theme_stylebox_override("panel", card_style)
+	card.custom_minimum_size = Vector2(680, 480)
+	center.add_child(card)
+
+	var margin = MarginContainer.new()
+	margin.add_theme_constant_override("margin_left", 28)
+	margin.add_theme_constant_override("margin_top", 20)
+	margin.add_theme_constant_override("margin_right", 28)
+	margin.add_theme_constant_override("margin_bottom", 20)
+	card.add_child(margin)
+
+	var vbox = VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 10)
+	margin.add_child(vbox)
+
+	round_scoreboard_title = Label.new()
+	round_scoreboard_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	round_scoreboard_title.add_theme_font_size_override("font_size", 26)
+	round_scoreboard_title.modulate = Color(1.0, 0.85, 0.2)
+	vbox.add_child(round_scoreboard_title)
+
+	var hsep = HSeparator.new()
+	vbox.add_child(hsep)
+
+	var scroll = ScrollContainer.new()
+	scroll.custom_minimum_size = Vector2(0, 240)
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	vbox.add_child(scroll)
+
+	round_scoreboard_list = VBoxContainer.new()
+	round_scoreboard_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	round_scoreboard_list.add_theme_constant_override("separation", 8)
+	scroll.add_child(round_scoreboard_list)
+
+	var hsep2 = HSeparator.new()
+	vbox.add_child(hsep2)
+
+	round_scoreboard_status = Label.new()
+	round_scoreboard_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	round_scoreboard_status.add_theme_font_size_override("font_size", 16)
+	round_scoreboard_status.modulate = Color(0.4, 0.9, 1.0)
+	vbox.add_child(round_scoreboard_status)
+
+	round_scoreboard_return_btn = Button.new()
+	round_scoreboard_return_btn.text = tr("RETURN_TO_LOBBY")
+	round_scoreboard_return_btn.custom_minimum_size = Vector2(200, 40)
+	round_scoreboard_return_btn.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	round_scoreboard_return_btn.visible = false
+	round_scoreboard_return_btn.pressed.connect(_on_return_pressed)
+	vbox.add_child(round_scoreboard_return_btn)
+
+	ui.add_child(round_scoreboard_overlay)
+
+@rpc("authority", "call_local", "reliable")
+func show_tutorial_rpc() -> void:
+	if tutorial_overlay:
+		tutorial_overlay.visible = true
+	tutorial_timer = 5.0
+	is_showing_tutorial = true
+
+@rpc("authority", "call_local", "reliable")
+func hide_tutorial_rpc() -> void:
+	if tutorial_overlay:
+		tutorial_overlay.visible = false
+	is_showing_tutorial = false
+
+@rpc("authority", "call_local", "reliable")
+func show_round_scoreboard(title: String, entries: Array, status_text: String, show_btn: bool) -> void:
+	if not round_scoreboard_overlay:
+		return
+	round_scoreboard_title.text = title
+	round_scoreboard_status.text = status_text
+	round_scoreboard_return_btn.visible = show_btn
+
+	for child in round_scoreboard_list.get_children():
+		child.queue_free()
+
+	for entry in entries:
+		var row = HBoxContainer.new()
+		row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_theme_constant_override("separation", 16)
+
+		var rank_lbl = Label.new()
+		rank_lbl.text = "#%d" % entry.get("rank", 1)
+		rank_lbl.custom_minimum_size = Vector2(40, 0)
+		rank_lbl.add_theme_font_size_override("font_size", 16)
+		row.add_child(rank_lbl)
+
+		var name_lbl = Label.new()
+		name_lbl.text = entry.get("name", "Player")
+		name_lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		name_lbl.add_theme_font_size_override("font_size", 16)
+		row.add_child(name_lbl)
+
+		var pts_lbl = Label.new()
+		pts_lbl.text = "%d pts" % entry.get("score", 0)
+		pts_lbl.add_theme_font_size_override("font_size", 16)
+		pts_lbl.modulate = Color(1.0, 0.85, 0.3)
+		row.add_child(pts_lbl)
+
+		round_scoreboard_list.add_child(row)
+
+	round_scoreboard_overlay.visible = true

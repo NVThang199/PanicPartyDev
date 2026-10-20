@@ -386,8 +386,24 @@ size_flags_horizontal = 3
 text = "Audio Output Device"
 
 [node name="DeviceOption" type="OptionButton" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/DeviceHBox"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 2
+
+[node name="InputDeviceHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent"]
+layout_mode = 2
+
+[node name="InputDeviceLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/InputDeviceHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+text = "Audio Input Device"
+
+[node name="InputDeviceOption" type="OptionButton" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/InputDeviceHBox"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 2
 
 [node name="ModeHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent"]
 layout_mode = 2
@@ -398,7 +414,10 @@ size_flags_horizontal = 3
 text = "Audio Mode"
 
 [node name="ModeOption" type="OptionButton" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/ModeHBox"]
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
+size_flags_horizontal = 8
+alignment = 2
 item_count = 2
 selected = 0
 popup/item_0/text = "Stereo"

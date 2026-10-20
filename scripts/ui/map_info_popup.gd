@@ -39,6 +39,13 @@ func show_map_info(map_type: String) -> void:
 			{"action": tr("MOVE"), "key": tr("MOVE_KEYS")},
 			{"action": tr("PUSH"), "key": tr("KEY_SPACE")}
 		]
+	elif map_type == "Mimic":
+		map_display_name = tr("MAP_MIMIC")
+		controls = [
+			{"action": tr("LISTEN_SAMPLE"), "key": tr("BTN_LISTEN")},
+			{"action": tr("RECORD_VOICE"), "key": tr("BTN_RECORD")},
+			{"action": tr("REPLAY_RECORDING"), "key": tr("BTN_REPLAY")}
+		]
 	elif map_type == "Random":
 		map_display_name = tr("MAP_RANDOM")
 		controls = [
