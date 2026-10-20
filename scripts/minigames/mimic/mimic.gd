@@ -533,7 +533,8 @@ func play_sample_rpc(sample_path: String) -> void:
 	if sample_player and sample_audio:
 		sample_player.stream = sample_audio
 		sample_player.play()
-		update_instruction.rpc("Listening to sample...")
+		if multiplayer.is_server():
+			update_instruction.rpc("Listening to sample...")
 
 	if sample_player and sample_player.playing:
 		await sample_player.finished
