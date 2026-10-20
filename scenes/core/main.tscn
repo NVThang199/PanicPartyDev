@@ -20,8 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://d2nrdepxweej3" path="res://assets/terrains/nature/Grass_1_C_Singlesided_Color1.fbx" id="18_mgwo4"]
 [ext_resource type="PackedScene" uid="uid://cl5d7bo3tyu6" path="res://assets/terrains/nature/Grass_2_D_Singlesided_Color1.fbx" id="20_mgwo4"]
 [ext_resource type="PackedScene" uid="uid://cppnx2c8gn5sb" path="res://assets/terrains/nature/Grass_1_B_Singlesided_Color1.fbx" id="20_uyqaj"]
-[ext_resource type="PackedScene" uid="uid://mapinfopopup01" path="res://scenes/ui/map_info_popup.tscn" id="21_map_info"]
-[ext_resource type="PackedScene" uid="uid://campaignvictorypopup01" path="res://scenes/ui/campaign_victory_popup.tscn" id="22_victory_popup"]
+[ext_resource type="PackedScene" uid="uid://cvoahq68fmtgq" path="res://scenes/ui/map_info_popup.tscn" id="21_map_info"]
+[ext_resource type="PackedScene" uid="uid://db7nw4j42n5no" path="res://scenes/ui/campaign_victory_popup.tscn" id="22_victory_popup"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
 size = Vector3(40.15973, 0.2, 29.845337)
@@ -268,10 +268,10 @@ theme_override_constants/separation = 8
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -180.0
+offset_left = -210.0
 offset_top = 20.0
 offset_right = -20.0
-offset_bottom = 320.0
+offset_bottom = 360.0
 grow_horizontal = 0
 
 [node name="Margin" type="MarginContainer" parent="UI/MapSelectPanel" unique_id=593250414]
@@ -312,62 +312,73 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Stable Footing"
 
-[node name="HSeparator2" type="HSeparator" parent="UI/MapSelectPanel/Margin/VBox"]
+[node name="HSeparator2" type="HSeparator" parent="UI/MapSelectPanel/Margin/VBox" unique_id=2142162422]
 layout_mode = 2
 
-[node name="CampaignBox" type="VBoxContainer" parent="UI/MapSelectPanel/Margin/VBox"]
+[node name="CampaignBox" type="VBoxContainer" parent="UI/MapSelectPanel/Margin/VBox" unique_id=974764307]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="CheckCampaign" type="CheckBox" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox"]
+[node name="CheckCampaign" type="CheckBox" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox" unique_id=2094295244]
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 text = "Campaign Mode"
 
-[node name="WinsHBox" type="HBoxContainer" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox"]
+[node name="ScoreHBox" type="VBoxContainer" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox" unique_id=739657896]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="WinsLabel" type="Label" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox"]
+[node name="ScoreLabel" type="Label" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/ScoreHBox" unique_id=1421089571]
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 13
-text = "First to:"
+text = "Target Score:"
 
-[node name="BtnWin1" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox"]
-custom_minimum_size = Vector2(28, 28)
+[node name="ScoreGrid" type="GridContainer" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/ScoreHBox" unique_id=525560898]
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 3
+
+[node name="BtnScore3k" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/ScoreHBox/ScoreGrid" unique_id=206306075]
+custom_minimum_size = Vector2(50, 26)
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "1"
+text = "3000"
 
-[node name="BtnWin3" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox"]
-custom_minimum_size = Vector2(28, 28)
+[node name="BtnScore5k" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/ScoreHBox/ScoreGrid" unique_id=389562788]
+custom_minimum_size = Vector2(50, 26)
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "3"
+text = "5000"
 
-[node name="BtnWin5" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox"]
-custom_minimum_size = Vector2(28, 28)
+[node name="BtnScore7k" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/ScoreHBox/ScoreGrid" unique_id=620539448]
+custom_minimum_size = Vector2(50, 26)
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "5"
+text = "7000"
 
-[node name="BtnWin7" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox"]
-custom_minimum_size = Vector2(28, 28)
+[node name="BtnScore10k" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/ScoreHBox/ScoreGrid" unique_id=1138477261]
+custom_minimum_size = Vector2(50, 26)
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "7"
+text = "10000"
 
-[node name="BtnWin10" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/WinsHBox"]
-custom_minimum_size = Vector2(28, 28)
+[node name="BtnScore15k" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/ScoreHBox/ScoreGrid" unique_id=2146706833]
+custom_minimum_size = Vector2(50, 26)
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "10"
+text = "15000"
 
-[node name="MapInfoPopup" parent="UI" instance=ExtResource("21_map_info")]
+[node name="BtnScore20k" type="Button" parent="UI/MapSelectPanel/Margin/VBox/CampaignBox/ScoreHBox/ScoreGrid" unique_id=167902053]
+custom_minimum_size = Vector2(50, 26)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "20000"
+
+[node name="MapInfoPopup" parent="UI" unique_id=604311364 instance=ExtResource("21_map_info")]
 visible = false
 
-[node name="CampaignVictoryPopup" parent="UI" instance=ExtResource("22_victory_popup")]
+[node name="CampaignVictoryPopup" parent="UI" unique_id=1611203742 instance=ExtResource("22_victory_popup")]
 visible = false
 
 [node name="LobbyPanel" type="PanelContainer" parent="UI" unique_id=22028294]
@@ -417,7 +428,7 @@ theme_override_font_sizes/font_size = 14
 text = "COPY_ROOM_CODE"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=-1294967296]
-transform = Transform3D(1, 0, 0, 0, 0.9766723, 0.21473533, 0, -0.21473533, 0.9766723, 0, 7.641, 17.051)
+transform = Transform3D(1, 0, 0, 0, 0.93124, 0.3644064, 0, -0.3644064, 0.93124, 0, 12.936675, 18.215548)
 environment = ExtResource("2_lwqq7")
 current = true
 fov = 57.329388
@@ -531,7 +542,7 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.825, 0.103, -5.5509996)
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.825, 0.103, -8.551)
 
 [node name="Rock_1_B_Color1" parent="Deco_Right" unique_id=236898368 instance=ExtResource("3_83agg")]
-transform = Transform3D(4.2, 0, 0, 0, 4.2, 0, 0, 0, 4.2, 12.383611, 0.09985355, -8.369843)
+transform = Transform3D(4.2, 0, 0, 0, 4.2, 0, 0, 0, 4.2, 12.886837, 0.09985355, -9.706617)
 
 [node name="Rock_1_D_Color1" parent="Deco_Right" unique_id=57105939 instance=ExtResource("5_n74up")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 15.812044, 0.09985359, 3.4802094)

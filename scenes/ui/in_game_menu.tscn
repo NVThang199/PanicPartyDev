@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c8q5vy4d2nlae"]
 
 [ext_resource type="Script" path="res://scripts/ui/in_game_menu.gd" id="1_menu_script"]
+[ext_resource type="Script" path="res://scripts/ui/tab_overlay.gd" id="2_tab_script"]
 
 [node name="InGameMenu" type="CanvasLayer"]
 layer = 5
@@ -71,6 +72,7 @@ offset_right = 220.0
 offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_tab_script")
 
 [node name="Margin" type="MarginContainer" parent="TabOverlay"]
 layout_mode = 2
