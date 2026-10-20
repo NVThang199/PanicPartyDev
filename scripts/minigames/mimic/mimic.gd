@@ -337,6 +337,7 @@ func sync_sample_info(path: String) -> void:
 
 @rpc("authority", "call_local", "reliable")
 func spawn_player(peer_id: int, character_path: String, player_name: String, steam_id: int, pos: Vector3, color: Color = Color.WHITE, face: String = "res://assets/characters/face/robloxmanface.png", hat: String = "") -> void:
+	player_spawn_positions[peer_id] = pos
 	if peer_id in players and is_instance_valid(players[peer_id]):
 		return
 	var old_node = get_node_or_null(str(peer_id))
@@ -706,8 +707,8 @@ func _stop_recording() -> void:
 		print("[Mimic] No recording data!")
 
 func _process_wav_recording(wav: AudioStreamWAV) -> void:
-	if wav.mix_rate <= 0 or wav.mix_rate != 44100:
-		wav.mix_rate = 44100
+	if wav.mix_rate <= 0:
+		wav.mix_rate = int(AudioServer.get_mix_rate())
 
 	my_recording_wav = wav
 	my_recording = _audio_stream_to_mono_sync(wav)
@@ -755,10 +756,10 @@ func request_final_submissions() -> void:
 	features.onsets = VoiceAnalyzer.extract_onsets(my_recording)
 
 	var my_id = multiplayer.get_unique_id()
-	submit_recording.rpc_id(1, my_id, my_recording_wav.data, my_recording_wav.mix_rate, features.pitch_contour, features.envelope, features.onsets)
+	submit_recording.rpc_id(1, my_id, my_recording_wav.data, my_recording_wav.mix_rate, my_recording_wav.format, my_recording_wav.stereo, features.pitch_contour, features.envelope, features.onsets)
 
 @rpc("any_peer", "call_local", "reliable")
-func submit_recording(peer_id: int, wav_bytes: PackedByteArray, mix_rate: int, pitch: Array, envelope: float, onsets: Array) -> void:
+func submit_recording(peer_id: int, wav_bytes: PackedByteArray, mix_rate: int, format: int, stereo: bool, pitch: Array, envelope: float, onsets: Array) -> void:
 	if not multiplayer.is_server():
 		return
 
@@ -768,25 +769,21 @@ func submit_recording(peer_id: int, wav_bytes: PackedByteArray, mix_rate: int, p
 	features.onsets = onsets.duplicate()
 
 	var wav = AudioStreamWAV.new()
-	wav.format = AudioStreamWAV.FORMAT_16_BITS
-	wav.mix_rate = 44100
-	wav.stereo = false
+	wav.format = format as AudioStreamWAV.Format
+	wav.mix_rate = mix_rate
+	wav.stereo = stereo
 	wav.data = wav_bytes
 
-	var audio = PackedFloat32Array()
-	for i in range(0, wav_bytes.size(), 2):
-		if i + 1 < wav_bytes.size():
-			var sample_16 = wav_bytes[i] | (wav_bytes[i + 1] << 8)
-			if sample_16 >= 32768:
-				sample_16 -= 65536
-			audio.append(float(sample_16) / 32768.0)
+	var audio = _audio_stream_to_mono_sync(wav)
 
 	player_recordings[peer_id] = {
 		"audio": audio,
 		"features": features,
 		"wav": wav,
 		"wav_bytes": wav_bytes,
-		"mix_rate": mix_rate
+		"mix_rate": mix_rate,
+		"format": format,
+		"stereo": stereo
 	}
 
 	print("[Mimic] Submission %d/%d" % [player_recordings.size(), players.size()])
@@ -824,7 +821,8 @@ func _judge_next_player() -> void:
 	player_scores[peer_id].scores.append(score)
 	player_scores[peer_id].total += score
 
-	show_player_performance.rpc(peer_id, score, player_recordings[peer_id].wav_bytes, player_recordings[peer_id].mix_rate)
+	var rec = player_recordings[peer_id]
+	show_player_performance.rpc(peer_id, score, rec.wav_bytes, rec.mix_rate, rec.format, rec.stereo)
 
 	var audio_data = player_recordings[peer_id].wav_bytes
 	var sample_count = audio_data.size() / 2
@@ -837,7 +835,7 @@ func _judge_next_player() -> void:
 	_judge_next_player()
 
 @rpc("authority", "call_local", "reliable")
-func show_player_performance(peer_id: int, score: int, wav_bytes: PackedByteArray, mix_rate: int) -> void:
+func show_player_performance(peer_id: int, score: int, wav_bytes: PackedByteArray, mix_rate: int, format: int = AudioStreamWAV.FORMAT_16_BITS, stereo: bool = false) -> void:
 	if score_label:
 		score_label.visible = false
 
@@ -846,9 +844,9 @@ func show_player_performance(peer_id: int, score: int, wav_bytes: PackedByteArra
 		stream = my_recording_wav
 	else:
 		stream = AudioStreamWAV.new()
-		stream.format = AudioStreamWAV.FORMAT_16_BITS
-		stream.mix_rate = 44100
-		stream.stereo = false
+		stream.format = format as AudioStreamWAV.Format
+		stream.mix_rate = mix_rate
+		stream.stereo = stereo
 		stream.data = wav_bytes
 
 	var original_pos = player_spawn_positions.get(peer_id, Vector3.ZERO)
