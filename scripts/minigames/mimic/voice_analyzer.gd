@@ -81,8 +81,8 @@ static func extract_onsets(samples: PackedFloat32Array) -> Array[float]:
 
 # Simple YIN pitch estimator
 static func _estimate_pitch(frame: PackedFloat32Array, sample_rate: int) -> float:
-	var min_period = sample_rate / 400  # 400 Hz max
-	var max_period = sample_rate / 80   # 80 Hz min
+	var min_period = int(sample_rate / 400.0)  # 400 Hz max
+	var max_period = int(sample_rate / 80.0)   # 80 Hz min
 
 	var min_diff = INF
 	var period = max_period

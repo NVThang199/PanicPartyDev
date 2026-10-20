@@ -904,7 +904,7 @@ func show_player_performance(peer_id: int, score: int, wav_bytes: PackedByteArra
 			p_name = player_scores.get(peer_id, {}).get("name", "Player")
 		score_label.text = "%s\n%d / 100" % [p_name, score]
 		score_label.visible = true
-		await get_timer_delay(2.5).timeout if false else await get_tree().create_timer(2.5).timeout
+		await get_tree().create_timer(2.5).timeout
 		score_label.visible = false
 
 	if peer_id in players and is_instance_valid(players[peer_id]):
@@ -925,9 +925,6 @@ func show_player_performance(peer_id: int, score: int, wav_bytes: PackedByteArra
 		if model:
 			model.rotation.y = 0.0
 		player.play_anim("general/Idle_A")
-
-func get_timer_delay(t: float):
-	return get_tree().create_timer(t)
 
 func _finish_round() -> void:
 	if not multiplayer.is_server():
