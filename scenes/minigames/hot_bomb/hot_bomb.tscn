@@ -56,7 +56,7 @@ shadow_enabled = true
 environment = ExtResource("2_env")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1223199760]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 20)
+transform = Transform3D(1, 0, 0, 0, 0.59060407, 0.80696154, 0, -0.80696154, 0.59060407, 0, 15.692455, 15.157682)
 current = true
 fov = 55.0
 
@@ -72,10 +72,10 @@ shape = SubResource("BoxShape3D_floor")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.5, 0)
 
 [node name="fence_wood_straight" parent="NavigationRegion3D/Wall_Left" unique_id=1312272320 instance=ExtResource("4_u08cb")]
-transform = Transform3D(13.5, 0, 0, 0, 13.5, 0, 0, 0, 13.5, 13.89391, -2.2576847, 6.4811172)
+transform = Transform3D(13.5, 0, 0, 0, 13.5, 0, 0, 0, 13.5, 13.502624, -2.2576847, 6.4811172)
 
 [node name="fence_wood_straight2" parent="NavigationRegion3D/Wall_Left" unique_id=1673245548 instance=ExtResource("4_u08cb")]
-transform = Transform3D(13.5, 0, 0, 0, 13.5, 0, 0, 0, 13.5, 13.89391, -2.2576847, -7.2612267)
+transform = Transform3D(13.5, 0, 0, 0, 13.5, 0, 0, 0, 13.5, 13.502624, -2.2576847, -7.2612267)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall_Left" unique_id=1526668261]
 shape = SubResource("BoxShape3D_wall_lr")
@@ -100,25 +100,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -15)
 shape = SubResource("BoxShape3D_wall_fb")
 
 [node name="fence_wood_straight_gate" parent="NavigationRegion3D/Wall_Forward" unique_id=1630500544 instance=ExtResource("5_nws6h")]
-transform = Transform3D(-5.901038e-07, 0, -13.5, 0, 13.5, 0, 13.5, 0, -5.901038e-07, 0.1347866, -2.2391543, 14.1308365)
+transform = Transform3D(-5.901038e-07, 0, -13.5, 0, 13.5, 0, 13.5, 0, -5.901038e-07, 0.1347866, -2.2391543, 12.938093)
 
 [node name="fence_wood_straight" parent="NavigationRegion3D/Wall_Forward" unique_id=1704046837 instance=ExtResource("4_u08cb")]
-transform = Transform3D(-5.9010375e-07, 0, -13.5, 0, 13.5, 0, 13.5, 0, -5.9010375e-07, -13.677996, -2.2576847, 14.117332)
+transform = Transform3D(-5.9010375e-07, 0, -13.5, 0, 13.5, 0, 13.5, 0, -5.9010375e-07, -13.677996, -2.2576847, 12.924589)
 
 [node name="fence_wood_straight2" parent="NavigationRegion3D/Wall_Forward" unique_id=916557215 instance=ExtResource("4_u08cb")]
-transform = Transform3D(-5.9010375e-07, 0, -13.5, 0, 13.5, 0, 13.5, 0, -5.9010375e-07, 14.048697, -2.2576847, 14.117332)
+transform = Transform3D(-5.9010375e-07, 0, -13.5, 0, 13.5, 0, 13.5, 0, -5.9010375e-07, 14.048697, -2.2576847, 12.924589)
 
 [node name="Wall_Back" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1448231811]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46965885, 2.5, 15)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall_Back" unique_id=2070598326]
 shape = SubResource("BoxShape3D_wall_fb")
 
 [node name="fence_wood_straight" parent="NavigationRegion3D/Wall_Back" unique_id=213375626 instance=ExtResource("4_u08cb")]
-transform = Transform3D(-5.9010375e-07, 0, -13.5, 0, 13.5, 0, 13.5, 0, -5.9010375e-07, -6.4846487, -2.2576847, 13.117332)
+transform = Transform3D(-5.9010375e-07, 0, -13.5, 0, 13.5, 0, 13.5, 0, -5.9010375e-07, -6.4846487, -2.2576847, 13.545818)
 
 [node name="fence_wood_straight2" parent="NavigationRegion3D/Wall_Back" unique_id=2072020608 instance=ExtResource("4_u08cb")]
-transform = Transform3D(-5.9010375e-07, 0, -13.5, 0, 13.5, 0, 13.5, 0, -5.9010375e-07, 8.272469, -2.2576847, 13.117332)
+transform = Transform3D(-5.9010375e-07, 0, -13.5, 0, 13.5, 0, 13.5, 0, -5.9010375e-07, 8.272469, -2.2576847, 13.545818)
 
 [node name="Obstacle1" type="StaticBody3D" parent="NavigationRegion3D" unique_id=849482558]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, -5)
@@ -312,4 +312,4 @@ transform = Transform3D(-0.20701659, 0, 29.999289, 0, 29.999998, 0, -29.999289, 
 [node name="hex_grass" parent="." unique_id=1575705418 instance=ExtResource("22_j2ctx")]
 transform = Transform3D(95.54515, 0, 0, 0, 17.67718, 0, 0, 0, 95.54515, -4.639515, 0.11, -30.556969)
 
-[node name="InGameMenu" parent="." instance=ExtResource("23_in_game_menu")]
+[node name="InGameMenu" parent="." unique_id=1017189052 instance=ExtResource("23_in_game_menu")]

@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
+const SPEED = 6.5
 const ROTATION_SPEED = 10.0
 const PUSH_RANGE = 2.2
 const PUSH_COOLDOWN_TIME = 0.0
@@ -27,6 +27,11 @@ var character_hat: String = ""
 var is_holding_bomb: bool = false
 var is_dead_in_minigame: bool = false
 var held_bomb: Node = null
+
+# Network Interpolation
+var target_pos: Vector3 = Vector3.ZERO
+var target_rot_y: float = 0.0
+var has_synced_pos: bool = false
 
 func set_character_color(col: Color) -> void:
 	character_color = col
@@ -110,10 +115,12 @@ func _apply_color_recursive(node: Node, col: Color) -> void:
 				var mat = node.get_surface_override_material(s)
 				if mat is StandardMaterial3D:
 					mat.albedo_color = col
+					mat.cull_mode = BaseMaterial3D.CULL_DISABLED
 				else:
 					var new_mat := StandardMaterial3D.new()
 					new_mat.albedo_color = col
 					new_mat.roughness = 0.5
+					new_mat.cull_mode = BaseMaterial3D.CULL_DISABLED
 					node.set_surface_override_material(s, new_mat)
 	for child in node.get_children():
 		_apply_color_recursive(child, col)
@@ -133,11 +140,25 @@ func _ensure_nodes():
 		anim_player = get_node_or_null("AnimationPlayer")
 
 func _apply_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
-	position = new_pos
-	if model:
-		model.rotation.y = rot_y
+	target_pos = new_pos
+	target_rot_y = rot_y
+	if not has_synced_pos or position.distance_squared_to(new_pos) > 16.0:
+		position = new_pos
+		has_synced_pos = true
+		if model:
+			model.rotation.y = rot_y
 	if anim_name and anim_name != current_anim:
 		play_anim(anim_name)
+
+func _process(delta: float) -> void:
+	if not is_inside_tree():
+		return
+	var has_peer = multiplayer and multiplayer.multiplayer_peer and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED
+	var has_authority = is_multiplayer_authority() if has_peer else true
+	if not has_authority and has_synced_pos:
+		position = position.lerp(target_pos, 25.0 * delta)
+		if model:
+			model.rotation.y = lerp_angle(model.rotation.y, target_rot_y, 25.0 * delta)
 
 func _safe_wait_animation(anim_name: String, fallback_duration: float = 0.5) -> void:
 	if not is_inside_tree():
@@ -294,7 +315,7 @@ func _physics_process(delta):
 					if is_holding_bomb:
 						play_anim("hot_bomb/Running_HoldingRifle")
 					else:
-						play_anim("movement/Walking_A")
+						play_anim("movement/Running_B")
 
 				else:
 					velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -311,10 +332,14 @@ func _physics_process(delta):
 			var rot_y: float = model.rotation.y if model else 0.0
 			var main_node = get_parent()
 			if main_node and is_instance_valid(main_node) and main_node.is_inside_tree() and main_node.has_method("sync_player_state"):
-				if ("is_returning" in main_node and main_node.is_returning) or ("is_starting" in main_node and main_node.is_starting) or ("state" in main_node and main_node.state == 2):
+				if ("is_returning" in main_node and main_node.is_returning) or ("is_starting" in main_node and main_node.is_starting) or ("is_switching_round" in main_node and main_node.is_switching_round):
 					pass
 				else:
-					main_node.sync_player_state.rpc(multiplayer.get_unique_id(), position, rot_y, current_anim)
+					var my_id = multiplayer.get_unique_id()
+					var target_peers = main_node.synced_peers if ("synced_peers" in main_node) else (main_node.players if ("players" in main_node) else {})
+					for pid in target_peers:
+						if pid != my_id:
+							main_node.sync_player_state.rpc_id(pid, my_id, position, rot_y, current_anim)
 
 func _ready():
 	_ensure_nodes()
@@ -329,6 +354,8 @@ func _ready():
 		if not anim_player.has_animation_library("movement"):
 			var move_lib = load("res://assets/animations/movement_animations.res")
 			if move_lib:
+				if move_lib.has_animation("Running_B"):
+					move_lib.get_animation("Running_B").loop_mode = Animation.LOOP_LINEAR
 				anim_player.add_animation_library("movement", move_lib)
 		if not anim_player.has_animation_library("general"):
 			var gen_lib = load("res://assets/animations/general_animations.res")
