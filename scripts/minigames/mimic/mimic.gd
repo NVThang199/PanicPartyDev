@@ -574,6 +574,13 @@ func _finish_preparation() -> void:
 	update_instruction.rpc("Submitting recordings...")
 	request_final_submissions.rpc()
 	print("[Mimic] Checking submissions: %d/%d" % [player_recordings.size(), players.size()])
+
+	# Đợi nhận đủ packet từ các client (tối đa 1.5 giây)
+	var wait_time = 0.0
+	while player_recordings.size() < players.size() and wait_time < 1.5:
+		await get_tree().create_timer(0.1).timeout
+		wait_time += 0.1
+
 	_start_judging_phase()
 
 func _on_listen_pressed() -> void:
@@ -699,8 +706,8 @@ func _stop_recording() -> void:
 		print("[Mimic] No recording data!")
 
 func _process_wav_recording(wav: AudioStreamWAV) -> void:
-	if wav.mix_rate <= 0:
-		wav.mix_rate = AudioServer.get_mix_rate()
+	if wav.mix_rate <= 0 or wav.mix_rate != 44100:
+		wav.mix_rate = 44100
 
 	my_recording_wav = wav
 	my_recording = _audio_stream_to_mono_sync(wav)
@@ -762,7 +769,7 @@ func submit_recording(peer_id: int, wav_bytes: PackedByteArray, mix_rate: int, p
 
 	var wav = AudioStreamWAV.new()
 	wav.format = AudioStreamWAV.FORMAT_16_BITS
-	wav.mix_rate = mix_rate
+	wav.mix_rate = 44100
 	wav.stereo = false
 	wav.data = wav_bytes
 
@@ -840,7 +847,7 @@ func show_player_performance(peer_id: int, score: int, wav_bytes: PackedByteArra
 	else:
 		stream = AudioStreamWAV.new()
 		stream.format = AudioStreamWAV.FORMAT_16_BITS
-		stream.mix_rate = mix_rate
+		stream.mix_rate = 44100
 		stream.stereo = false
 		stream.data = wav_bytes
 
