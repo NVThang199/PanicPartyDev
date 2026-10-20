@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
+const SPEED = 6.5
 const ROTATION_SPEED = 10.0
 const PUSH_RANGE = 2.2
 const PUSH_COOLDOWN_TIME = 0.0
@@ -313,7 +313,7 @@ func _physics_process(delta):
 					if is_holding_bomb:
 						play_anim("hot_bomb/Running_HoldingRifle")
 					else:
-						play_anim("movement/Walking_A")
+						play_anim("movement/Running_B")
 
 				else:
 					velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -352,6 +352,8 @@ func _ready():
 		if not anim_player.has_animation_library("movement"):
 			var move_lib = load("res://assets/animations/movement_animations.res")
 			if move_lib:
+				if move_lib.has_animation("Running_B"):
+					move_lib.get_animation("Running_B").loop_mode = Animation.LOOP_LINEAR
 				anim_player.add_animation_library("movement", move_lib)
 		if not anim_player.has_animation_library("general"):
 			var gen_lib = load("res://assets/animations/general_animations.res")
