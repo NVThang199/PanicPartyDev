@@ -1,0 +1,2 @@
+Has Working_C: true
+Anims: ["Chop", "Chopping", "Dig", "Digging", "Fishing_Bite", "Fishing_Cast", "Fishing_Catch", "Fishing_Idle", "Fishing_Reeling", "Fishing_Struggling", "Fishing_Tug", "Hammer", "Hammering", "Holding_A", "Holding_B", "Holding_C", "Lockpick", "Lockpicking", "Pickaxe", "Pickaxing", "Saw", "Sawing", "T-Pose", "Work_A", "Work_B", "Work_C", "Working_A", "Working_B", "Working_C"]

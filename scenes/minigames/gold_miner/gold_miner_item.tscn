@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://goldmineritem001"]
+
+[ext_resource type="Script" path="res://scripts/minigames/gold_miner/gold_miner_item.gd" id="1_item_script"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_item"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_default"]
+albedo_color = Color(1, 0.8, 0.1, 1)
+metallic = 0.8
+roughness = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_item"]
+material = SubResource("StandardMaterial3D_default")
+radius = 1.0
+height = 2.0
+
+[node name="GoldMinerItem" type="Area3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_item_script")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_item")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_item")

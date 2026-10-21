@@ -1,0 +1,3 @@
+Has Working_C: true
+Loop mode: 1
+Length: 2.0

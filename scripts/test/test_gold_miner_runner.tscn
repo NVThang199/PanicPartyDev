@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dm5u7d331cpye"]
+
+[ext_resource type="Script" path="res://scripts/test/test_gold_miner_runner.gd" id="1_runner"]
+
+[node name="TestRunner" type="Node"]
+script = ExtResource("1_runner")
