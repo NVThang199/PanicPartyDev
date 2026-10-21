@@ -1,2 +1,0 @@
-Child MeshInstance3D rot: (-90.0, 0.0, 0.0) scale: (100.0, 100.0, 100.0)
-In Child coords - Min: (-0.750012, -0.0, -0.75) Max: (0.749988, 4.0, 0.75) Size: (1.5, 4.0, 1.5)

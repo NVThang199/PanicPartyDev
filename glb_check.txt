@@ -1,2 +1,0 @@
-GLTFDocument loaded miner_hook.glb OK: miner_hook:<Node3D#28303164905>
-GLTFDocument loaded miner_winch.glb OK: miner_winch:<Node3D#29041362438>
