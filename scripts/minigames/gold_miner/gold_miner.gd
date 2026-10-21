@@ -102,6 +102,11 @@ func spawn_player(peer_id: int, character_path: String, player_name: String, ste
 	if is_instance_valid(p):
 		p.velocity = Vector3.ZERO
 		p.set_physics_process(false)
+	var hook_origin = Vector3(pos.x, 9.9, 0.0)
+	if peer_id not in hooks:
+		hooks[peer_id] = create_default_hook_data(hook_origin)
+	else:
+		hooks[peer_id]["origin"] = hook_origin
 
 
 func _on_tutorial_finished() -> void:
@@ -199,7 +204,7 @@ func _on_sync_custom_entities(caller_id: int) -> void:
 	# Gửi trạng thái móc và điểm số
 	for pid in hooks:
 		var h = hooks[pid]
-		sync_hook_full_state.rpc_id(caller_id, pid, h.get("state", HookState.SWINGING), h.get("angle", 0.0), h.get("length", 0.0), h.get("origin", Vector3.ZERO), gold_scores.get(pid, 0))
+		sync_hook_full_state.rpc_id(caller_id, pid, h.get("state", HookState.SWINGING), h.get("angle", 0.0), h.get("length", 0.0), h.get("origin", Vector3.ZERO), gold_scores.get(pid, 0), h.get("target_item_id", -1))
 
 
 @rpc("authority", "call_local", "reliable")
@@ -223,7 +228,7 @@ func spawn_mineral_rpc(item_id: int, item_type: int, pos: Vector3) -> void:
 
 
 @rpc("authority", "call_local", "reliable")
-func sync_hook_full_state(peer_id: int, state_val: int, angle: float, length: float, origin: Vector3, score: int) -> void:
+func sync_hook_full_state(peer_id: int, state_val: int, angle: float, length: float, origin: Vector3, score: int, target_item_id: int = -1) -> void:
 	if not is_inside_tree():
 		return
 	if peer_id not in hooks:
@@ -233,6 +238,7 @@ func sync_hook_full_state(peer_id: int, state_val: int, angle: float, length: fl
 	h["angle"] = angle
 	h["length"] = length
 	h["origin"] = origin
+	h["target_item_id"] = target_item_id
 	gold_scores[peer_id] = score
 	_update_player_animation(peer_id, state_val)
 
@@ -279,7 +285,7 @@ func _process(delta: float) -> void:
 				var h = hooks[pid]
 				for target_pid in synced_peers:
 					if target_pid != 1:
-						sync_hook_tick.rpc_id(target_pid, pid, h.get("state", HookState.SWINGING), h.get("angle", 0.0), h.get("length", BASE_SWING_LENGTH))
+						sync_hook_tick.rpc_id(target_pid, pid, h.get("state", HookState.SWINGING), h.get("angle", 0.0), h.get("length", BASE_SWING_LENGTH), h.get("target_item_id", -1))
 		_update_hook_visuals(delta)
 
 
@@ -294,7 +300,7 @@ func _on_minigame_tick(delta: float) -> void:
 			var h = hooks[pid]
 			for target_pid in synced_peers:
 				if target_pid != 1:
-					sync_hook_tick.rpc_id(target_pid, pid, h.get("state", HookState.SWINGING), h.get("angle", 0.0), h.get("length", BASE_SWING_LENGTH))
+					sync_hook_tick.rpc_id(target_pid, pid, h.get("state", HookState.SWINGING), h.get("angle", 0.0), h.get("length", BASE_SWING_LENGTH), h.get("target_item_id", -1))
 
 		# Kiểm tra hết giờ
 		if match_timer <= 0.0:
@@ -367,16 +373,19 @@ func _process_gold_miner_end() -> void:
 
 
 @rpc("authority", "unreliable")
-func sync_hook_tick(peer_id: int, p_state: int, p_angle: float, p_length: float) -> void:
+func sync_hook_tick(peer_id: int, p_state: int, p_angle: float, p_length: float, p_target_item_id: int = -1) -> void:
 	if not is_inside_tree() or multiplayer.is_server():
 		return
 	if peer_id not in hooks:
 		var spawns = _get_spawn_positions()
-		hooks[peer_id] = create_default_hook_data(spawns[0])
+		var p = players.get(peer_id)
+		var origin = Vector3(p.position.x, 9.9, 0.0) if is_instance_valid(p) else spawns[0]
+		hooks[peer_id] = create_default_hook_data(origin)
 	var h = hooks[peer_id]
 	h["state"] = p_state
 	h["angle"] = p_angle
 	h["length"] = p_length
+	h["target_item_id"] = p_target_item_id
 
 
 func _update_hook_visuals(delta: float = 0.0) -> void:
@@ -417,6 +426,13 @@ func _update_hook_visuals(delta: float = 0.0) -> void:
 		# Đầu móc vung lắc theo hình cánh cung và xoay theo chiều dây cáp
 		head.global_position = tip
 		head.rotation.z = angle
+
+		# Cập nhật vị trí đồ vật bị kéo theo đầu móc (đồng bộ cả Host và Client)
+		var target_id: int = h.get("target_item_id", -1)
+		if target_id != -1 and target_id in minerals:
+			var item = minerals[target_id]
+			if item is Node3D and is_instance_valid(item):
+				(item as Node3D).global_position = tip + dir * 0.95
 
 		# Dây cáp (nối từ origin tới tip, hướng theo dir, chiều dài length)
 		if length > 0.05:
@@ -702,16 +718,17 @@ func _tick_hook_server(peer_id: int, delta: float) -> void:
 					h["target_item_id"] = -1
 					h["state"] = HookState.RETRACTING
 
-				_notify_hook_event(peer_id, HookState.RETRACTING, h.get("angle", 0.0))
+				_notify_hook_event(peer_id, HookState.RETRACTING, h.get("angle", 0.0), h.get("target_item_id", -1))
 			elif env_dist > 0.0:
 				# Chạm sàn hoặc chạm đá Rubble2/Rubble3: bật dội ngược lại ngay
 				h["length"] = env_dist
 				h["target_item_id"] = -1
 				h["state"] = HookState.RETRACTING
-				_notify_hook_event(peer_id, HookState.RETRACTING, h.get("angle", 0.0))
+				_notify_hook_event(peer_id, HookState.RETRACTING, h.get("angle", 0.0), -1)
 			elif length >= MAX_HOOK_LENGTH:
 				h["state"] = HookState.RETRACTING
-				_notify_hook_event(peer_id, HookState.RETRACTING, h.get("angle", 0.0))
+				h["target_item_id"] = -1
+				_notify_hook_event(peer_id, HookState.RETRACTING, h.get("angle", 0.0), -1)
 
 		HookState.RETRACTING:
 			var length: float = h.get("length", BASE_SWING_LENGTH)
@@ -756,7 +773,7 @@ func _tick_hook_server(peer_id: int, delta: float) -> void:
 					_notify_item_collected(peer_id, target_id, gold_scores[peer_id])
 
 				h["target_item_id"] = -1
-				_notify_hook_event(peer_id, HookState.SWINGING, h.get("angle", 0.0))
+				_notify_hook_event(peer_id, HookState.SWINGING, h.get("angle", 0.0), -1)
 			else:
 				h["length"] = length
 				# Cập nhật vị trí item theo đầu móc nếu có
@@ -768,14 +785,14 @@ func _tick_hook_server(peer_id: int, delta: float) -> void:
 						(item as Node3D).global_position = hook_tip + hook_dir_n * 0.95
 
 
-func _notify_hook_event(peer_id: int, new_state: int, angle: float) -> void:
+func _notify_hook_event(peer_id: int, new_state: int, angle: float, target_item_id: int = -1) -> void:
 	if not multiplayer or not multiplayer.has_multiplayer_peer() or not multiplayer.is_server():
 		return
 	for pid in synced_peers:
 		if pid == 1:
-			sync_hook_event(peer_id, new_state, angle)
+			sync_hook_event(peer_id, new_state, angle, target_item_id)
 		else:
-			sync_hook_event.rpc_id(pid, peer_id, new_state, angle)
+			sync_hook_event.rpc_id(pid, peer_id, new_state, angle, target_item_id)
 
 
 func _notify_item_collected(peer_id: int, item_id: int, new_score: int) -> void:
@@ -815,20 +832,28 @@ func request_drop_hook() -> void:
 	h["angle"] = angle
 	h["direction"] = Vector3(sin(angle), -cos(angle), 0.0).normalized()
 	h["state"] = HookState.EXTENDING
-	_notify_hook_event(sender_id, HookState.EXTENDING, angle)
+	h["target_item_id"] = -1
+	_notify_hook_event(sender_id, HookState.EXTENDING, angle, -1)
 
 
 @rpc("authority", "call_local", "reliable")
-func sync_hook_event(peer_id: int, new_state: int, angle: float) -> void:
+func sync_hook_event(peer_id: int, new_state: int, angle: float, target_item_id: int = -1) -> void:
 	if not is_inside_tree():
 		return
 	if peer_id not in hooks:
 		var spawns = _get_spawn_positions()
-		hooks[peer_id] = create_default_hook_data(spawns[0])
+		var p = players.get(peer_id)
+		var origin = Vector3(p.position.x, 9.9, 0.0) if is_instance_valid(p) else spawns[0]
+		hooks[peer_id] = create_default_hook_data(origin)
 	var h: Dictionary = hooks[peer_id]
 	h["state"] = new_state
 	h["angle"] = angle
 	h["direction"] = Vector3(sin(angle), -cos(angle), 0.0).normalized()
+	h["target_item_id"] = target_item_id
+	if target_item_id != -1 and target_item_id in minerals:
+		var target_item = minerals[target_item_id]
+		if target_item and is_instance_valid(target_item) and "is_hooked" in target_item:
+			target_item.is_hooked = true
 	_update_player_animation(peer_id, new_state)
 
 
