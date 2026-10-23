@@ -80,6 +80,7 @@ var is_countdown_active: bool = false
 var _sample_peak: float = 1.0
 
 func _ready() -> void:
+	GameSession.last_played_map = "Mimic"
 	if has_node("Camera3D"):
 		var cam = $Camera3D
 		cam.position = Vector3(0.0, 4.8, 11.5)
@@ -1137,6 +1138,7 @@ func _return_to_lobby() -> void:
 	if not multiplayer.is_server() or is_returning:
 		return
 	is_returning = true
+	GameSession.last_played_map = "Mimic"
 	set_process(false)
 	prepare_return_to_lobby.rpc()
 	await get_tree().create_timer(0.1).timeout
@@ -1146,10 +1148,12 @@ func _return_to_lobby() -> void:
 @rpc("authority", "call_local", "reliable")
 func prepare_return_to_lobby() -> void:
 	is_returning = true
+	GameSession.last_played_map = "Mimic"
 	set_process(false)
 
 @rpc("authority", "call_local", "reliable")
 func return_to_lobby() -> void:
+	GameSession.last_played_map = "Mimic"
 	if not multiplayer.is_server():
 		get_tree().change_scene_to_file("res://scenes/core/main.tscn")
 

@@ -309,10 +309,22 @@ func _on_character_confirmed(character_path: String, color: Color = Color.WHITE,
 			"wins": existing_wins
 		}
 		spawn_player_rpc(1, character_path, my_name, my_steam_id, color, face, hat)
+		var targets: Dictionary = {}
+		if multiplayer.multiplayer_peer:
+			for p in multiplayer.get_peers():
+				if p != 1:
+					targets[p] = true
+		for p in player_info:
+			if p != 1:
+				targets[p] = true
+		for pid in targets:
+			spawn_player_rpc.rpc_id(pid, 1, character_path, my_name, my_steam_id, color, face, hat)
+			sync_ready_states.rpc_id(pid, get_ready_states())
+			sync_campaign_config.rpc_id(pid, GameSession.campaign_active, GameSession.target_score)
 		for pid in player_info:
-			if pid != 1:
-				sync_ready_states.rpc_id(pid, get_ready_states())
-				sync_campaign_config.rpc_id(pid, GameSession.campaign_active, GameSession.target_score)
+			if pid != 1 and (pid not in players or not is_instance_valid(players[pid])):
+				var c_info = player_info[pid]
+				spawn_player_rpc(pid, c_info.get("character", ""), c_info.get("name", ""), c_info.get("steam_id", 0), c_info.get("color", Color.WHITE), c_info.get("face", "res://assets/characters/face/robloxmanface.png"), c_info.get("hat", ""))
 		_sync_all_wins_to_all()
 	else:
 		if multiplayer.multiplayer_peer != null and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
@@ -414,11 +426,12 @@ func register_player(character_path: String, player_name: String = "", steam_id:
 			var info = player_info[pid]
 			spawn_player_rpc.rpc_id(caller_id, pid, info.character, info.name, info.steam_id, info.get("color", Color.WHITE), info.get("face", "res://assets/characters/face/robloxmanface.png"), info.get("hat", ""))
 
-	# Spawn new joiner for everyone in player_info
+	# Always spawn new joiner locally on Host
+	spawn_player_rpc(caller_id, character_path, player_name, steam_id, color, face, hat)
+
+	# Spawn new joiner for other connected clients
 	for pid in player_info:
-		if pid == 1:
-			spawn_player_rpc(caller_id, character_path, player_name, steam_id, color, face, hat)
-		elif pid != caller_id:
+		if pid != 1 and pid != caller_id:
 			spawn_player_rpc.rpc_id(pid, caller_id, character_path, player_name, steam_id, color, face, hat)
 	spawn_player_rpc.rpc_id(caller_id, caller_id, character_path, player_name, steam_id, color, face, hat)
 

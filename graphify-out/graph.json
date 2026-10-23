@@ -4,559 +4,9 @@
   "graph": {},
   "nodes": [
     {
-      "id": "scripts_minigames_mimic_mimic_gd",
-      "label": "mimic.gd",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "mimic.gd",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__audio_stream_to_mono_sync",
-      "label": "func _audio_stream_to_mono_sync()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _audio_stream_to_mono_sync()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L774"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__build_sample_pool",
-      "label": "func _build_sample_pool()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _build_sample_pool()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L228"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__create_round_scoreboard_overlay",
-      "label": "func _create_round_scoreboard_overlay()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _create_round_scoreboard_overlay()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1267"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__create_tutorial_overlay",
-      "label": "func _create_tutorial_overlay()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _create_tutorial_overlay()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1166"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__extract_karaoke_amplitude_bars",
-      "label": "func _extract_karaoke_amplitude_bars()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _extract_karaoke_amplitude_bars()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L303"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__finish_preparation",
-      "label": "func _finish_preparation()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _finish_preparation()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L614"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__finish_round",
-      "label": "func _finish_round()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _finish_round()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L995"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__hide_waveform_rpc",
-      "label": "rpc func _hide_waveform_rpc()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func _hide_waveform_rpc()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L426"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__judge_next_player",
-      "label": "func _judge_next_player()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _judge_next_player()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L844"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__load_next_sample",
-      "label": "func _load_next_sample()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _load_next_sample()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L242"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__make_fallback_sample",
-      "label": "func _make_fallback_sample()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _make_fallback_sample()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L262"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__on_listen_pressed",
-      "label": "func _on_listen_pressed()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _on_listen_pressed()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L632"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__on_peer_disconnected",
-      "label": "func _on_peer_disconnected()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _on_peer_disconnected()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1156"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__on_record_pressed",
-      "label": "func _on_record_pressed()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _on_record_pressed()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L679"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__on_replay_pressed",
-      "label": "func _on_replay_pressed()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _on_replay_pressed()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L649"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__on_return_pressed",
-      "label": "func _on_return_pressed()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _on_return_pressed()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1124"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__play_sample",
-      "label": "func _play_sample()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _play_sample()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L558"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__process",
-      "label": "func _process()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _process()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L442"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__process_wav_recording",
-      "label": "func _process_wav_recording()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _process_wav_recording()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L754"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__ready",
-      "label": "func _ready()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _ready()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L82"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__return_to_lobby",
-      "label": "func _return_to_lobby()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _return_to_lobby()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1136"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__setup_audio_capture",
-      "label": "func _setup_audio_capture()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _setup_audio_capture()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L141"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__setup_sample_data",
-      "label": "func _setup_sample_data()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _setup_sample_data()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L282"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__start_judging_phase",
-      "label": "func _start_judging_phase()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _start_judging_phase()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L836"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__start_listening_phase",
-      "label": "func _start_listening_phase()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _start_listening_phase()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L418"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__start_preparation_phase",
-      "label": "func _start_preparation_phase()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _start_preparation_phase()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L584"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__stop_listen_preview",
-      "label": "func _stop_listen_preview()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _stop_listen_preview()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L433"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__stop_recording",
-      "label": "func _stop_recording()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _stop_recording()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L733"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd__switch_to_next_minigame",
-      "label": "func _switch_to_next_minigame()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "func _switch_to_next_minigame()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1098"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_enable_buttons",
-      "label": "rpc func enable_buttons()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func enable_buttons()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L548"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_hide_tutorial_rpc",
-      "label": "rpc func hide_tutorial_rpc()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func hide_tutorial_rpc()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1359"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_play_sample_rpc",
-      "label": "rpc func play_sample_rpc()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func play_sample_rpc()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L564"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_prepare_return_to_lobby",
-      "label": "rpc func prepare_return_to_lobby()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func prepare_return_to_lobby()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1147"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_request_final_submissions",
-      "label": "rpc func request_final_submissions()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func request_final_submissions()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L791"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_request_game_sync",
-      "label": "rpc func request_game_sync()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func request_game_sync()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L340"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_request_start_recording",
-      "label": "rpc func request_start_recording()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func request_start_recording()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L690"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_reset_recordings",
-      "label": "rpc func reset_recordings()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func reset_recordings()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1031"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_return_to_lobby",
-      "label": "rpc func return_to_lobby()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func return_to_lobby()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1152"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_return_to_lobby_request",
-      "label": "rpc func return_to_lobby_request()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func return_to_lobby_request()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1131"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_show_player_performance",
-      "label": "rpc func show_player_performance()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func show_player_performance()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L900"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_show_preparation_waveform",
-      "label": "rpc func show_preparation_waveform()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func show_preparation_waveform()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L598"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_show_round_scoreboard",
-      "label": "rpc func show_round_scoreboard()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func show_round_scoreboard()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1365"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_show_tutorial_rpc",
-      "label": "rpc func show_tutorial_rpc()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func show_tutorial_rpc()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1352"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_show_winner",
-      "label": "rpc func show_winner()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func show_winner()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1114"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_spawn_player",
-      "label": "rpc func spawn_player()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func spawn_player()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L370"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_start_countdown",
-      "label": "rpc func start_countdown()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func start_countdown()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L534"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_start_recording_rpc",
-      "label": "rpc func start_recording_rpc()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func start_recording_rpc()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L697"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_submit_recording",
-      "label": "rpc func submit_recording()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func submit_recording()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L807"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_switch_minigame_rpc",
-      "label": "rpc func switch_minigame_rpc()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func switch_minigame_rpc()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1109"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_sync_game_state",
-      "label": "rpc func sync_game_state()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func sync_game_state()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L409"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_sync_preparation_timer",
-      "label": "rpc func sync_preparation_timer()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func sync_preparation_timer()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L530"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_sync_round",
-      "label": "rpc func sync_round()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func sync_round()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L413"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_sync_sample_info",
-      "label": "rpc func sync_sample_info()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func sync_sample_info()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L362"
-    },
-    {
-      "id": "scripts_minigames_mimic_mimic_gd_update_instruction",
-      "label": "rpc func update_instruction()",
-      "community": 0,
-      "community_name": "mimic.gd",
-      "file_type": "code",
-      "norm_label": "rpc func update_instruction()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L543"
-    },
-    {
       "id": "scripts_minigames_base_minigame_gd",
       "label": "base_minigame.gd",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "base_minigame.gd",
@@ -566,7 +16,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__calculate_round_scores",
       "label": "func _calculate_round_scores()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _calculate_round_scores()",
@@ -576,7 +26,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__create_round_scoreboard_overlay",
       "label": "func _create_round_scoreboard_overlay()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _create_round_scoreboard_overlay()",
@@ -586,7 +36,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__create_spectator_overlay",
       "label": "func _create_spectator_overlay()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _create_spectator_overlay()",
@@ -596,7 +46,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__create_tutorial_overlay",
       "label": "func _create_tutorial_overlay()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _create_tutorial_overlay()",
@@ -606,7 +56,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__exit_tree",
       "label": "func _exit_tree()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _exit_tree()",
@@ -616,7 +66,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__finish_tutorial",
       "label": "func _finish_tutorial()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _finish_tutorial()",
@@ -626,7 +76,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__freeze_all_players",
       "label": "func _freeze_all_players()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _freeze_all_players()",
@@ -636,7 +86,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__get_draw_text",
       "label": "func _get_draw_text()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _get_draw_text()",
@@ -646,7 +96,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__get_next_minigame_scene",
       "label": "func _get_next_minigame_scene()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _get_next_minigame_scene()",
@@ -656,7 +106,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__get_tutorial_data",
       "label": "func _get_tutorial_data()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _get_tutorial_data()",
@@ -666,7 +116,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__init_base_ui",
       "label": "func _init_base_ui()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _init_base_ui()",
@@ -676,7 +126,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__notification",
       "label": "func _notification()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _notification()",
@@ -686,7 +136,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__on_minigame_ready",
       "label": "func _on_minigame_ready()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _on_minigame_ready()",
@@ -696,7 +146,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__on_minigame_tick",
       "label": "func _on_minigame_tick()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _on_minigame_tick()",
@@ -706,7 +156,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__on_player_died",
       "label": "func _on_player_died()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _on_player_died()",
@@ -716,7 +166,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__on_player_disconnected",
       "label": "func _on_player_disconnected()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _on_player_disconnected()",
@@ -726,7 +176,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__on_post_initialize",
       "label": "func _on_post_initialize()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _on_post_initialize()",
@@ -736,7 +186,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__on_pre_initialize",
       "label": "func _on_pre_initialize()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _on_pre_initialize()",
@@ -746,7 +196,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__on_prepare_return_to_lobby",
       "label": "func _on_prepare_return_to_lobby()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _on_prepare_return_to_lobby()",
@@ -756,7 +206,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__on_return_pressed",
       "label": "func _on_return_pressed()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _on_return_pressed()",
@@ -766,7 +216,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__on_sync_custom_entities",
       "label": "func _on_sync_custom_entities()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _on_sync_custom_entities()",
@@ -776,7 +226,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__on_tutorial_finished",
       "label": "func _on_tutorial_finished()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _on_tutorial_finished()",
@@ -786,7 +236,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__process",
       "label": "func _process()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _process()",
@@ -796,7 +246,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__show_tutorial_overlay",
       "label": "func _show_tutorial_overlay()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _show_tutorial_overlay()",
@@ -806,7 +256,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__start_auto_return",
       "label": "func _start_auto_return()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _start_auto_return()",
@@ -816,7 +266,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__start_next_minigame_countdown",
       "label": "func _start_next_minigame_countdown()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _start_next_minigame_countdown()",
@@ -826,7 +276,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd__update_tutorial_ui",
       "label": "func _update_tutorial_ui()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func _update_tutorial_ui()",
@@ -836,7 +286,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_apply_knockback_rpc",
       "label": "rpc func apply_knockback_rpc()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func apply_knockback_rpc()",
@@ -846,7 +296,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_baseminigame",
       "label": "class BaseMinigame",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "class baseminigame",
@@ -856,7 +306,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_finish_tutorial_rpc",
       "label": "rpc func finish_tutorial_rpc()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func finish_tutorial_rpc()",
@@ -866,7 +316,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_get_alive_player_ids",
       "label": "func get_alive_player_ids()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func get_alive_player_ids()",
@@ -876,7 +326,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_get_alive_players",
       "label": "func get_alive_players()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func get_alive_players()",
@@ -886,7 +336,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_player_died",
       "label": "func player_died()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func player_died()",
@@ -896,7 +346,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_player_died_rpc",
       "label": "rpc func player_died_rpc()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func player_died_rpc()",
@@ -906,7 +356,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_prepare_return_to_lobby_rpc",
       "label": "rpc func prepare_return_to_lobby_rpc()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func prepare_return_to_lobby_rpc()",
@@ -916,7 +366,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_prepare_switch_minigame_rpc",
       "label": "rpc func prepare_switch_minigame_rpc()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func prepare_switch_minigame_rpc()",
@@ -926,7 +376,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_remove_dead_player",
       "label": "func remove_dead_player()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func remove_dead_player()",
@@ -936,7 +386,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_remove_player_rpc",
       "label": "rpc func remove_player_rpc()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func remove_player_rpc()",
@@ -946,7 +396,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_request_push",
       "label": "rpc func request_push()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func request_push()",
@@ -956,7 +406,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_request_return_to_lobby",
       "label": "rpc func request_return_to_lobby()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func request_return_to_lobby()",
@@ -966,7 +416,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_return_to_lobby",
       "label": "func return_to_lobby()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func return_to_lobby()",
@@ -976,7 +426,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_show_spectator_character_select",
       "label": "func show_spectator_character_select()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func show_spectator_character_select()",
@@ -986,7 +436,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_show_winner_banner",
       "label": "rpc func show_winner_banner()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func show_winner_banner()",
@@ -996,7 +446,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_spawn_player",
       "label": "rpc func spawn_player()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func spawn_player()",
@@ -1006,7 +456,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_start_tutorial_rpc",
       "label": "rpc func start_tutorial_rpc()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func start_tutorial_rpc()",
@@ -1016,7 +466,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_switch_minigame_rpc",
       "label": "rpc func switch_minigame_rpc()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func switch_minigame_rpc()",
@@ -1026,7 +476,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_switch_to_next_minigame",
       "label": "func switch_to_next_minigame()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "func switch_to_next_minigame()",
@@ -1036,7 +486,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_sync_game_state",
       "label": "rpc func sync_game_state()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func sync_game_state()",
@@ -1046,7 +496,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_sync_match_timer",
       "label": "rpc func sync_match_timer()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func sync_match_timer()",
@@ -1056,7 +506,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_sync_player_state",
       "label": "rpc func sync_player_state()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func sync_player_state()",
@@ -1066,7 +516,7 @@
     {
       "id": "scripts_minigames_base_minigame_gd_sync_tutorial_timer",
       "label": "rpc func sync_tutorial_timer()",
-      "community": 1,
+      "community": 0,
       "community_name": "base_minigame.gd",
       "file_type": "code",
       "norm_label": "rpc func sync_tutorial_timer()",
@@ -1074,244 +524,754 @@
       "source_location": "L544"
     },
     {
-      "id": "gamesession",
-      "label": "Gamesession",
-      "community": 10,
-      "community_name": "Gamesession",
+      "id": "scripts_minigames_mimic_mimic_gd",
+      "label": "mimic.gd",
+      "community": 1,
+      "community_name": "mimic.gd",
       "file_type": "code",
-      "norm_label": "gamesession",
+      "norm_label": "mimic.gd",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__audio_stream_to_mono_sync",
+      "label": "func _audio_stream_to_mono_sync()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _audio_stream_to_mono_sync()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L775"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__build_sample_pool",
+      "label": "func _build_sample_pool()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _build_sample_pool()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L229"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__create_round_scoreboard_overlay",
+      "label": "func _create_round_scoreboard_overlay()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _create_round_scoreboard_overlay()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1271"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__create_tutorial_overlay",
+      "label": "func _create_tutorial_overlay()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _create_tutorial_overlay()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1170"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__extract_karaoke_amplitude_bars",
+      "label": "func _extract_karaoke_amplitude_bars()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _extract_karaoke_amplitude_bars()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L304"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__finish_preparation",
+      "label": "func _finish_preparation()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _finish_preparation()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L615"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__finish_round",
+      "label": "func _finish_round()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _finish_round()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L996"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__hide_waveform_rpc",
+      "label": "rpc func _hide_waveform_rpc()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func _hide_waveform_rpc()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L427"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__judge_next_player",
+      "label": "func _judge_next_player()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _judge_next_player()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L845"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__load_next_sample",
+      "label": "func _load_next_sample()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _load_next_sample()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L243"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__make_fallback_sample",
+      "label": "func _make_fallback_sample()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _make_fallback_sample()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L263"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__on_listen_pressed",
+      "label": "func _on_listen_pressed()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _on_listen_pressed()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L633"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__on_peer_disconnected",
+      "label": "func _on_peer_disconnected()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _on_peer_disconnected()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1160"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__on_record_pressed",
+      "label": "func _on_record_pressed()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _on_record_pressed()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L680"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__on_replay_pressed",
+      "label": "func _on_replay_pressed()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _on_replay_pressed()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L650"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__on_return_pressed",
+      "label": "func _on_return_pressed()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _on_return_pressed()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1125"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__play_sample",
+      "label": "func _play_sample()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _play_sample()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L559"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__process",
+      "label": "func _process()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _process()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L443"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__process_wav_recording",
+      "label": "func _process_wav_recording()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _process_wav_recording()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L755"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__setup_audio_capture",
+      "label": "func _setup_audio_capture()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _setup_audio_capture()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L142"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__setup_sample_data",
+      "label": "func _setup_sample_data()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _setup_sample_data()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L283"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__start_judging_phase",
+      "label": "func _start_judging_phase()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _start_judging_phase()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L837"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__start_listening_phase",
+      "label": "func _start_listening_phase()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _start_listening_phase()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L419"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__start_preparation_phase",
+      "label": "func _start_preparation_phase()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _start_preparation_phase()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L585"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__stop_listen_preview",
+      "label": "func _stop_listen_preview()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _stop_listen_preview()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L434"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__stop_recording",
+      "label": "func _stop_recording()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _stop_recording()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L734"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__switch_to_next_minigame",
+      "label": "func _switch_to_next_minigame()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "func _switch_to_next_minigame()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1099"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_enable_buttons",
+      "label": "rpc func enable_buttons()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func enable_buttons()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L549"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_hide_tutorial_rpc",
+      "label": "rpc func hide_tutorial_rpc()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func hide_tutorial_rpc()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1363"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_play_sample_rpc",
+      "label": "rpc func play_sample_rpc()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func play_sample_rpc()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L565"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_request_final_submissions",
+      "label": "rpc func request_final_submissions()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func request_final_submissions()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L792"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_request_game_sync",
+      "label": "rpc func request_game_sync()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func request_game_sync()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L341"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_request_start_recording",
+      "label": "rpc func request_start_recording()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func request_start_recording()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L691"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_reset_recordings",
+      "label": "rpc func reset_recordings()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func reset_recordings()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1032"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_return_to_lobby_request",
+      "label": "rpc func return_to_lobby_request()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func return_to_lobby_request()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1132"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_show_player_performance",
+      "label": "rpc func show_player_performance()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func show_player_performance()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L901"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_show_preparation_waveform",
+      "label": "rpc func show_preparation_waveform()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func show_preparation_waveform()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L599"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_show_round_scoreboard",
+      "label": "rpc func show_round_scoreboard()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func show_round_scoreboard()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1369"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_show_tutorial_rpc",
+      "label": "rpc func show_tutorial_rpc()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func show_tutorial_rpc()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1356"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_show_winner",
+      "label": "rpc func show_winner()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func show_winner()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1115"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_spawn_player",
+      "label": "rpc func spawn_player()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func spawn_player()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L371"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_start_countdown",
+      "label": "rpc func start_countdown()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func start_countdown()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L535"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_start_recording_rpc",
+      "label": "rpc func start_recording_rpc()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func start_recording_rpc()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L698"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_submit_recording",
+      "label": "rpc func submit_recording()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func submit_recording()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L808"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_switch_minigame_rpc",
+      "label": "rpc func switch_minigame_rpc()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func switch_minigame_rpc()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1110"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_sync_game_state",
+      "label": "rpc func sync_game_state()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func sync_game_state()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L410"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_sync_preparation_timer",
+      "label": "rpc func sync_preparation_timer()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func sync_preparation_timer()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L531"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_sync_round",
+      "label": "rpc func sync_round()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func sync_round()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L414"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_sync_sample_info",
+      "label": "rpc func sync_sample_info()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func sync_sample_info()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L363"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_update_instruction",
+      "label": "rpc func update_instruction()",
+      "community": 1,
+      "community_name": "mimic.gd",
+      "file_type": "code",
+      "norm_label": "rpc func update_instruction()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L544"
+    },
+    {
+      "id": "control",
+      "label": "Control",
+      "community": 10,
+      "community_name": "waveform_display.gd",
+      "file_type": "code",
+      "norm_label": "control",
       "source_file": "core",
       "source_location": "L1"
     },
     {
-      "id": "scripts_core_main_gd__change_to_minigame",
-      "label": "func _change_to_minigame()",
+      "id": "scripts_minigames_mimic_waveform_display_gd",
+      "label": "waveform_display.gd",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "func _change_to_minigame()",
-      "source_file": "scripts/core/main.gd",
-      "source_location": "L927"
+      "norm_label": "waveform_display.gd",
+      "source_file": "scripts/minigames/mimic/waveform_display.gd",
+      "source_location": "L1"
     },
     {
-      "id": "scripts_core_main_gd__on_campaign_play_again",
-      "label": "func _on_campaign_play_again()",
+      "id": "scripts_minigames_mimic_waveform_display_gd__draw",
+      "label": "func _draw()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "func _on_campaign_play_again()",
-      "source_file": "scripts/core/main.gd",
-      "source_location": "L789"
+      "norm_label": "func _draw()",
+      "source_file": "scripts/minigames/mimic/waveform_display.gd",
+      "source_location": "L54"
     },
     {
-      "id": "scripts_core_main_gd__on_campaign_toggled",
-      "label": "func _on_campaign_toggled()",
+      "id": "scripts_minigames_mimic_waveform_display_gd_clear_all",
+      "label": "func clear_all()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "func _on_campaign_toggled()",
-      "source_file": "scripts/core/main.gd",
-      "source_location": "L644"
+      "norm_label": "func clear_all()",
+      "source_file": "scripts/minigames/mimic/waveform_display.gd",
+      "source_location": "L46"
     },
     {
-      "id": "scripts_core_main_gd__on_target_score_pressed",
-      "label": "func _on_target_score_pressed()",
+      "id": "scripts_minigames_mimic_waveform_display_gd_reset_recording",
+      "label": "func reset_recording()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "func _on_target_score_pressed()",
-      "source_file": "scripts/core/main.gd",
-      "source_location": "L654"
+      "norm_label": "func reset_recording()",
+      "source_file": "scripts/minigames/mimic/waveform_display.gd",
+      "source_location": "L20"
     },
     {
-      "id": "scripts_core_main_gd__sync_all_scores_to_all",
-      "label": "func _sync_all_scores_to_all()",
+      "id": "scripts_minigames_mimic_waveform_display_gd_set_playhead",
+      "label": "func set_playhead()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "func _sync_all_scores_to_all()",
-      "source_file": "scripts/core/main.gd",
-      "source_location": "L683"
+      "norm_label": "func set_playhead()",
+      "source_file": "scripts/minigames/mimic/waveform_display.gd",
+      "source_location": "L42"
     },
     {
-      "id": "scripts_core_main_gd_register_player",
-      "label": "rpc func register_player()",
+      "id": "scripts_minigames_mimic_waveform_display_gd_set_recording_bars",
+      "label": "func set_recording_bars()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "rpc func register_player()",
-      "source_file": "scripts/core/main.gd",
-      "source_location": "L389"
+      "norm_label": "func set_recording_bars()",
+      "source_file": "scripts/minigames/mimic/waveform_display.gd",
+      "source_location": "L33"
     },
     {
-      "id": "scripts_core_main_gd_reset_campaign_wins_rpc",
-      "label": "rpc func reset_campaign_wins_rpc()",
+      "id": "scripts_minigames_mimic_waveform_display_gd_set_sample_bars",
+      "label": "func set_sample_bars()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "rpc func reset_campaign_wins_rpc()",
-      "source_file": "scripts/core/main.gd",
-      "source_location": "L802"
+      "norm_label": "func set_sample_bars()",
+      "source_file": "scripts/minigames/mimic/waveform_display.gd",
+      "source_location": "L27"
     },
     {
-      "id": "scripts_core_main_gd_sync_all_scores",
-      "label": "rpc func sync_all_scores()",
+      "id": "scripts_minigames_mimic_waveform_display_gd_update_recording_bar",
+      "label": "func update_recording_bar()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "rpc func sync_all_scores()",
-      "source_file": "scripts/core/main.gd",
-      "source_location": "L693"
+      "norm_label": "func update_recording_bar()",
+      "source_file": "scripts/minigames/mimic/waveform_display.gd",
+      "source_location": "L37"
     },
     {
-      "id": "scripts_core_main_gd_sync_campaign_config",
-      "label": "rpc func sync_campaign_config()",
+      "id": "scripts_minigames_mimic_waveform_display_gd_waveformdisplay",
+      "label": "class WaveformDisplay",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "rpc func sync_campaign_config()",
-      "source_file": "scripts/core/main.gd",
-      "source_location": "L665"
+      "norm_label": "class waveformdisplay",
+      "source_file": "scripts/minigames/mimic/waveform_display.gd",
+      "source_location": "L2"
     },
     {
-      "id": "scripts_minigames_base_minigame_gd__on_spectator_character_confirmed",
-      "label": "func _on_spectator_character_confirmed()",
+      "id": "scripts_ui_campaign_victory_popup_gd",
+      "label": "campaign_victory_popup.gd",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "func _on_spectator_character_confirmed()",
-      "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L365"
+      "norm_label": "campaign_victory_popup.gd",
+      "source_file": "scripts/ui/campaign_victory_popup.gd",
+      "source_location": "L1"
     },
     {
-      "id": "scripts_minigames_base_minigame_gd__process_round_end",
-      "label": "func _process_round_end()",
+      "id": "scripts_ui_campaign_victory_popup_gd__notification",
+      "label": "func _notification()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "func _process_round_end()",
-      "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L886"
+      "norm_label": "func _notification()",
+      "source_file": "scripts/ui/campaign_victory_popup.gd",
+      "source_location": "L19"
     },
     {
-      "id": "scripts_minigames_base_minigame_gd__update_spectator_ui",
-      "label": "func _update_spectator_ui()",
+      "id": "scripts_ui_campaign_victory_popup_gd__on_play_again_pressed",
+      "label": "func _on_play_again_pressed()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "func _update_spectator_ui()",
-      "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L344"
+      "norm_label": "func _on_play_again_pressed()",
+      "source_file": "scripts/ui/campaign_victory_popup.gd",
+      "source_location": "L42"
     },
     {
-      "id": "scripts_minigames_base_minigame_gd_end_game_timeout",
-      "label": "func end_game_timeout()",
+      "id": "scripts_ui_campaign_victory_popup_gd__on_return_menu_pressed",
+      "label": "func _on_return_menu_pressed()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "func end_game_timeout()",
-      "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L852"
+      "norm_label": "func _on_return_menu_pressed()",
+      "source_file": "scripts/ui/campaign_victory_popup.gd",
+      "source_location": "L45"
     },
     {
-      "id": "scripts_minigames_base_minigame_gd_end_game_winner",
-      "label": "func end_game_winner()",
+      "id": "scripts_ui_campaign_victory_popup_gd__ready",
+      "label": "func _ready()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "func end_game_winner()",
-      "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L840"
+      "norm_label": "func _ready()",
+      "source_file": "scripts/ui/campaign_victory_popup.gd",
+      "source_location": "L12"
     },
     {
-      "id": "scripts_minigames_base_minigame_gd_initialize_game",
-      "label": "func initialize_game()",
+      "id": "scripts_ui_campaign_victory_popup_gd_show_victory",
+      "label": "func show_victory()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "func initialize_game()",
-      "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L407"
+      "norm_label": "func show_victory()",
+      "source_file": "scripts/ui/campaign_victory_popup.gd",
+      "source_location": "L28"
     },
     {
-      "id": "scripts_minigames_base_minigame_gd_request_game_sync",
-      "label": "rpc func request_game_sync()",
+      "id": "scripts_ui_campaign_victory_popup_gd_sig_play_again_requested",
+      "label": "signal play_again_requested",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "rpc func request_game_sync()",
-      "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L598"
+      "norm_label": "signal play_again_requested",
+      "source_file": "scripts/ui/campaign_victory_popup.gd",
+      "source_location": "L3"
     },
     {
-      "id": "scripts_minigames_base_minigame_gd_return_to_lobby_rpc",
-      "label": "rpc func return_to_lobby_rpc()",
+      "id": "scripts_ui_campaign_victory_popup_gd_sig_return_to_menu_requested",
+      "label": "signal return_to_menu_requested",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "rpc func return_to_lobby_rpc()",
-      "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1114"
+      "norm_label": "signal return_to_menu_requested",
+      "source_file": "scripts/ui/campaign_victory_popup.gd",
+      "source_location": "L4"
     },
     {
-      "id": "scripts_minigames_base_minigame_gd_show_round_scoreboard_rpc",
-      "label": "rpc func show_round_scoreboard_rpc()",
+      "id": "scripts_ui_map_info_popup_gd",
+      "label": "map_info_popup.gd",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "rpc func show_round_scoreboard_rpc()",
-      "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L952"
+      "norm_label": "map_info_popup.gd",
+      "source_file": "scripts/ui/map_info_popup.gd",
+      "source_location": "L1"
     },
     {
-      "id": "scripts_minigames_base_minigame_gd_sync_campaign_state",
-      "label": "rpc func sync_campaign_state()",
+      "id": "scripts_ui_map_info_popup_gd__notification",
+      "label": "func _notification()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "rpc func sync_campaign_state()",
-      "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L668"
+      "norm_label": "func _notification()",
+      "source_file": "scripts/ui/map_info_popup.gd",
+      "source_location": "L14"
     },
     {
-      "id": "scripts_minigames_base_minigame_gd_sync_minigame_players",
-      "label": "rpc func sync_minigame_players()",
+      "id": "scripts_ui_map_info_popup_gd__on_close_pressed",
+      "label": "func _on_close_pressed()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "rpc func sync_minigame_players()",
-      "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L653"
+      "norm_label": "func _on_close_pressed()",
+      "source_file": "scripts/ui/map_info_popup.gd",
+      "source_location": "L84"
     },
     {
-      "id": "scripts_minigames_base_minigame_gd_update_spectator_character",
-      "label": "rpc func update_spectator_character()",
+      "id": "scripts_ui_map_info_popup_gd__ready",
+      "label": "func _ready()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "rpc func update_spectator_character()",
-      "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L391"
+      "norm_label": "func _ready()",
+      "source_file": "scripts/ui/map_info_popup.gd",
+      "source_location": "L9"
     },
     {
-      "id": "scripts_minigames_mimic_mimic_gd__end_game",
-      "label": "func _end_game()",
+      "id": "scripts_ui_map_info_popup_gd_show_map_info",
+      "label": "func show_map_info()",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "func _end_game()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1040"
+      "norm_label": "func show_map_info()",
+      "source_file": "scripts/ui/map_info_popup.gd",
+      "source_location": "L19"
     },
     {
-      "id": "scripts_minigames_mimic_mimic_gd_initialize_game",
-      "label": "func initialize_game()",
+      "id": "scripts_ui_map_info_popup_gd_sig_popup_closed",
+      "label": "signal popup_closed",
       "community": 10,
-      "community_name": "Gamesession",
+      "community_name": "waveform_display.gd",
       "file_type": "code",
-      "norm_label": "func initialize_game()",
-      "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L185"
+      "norm_label": "signal popup_closed",
+      "source_file": "scripts/ui/map_info_popup.gd",
+      "source_location": "L3"
     },
     {
       "id": "scripts_ui_settings_menu_gd",
@@ -2101,7 +2061,7 @@
       "file_type": "code",
       "norm_label": "func _on_connected_to_server()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L571"
+      "source_location": "L584"
     },
     {
       "id": "scripts_core_main_gd__on_copy_code_pressed",
@@ -2111,7 +2071,7 @@
       "file_type": "code",
       "norm_label": "func _on_copy_code_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L621"
+      "source_location": "L634"
     },
     {
       "id": "scripts_core_main_gd__on_deferred_register_player",
@@ -2121,7 +2081,7 @@
       "file_type": "code",
       "norm_label": "func _on_deferred_register_player()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L325"
+      "source_location": "L337"
     },
     {
       "id": "scripts_core_main_gd__on_leave_pressed",
@@ -2131,7 +2091,7 @@
       "file_type": "code",
       "norm_label": "func _on_leave_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L600"
+      "source_location": "L613"
     },
     {
       "id": "scripts_core_main_gd__on_server_disconnected",
@@ -2141,7 +2101,7 @@
       "file_type": "code",
       "norm_label": "func _on_server_disconnected()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L582"
+      "source_location": "L595"
     },
     {
       "id": "scripts_core_main_gd__restore_lobby_session",
@@ -2151,7 +2111,7 @@
       "file_type": "code",
       "norm_label": "func _restore_lobby_session()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L336"
+      "source_location": "L348"
     },
     {
       "id": "scripts_core_main_gd_remove_player",
@@ -2161,7 +2121,7 @@
       "file_type": "code",
       "norm_label": "func remove_player()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L525"
+      "source_location": "L538"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__on_peer_disconnected",
@@ -2631,7 +2591,7 @@
       "file_type": "code",
       "norm_label": "func _on_host_failed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L553"
+      "source_location": "L566"
     },
     {
       "id": "scripts_core_main_gd__on_invite_pressed",
@@ -2641,7 +2601,7 @@
       "file_type": "code",
       "norm_label": "func _on_invite_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L592"
+      "source_location": "L605"
     },
     {
       "id": "scripts_core_main_gd__process_match_result",
@@ -2651,7 +2611,7 @@
       "file_type": "code",
       "norm_label": "func _process_match_result()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L731"
+      "source_location": "L744"
     },
     {
       "id": "scripts_systems_networking_gd",
@@ -4811,7 +4771,7 @@
       "file_type": "code",
       "norm_label": "func _on_map_selected()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L634"
+      "source_location": "L647"
     },
     {
       "id": "scripts_core_main_gd__on_pause_invite_pressed",
@@ -4821,7 +4781,7 @@
       "file_type": "code",
       "norm_label": "func _on_pause_invite_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L613"
+      "source_location": "L626"
     },
     {
       "id": "scripts_core_main_gd__on_pause_menu_pressed",
@@ -4831,7 +4791,7 @@
       "file_type": "code",
       "norm_label": "func _on_pause_menu_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L618"
+      "source_location": "L631"
     },
     {
       "id": "scripts_core_main_gd__on_pause_settings_pressed",
@@ -4841,7 +4801,7 @@
       "file_type": "code",
       "norm_label": "func _on_pause_settings_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L608"
+      "source_location": "L621"
     },
     {
       "id": "scripts_core_main_gd__on_peer_connected",
@@ -4851,7 +4811,7 @@
       "file_type": "code",
       "norm_label": "func _on_peer_connected()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L587"
+      "source_location": "L600"
     },
     {
       "id": "scripts_core_main_gd__on_ready_pressed",
@@ -4861,7 +4821,7 @@
       "file_type": "code",
       "norm_label": "func _on_ready_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L815"
+      "source_location": "L828"
     },
     {
       "id": "scripts_core_main_gd__on_start_pressed",
@@ -4871,7 +4831,7 @@
       "file_type": "code",
       "norm_label": "func _on_start_pressed()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L882"
+      "source_location": "L895"
     },
     {
       "id": "scripts_core_main_gd__pick_random_map",
@@ -4881,7 +4841,7 @@
       "file_type": "code",
       "norm_label": "func _pick_random_map()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L640"
+      "source_location": "L653"
     },
     {
       "id": "scripts_core_main_gd__process",
@@ -4901,7 +4861,7 @@
       "file_type": "code",
       "norm_label": "func _sync_all_wins_to_all()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L700"
+      "source_location": "L713"
     },
     {
       "id": "scripts_core_main_gd__update_score_buttons_style",
@@ -4911,7 +4871,7 @@
       "file_type": "code",
       "norm_label": "func _update_score_buttons_style()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L672"
+      "source_location": "L685"
     },
     {
       "id": "scripts_core_main_gd__update_ui_text",
@@ -4941,7 +4901,7 @@
       "file_type": "code",
       "norm_label": "func clear_all_players()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L509"
+      "source_location": "L522"
     },
     {
       "id": "scripts_core_main_gd_get_ready_states",
@@ -4951,7 +4911,7 @@
       "file_type": "code",
       "norm_label": "func get_ready_states()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L863"
+      "source_location": "L876"
     },
     {
       "id": "scripts_core_main_gd_on_client_connected",
@@ -4961,7 +4921,7 @@
       "file_type": "code",
       "norm_label": "func on_client_connected()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L566"
+      "source_location": "L579"
     },
     {
       "id": "scripts_core_main_gd_on_host_created",
@@ -4971,7 +4931,7 @@
       "file_type": "code",
       "norm_label": "func on_host_created()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L548"
+      "source_location": "L561"
     },
     {
       "id": "scripts_core_main_gd_prepare_start_game_rpc",
@@ -4981,7 +4941,7 @@
       "file_type": "code",
       "norm_label": "rpc func prepare_start_game_rpc()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L946"
+      "source_location": "L959"
     },
     {
       "id": "scripts_core_main_gd_report_ping",
@@ -5031,7 +4991,7 @@
       "file_type": "code",
       "norm_label": "rpc func set_ready_state()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L837"
+      "source_location": "L850"
     },
     {
       "id": "scripts_core_main_gd_show_campaign_victory_rpc",
@@ -5041,7 +5001,7 @@
       "file_type": "code",
       "norm_label": "rpc func show_campaign_victory_rpc()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L781"
+      "source_location": "L794"
     },
     {
       "id": "scripts_core_main_gd_show_character_select",
@@ -5061,7 +5021,7 @@
       "file_type": "code",
       "norm_label": "rpc func spawn_player_rpc()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L438"
+      "source_location": "L451"
     },
     {
       "id": "scripts_core_main_gd_start_game",
@@ -5071,7 +5031,7 @@
       "file_type": "code",
       "norm_label": "func start_game()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L887"
+      "source_location": "L900"
     },
     {
       "id": "scripts_core_main_gd_start_game_rpc",
@@ -5081,7 +5041,7 @@
       "file_type": "code",
       "norm_label": "rpc func start_game_rpc()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L956"
+      "source_location": "L969"
     },
     {
       "id": "scripts_core_main_gd_sync_all_wins",
@@ -5091,7 +5051,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_all_wins()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L713"
+      "source_location": "L726"
     },
     {
       "id": "scripts_core_main_gd_sync_player_state",
@@ -5111,7 +5071,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_player_wins()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L723"
+      "source_location": "L736"
     },
     {
       "id": "scripts_core_main_gd_sync_ready_states",
@@ -5121,7 +5081,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_ready_states()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L854"
+      "source_location": "L867"
     },
     {
       "id": "scripts_core_main_gd_update_start_button",
@@ -5131,7 +5091,7 @@
       "file_type": "code",
       "norm_label": "func update_start_button()",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L869"
+      "source_location": "L882"
     },
     {
       "id": "scripts_core_main_gd_update_tab_overlay",
@@ -5684,9 +5644,289 @@
       "source_location": "L1"
     },
     {
+      "id": "gamesession",
+      "label": "Gamesession",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "gamesession",
+      "source_file": "core",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_core_main_gd__change_to_minigame",
+      "label": "func _change_to_minigame()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "func _change_to_minigame()",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L940"
+    },
+    {
+      "id": "scripts_core_main_gd__on_campaign_play_again",
+      "label": "func _on_campaign_play_again()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "func _on_campaign_play_again()",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L802"
+    },
+    {
+      "id": "scripts_core_main_gd__on_campaign_toggled",
+      "label": "func _on_campaign_toggled()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "func _on_campaign_toggled()",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L657"
+    },
+    {
+      "id": "scripts_core_main_gd__on_target_score_pressed",
+      "label": "func _on_target_score_pressed()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "func _on_target_score_pressed()",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L667"
+    },
+    {
+      "id": "scripts_core_main_gd__sync_all_scores_to_all",
+      "label": "func _sync_all_scores_to_all()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "func _sync_all_scores_to_all()",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L696"
+    },
+    {
+      "id": "scripts_core_main_gd_register_player",
+      "label": "rpc func register_player()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "rpc func register_player()",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L401"
+    },
+    {
+      "id": "scripts_core_main_gd_reset_campaign_wins_rpc",
+      "label": "rpc func reset_campaign_wins_rpc()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "rpc func reset_campaign_wins_rpc()",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L815"
+    },
+    {
+      "id": "scripts_core_main_gd_sync_all_scores",
+      "label": "rpc func sync_all_scores()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "rpc func sync_all_scores()",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L706"
+    },
+    {
+      "id": "scripts_core_main_gd_sync_campaign_config",
+      "label": "rpc func sync_campaign_config()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "rpc func sync_campaign_config()",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L678"
+    },
+    {
+      "id": "scripts_minigames_base_minigame_gd__on_spectator_character_confirmed",
+      "label": "func _on_spectator_character_confirmed()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "func _on_spectator_character_confirmed()",
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L365"
+    },
+    {
+      "id": "scripts_minigames_base_minigame_gd__process_round_end",
+      "label": "func _process_round_end()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "func _process_round_end()",
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L886"
+    },
+    {
+      "id": "scripts_minigames_base_minigame_gd__update_spectator_ui",
+      "label": "func _update_spectator_ui()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "func _update_spectator_ui()",
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L344"
+    },
+    {
+      "id": "scripts_minigames_base_minigame_gd_end_game_timeout",
+      "label": "func end_game_timeout()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "func end_game_timeout()",
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L852"
+    },
+    {
+      "id": "scripts_minigames_base_minigame_gd_end_game_winner",
+      "label": "func end_game_winner()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "func end_game_winner()",
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L840"
+    },
+    {
+      "id": "scripts_minigames_base_minigame_gd_initialize_game",
+      "label": "func initialize_game()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "func initialize_game()",
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L407"
+    },
+    {
+      "id": "scripts_minigames_base_minigame_gd_request_game_sync",
+      "label": "rpc func request_game_sync()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "rpc func request_game_sync()",
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L598"
+    },
+    {
+      "id": "scripts_minigames_base_minigame_gd_return_to_lobby_rpc",
+      "label": "rpc func return_to_lobby_rpc()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "rpc func return_to_lobby_rpc()",
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L1114"
+    },
+    {
+      "id": "scripts_minigames_base_minigame_gd_show_round_scoreboard_rpc",
+      "label": "rpc func show_round_scoreboard_rpc()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "rpc func show_round_scoreboard_rpc()",
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L952"
+    },
+    {
+      "id": "scripts_minigames_base_minigame_gd_sync_campaign_state",
+      "label": "rpc func sync_campaign_state()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "rpc func sync_campaign_state()",
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L668"
+    },
+    {
+      "id": "scripts_minigames_base_minigame_gd_sync_minigame_players",
+      "label": "rpc func sync_minigame_players()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "rpc func sync_minigame_players()",
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L653"
+    },
+    {
+      "id": "scripts_minigames_base_minigame_gd_update_spectator_character",
+      "label": "rpc func update_spectator_character()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "rpc func update_spectator_character()",
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L391"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__end_game",
+      "label": "func _end_game()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "func _end_game()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1041"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__ready",
+      "label": "func _ready()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "func _ready()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L82"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd__return_to_lobby",
+      "label": "func _return_to_lobby()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "func _return_to_lobby()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1137"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_initialize_game",
+      "label": "func initialize_game()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "func initialize_game()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L186"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_prepare_return_to_lobby",
+      "label": "rpc func prepare_return_to_lobby()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "rpc func prepare_return_to_lobby()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1149"
+    },
+    {
+      "id": "scripts_minigames_mimic_mimic_gd_return_to_lobby",
+      "label": "rpc func return_to_lobby()",
+      "community": 7,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "rpc func return_to_lobby()",
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1155"
+    },
+    {
       "id": "scripts_minigames_stable_footing_stable_footing_gd",
       "label": "stable_footing.gd",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "stable_footing.gd",
@@ -5696,7 +5936,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__add_tile_model",
       "label": "func _add_tile_model()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _add_tile_model()",
@@ -5706,7 +5946,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__check_game_over",
       "label": "func _check_game_over()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _check_game_over()",
@@ -5716,7 +5956,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__collect_existing_tiles",
       "label": "func _collect_existing_tiles()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _collect_existing_tiles()",
@@ -5726,7 +5966,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__create_walls",
       "label": "func _create_walls()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _create_walls()",
@@ -5736,7 +5976,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__drop_red_tiles",
       "label": "func _drop_red_tiles()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _drop_red_tiles()",
@@ -5746,7 +5986,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__generate_tile_grid",
       "label": "func _generate_tile_grid()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _generate_tile_grid()",
@@ -5756,7 +5996,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__get_draw_text",
       "label": "func _get_draw_text()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _get_draw_text()",
@@ -5766,7 +6006,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__get_tutorial_data",
       "label": "func _get_tutorial_data()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _get_tutorial_data()",
@@ -5776,7 +6016,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__on_fall_detected",
       "label": "func _on_fall_detected()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _on_fall_detected()",
@@ -5786,7 +6026,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__on_minigame_ready",
       "label": "func _on_minigame_ready()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _on_minigame_ready()",
@@ -5796,7 +6036,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__on_minigame_tick",
       "label": "func _on_minigame_tick()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _on_minigame_tick()",
@@ -5806,7 +6046,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__on_player_died",
       "label": "func _on_player_died()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _on_player_died()",
@@ -5816,7 +6056,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__on_player_disconnected",
       "label": "func _on_player_disconnected()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _on_player_disconnected()",
@@ -5826,7 +6066,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__on_post_initialize",
       "label": "func _on_post_initialize()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _on_post_initialize()",
@@ -5836,7 +6076,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__on_pre_initialize",
       "label": "func _on_pre_initialize()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _on_pre_initialize()",
@@ -5846,7 +6086,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__on_sync_custom_entities",
       "label": "func _on_sync_custom_entities()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _on_sync_custom_entities()",
@@ -5856,7 +6096,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__randomize_tiles",
       "label": "func _randomize_tiles()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _randomize_tiles()",
@@ -5866,7 +6106,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__reset_all_tiles",
       "label": "func _reset_all_tiles()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _reset_all_tiles()",
@@ -5876,7 +6116,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd__schedule_reset_tiles",
       "label": "func _schedule_reset_tiles()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "func _schedule_reset_tiles()",
@@ -5886,7 +6126,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_drop_tiles_rpc",
       "label": "rpc func drop_tiles_rpc()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "rpc func drop_tiles_rpc()",
@@ -5896,7 +6136,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_play_player_fall_rpc",
       "label": "rpc func play_player_fall_rpc()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "rpc func play_player_fall_rpc()",
@@ -5906,7 +6146,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_reset_tiles_rpc",
       "label": "rpc func reset_tiles_rpc()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "rpc func reset_tiles_rpc()",
@@ -5916,7 +6156,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_stablefooting",
       "label": "class StableFooting",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "class stablefooting",
@@ -5926,7 +6166,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_sync_all_tile_colors",
       "label": "rpc func sync_all_tile_colors()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "rpc func sync_all_tile_colors()",
@@ -5936,7 +6176,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_sync_cycle_timer",
       "label": "rpc func sync_cycle_timer()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "rpc func sync_cycle_timer()",
@@ -5946,7 +6186,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_sync_tile_color",
       "label": "rpc func sync_tile_color()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "rpc func sync_tile_color()",
@@ -5956,7 +6196,7 @@
     {
       "id": "scripts_minigames_stable_footing_stable_footing_gd_trigger_crumble_warning_rpc",
       "label": "rpc func trigger_crumble_warning_rpc()",
-      "community": 7,
+      "community": 8,
       "community_name": "stable_footing.gd",
       "file_type": "code",
       "norm_label": "rpc func trigger_crumble_warning_rpc()",
@@ -5966,7 +6206,7 @@
     {
       "id": "scripts_ui_character_select_gd",
       "label": "character_select.gd",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "character_select.gd",
@@ -5976,7 +6216,7 @@
     {
       "id": "scripts_ui_character_select_gd__apply_color_recursive",
       "label": "func _apply_color_recursive()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _apply_color_recursive()",
@@ -5986,7 +6226,7 @@
     {
       "id": "scripts_ui_character_select_gd__apply_color_to_preview",
       "label": "func _apply_color_to_preview()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _apply_color_to_preview()",
@@ -5996,7 +6236,7 @@
     {
       "id": "scripts_ui_character_select_gd__apply_face_recursive",
       "label": "func _apply_face_recursive()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _apply_face_recursive()",
@@ -6006,7 +6246,7 @@
     {
       "id": "scripts_ui_character_select_gd__apply_face_to_preview",
       "label": "func _apply_face_to_preview()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _apply_face_to_preview()",
@@ -6016,7 +6256,7 @@
     {
       "id": "scripts_ui_character_select_gd__apply_hat_to_preview",
       "label": "func _apply_hat_to_preview()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _apply_hat_to_preview()",
@@ -6026,7 +6266,7 @@
     {
       "id": "scripts_ui_character_select_gd__clear_materials_recursive",
       "label": "func _clear_materials_recursive()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _clear_materials_recursive()",
@@ -6036,7 +6276,7 @@
     {
       "id": "scripts_ui_character_select_gd__notification",
       "label": "func _notification()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _notification()",
@@ -6046,7 +6286,7 @@
     {
       "id": "scripts_ui_character_select_gd__on_back_pressed",
       "label": "func _on_back_pressed()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _on_back_pressed()",
@@ -6056,7 +6296,7 @@
     {
       "id": "scripts_ui_character_select_gd__on_confirm_pressed",
       "label": "func _on_confirm_pressed()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _on_confirm_pressed()",
@@ -6066,7 +6306,7 @@
     {
       "id": "scripts_ui_character_select_gd__ready",
       "label": "func _ready()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _ready()",
@@ -6076,7 +6316,7 @@
     {
       "id": "scripts_ui_character_select_gd__select_character",
       "label": "func _select_character()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _select_character()",
@@ -6086,7 +6326,7 @@
     {
       "id": "scripts_ui_character_select_gd__select_color",
       "label": "func _select_color()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _select_color()",
@@ -6096,7 +6336,7 @@
     {
       "id": "scripts_ui_character_select_gd__select_face",
       "label": "func _select_face()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _select_face()",
@@ -6106,7 +6346,7 @@
     {
       "id": "scripts_ui_character_select_gd__select_hat",
       "label": "func _select_hat()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _select_hat()",
@@ -6116,7 +6356,7 @@
     {
       "id": "scripts_ui_character_select_gd__setup_color_buttons",
       "label": "func _setup_color_buttons()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _setup_color_buttons()",
@@ -6126,7 +6366,7 @@
     {
       "id": "scripts_ui_character_select_gd__setup_face_buttons",
       "label": "func _setup_face_buttons()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _setup_face_buttons()",
@@ -6136,7 +6376,7 @@
     {
       "id": "scripts_ui_character_select_gd__setup_hat_buttons",
       "label": "func _setup_hat_buttons()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _setup_hat_buttons()",
@@ -6146,7 +6386,7 @@
     {
       "id": "scripts_ui_character_select_gd__update_ui_text",
       "label": "func _update_ui_text()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _update_ui_text()",
@@ -6156,7 +6396,7 @@
     {
       "id": "scripts_ui_character_select_gd_sig_character_confirmed",
       "label": "signal character_confirmed",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "signal character_confirmed",
@@ -6166,7 +6406,7 @@
     {
       "id": "scripts_ui_character_select_gd_sig_selection_cancelled",
       "label": "signal selection_cancelled",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "signal selection_cancelled",
@@ -6176,7 +6416,7 @@
     {
       "id": "scripts_ui_character_switcher_gd",
       "label": "character_switcher.gd",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "character_switcher.gd",
@@ -6186,7 +6426,7 @@
     {
       "id": "scripts_ui_character_switcher_gd__notification",
       "label": "func _notification()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _notification()",
@@ -6196,7 +6436,7 @@
     {
       "id": "scripts_ui_character_switcher_gd__on_character_selected",
       "label": "func _on_character_selected()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _on_character_selected()",
@@ -6206,7 +6446,7 @@
     {
       "id": "scripts_ui_character_switcher_gd__populate_options",
       "label": "func _populate_options()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _populate_options()",
@@ -6216,252 +6456,12 @@
     {
       "id": "scripts_ui_character_switcher_gd__ready",
       "label": "func _ready()",
-      "community": 8,
+      "community": 9,
       "community_name": "character_select.gd",
       "file_type": "code",
       "norm_label": "func _ready()",
       "source_file": "scripts/ui/character_switcher.gd",
       "source_location": "L9"
-    },
-    {
-      "id": "control",
-      "label": "Control",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "control",
-      "source_file": "core",
-      "source_location": "L1"
-    },
-    {
-      "id": "scripts_minigames_mimic_waveform_display_gd",
-      "label": "waveform_display.gd",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "waveform_display.gd",
-      "source_file": "scripts/minigames/mimic/waveform_display.gd",
-      "source_location": "L1"
-    },
-    {
-      "id": "scripts_minigames_mimic_waveform_display_gd__draw",
-      "label": "func _draw()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func _draw()",
-      "source_file": "scripts/minigames/mimic/waveform_display.gd",
-      "source_location": "L54"
-    },
-    {
-      "id": "scripts_minigames_mimic_waveform_display_gd_clear_all",
-      "label": "func clear_all()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func clear_all()",
-      "source_file": "scripts/minigames/mimic/waveform_display.gd",
-      "source_location": "L46"
-    },
-    {
-      "id": "scripts_minigames_mimic_waveform_display_gd_reset_recording",
-      "label": "func reset_recording()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func reset_recording()",
-      "source_file": "scripts/minigames/mimic/waveform_display.gd",
-      "source_location": "L20"
-    },
-    {
-      "id": "scripts_minigames_mimic_waveform_display_gd_set_playhead",
-      "label": "func set_playhead()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func set_playhead()",
-      "source_file": "scripts/minigames/mimic/waveform_display.gd",
-      "source_location": "L42"
-    },
-    {
-      "id": "scripts_minigames_mimic_waveform_display_gd_set_recording_bars",
-      "label": "func set_recording_bars()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func set_recording_bars()",
-      "source_file": "scripts/minigames/mimic/waveform_display.gd",
-      "source_location": "L33"
-    },
-    {
-      "id": "scripts_minigames_mimic_waveform_display_gd_set_sample_bars",
-      "label": "func set_sample_bars()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func set_sample_bars()",
-      "source_file": "scripts/minigames/mimic/waveform_display.gd",
-      "source_location": "L27"
-    },
-    {
-      "id": "scripts_minigames_mimic_waveform_display_gd_update_recording_bar",
-      "label": "func update_recording_bar()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func update_recording_bar()",
-      "source_file": "scripts/minigames/mimic/waveform_display.gd",
-      "source_location": "L37"
-    },
-    {
-      "id": "scripts_minigames_mimic_waveform_display_gd_waveformdisplay",
-      "label": "class WaveformDisplay",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "class waveformdisplay",
-      "source_file": "scripts/minigames/mimic/waveform_display.gd",
-      "source_location": "L2"
-    },
-    {
-      "id": "scripts_ui_campaign_victory_popup_gd",
-      "label": "campaign_victory_popup.gd",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "campaign_victory_popup.gd",
-      "source_file": "scripts/ui/campaign_victory_popup.gd",
-      "source_location": "L1"
-    },
-    {
-      "id": "scripts_ui_campaign_victory_popup_gd__notification",
-      "label": "func _notification()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func _notification()",
-      "source_file": "scripts/ui/campaign_victory_popup.gd",
-      "source_location": "L19"
-    },
-    {
-      "id": "scripts_ui_campaign_victory_popup_gd__on_play_again_pressed",
-      "label": "func _on_play_again_pressed()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func _on_play_again_pressed()",
-      "source_file": "scripts/ui/campaign_victory_popup.gd",
-      "source_location": "L42"
-    },
-    {
-      "id": "scripts_ui_campaign_victory_popup_gd__on_return_menu_pressed",
-      "label": "func _on_return_menu_pressed()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func _on_return_menu_pressed()",
-      "source_file": "scripts/ui/campaign_victory_popup.gd",
-      "source_location": "L45"
-    },
-    {
-      "id": "scripts_ui_campaign_victory_popup_gd__ready",
-      "label": "func _ready()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func _ready()",
-      "source_file": "scripts/ui/campaign_victory_popup.gd",
-      "source_location": "L12"
-    },
-    {
-      "id": "scripts_ui_campaign_victory_popup_gd_show_victory",
-      "label": "func show_victory()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func show_victory()",
-      "source_file": "scripts/ui/campaign_victory_popup.gd",
-      "source_location": "L28"
-    },
-    {
-      "id": "scripts_ui_campaign_victory_popup_gd_sig_play_again_requested",
-      "label": "signal play_again_requested",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "signal play_again_requested",
-      "source_file": "scripts/ui/campaign_victory_popup.gd",
-      "source_location": "L3"
-    },
-    {
-      "id": "scripts_ui_campaign_victory_popup_gd_sig_return_to_menu_requested",
-      "label": "signal return_to_menu_requested",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "signal return_to_menu_requested",
-      "source_file": "scripts/ui/campaign_victory_popup.gd",
-      "source_location": "L4"
-    },
-    {
-      "id": "scripts_ui_map_info_popup_gd",
-      "label": "map_info_popup.gd",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "map_info_popup.gd",
-      "source_file": "scripts/ui/map_info_popup.gd",
-      "source_location": "L1"
-    },
-    {
-      "id": "scripts_ui_map_info_popup_gd__notification",
-      "label": "func _notification()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func _notification()",
-      "source_file": "scripts/ui/map_info_popup.gd",
-      "source_location": "L14"
-    },
-    {
-      "id": "scripts_ui_map_info_popup_gd__on_close_pressed",
-      "label": "func _on_close_pressed()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func _on_close_pressed()",
-      "source_file": "scripts/ui/map_info_popup.gd",
-      "source_location": "L84"
-    },
-    {
-      "id": "scripts_ui_map_info_popup_gd__ready",
-      "label": "func _ready()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func _ready()",
-      "source_file": "scripts/ui/map_info_popup.gd",
-      "source_location": "L9"
-    },
-    {
-      "id": "scripts_ui_map_info_popup_gd_show_map_info",
-      "label": "func show_map_info()",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "func show_map_info()",
-      "source_file": "scripts/ui/map_info_popup.gd",
-      "source_location": "L19"
-    },
-    {
-      "id": "scripts_ui_map_info_popup_gd_sig_popup_closed",
-      "label": "signal popup_closed",
-      "community": 9,
-      "community_name": "waveform_display.gd",
-      "file_type": "code",
-      "norm_label": "signal popup_closed",
-      "source_file": "scripts/ui/map_info_popup.gd",
-      "source_location": "L3"
     }
   ],
   "links": [
@@ -6612,7 +6612,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L325",
+      "source_location": "L337",
       "weight": 1.0
     },
     {
@@ -6622,7 +6622,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L336",
+      "source_location": "L348",
       "weight": 1.0
     },
     {
@@ -6632,17 +6632,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L389",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_core_main_gd",
-      "target": "scripts_core_main_gd_spawn_player_rpc",
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/core/main.gd",
-      "source_location": "L438",
+      "source_location": "L401",
       "weight": 1.0
     },
     {
@@ -6657,12 +6647,22 @@
     },
     {
       "source": "scripts_core_main_gd",
+      "target": "scripts_core_main_gd_spawn_player_rpc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L451",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd",
       "target": "scripts_core_main_gd_clear_all_players",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L509",
+      "source_location": "L522",
       "weight": 1.0
     },
     {
@@ -6672,7 +6672,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L525",
+      "source_location": "L538",
       "weight": 1.0
     },
     {
@@ -6682,7 +6682,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L548",
+      "source_location": "L561",
       "weight": 1.0
     },
     {
@@ -6692,7 +6692,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L553",
+      "source_location": "L566",
       "weight": 1.0
     },
     {
@@ -6702,7 +6702,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L566",
+      "source_location": "L579",
       "weight": 1.0
     },
     {
@@ -6712,7 +6712,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L571",
+      "source_location": "L584",
       "weight": 1.0
     },
     {
@@ -6722,7 +6722,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L582",
+      "source_location": "L595",
       "weight": 1.0
     },
     {
@@ -6732,7 +6732,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L587",
+      "source_location": "L600",
       "weight": 1.0
     },
     {
@@ -6742,7 +6742,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L592",
+      "source_location": "L605",
       "weight": 1.0
     },
     {
@@ -6752,7 +6752,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L600",
+      "source_location": "L613",
       "weight": 1.0
     },
     {
@@ -6762,7 +6762,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L608",
+      "source_location": "L621",
       "weight": 1.0
     },
     {
@@ -6772,7 +6772,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L613",
+      "source_location": "L626",
       "weight": 1.0
     },
     {
@@ -6782,7 +6782,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L618",
+      "source_location": "L631",
       "weight": 1.0
     },
     {
@@ -6792,7 +6792,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L621",
+      "source_location": "L634",
       "weight": 1.0
     },
     {
@@ -6802,7 +6802,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L634",
+      "source_location": "L647",
       "weight": 1.0
     },
     {
@@ -6812,7 +6812,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L640",
+      "source_location": "L653",
       "weight": 1.0
     },
     {
@@ -6822,7 +6822,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L644",
+      "source_location": "L657",
       "weight": 1.0
     },
     {
@@ -6832,7 +6832,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L654",
+      "source_location": "L667",
       "weight": 1.0
     },
     {
@@ -6842,7 +6842,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L665",
+      "source_location": "L678",
       "weight": 1.0
     },
     {
@@ -6852,7 +6852,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L672",
+      "source_location": "L685",
       "weight": 1.0
     },
     {
@@ -6862,7 +6862,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L683",
+      "source_location": "L696",
       "weight": 1.0
     },
     {
@@ -6872,7 +6872,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L693",
+      "source_location": "L706",
       "weight": 1.0
     },
     {
@@ -6882,7 +6882,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L700",
+      "source_location": "L713",
       "weight": 1.0
     },
     {
@@ -6892,7 +6892,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L713",
+      "source_location": "L726",
       "weight": 1.0
     },
     {
@@ -6902,7 +6902,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L723",
+      "source_location": "L736",
       "weight": 1.0
     },
     {
@@ -6912,7 +6912,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L731",
+      "source_location": "L744",
       "weight": 1.0
     },
     {
@@ -6922,7 +6922,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L781",
+      "source_location": "L794",
       "weight": 1.0
     },
     {
@@ -6932,7 +6932,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L789",
+      "source_location": "L802",
       "weight": 1.0
     },
     {
@@ -6942,7 +6942,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L802",
+      "source_location": "L815",
       "weight": 1.0
     },
     {
@@ -6952,7 +6952,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L815",
+      "source_location": "L828",
       "weight": 1.0
     },
     {
@@ -6962,7 +6962,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L837",
+      "source_location": "L850",
       "weight": 1.0
     },
     {
@@ -6972,7 +6972,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L854",
+      "source_location": "L867",
       "weight": 1.0
     },
     {
@@ -6982,7 +6982,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L863",
+      "source_location": "L876",
       "weight": 1.0
     },
     {
@@ -6992,7 +6992,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L869",
+      "source_location": "L882",
       "weight": 1.0
     },
     {
@@ -7002,7 +7002,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L882",
+      "source_location": "L895",
       "weight": 1.0
     },
     {
@@ -7012,7 +7012,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L887",
+      "source_location": "L900",
       "weight": 1.0
     },
     {
@@ -7022,7 +7022,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L927",
+      "source_location": "L940",
       "weight": 1.0
     },
     {
@@ -7032,7 +7032,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L946",
+      "source_location": "L959",
       "weight": 1.0
     },
     {
@@ -7042,7 +7042,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L956",
+      "source_location": "L969",
       "weight": 1.0
     },
     {
@@ -8502,7 +8502,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1031",
+      "source_location": "L1032",
       "weight": 1.0
     },
     {
@@ -8512,7 +8512,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1040",
+      "source_location": "L1041",
       "weight": 1.0
     },
     {
@@ -8522,7 +8522,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1098",
+      "source_location": "L1099",
       "weight": 1.0
     },
     {
@@ -8532,7 +8532,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1109",
+      "source_location": "L1110",
       "weight": 1.0
     },
     {
@@ -8542,7 +8542,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1114",
+      "source_location": "L1115",
       "weight": 1.0
     },
     {
@@ -8552,7 +8552,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1124",
+      "source_location": "L1125",
       "weight": 1.0
     },
     {
@@ -8562,7 +8562,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1131",
+      "source_location": "L1132",
       "weight": 1.0
     },
     {
@@ -8572,7 +8572,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1136",
+      "source_location": "L1137",
       "weight": 1.0
     },
     {
@@ -8582,7 +8582,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1147",
+      "source_location": "L1149",
       "weight": 1.0
     },
     {
@@ -8592,7 +8592,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1152",
+      "source_location": "L1155",
       "weight": 1.0
     },
     {
@@ -8602,7 +8602,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1156",
+      "source_location": "L1160",
       "weight": 1.0
     },
     {
@@ -8612,7 +8612,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1166",
+      "source_location": "L1170",
       "weight": 1.0
     },
     {
@@ -8622,7 +8622,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1267",
+      "source_location": "L1271",
       "weight": 1.0
     },
     {
@@ -8632,7 +8632,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1352",
+      "source_location": "L1356",
       "weight": 1.0
     },
     {
@@ -8642,7 +8642,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1359",
+      "source_location": "L1363",
       "weight": 1.0
     },
     {
@@ -8652,7 +8652,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1365",
+      "source_location": "L1369",
       "weight": 1.0
     },
     {
@@ -8662,7 +8662,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L141",
+      "source_location": "L142",
       "weight": 1.0
     },
     {
@@ -8672,7 +8672,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L185",
+      "source_location": "L186",
       "weight": 1.0
     },
     {
@@ -8682,7 +8682,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L228",
+      "source_location": "L229",
       "weight": 1.0
     },
     {
@@ -8692,7 +8692,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L242",
+      "source_location": "L243",
       "weight": 1.0
     },
     {
@@ -8702,7 +8702,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L262",
+      "source_location": "L263",
       "weight": 1.0
     },
     {
@@ -8712,7 +8712,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L282",
+      "source_location": "L283",
       "weight": 1.0
     },
     {
@@ -8722,7 +8722,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L303",
+      "source_location": "L304",
       "weight": 1.0
     },
     {
@@ -8732,7 +8732,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L340",
+      "source_location": "L341",
       "weight": 1.0
     },
     {
@@ -8742,7 +8742,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L362",
+      "source_location": "L363",
       "weight": 1.0
     },
     {
@@ -8752,7 +8752,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L370",
+      "source_location": "L371",
       "weight": 1.0
     },
     {
@@ -8762,7 +8762,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L409",
+      "source_location": "L410",
       "weight": 1.0
     },
     {
@@ -8772,7 +8772,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L413",
+      "source_location": "L414",
       "weight": 1.0
     },
     {
@@ -8782,7 +8782,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L418",
+      "source_location": "L419",
       "weight": 1.0
     },
     {
@@ -8792,7 +8792,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L426",
+      "source_location": "L427",
       "weight": 1.0
     },
     {
@@ -8802,7 +8802,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L433",
+      "source_location": "L434",
       "weight": 1.0
     },
     {
@@ -8812,7 +8812,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L442",
+      "source_location": "L443",
       "weight": 1.0
     },
     {
@@ -8822,7 +8822,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L530",
+      "source_location": "L531",
       "weight": 1.0
     },
     {
@@ -8832,7 +8832,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L534",
+      "source_location": "L535",
       "weight": 1.0
     },
     {
@@ -8842,7 +8842,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L543",
+      "source_location": "L544",
       "weight": 1.0
     },
     {
@@ -8852,7 +8852,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L548",
+      "source_location": "L549",
       "weight": 1.0
     },
     {
@@ -8862,7 +8862,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L558",
+      "source_location": "L559",
       "weight": 1.0
     },
     {
@@ -8872,7 +8872,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L564",
+      "source_location": "L565",
       "weight": 1.0
     },
     {
@@ -8882,7 +8882,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L584",
+      "source_location": "L585",
       "weight": 1.0
     },
     {
@@ -8892,7 +8892,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L598",
+      "source_location": "L599",
       "weight": 1.0
     },
     {
@@ -8902,7 +8902,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L614",
+      "source_location": "L615",
       "weight": 1.0
     },
     {
@@ -8912,7 +8912,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L632",
+      "source_location": "L633",
       "weight": 1.0
     },
     {
@@ -8922,7 +8922,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L649",
+      "source_location": "L650",
       "weight": 1.0
     },
     {
@@ -8932,7 +8932,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L679",
+      "source_location": "L680",
       "weight": 1.0
     },
     {
@@ -8942,7 +8942,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L690",
+      "source_location": "L691",
       "weight": 1.0
     },
     {
@@ -8952,7 +8952,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L697",
+      "source_location": "L698",
       "weight": 1.0
     },
     {
@@ -8962,7 +8962,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L733",
+      "source_location": "L734",
       "weight": 1.0
     },
     {
@@ -8972,7 +8972,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L754",
+      "source_location": "L755",
       "weight": 1.0
     },
     {
@@ -8982,7 +8982,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L774",
+      "source_location": "L775",
       "weight": 1.0
     },
     {
@@ -8992,7 +8992,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L791",
+      "source_location": "L792",
       "weight": 1.0
     },
     {
@@ -9002,7 +9002,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L807",
+      "source_location": "L808",
       "weight": 1.0
     },
     {
@@ -9022,7 +9022,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L836",
+      "source_location": "L837",
       "weight": 1.0
     },
     {
@@ -9032,7 +9032,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L844",
+      "source_location": "L845",
       "weight": 1.0
     },
     {
@@ -9042,7 +9042,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L900",
+      "source_location": "L901",
       "weight": 1.0
     },
     {
@@ -9052,7 +9052,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L995",
+      "source_location": "L996",
       "weight": 1.0
     },
     {
@@ -12422,7 +12422,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L940",
+      "source_location": "L953",
       "weight": 1.0
     },
     {
@@ -12432,7 +12432,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L792",
+      "source_location": "L805",
       "weight": 1.0
     },
     {
@@ -12442,7 +12442,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L652",
+      "source_location": "L665",
       "weight": 1.0
     },
     {
@@ -12462,7 +12462,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L315",
+      "source_location": "L323",
       "weight": 1.0
     },
     {
@@ -12472,7 +12472,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L576",
+      "source_location": "L589",
       "weight": 1.0
     },
     {
@@ -12482,7 +12482,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L578",
+      "source_location": "L591",
       "weight": 1.0
     },
     {
@@ -12492,7 +12492,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L622",
+      "source_location": "L635",
       "weight": 1.0
     },
     {
@@ -12502,7 +12502,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L328",
+      "source_location": "L340",
       "weight": 1.0
     },
     {
@@ -12512,7 +12512,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L331",
+      "source_location": "L343",
       "weight": 1.0
     },
     {
@@ -12522,7 +12522,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L558",
+      "source_location": "L571",
       "weight": 1.0
     },
     {
@@ -12532,7 +12532,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L596",
+      "source_location": "L609",
       "weight": 1.0
     },
     {
@@ -12542,7 +12542,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L596",
+      "source_location": "L609",
       "weight": 1.0
     },
     {
@@ -12552,7 +12552,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L603",
+      "source_location": "L616",
       "weight": 1.0
     },
     {
@@ -12562,7 +12562,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L604",
+      "source_location": "L617",
       "weight": 1.0
     },
     {
@@ -12572,7 +12572,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L585",
+      "source_location": "L598",
       "weight": 1.0
     },
     {
@@ -12582,7 +12582,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L662",
+      "source_location": "L675",
       "weight": 1.0
     },
     {
@@ -12592,7 +12592,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L751",
+      "source_location": "L764",
       "weight": 1.0
     },
     {
@@ -12602,7 +12602,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L765",
+      "source_location": "L778",
       "weight": 1.0
     },
     {
@@ -12632,7 +12632,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L351",
+      "source_location": "L363",
       "weight": 1.0
     },
     {
@@ -12642,7 +12642,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L367",
+      "source_location": "L379",
       "weight": 1.0
     },
     {
@@ -12652,7 +12652,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L690",
+      "source_location": "L703",
       "weight": 1.0
     },
     {
@@ -12662,7 +12662,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L433",
+      "source_location": "L446",
       "weight": 1.0
     },
     {
@@ -12672,7 +12672,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L528",
+      "source_location": "L541",
       "weight": 1.0
     },
     {
@@ -12682,7 +12682,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L807",
+      "source_location": "L820",
       "weight": 1.0
     },
     {
@@ -12692,7 +12692,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L696",
+      "source_location": "L709",
       "weight": 1.0
     },
     {
@@ -12702,7 +12702,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/core/main.gd",
-      "source_location": "L667",
+      "source_location": "L680",
       "weight": 1.0
     },
     {
@@ -12922,7 +12922,27 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L1082",
+      "source_location": "L1083",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_mimic_mimic_gd__ready",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_mimic_mimic_gd__return_to_lobby",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1141",
       "weight": 1.0
     },
     {
@@ -12932,7 +12952,27 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/mimic/mimic.gd",
-      "source_location": "L188",
+      "source_location": "L189",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_mimic_mimic_gd_prepare_return_to_lobby",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1151",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_mimic_mimic_gd_return_to_lobby",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/minigames/mimic/mimic.gd",
+      "source_location": "L1156",
       "weight": 1.0
     },
     {
@@ -13347,5 +13387,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "cbcf8cea59477c1e552e9b0507e41723b696a71e"
+  "built_at_commit": "31aec73e347f656475430e50e10e3300db58d2fa"
 }
