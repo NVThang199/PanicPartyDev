@@ -80,6 +80,13 @@ var is_countdown_active: bool = false
 var _sample_peak: float = 1.0
 
 func _ready() -> void:
+	if has_node("Camera3D"):
+		var cam = $Camera3D
+		cam.position = Vector3(0.0, 4.8, 11.5)
+		cam.rotation_degrees = Vector3(-18.0, 0.0, 0.0)
+		cam.fov = 48.0
+		cam.current = true
+
 	if winner_banner:
 		winner_banner.visible = false
 	if scoreboard:
@@ -182,10 +189,10 @@ func initialize_game() -> void:
 		return
 
 	var spawn_positions = [
-		Vector3(-6, 0.5, 0),
-		Vector3(-2, 0.5, 0),
-		Vector3(2, 0.5, 0),
-		Vector3(6, 0.5, 0)
+		Vector3(-3.6, 0.0, -1.8),
+		Vector3(-1.2, 0.0, -1.8),
+		Vector3(1.2, 0.0, -1.8),
+		Vector3(3.6, 0.0, -1.8)
 	]
 	var idx = 0
 
@@ -280,10 +287,13 @@ func _setup_sample_data() -> void:
 	# Tạo mảng bars có chèn khoảng đệm (padding) 0 ở đầu và cuối theo chuẩn karaoke
 	_sample_bars = _extract_karaoke_amplitude_bars(sample_mono_data, NUM_WAVEFORM_BARS)
 
+	var trimmed_sample = VoiceAnalyzer.trim_silence(sample_mono_data)
 	sample_features_cached = VoiceAnalyzer.create_features()
-	sample_features_cached.pitch_contour = VoiceAnalyzer.extract_pitch_contour(sample_mono_data, 44100)
-	sample_features_cached.envelope = VoiceAnalyzer.extract_envelope(sample_mono_data)
-	sample_features_cached.onsets = VoiceAnalyzer.extract_onsets(sample_mono_data)
+	sample_features_cached.pitch_contour = VoiceAnalyzer.extract_pitch_contour(trimmed_sample, 44100)
+	sample_features_cached.envelope = VoiceAnalyzer.extract_envelope(trimmed_sample)
+	sample_features_cached.onsets = VoiceAnalyzer.extract_onsets(trimmed_sample)
+	sample_features_cached.mfcc_frames = VoiceAnalyzer.extract_mfcc(trimmed_sample, 44100)
+	sample_features_cached.is_voiced = true
 
 	_sample_peak = 0.0
 	for s in sample_mono_data:
@@ -391,6 +401,9 @@ func spawn_player(peer_id: int, character_path: String, player_name: String, ste
 		player.set_character_customization(color, face, hat)
 
 	player.set_physics_process(false)
+	var model_node = player.get_node_or_null("Model")
+	if model_node:
+		model_node.rotation.y = 0.0
 
 @rpc("authority", "call_local", "reliable")
 func sync_game_state(new_state: int) -> void:
@@ -840,21 +853,38 @@ func _judge_next_player() -> void:
 	var peer_id = peer_ids[judging_index]
 	var recording = player_recordings[peer_id]
 
-	if not sample_features_cached:
+	sample_features_cached.clear()
+	if sample_features_cached.is_empty():
 		var mono = sample_mono_data
 		if mono.is_empty():
 			mono = _audio_stream_to_mono_sync(sample_audio)
+		var trimmed_sample = VoiceAnalyzer.trim_silence(mono)
 		sample_features_cached = VoiceAnalyzer.create_features()
-		sample_features_cached.pitch_contour = VoiceAnalyzer.extract_pitch_contour(mono, 44100)
-		sample_features_cached.envelope = VoiceAnalyzer.extract_envelope(mono)
-		sample_features_cached.onsets = VoiceAnalyzer.extract_onsets(mono)
+		sample_features_cached.pitch_contour = VoiceAnalyzer.extract_pitch_contour(trimmed_sample, 44100)
+		sample_features_cached.envelope = VoiceAnalyzer.extract_envelope(trimmed_sample)
+		sample_features_cached.onsets = VoiceAnalyzer.extract_onsets(trimmed_sample)
+		sample_features_cached.mfcc_frames = VoiceAnalyzer.extract_mfcc(trimmed_sample, 44100)
+		sample_features_cached.is_voiced = true
 
-	var score = VoiceAnalyzer.compare_voices(sample_features_cached, recording.features)
+	# Ensure player features & VAD are extracted server-side from raw audio
+	var player_audio: PackedFloat32Array = recording.audio
+	var is_voiced = VoiceAnalyzer.has_voice_activity(player_audio)
+	recording.features.is_voiced = is_voiced
+	if is_voiced:
+		var trimmed_player = VoiceAnalyzer.trim_silence(player_audio)
+		recording.features.mfcc_frames = VoiceAnalyzer.extract_mfcc(trimmed_player, recording.mix_rate)
+		recording.features.pitch_contour = VoiceAnalyzer.extract_pitch_contour(trimmed_player, recording.mix_rate)
+		recording.features.onsets = VoiceAnalyzer.extract_onsets(trimmed_player)
+		recording.features.envelope = VoiceAnalyzer.extract_envelope(trimmed_player)
+
+	var result = VoiceAnalyzer.compare_voices(sample_features_cached, recording.features)
+	var score: int = result.get("score", 0)
+	var reason: String = result.get("reason", "")
 	player_scores[peer_id].scores.append(score)
 	player_scores[peer_id].total += score
 
 	var rec = player_recordings[peer_id]
-	show_player_performance.rpc(peer_id, score, rec.wav_bytes, rec.mix_rate, rec.format, rec.stereo)
+	show_player_performance.rpc(peer_id, score, reason, rec.wav_bytes, rec.mix_rate, rec.format, rec.stereo)
 
 	var audio_data = player_recordings[peer_id].wav_bytes
 	var sample_count = audio_data.size() / 2
@@ -867,7 +897,7 @@ func _judge_next_player() -> void:
 	_judge_next_player()
 
 @rpc("authority", "call_local", "reliable")
-func show_player_performance(peer_id: int, score: int, wav_bytes: PackedByteArray, mix_rate: int, format: int = AudioStreamWAV.FORMAT_16_BITS, stereo: bool = false) -> void:
+func show_player_performance(peer_id: int, score: int, reason: String, wav_bytes: PackedByteArray, mix_rate: int, format: int = AudioStreamWAV.FORMAT_16_BITS, stereo: bool = false) -> void:
 	if score_label:
 		score_label.visible = false
 
@@ -886,7 +916,7 @@ func show_player_performance(peer_id: int, score: int, wav_bytes: PackedByteArra
 	if peer_id in players and is_instance_valid(players[peer_id]):
 		var player = players[peer_id]
 		var model = player.get_node_or_null("Model")
-		var stage_target = Vector3(0, 0.5, 3.0)
+		var stage_target = Vector3(0.0, 0.0, 1.2)
 
 		if model:
 			var dir = stage_target - player.position
@@ -928,7 +958,17 @@ func show_player_performance(peer_id: int, score: int, wav_bytes: PackedByteArra
 			p_name = players[peer_id].player_name
 		else:
 			p_name = player_scores.get(peer_id, {}).get("name", "Player")
-		score_label.text = "%s\n%d / 100" % [p_name, score]
+		if score == 0:
+			var reason_text = "No Voice Detected!"
+			if reason == "Wrong word":
+				reason_text = "Wrong Word Spoken!"
+			elif reason == "Wrong length":
+				reason_text = "Wrong Duration / Gibberish!"
+			elif reason == "Too quiet":
+				reason_text = "Too Quiet!"
+			score_label.text = "%s\n%s\n0 / 100" % [p_name, reason_text]
+		else:
+			score_label.text = "%s\n%d / 100" % [p_name, score]
 		score_label.visible = true
 		await get_tree().create_timer(2.5).timeout
 		score_label.visible = false
@@ -962,10 +1002,10 @@ func _finish_round() -> void:
 	_sample_bars = PackedFloat32Array()
 
 	var spawn_positions = [
-		Vector3(-6, 0.5, 0),
-		Vector3(-2, 0.5, 0),
-		Vector3(2, 0.5, 0),
-		Vector3(6, 0.5, 0)
+		Vector3(-3.6, 0.0, -1.8),
+		Vector3(-1.2, 0.0, -1.8),
+		Vector3(1.2, 0.0, -1.8),
+		Vector3(3.6, 0.0, -1.8)
 	]
 	var idx = 0
 	for peer_id in players:
