@@ -17,6 +17,7 @@ var player_info: Dictionary = {}
 @onready var btn_random_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnRandom
 @onready var btn_hotbomb_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnHotBomb
 @onready var btn_stablefooting_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnStableFooting
+@onready var btn_goldminer_map: Button = $UI/MapSelectPanel/Margin/VBox.get_node_or_null("BtnGoldMiner")
 @onready var btn_mimic_map: Button = $UI/MapSelectPanel/Margin/VBox/BtnMimic
 @onready var campaign_box: VBoxContainer = $UI/MapSelectPanel/Margin/VBox/CampaignBox
 @onready var check_campaign: CheckBox = $UI/MapSelectPanel/Margin/VBox/CampaignBox/CheckCampaign
@@ -57,6 +58,8 @@ func _ready() -> void:
 		btn_hotbomb_map.pressed.connect(_on_map_selected.bind("HotBomb"))
 	if btn_stablefooting_map:
 		btn_stablefooting_map.pressed.connect(_on_map_selected.bind("StableFooting"))
+	if btn_goldminer_map:
+		btn_goldminer_map.pressed.connect(_on_map_selected.bind("GoldMiner"))
 	if btn_mimic_map:
 		btn_mimic_map.pressed.connect(_on_map_selected.bind("Mimic"))
 	if check_campaign:
@@ -634,7 +637,7 @@ func _on_map_selected(map_name: String) -> void:
 		map_info_popup.show_map_info(map_name)
 
 func _pick_random_map() -> String:
-	var maps := ["HotBomb", "StableFooting", "Mimic"]
+	var maps := ["HotBomb", "StableFooting", "GoldMiner", "Mimic"]
 	return maps[randi() % maps.size()]
 
 func _on_campaign_toggled(enabled: bool) -> void:
@@ -919,6 +922,9 @@ func _change_to_minigame(map_name: String) -> void:
 	elif map_name == "StableFooting":
 		GameSession.minigame_players = player_info.duplicate(true)
 		get_tree().change_scene_to_file("res://scenes/minigames/stable_footing/stable_footing.tscn")
+	elif map_name == "GoldMiner":
+		GameSession.minigame_players = player_info.duplicate(true)
+		get_tree().change_scene_to_file("res://scenes/minigames/gold_miner/gold_miner.tscn")
 	elif map_name == "Mimic":
 		GameSession.minigame_players = player_info.duplicate(true)
 		get_tree().change_scene_to_file("res://scenes/minigames/mimic/mimic.tscn")

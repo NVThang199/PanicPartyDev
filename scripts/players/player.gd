@@ -418,6 +418,12 @@ func _ready():
 				if hb_lib.has_animation("Holding_A"):
 					hb_lib.get_animation("Holding_A").loop_mode = Animation.LOOP_LINEAR
 				anim_player.add_animation_library("hot_bomb", hb_lib)
+		if not anim_player.has_animation_library("tools"):
+			var tools_lib = load("res://assets/animations/tools_animations.res")
+			if tools_lib:
+				if tools_lib.has_animation("Working_C"):
+					tools_lib.get_animation("Working_C").loop_mode = Animation.LOOP_LINEAR
+				anim_player.add_animation_library("tools", tools_lib)
 	_setup_hand_socket()
 	_setup_head_socket()
 	if is_multiplayer_authority():

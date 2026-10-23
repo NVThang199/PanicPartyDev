@@ -1,0 +1,363 @@
+[gd_scene format=3 uid="uid://2in2ecagguvw"]
+
+[ext_resource type="Script" uid="uid://goldminer001" path="res://scripts/minigames/gold_miner/gold_miner.gd" id="1_script"]
+[ext_resource type="Environment" uid="uid://ck3kd1kk4lbk" path="res://scenes/minigames/gold_miner/gold_miner_env.tres" id="2_env"]
+[ext_resource type="PackedScene" uid="uid://c8q5vy4d2nlae" path="res://scenes/ui/in_game_menu.tscn" id="3_in_game_menu"]
+[ext_resource type="Script" uid="uid://djwaknl0nidik" path="res://scripts/minigames/gold_miner/gold_miner_dungeon.gd" id="4_dungeon"]
+[ext_resource type="PackedScene" uid="uid://duhv1pwfpmhsb" path="res://assets/terrains/dungeon/torch_mounted.fbx" id="6_torch"]
+[ext_resource type="PackedScene" uid="uid://7t45oihace2x" path="res://assets/terrains/dungeon/pillar.fbx" id="7_pillar"]
+[ext_resource type="PackedScene" uid="uid://c828yr3wllwik" path="res://assets/terrains/dungeon/crates_stacked.fbx" id="8_crates"]
+[ext_resource type="PackedScene" uid="uid://dgbxoah0eov0s" path="res://assets/terrains/dungeon/barrel_large.fbx" id="9_barrel"]
+[ext_resource type="PackedScene" uid="uid://d16spyw58lsxw" path="res://assets/terrains/dungeon/rubble_large.fbx" id="10_rubble"]
+[ext_resource type="PackedScene" path="res://scenes/minigames/gold_miner/miner_winch.tscn" id="11_winch"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wood"]
+albedo_color = Color(0.45, 0.28, 0.15, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_platform"]
+material = SubResource("StandardMaterial3D_wood")
+size = Vector3(57.496735, 1, 3.570044)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_platform"]
+size = Vector3(26, 1, 3.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cliff"]
+albedo_color = Color(0.19607843, 0.15686275, 0.14509805, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_cliff"]
+material = SubResource("StandardMaterial3D_cliff")
+size = Vector3(38.854355, 33.1333, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
+albedo_color = Color(0.12, 0.1, 0.08, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+material = SubResource("StandardMaterial3D_floor")
+size = Vector3(57.741455, 1, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(56.339355, 1, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall"]
+size = Vector3(1, 26, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rubble"]
+size = Vector3(5.5, 4, 6)
+
+[node name="GoldMiner" type="Node3D" unique_id=1389838966]
+script = ExtResource("1_script")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1455916966]
+transform = Transform3D(0.92388, -0.191342, 0.331414, 0, 0.866025, 0.5, -0.382683, -0.46194, 0.800103, 0, 10, 15)
+light_color = Color(1, 0.92, 0.82, 1)
+light_energy = 0.85
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1625098814]
+environment = ExtResource("2_env")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1607419071]
+transform = Transform3D(1, 0, 0, 0, 0.9852488, 0.17112803, 0, -0.17112803, 0.9852488, 0, 6.5253935, 24.222387)
+current = true
+fov = 51.894062
+
+[node name="MiningArea" type="Node3D" parent="." unique_id=628426863]
+
+[node name="DungeonDecor" type="Node3D" parent="MiningArea" unique_id=184918299]
+script = ExtResource("4_dungeon")
+
+[node name="MiningPitKeyLight" type="OmniLight3D" parent="MiningArea/DungeonDecor" unique_id=200100001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 2)
+light_color = Color(1, 0.85, 0.65, 1)
+light_energy = 2.0
+omni_range = 28.0
+omni_attenuation = 1.1
+
+[node name="DeepCaveFillLight" type="DirectionalLight3D" parent="MiningArea/DungeonDecor" unique_id=200100002]
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 5, 0)
+light_color = Color(0.4, 0.6, 0.9, 1)
+light_energy = 0.35
+
+[node name="Pillars" type="Node3D" parent="MiningArea/DungeonDecor" unique_id=200200000]
+
+[node name="Pillar_L1" parent="MiningArea/DungeonDecor/Pillars" unique_id=200200001 instance=ExtResource("7_pillar")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -14, -10, -3.5)
+
+[node name="Pillar_L8" parent="MiningArea/DungeonDecor/Pillars" unique_id=1456377689 instance=ExtResource("7_pillar")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -14, -16, -3.5)
+
+[node name="Pillar_L2" parent="MiningArea/DungeonDecor/Pillars" unique_id=200200002 instance=ExtResource("7_pillar")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -14, -4, -3.5)
+
+[node name="Pillar_L3" parent="MiningArea/DungeonDecor/Pillars" unique_id=200200003 instance=ExtResource("7_pillar")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -14, 2, -3.5)
+
+[node name="Pillar_L4" parent="MiningArea/DungeonDecor/Pillars" unique_id=200200004 instance=ExtResource("7_pillar")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -14, 8, -3.5)
+
+[node name="Pillar_L5" parent="MiningArea/DungeonDecor/Pillars" unique_id=1604395292 instance=ExtResource("7_pillar")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -14, 8, -3.5)
+
+[node name="Pillar_L6" parent="MiningArea/DungeonDecor/Pillars" unique_id=2071972746 instance=ExtResource("7_pillar")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -14, 13.81514, -3.5)
+
+[node name="Pillar_L7" parent="MiningArea/DungeonDecor/Pillars" unique_id=1458525620 instance=ExtResource("7_pillar")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 14, 13.81514, -3.5)
+
+[node name="Pillar_R1" parent="MiningArea/DungeonDecor/Pillars" unique_id=200200005 instance=ExtResource("7_pillar")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 14, -10, -3.5)
+
+[node name="Pillar_R5" parent="MiningArea/DungeonDecor/Pillars" unique_id=731734126 instance=ExtResource("7_pillar")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 14, -16, -3.5)
+
+[node name="Pillar_R2" parent="MiningArea/DungeonDecor/Pillars" unique_id=200200006 instance=ExtResource("7_pillar")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 14, -4, -3.5)
+
+[node name="Pillar_R3" parent="MiningArea/DungeonDecor/Pillars" unique_id=200200007 instance=ExtResource("7_pillar")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 14, 2, -3.5)
+
+[node name="Pillar_R4" parent="MiningArea/DungeonDecor/Pillars" unique_id=200200008 instance=ExtResource("7_pillar")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 14, 8, -3.5)
+
+[node name="Torches" type="Node3D" parent="MiningArea/DungeonDecor" unique_id=200300000]
+
+[node name="Light_Top0" type="OmniLight3D" parent="MiningArea/DungeonDecor/Torches" unique_id=200300101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 11.2, -0.4)
+light_color = Color(1, 0.72, 0.28, 1)
+light_energy = 2.2
+omni_range = 6.0
+
+[node name="Light_Top1" type="OmniLight3D" parent="MiningArea/DungeonDecor/Torches" unique_id=200300102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 11.2, -0.4)
+light_color = Color(1, 0.72, 0.28, 1)
+light_energy = 2.2
+omni_range = 6.0
+
+[node name="Light_Top2" type="OmniLight3D" parent="MiningArea/DungeonDecor/Torches" unique_id=200300103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 11.2, -0.4)
+light_color = Color(1, 0.72, 0.28, 1)
+light_energy = 2.2
+omni_range = 6.0
+
+[node name="Light_Top3" type="OmniLight3D" parent="MiningArea/DungeonDecor/Torches" unique_id=200300104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 11.2, -0.4)
+light_color = Color(1, 0.72, 0.28, 1)
+light_energy = 2.2
+omni_range = 6.0
+
+[node name="Torch_WallL1" parent="MiningArea/DungeonDecor/Torches" unique_id=200300005 instance=ExtResource("6_torch")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -14.3, 4, -2.8)
+
+[node name="Light_WallL1" type="OmniLight3D" parent="MiningArea/DungeonDecor/Torches" unique_id=200300105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3, 4.4, -2.6)
+light_color = Color(1, 0.68, 0.22, 1)
+light_energy = 2.0
+omni_range = 7.0
+
+[node name="Torch_WallL2" parent="MiningArea/DungeonDecor/Torches" unique_id=200300006 instance=ExtResource("6_torch")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -14.3, -3, -2.8)
+
+[node name="Light_WallL2" type="OmniLight3D" parent="MiningArea/DungeonDecor/Torches" unique_id=200300106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3, -2.6, -2.6)
+light_color = Color(1, 0.68, 0.22, 1)
+light_energy = 2.0
+omni_range = 7.0
+
+[node name="Torch_WallR1" parent="MiningArea/DungeonDecor/Torches" unique_id=200300007 instance=ExtResource("6_torch")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 14.3, 4, -2.8)
+
+[node name="Light_WallR1" type="OmniLight3D" parent="MiningArea/DungeonDecor/Torches" unique_id=200300107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3, 4.4, -2.6)
+light_color = Color(1, 0.68, 0.22, 1)
+light_energy = 2.0
+omni_range = 7.0
+
+[node name="Torch_WallR2" parent="MiningArea/DungeonDecor/Torches" unique_id=200300008 instance=ExtResource("6_torch")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 14.3, -3, -2.8)
+
+[node name="Light_WallR2" type="OmniLight3D" parent="MiningArea/DungeonDecor/Torches" unique_id=200300108]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3, -2.6, -2.6)
+light_color = Color(1, 0.68, 0.22, 1)
+light_energy = 2.0
+omni_range = 7.0
+
+[node name="Torch_BottomL" parent="MiningArea/DungeonDecor/Torches" unique_id=200300009 instance=ExtResource("6_torch")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -13.9881315, -11.5, -2.5)
+
+[node name="Light_BottomL" type="OmniLight3D" parent="MiningArea/DungeonDecor/Torches" unique_id=200300109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9881315, -11.1, -2.3)
+light_color = Color(1, 0.65, 0.2, 1)
+light_energy = 2.4
+omni_range = 8.0
+
+[node name="Torch_BottomR" parent="MiningArea/DungeonDecor/Torches" unique_id=200300010 instance=ExtResource("6_torch")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 13.916935, -11.5, -2.5)
+
+[node name="Light_BottomR" type="OmniLight3D" parent="MiningArea/DungeonDecor/Torches" unique_id=200300110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.916935, -11.1, -2.3)
+light_color = Color(1, 0.65, 0.2, 1)
+light_energy = 2.4
+omni_range = 8.0
+
+[node name="Props" type="Node3D" parent="MiningArea/DungeonDecor" unique_id=200400000]
+
+[node name="Crates1" parent="MiningArea/DungeonDecor/Props" unique_id=200400001 instance=ExtResource("8_crates")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -16.592842, 9.944238, -2.44756)
+
+[node name="Crates2" parent="MiningArea/DungeonDecor/Props" unique_id=1604705630 instance=ExtResource("8_crates")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 11.507957, 9.944238, -2.44756)
+
+[node name="Barrel1" parent="MiningArea/DungeonDecor/Props" unique_id=200400003 instance=ExtResource("9_barrel")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -5.7115335, 10.000656, -2.4774668)
+
+[node name="Rubble2" parent="MiningArea/DungeonDecor/Props" unique_id=200400006 instance=ExtResource("10_rubble")]
+transform = Transform3D(7.757469, 0, -5.475096, 0, 9.494999, 0, 5.475096, 0, 7.757469, 18.452148, -13.963763, -11.160861)
+
+[node name="Rubble3" parent="MiningArea/DungeonDecor/Props" unique_id=491439163 instance=ExtResource("10_rubble")]
+transform = Transform3D(3.6881495, 0, 8.439292, 0, 9.21, 0, -8.439292, 0, 3.6881495, -21.653496, -12.999999, -4.9703193)
+
+[node name="TopGround" type="StaticBody3D" parent="MiningArea" unique_id=373413426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, -2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MiningArea/TopGround" unique_id=373413427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4246979, 0, -0.014977932)
+mesh = SubResource("BoxMesh_platform")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MiningArea/TopGround" unique_id=373413428]
+shape = SubResource("BoxShape3D_platform")
+
+[node name="Winch0" parent="MiningArea" unique_id=373413431 instance=ExtResource("11_winch")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9, 10, -0.5294164)
+
+[node name="Winch1" parent="MiningArea" unique_id=373413432 instance=ExtResource("11_winch")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3, 10, -0.52941585)
+
+[node name="Winch2" parent="MiningArea" unique_id=373413433 instance=ExtResource("11_winch")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3, 10, -0.52941537)
+
+[node name="Winch3" parent="MiningArea" unique_id=373413434 instance=ExtResource("11_winch")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9, 10, -0.52941483)
+
+[node name="CliffBackdrop" type="MeshInstance3D" parent="MiningArea" unique_id=184918209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2207375, 1.5666504, -4.8951044)
+mesh = SubResource("BoxMesh_cliff")
+
+[node name="MineFloor" type="StaticBody3D" parent="MiningArea" unique_id=1765131423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MiningArea/MineFloor" unique_id=1765131424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9452462, 0, 0)
+mesh = SubResource("BoxMesh_floor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MiningArea/MineFloor" unique_id=1765131425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3059082, 0, 0)
+shape = SubResource("BoxShape3D_floor")
+
+[node name="Wall_Left" type="StaticBody3D" parent="MiningArea" unique_id=184918212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MiningArea/Wall_Left" unique_id=184918213]
+shape = SubResource("BoxShape3D_wall")
+
+[node name="Wall_Right" type="StaticBody3D" parent="MiningArea" unique_id=184918214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MiningArea/Wall_Right" unique_id=184918215]
+shape = SubResource("BoxShape3D_wall")
+
+[node name="Rubble2_Body" type="StaticBody3D" parent="MiningArea" unique_id=200400007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2, -12.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MiningArea/Rubble2_Body" unique_id=200400008]
+shape = SubResource("BoxShape3D_rubble")
+
+[node name="Rubble3_Body" type="StaticBody3D" parent="MiningArea" unique_id=200400009]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2, -12.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MiningArea/Rubble3_Body" unique_id=200400010]
+shape = SubResource("BoxShape3D_rubble")
+
+[node name="RigPositions" type="Node3D" parent="." unique_id=1906098776]
+
+[node name="Rig0" type="Marker3D" parent="RigPositions" unique_id=129699301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 10, -1)
+
+[node name="Rig1" type="Marker3D" parent="RigPositions" unique_id=1323277939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 10, -1)
+
+[node name="Rig2" type="Marker3D" parent="RigPositions" unique_id=479972531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 10, -1)
+
+[node name="Rig3" type="Marker3D" parent="RigPositions" unique_id=759895521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 10, -1)
+
+[node name="MineralsContainer" type="Node3D" parent="." unique_id=489566940]
+
+[node name="HooksContainer" type="Node3D" parent="." unique_id=652521374]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=485870213]
+
+[node name="MatchTimerLabel" type="Label" parent="UI" unique_id=586833940]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Match: 60"
+horizontal_alignment = 1
+
+[node name="PlayerScoresPanel" type="VBoxContainer" parent="UI" unique_id=793448747]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 220.0
+grow_horizontal = 0
+theme_override_constants/separation = 6
+
+[node name="WinnerBanner" type="PanelContainer" parent="UI" unique_id=1714682635]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -100.0
+offset_right = 180.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="UI/WinnerBanner" unique_id=1120013555]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="UI/WinnerBanner/Margin" unique_id=2054852003]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="WinnerLabel" type="Label" parent="UI/WinnerBanner/Margin/VBox" unique_id=1489665619]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "WINNER!"
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="UI/WinnerBanner/Margin/VBox" unique_id=1114754711]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Return to Lobby"
+
+[node name="InGameMenu" parent="." unique_id=1076537079 instance=ExtResource("3_in_game_menu")]

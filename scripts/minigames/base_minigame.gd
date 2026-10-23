@@ -559,8 +559,16 @@ func _show_tutorial_overlay(data: Dictionary) -> void:
 		tutorial_controls_label.text = data.get("controls", "")
 	if tutorial_image_rect and data.has("image"):
 		var img_path = data["image"]
-		if img_path != "" and ResourceLoader.exists(img_path):
-			tutorial_image_rect.texture = load(img_path)
+		if img_path != "":
+			var tex = null
+			if ResourceLoader.exists(img_path):
+				tex = load(img_path)
+			if tex == null and FileAccess.file_exists(img_path):
+				var real_path = ProjectSettings.globalize_path(img_path)
+				var img = Image.load_from_file(real_path)
+				if img and not img.is_empty():
+					tex = ImageTexture.create_from_image(img)
+			tutorial_image_rect.texture = tex
 	_update_tutorial_ui()
 
 
@@ -931,6 +939,8 @@ func _get_next_minigame_scene() -> String:
 	if "hotbomb" in current_map_name or "bomb" in current_map_name:
 		return "res://scenes/minigames/stable_footing/stable_footing.tscn"
 	elif "stablefooting" in current_map_name or "footing" in current_map_name:
+		return "res://scenes/minigames/gold_miner/gold_miner.tscn"
+	elif "goldminer" in current_map_name or "miner" in current_map_name:
 		return "res://scenes/minigames/mimic/mimic.tscn"
 	elif "mimic" in current_map_name:
 		return "res://scenes/minigames/hot_bomb/hot_bomb.tscn"

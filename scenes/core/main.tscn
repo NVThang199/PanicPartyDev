@@ -315,6 +315,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Stable Footing"
 
+[node name="BtnGoldMiner" type="Button" parent="UI/MapSelectPanel/Margin/VBox" unique_id=2184918231]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Gold Miner"
+
 [node name="BtnMimic" type="Button" parent="UI/MapSelectPanel/Margin/VBox" unique_id=1766083624]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2

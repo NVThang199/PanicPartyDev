@@ -39,6 +39,11 @@ func show_map_info(map_type: String) -> void:
 			{"action": tr("MOVE"), "key": tr("MOVE_KEYS")},
 			{"action": tr("PUSH"), "key": tr("KEY_SPACE")}
 		]
+	elif map_type == "GoldMiner":
+		map_display_name = tr("MAP_GOLD_MINER")
+		controls = [
+			{"action": tr("DROP_HOOK"), "key": tr("GOLD_MINER_CONTROLS_HINT")}
+		]
 	elif map_type == "Mimic":
 		map_display_name = tr("MAP_MIMIC")
 		controls = [
