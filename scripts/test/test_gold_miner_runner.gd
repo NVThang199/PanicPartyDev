@@ -102,7 +102,7 @@ func _ready() -> void:
 	var item_scene = load("res://scenes/minigames/gold_miner/gold_miner_item.tscn")
 	assert(item_scene != null, "gold_miner_item.tscn must exist")
 	var item_script = load("res://scripts/minigames/gold_miner/gold_miner_item.gd")
-	for t in [item_script.Type.GOLD_LARGE, item_script.Type.GOLD_MEDIUM, item_script.Type.GOLD_SMALL, item_script.Type.DIAMOND, item_script.Type.ROCK_LARGE, item_script.Type.ROCK_SMALL, item_script.Type.OBSTACLE]:
+	for t in [item_script.Type.GOLD_LARGE, item_script.Type.GOLD_MEDIUM, item_script.Type.GOLD_SMALL, item_script.Type.DIAMOND, item_script.Type.ROCK_LARGE, item_script.Type.ROCK_SMALL]:
 		var itm = item_scene.instantiate()
 		itm.setup_item(100 + t, t, Vector3(0, 0, 0))
 		assert(itm.model_node != null, "Model FBX node should be instantiated for type: %d" % t)

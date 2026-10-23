@@ -120,7 +120,7 @@ func _ready() -> void:
 		clear_all_players()
 		Networking.host_lobby()
 	elif multiplayer.multiplayer_peer != null and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
-		if GameSession.has_selected_character:
+		if GameSession.has_selected_character and GameSession.last_played_map != "":
 			GameSession.reset_campaign_scores()
 			_restore_lobby_session()
 		else:
@@ -571,7 +571,7 @@ func on_client_connected() -> void:
 func _on_connected_to_server() -> void:
 	print("[CLIENT] connected_to_server fired")
 	status_label.visible = false
-	if GameSession.has_selected_character and not multiplayer.is_server():
+	if GameSession.has_selected_character and GameSession.last_played_map != "" and not multiplayer.is_server():
 		var my_name = Networking.get_local_player_name()
 		var my_steam_id = Networking.get_local_steam_id()
 		print("[CLIENT] Auto-registering previously selected character: %s" % GameSession.selected_character)
@@ -600,6 +600,7 @@ func _on_invite_pressed() -> void:
 func _on_leave_pressed() -> void:
 	set_process(false)
 	set_physics_process(false)
+	GameSession.reset_session()
 	Networking.leave_current_session()
 	clear_all_players()
 	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")

@@ -5,7 +5,7 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 645 nodes · 682 edges · 65 communities (7 shown, 58 thin omitted)
+- 646 nodes · 687 edges · 65 communities (7 shown, 58 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -37,10 +37,10 @@
 4. `func _restore_lobby_session()` - 3 edges
 5. `func _on_connected_to_server()` - 3 edges
 6. `func _on_invite_pressed()` - 3 edges
-7. `func _process_match_result()` - 3 edges
-8. `func _ready()` - 3 edges
-9. `func _on_spectator_character_cancelled()` - 3 edges
-10. `func _on_peer_disconnected()` - 3 edges
+7. `func _on_leave_pressed()` - 3 edges
+8. `func _process_match_result()` - 3 edges
+9. `func _ready()` - 3 edges
+10. `func _on_spectator_character_cancelled()` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `func _on_character_confirmed()` --uses_singleton--> `Gamesession`  [EXTRACTED]
@@ -97,7 +97,7 @@ Nodes (5): func _ready(), func _exit_tree(), func _ready(), func refresh(), clas
 
 ## Knowledge Gaps
 - **24 isolated node(s):** `class BaseMinigame`, `signal host_created`, `signal host_failed`, `signal client_connected`, `signal avatar_updated` (+19 more)
-  These have ≤1 connection - possible missing edges. (Counts symbols only; 523 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges. (Counts symbols only; 524 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **58 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -109,11 +109,11 @@ _Questions this graph is uniquely positioned to answer:_
   _24 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `mimic.gd` be split into smaller, more focused modules?**
   _Cohesion score 0.03636363636363636 - nodes in this community are weakly interconnected._
-- **Why does `func disconnect_and_return_to_menu()` connect `networking.gd` to `Gamesession`?**
-  _High betweenness centrality (0.085) - this node is a cross-community bridge._
+- **Why does `func _on_pre_initialize()` connect `gold_miner.gd` to `Gamesession`?**
+  _High betweenness centrality (0.042) - this node is a cross-community bridge._
 - **Should `base_minigame.gd` be split into smaller, more focused modules?**
   _Cohesion score 0.03773584905660377 - nodes in this community are weakly interconnected._
-- **Why does `func _on_pre_initialize()` connect `gold_miner.gd` to `Gamesession`?**
+- **Why does `func _update_scores_ui()` connect `gold_miner.gd` to `Gamesession`?**
   _High betweenness centrality (0.042) - this node is a cross-community bridge._
 - **Should `networking.gd` be split into smaller, more focused modules?**
   _Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected._

@@ -20,6 +20,14 @@ var elimination_order: Array[int] = []
 var last_played_map: String = ""
 
 
+func reset_session() -> void:
+	has_selected_character = false
+	is_hosting = false
+	last_played_map = ""
+	minigame_players.clear()
+	reset_campaign_scores()
+
+
 func reset_campaign_scores() -> void:
 	player_wins.clear()
 	player_scores.clear()

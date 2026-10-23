@@ -68,10 +68,7 @@ func disconnect_and_return_to_menu() -> void:
 		return
 	_is_disconnecting = true
 	leave_current_session()
-	GameSession.reset_campaign_scores()
-	GameSession.minigame_players.clear()
-	GameSession.has_selected_character = false
-	GameSession.is_hosting = false
+	GameSession.reset_session()
 	call_deferred("_do_change_to_main_menu")
 
 func _do_change_to_main_menu() -> void:
@@ -106,6 +103,8 @@ func sync_current_scene(scene_path: String) -> void:
 		get_tree().change_scene_to_file(scene_path)
 
 func leave_current_session() -> void:
+	GameSession.has_selected_character = false
+	GameSession.minigame_players.clear()
 	if peer != null:
 		peer.close()
 		multiplayer.multiplayer_peer = null
@@ -116,6 +115,8 @@ func leave_current_session() -> void:
 
 func host_lobby() -> void:
 	leave_current_session()
+	GameSession.has_selected_character = false
+	GameSession.minigame_players.clear()
 	await get_tree().process_frame
 	Steam.createLobby(LOBBY_TYPE, MAX_MEMBERS)
 
@@ -171,6 +172,8 @@ func on_join_requested(lobby_id: int, _steam_id: int) -> void:
 
 func join_lobby_by_id(lobby_id: int) -> void:
 	leave_current_session()
+	GameSession.has_selected_character = false
+	GameSession.minigame_players.clear()
 	await get_tree().process_frame
 	Steam.joinLobby(lobby_id)
 

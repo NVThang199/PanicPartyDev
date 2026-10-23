@@ -467,203 +467,203 @@
       "label": "func _on_pause_settings_pressed()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L607"
+      "source_location": "L608"
     },
     {
       "id": "scripts_core_main_gd__on_pause_invite_pressed",
       "label": "func _on_pause_invite_pressed()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L612"
+      "source_location": "L613"
     },
     {
       "id": "scripts_core_main_gd__on_pause_menu_pressed",
       "label": "func _on_pause_menu_pressed()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L617"
+      "source_location": "L618"
     },
     {
       "id": "scripts_core_main_gd__on_copy_code_pressed",
       "label": "func _on_copy_code_pressed()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L620"
+      "source_location": "L621"
     },
     {
       "id": "scripts_core_main_gd__on_map_selected",
       "label": "func _on_map_selected()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L633"
+      "source_location": "L634"
     },
     {
       "id": "scripts_core_main_gd__pick_random_map",
       "label": "func _pick_random_map()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L639"
+      "source_location": "L640"
     },
     {
       "id": "scripts_core_main_gd__on_campaign_toggled",
       "label": "func _on_campaign_toggled()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L643"
+      "source_location": "L644"
     },
     {
       "id": "scripts_core_main_gd__on_target_score_pressed",
       "label": "func _on_target_score_pressed()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L653"
+      "source_location": "L654"
     },
     {
       "id": "scripts_core_main_gd_sync_campaign_config",
       "label": "rpc func sync_campaign_config()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L664"
+      "source_location": "L665"
     },
     {
       "id": "scripts_core_main_gd__update_score_buttons_style",
       "label": "func _update_score_buttons_style()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L671"
+      "source_location": "L672"
     },
     {
       "id": "scripts_core_main_gd__sync_all_scores_to_all",
       "label": "func _sync_all_scores_to_all()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L682"
+      "source_location": "L683"
     },
     {
       "id": "scripts_core_main_gd_sync_all_scores",
       "label": "rpc func sync_all_scores()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L692"
+      "source_location": "L693"
     },
     {
       "id": "scripts_core_main_gd__sync_all_wins_to_all",
       "label": "func _sync_all_wins_to_all()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L699"
+      "source_location": "L700"
     },
     {
       "id": "scripts_core_main_gd_sync_all_wins",
       "label": "rpc func sync_all_wins()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L712"
+      "source_location": "L713"
     },
     {
       "id": "scripts_core_main_gd_sync_player_wins",
       "label": "rpc func sync_player_wins()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L722"
+      "source_location": "L723"
     },
     {
       "id": "scripts_core_main_gd__process_match_result",
       "label": "func _process_match_result()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L730"
+      "source_location": "L731"
     },
     {
       "id": "scripts_core_main_gd_show_campaign_victory_rpc",
       "label": "rpc func show_campaign_victory_rpc()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L780"
+      "source_location": "L781"
     },
     {
       "id": "scripts_core_main_gd__on_campaign_play_again",
       "label": "func _on_campaign_play_again()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L788"
+      "source_location": "L789"
     },
     {
       "id": "scripts_core_main_gd_reset_campaign_wins_rpc",
       "label": "rpc func reset_campaign_wins_rpc()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L801"
+      "source_location": "L802"
     },
     {
       "id": "scripts_core_main_gd__on_ready_pressed",
       "label": "func _on_ready_pressed()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L814"
+      "source_location": "L815"
     },
     {
       "id": "scripts_core_main_gd_set_ready_state",
       "label": "rpc func set_ready_state()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L836"
+      "source_location": "L837"
     },
     {
       "id": "scripts_core_main_gd_sync_ready_states",
       "label": "rpc func sync_ready_states()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L853"
+      "source_location": "L854"
     },
     {
       "id": "scripts_core_main_gd_get_ready_states",
       "label": "func get_ready_states()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L862"
+      "source_location": "L863"
     },
     {
       "id": "scripts_core_main_gd_update_start_button",
       "label": "func update_start_button()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L868"
+      "source_location": "L869"
     },
     {
       "id": "scripts_core_main_gd__on_start_pressed",
       "label": "func _on_start_pressed()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L881"
+      "source_location": "L882"
     },
     {
       "id": "scripts_core_main_gd_start_game",
       "label": "func start_game()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L886"
+      "source_location": "L887"
     },
     {
       "id": "scripts_core_main_gd__change_to_minigame",
       "label": "func _change_to_minigame()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L916"
+      "source_location": "L917"
     },
     {
       "id": "scripts_core_main_gd_prepare_start_game_rpc",
       "label": "rpc func prepare_start_game_rpc()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L935"
+      "source_location": "L936"
     },
     {
       "id": "scripts_core_main_gd_start_game_rpc",
       "label": "rpc func start_game_rpc()",
       "file_type": "code",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L945"
+      "source_location": "L946"
     },
     {
       "id": "scripts_minigames_base_minigame_gd",
@@ -1681,11 +1681,18 @@
       "source_location": "L1"
     },
     {
+      "id": "scripts_systems_game_session_gd_reset_session",
+      "label": "func reset_session()",
+      "file_type": "code",
+      "source_file": "scripts/systems/game_session.gd",
+      "source_location": "L23"
+    },
+    {
       "id": "scripts_systems_game_session_gd_reset_campaign_scores",
       "label": "func reset_campaign_scores()",
       "file_type": "code",
       "source_file": "scripts/systems/game_session.gd",
-      "source_location": "L23"
+      "source_location": "L31"
     },
     {
       "id": "scripts_systems_networking_gd",
@@ -1783,105 +1790,105 @@
       "label": "func _do_change_to_main_menu()",
       "file_type": "code",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L77"
+      "source_location": "L74"
     },
     {
       "id": "scripts_systems_networking_gd_request_current_scene",
       "label": "rpc func request_current_scene()",
       "file_type": "code",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L86"
+      "source_location": "L83"
     },
     {
       "id": "scripts_systems_networking_gd_sync_current_scene",
       "label": "rpc func sync_current_scene()",
       "file_type": "code",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L97"
+      "source_location": "L94"
     },
     {
       "id": "scripts_systems_networking_gd_leave_current_session",
       "label": "func leave_current_session()",
       "file_type": "code",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L108"
+      "source_location": "L105"
     },
     {
       "id": "scripts_systems_networking_gd_host_lobby",
       "label": "func host_lobby()",
       "file_type": "code",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L117"
+      "source_location": "L116"
     },
     {
       "id": "scripts_systems_networking_gd_on_lobby_created",
       "label": "func on_lobby_created()",
       "file_type": "code",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L122"
+      "source_location": "L123"
     },
     {
       "id": "scripts_systems_networking_gd_on_lobby_joined",
       "label": "func on_lobby_joined()",
       "file_type": "code",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L136"
+      "source_location": "L137"
     },
     {
       "id": "scripts_systems_networking_gd_on_join_requested",
       "label": "func on_join_requested()",
       "file_type": "code",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L166"
+      "source_location": "L167"
     },
     {
       "id": "scripts_systems_networking_gd_join_lobby_by_id",
       "label": "func join_lobby_by_id()",
       "file_type": "code",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L172"
+      "source_location": "L173"
     },
     {
       "id": "scripts_systems_networking_gd_open_invite_overlay",
       "label": "func open_invite_overlay()",
       "file_type": "code",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L177"
+      "source_location": "L180"
     },
     {
       "id": "scripts_systems_networking_gd_get_lobby_code",
       "label": "func get_lobby_code()",
       "file_type": "code",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L183"
+      "source_location": "L186"
     },
     {
       "id": "scripts_systems_networking_gd_get_local_player_name",
       "label": "func get_local_player_name()",
       "file_type": "code",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L188"
+      "source_location": "L191"
     },
     {
       "id": "scripts_systems_networking_gd_get_local_steam_id",
       "label": "func get_local_steam_id()",
       "file_type": "code",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L195"
+      "source_location": "L198"
     },
     {
       "id": "scripts_systems_networking_gd_get_avatar_texture",
       "label": "func get_avatar_texture()",
       "file_type": "code",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L200"
+      "source_location": "L203"
     },
     {
       "id": "scripts_systems_networking_gd__on_avatar_loaded",
       "label": "func _on_avatar_loaded()",
       "file_type": "code",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L223"
+      "source_location": "L226"
     },
     {
       "id": "scripts_systems_settings_manager_gd",
@@ -5626,11 +5633,20 @@
     },
     {
       "source": "scripts_core_main_gd__on_leave_pressed",
-      "target": "networking",
+      "target": "gamesession",
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
       "source_location": "L603",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__on_leave_pressed",
+      "target": "networking",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L604",
       "weight": 1.0
     },
     {
@@ -5639,7 +5655,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L607",
+      "source_location": "L608",
       "weight": 1.0
     },
     {
@@ -5648,7 +5664,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L612",
+      "source_location": "L613",
       "weight": 1.0
     },
     {
@@ -5657,7 +5673,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L617",
+      "source_location": "L618",
       "weight": 1.0
     },
     {
@@ -5666,7 +5682,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L620",
+      "source_location": "L621",
       "weight": 1.0
     },
     {
@@ -5675,7 +5691,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L621",
+      "source_location": "L622",
       "weight": 1.0
     },
     {
@@ -5684,7 +5700,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L633",
+      "source_location": "L634",
       "weight": 1.0
     },
     {
@@ -5693,7 +5709,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L639",
+      "source_location": "L640",
       "weight": 1.0
     },
     {
@@ -5702,7 +5718,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L643",
+      "source_location": "L644",
       "weight": 1.0
     },
     {
@@ -5711,7 +5727,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L646",
+      "source_location": "L647",
       "weight": 1.0
     },
     {
@@ -5720,7 +5736,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L649",
+      "source_location": "L650",
       "weight": 1.0
     },
     {
@@ -5729,7 +5745,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L651",
+      "source_location": "L652",
       "weight": 1.0
     },
     {
@@ -5738,7 +5754,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L651",
+      "source_location": "L652",
       "weight": 1.0
     },
     {
@@ -5747,7 +5763,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L653",
+      "source_location": "L654",
       "weight": 1.0
     },
     {
@@ -5756,7 +5772,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L656",
+      "source_location": "L657",
       "weight": 1.0
     },
     {
@@ -5765,7 +5781,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L659",
+      "source_location": "L660",
       "weight": 1.0
     },
     {
@@ -5774,7 +5790,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L661",
+      "source_location": "L662",
       "weight": 1.0
     },
     {
@@ -5783,22 +5799,13 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L661",
+      "source_location": "L662",
       "weight": 1.0
     },
     {
       "source": "scripts_core_main_gd",
       "target": "scripts_core_main_gd_sync_campaign_config",
       "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/core/main.gd",
-      "source_location": "L664",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_core_main_gd_sync_campaign_config",
-      "target": "gamesession",
-      "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
       "source_location": "L665",
@@ -5814,12 +5821,21 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_core_main_gd_sync_campaign_config",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L667",
+      "weight": 1.0
+    },
+    {
       "source": "scripts_core_main_gd",
       "target": "scripts_core_main_gd__update_score_buttons_style",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L671",
+      "source_location": "L672",
       "weight": 1.0
     },
     {
@@ -5828,7 +5844,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L682",
+      "source_location": "L683",
       "weight": 1.0
     },
     {
@@ -5837,7 +5853,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L687",
+      "source_location": "L688",
       "weight": 1.0
     },
     {
@@ -5846,7 +5862,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L689",
+      "source_location": "L690",
       "weight": 1.0
     },
     {
@@ -5855,7 +5871,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L689",
+      "source_location": "L690",
       "weight": 1.0
     },
     {
@@ -5864,7 +5880,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L692",
+      "source_location": "L693",
       "weight": 1.0
     },
     {
@@ -5873,7 +5889,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L695",
+      "source_location": "L696",
       "weight": 1.0
     },
     {
@@ -5882,7 +5898,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L699",
+      "source_location": "L700",
       "weight": 1.0
     },
     {
@@ -5891,7 +5907,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L709",
+      "source_location": "L710",
       "weight": 1.0
     },
     {
@@ -5900,7 +5916,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L712",
+      "source_location": "L713",
       "weight": 1.0
     },
     {
@@ -5909,7 +5925,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L722",
+      "source_location": "L723",
       "weight": 1.0
     },
     {
@@ -5918,16 +5934,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L730",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_core_main_gd__process_match_result",
-      "target": "gamesession",
-      "relation": "uses_singleton",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/core/main.gd",
-      "source_location": "L733",
+      "source_location": "L731",
       "weight": 1.0
     },
     {
@@ -5945,7 +5952,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L738",
+      "source_location": "L735",
       "weight": 1.0
     },
     {
@@ -5954,7 +5961,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L740",
+      "source_location": "L739",
       "weight": 1.0
     },
     {
@@ -5963,7 +5970,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L744",
+      "source_location": "L741",
       "weight": 1.0
     },
     {
@@ -5981,7 +5988,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L749",
+      "source_location": "L746",
       "weight": 1.0
     },
     {
@@ -5995,11 +6002,11 @@
     },
     {
       "source": "scripts_core_main_gd__process_match_result",
-      "target": "steam",
+      "target": "gamesession",
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L758",
+      "source_location": "L751",
       "weight": 1.0
     },
     {
@@ -6026,7 +6033,16 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L764",
+      "source_location": "L761",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_core_main_gd__process_match_result",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/core/main.gd",
+      "source_location": "L765",
       "weight": 1.0
     },
     {
@@ -6035,7 +6051,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L777",
+      "source_location": "L778",
       "weight": 1.0
     },
     {
@@ -6044,7 +6060,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L780",
+      "source_location": "L781",
       "weight": 1.0
     },
     {
@@ -6053,7 +6069,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L788",
+      "source_location": "L789",
       "weight": 1.0
     },
     {
@@ -6062,7 +6078,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L791",
+      "source_location": "L792",
       "weight": 1.0
     },
     {
@@ -6071,7 +6087,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L798",
+      "source_location": "L799",
       "weight": 1.0
     },
     {
@@ -6080,7 +6096,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L801",
+      "source_location": "L802",
       "weight": 1.0
     },
     {
@@ -6089,7 +6105,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L806",
+      "source_location": "L807",
       "weight": 1.0
     },
     {
@@ -6098,7 +6114,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L814",
+      "source_location": "L815",
       "weight": 1.0
     },
     {
@@ -6107,7 +6123,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L828",
+      "source_location": "L829",
       "weight": 1.0
     },
     {
@@ -6116,7 +6132,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L833",
+      "source_location": "L834",
       "weight": 1.0
     },
     {
@@ -6125,7 +6141,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L836",
+      "source_location": "L837",
       "weight": 1.0
     },
     {
@@ -6134,7 +6150,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L847",
+      "source_location": "L848",
       "weight": 1.0
     },
     {
@@ -6143,7 +6159,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L853",
+      "source_location": "L854",
       "weight": 1.0
     },
     {
@@ -6152,7 +6168,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L862",
+      "source_location": "L863",
       "weight": 1.0
     },
     {
@@ -6161,7 +6177,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L868",
+      "source_location": "L869",
       "weight": 1.0
     },
     {
@@ -6170,7 +6186,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L881",
+      "source_location": "L882",
       "weight": 1.0
     },
     {
@@ -6179,7 +6195,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L886",
+      "source_location": "L887",
       "weight": 1.0
     },
     {
@@ -6188,7 +6204,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L906",
+      "source_location": "L907",
       "weight": 1.0
     },
     {
@@ -6197,7 +6213,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L912",
+      "source_location": "L913",
       "weight": 1.0
     },
     {
@@ -6206,7 +6222,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L916",
+      "source_location": "L917",
       "weight": 1.0
     },
     {
@@ -6215,7 +6231,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L920",
+      "source_location": "L921",
       "weight": 1.0
     },
     {
@@ -6224,7 +6240,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L923",
+      "source_location": "L924",
       "weight": 1.0
     },
     {
@@ -6233,7 +6249,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L926",
+      "source_location": "L927",
       "weight": 1.0
     },
     {
@@ -6242,7 +6258,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L929",
+      "source_location": "L930",
       "weight": 1.0
     },
     {
@@ -6251,7 +6267,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L935",
+      "source_location": "L936",
       "weight": 1.0
     },
     {
@@ -6260,7 +6276,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/core/main.gd",
-      "source_location": "L945",
+      "source_location": "L946",
       "weight": 1.0
     },
     {
@@ -8416,11 +8432,20 @@
     },
     {
       "source": "scripts_systems_game_session_gd",
-      "target": "scripts_systems_game_session_gd_reset_campaign_scores",
+      "target": "scripts_systems_game_session_gd_reset_session",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/game_session.gd",
       "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_game_session_gd",
+      "target": "scripts_systems_game_session_gd_reset_campaign_scores",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/game_session.gd",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -8712,39 +8737,12 @@
       "weight": 1.0
     },
     {
-      "source": "scripts_systems_networking_gd_disconnect_and_return_to_menu",
-      "target": "gamesession",
-      "relation": "uses_singleton",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/systems/networking.gd",
-      "source_location": "L72",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_systems_networking_gd_disconnect_and_return_to_menu",
-      "target": "gamesession",
-      "relation": "uses_singleton",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/systems/networking.gd",
-      "source_location": "L73",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_systems_networking_gd_disconnect_and_return_to_menu",
-      "target": "gamesession",
-      "relation": "uses_singleton",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/systems/networking.gd",
-      "source_location": "L74",
-      "weight": 1.0
-    },
-    {
       "source": "scripts_systems_networking_gd",
       "target": "scripts_systems_networking_gd__do_change_to_main_menu",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L77",
+      "source_location": "L74",
       "weight": 1.0
     },
     {
@@ -8753,7 +8751,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L86",
+      "source_location": "L83",
       "weight": 1.0
     },
     {
@@ -8762,7 +8760,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L94",
+      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -8771,7 +8769,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L97",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -8780,7 +8778,25 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L108",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_leave_current_session",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_leave_current_session",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -8789,7 +8805,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L114",
+      "source_location": "L113",
       "weight": 1.0
     },
     {
@@ -8798,7 +8814,25 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L117",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_host_lobby",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_host_lobby",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L119",
       "weight": 1.0
     },
     {
@@ -8807,22 +8841,13 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L120",
+      "source_location": "L121",
       "weight": 1.0
     },
     {
       "source": "scripts_systems_networking_gd",
       "target": "scripts_systems_networking_gd_on_lobby_created",
       "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/systems/networking.gd",
-      "source_location": "L122",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_systems_networking_gd_on_lobby_created",
-      "target": "steam",
-      "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
       "source_location": "L123",
@@ -8834,7 +8859,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L125",
+      "source_location": "L124",
       "weight": 1.0
     },
     {
@@ -8843,22 +8868,22 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L133",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_on_lobby_created",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L134",
       "weight": 1.0
     },
     {
       "source": "scripts_systems_networking_gd",
       "target": "scripts_systems_networking_gd_on_lobby_joined",
       "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/systems/networking.gd",
-      "source_location": "L136",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_systems_networking_gd_on_lobby_joined",
-      "target": "steam",
-      "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
       "source_location": "L137",
@@ -8879,7 +8904,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L141",
+      "source_location": "L139",
       "weight": 1.0
     },
     {
@@ -8888,7 +8913,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L148",
+      "source_location": "L142",
       "weight": 1.0
     },
     {
@@ -8897,7 +8922,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L150",
+      "source_location": "L149",
       "weight": 1.0
     },
     {
@@ -8906,7 +8931,16 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L152",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_on_lobby_joined",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L153",
       "weight": 1.0
     },
     {
@@ -8915,7 +8949,7 @@
       "relation": "calls_rpc",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L158",
+      "source_location": "L159",
       "weight": 1.0
     },
     {
@@ -8924,7 +8958,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L166",
+      "source_location": "L167",
       "weight": 1.0
     },
     {
@@ -8933,7 +8967,25 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L172",
+      "source_location": "L173",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_join_lobby_by_id",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L175",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_join_lobby_by_id",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L176",
       "weight": 1.0
     },
     {
@@ -8942,7 +8994,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L175",
+      "source_location": "L178",
       "weight": 1.0
     },
     {
@@ -8951,7 +9003,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L177",
+      "source_location": "L180",
       "weight": 1.0
     },
     {
@@ -8960,7 +9012,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L179",
+      "source_location": "L182",
       "weight": 1.0
     },
     {
@@ -8969,7 +9021,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L183",
+      "source_location": "L186",
       "weight": 1.0
     },
     {
@@ -8978,7 +9030,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L188",
+      "source_location": "L191",
       "weight": 1.0
     },
     {
@@ -8987,7 +9039,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L189",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
@@ -8996,7 +9048,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L190",
+      "source_location": "L193",
       "weight": 1.0
     },
     {
@@ -9005,7 +9057,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L195",
+      "source_location": "L198",
       "weight": 1.0
     },
     {
@@ -9014,31 +9066,22 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L196",
+      "source_location": "L199",
       "weight": 1.0
     },
     {
       "source": "scripts_systems_networking_gd_get_local_steam_id",
       "target": "steam",
       "relation": "uses_singleton",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/systems/networking.gd",
-      "source_location": "L197",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_systems_networking_gd",
-      "target": "scripts_systems_networking_gd_get_avatar_texture",
-      "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
       "source_location": "L200",
       "weight": 1.0
     },
     {
-      "source": "scripts_systems_networking_gd_get_avatar_texture",
-      "target": "steam",
-      "relation": "uses_singleton",
+      "source": "scripts_systems_networking_gd",
+      "target": "scripts_systems_networking_gd_get_avatar_texture",
+      "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
       "source_location": "L203",
@@ -9050,16 +9093,7 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L204",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_systems_networking_gd_get_avatar_texture",
-      "target": "steam",
-      "relation": "uses_singleton",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/systems/networking.gd",
-      "source_location": "L205",
+      "source_location": "L206",
       "weight": 1.0
     },
     {
@@ -9077,7 +9111,25 @@
       "relation": "uses_singleton",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
+      "source_location": "L208",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_get_avatar_texture",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
       "source_location": "L210",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_systems_networking_gd_get_avatar_texture",
+      "target": "steam",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/systems/networking.gd",
+      "source_location": "L213",
       "weight": 1.0
     },
     {
@@ -9086,7 +9138,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/systems/networking.gd",
-      "source_location": "L223",
+      "source_location": "L226",
       "weight": 1.0
     },
     {
