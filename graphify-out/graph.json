@@ -571,7 +571,7 @@
       "file_type": "code",
       "norm_label": "func _calculate_round_scores()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L865"
+      "source_location": "L866"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__create_round_scoreboard_overlay",
@@ -581,7 +581,7 @@
       "file_type": "code",
       "norm_label": "func _create_round_scoreboard_overlay()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L204"
+      "source_location": "L205"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__create_spectator_overlay",
@@ -591,7 +591,7 @@
       "file_type": "code",
       "norm_label": "func _create_spectator_overlay()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L289"
+      "source_location": "L290"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__create_tutorial_overlay",
@@ -601,7 +601,7 @@
       "file_type": "code",
       "norm_label": "func _create_tutorial_overlay()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L117"
+      "source_location": "L118"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__exit_tree",
@@ -611,7 +611,7 @@
       "file_type": "code",
       "norm_label": "func _exit_tree()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L89"
+      "source_location": "L90"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__finish_tutorial",
@@ -621,7 +621,7 @@
       "file_type": "code",
       "norm_label": "func _finish_tutorial()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L508"
+      "source_location": "L509"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__freeze_all_players",
@@ -631,7 +631,7 @@
       "file_type": "code",
       "norm_label": "func _freeze_all_players()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L585"
+      "source_location": "L586"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__get_draw_text",
@@ -641,7 +641,7 @@
       "file_type": "code",
       "norm_label": "func _get_draw_text()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1052"
+      "source_location": "L1053"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__get_next_minigame_scene",
@@ -651,7 +651,7 @@
       "file_type": "code",
       "norm_label": "func _get_next_minigame_scene()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L937"
+      "source_location": "L938"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__get_tutorial_data",
@@ -661,7 +661,7 @@
       "file_type": "code",
       "norm_label": "func _get_tutorial_data()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1189"
+      "source_location": "L1191"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__init_base_ui",
@@ -671,7 +671,7 @@
       "file_type": "code",
       "norm_label": "func _init_base_ui()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L105"
+      "source_location": "L106"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__notification",
@@ -681,7 +681,7 @@
       "file_type": "code",
       "norm_label": "func _notification()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L97"
+      "source_location": "L98"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__on_minigame_ready",
@@ -691,7 +691,7 @@
       "file_type": "code",
       "norm_label": "func _on_minigame_ready()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1192"
+      "source_location": "L1194"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__on_minigame_tick",
@@ -701,7 +701,7 @@
       "file_type": "code",
       "norm_label": "func _on_minigame_tick()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1209"
+      "source_location": "L1211"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__on_player_died",
@@ -711,7 +711,7 @@
       "file_type": "code",
       "norm_label": "func _on_player_died()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1215"
+      "source_location": "L1217"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__on_player_disconnected",
@@ -721,7 +721,7 @@
       "file_type": "code",
       "norm_label": "func _on_player_disconnected()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1218"
+      "source_location": "L1220"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__on_post_initialize",
@@ -731,7 +731,7 @@
       "file_type": "code",
       "norm_label": "func _on_post_initialize()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1206"
+      "source_location": "L1208"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__on_pre_initialize",
@@ -741,7 +741,7 @@
       "file_type": "code",
       "norm_label": "func _on_pre_initialize()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1195"
+      "source_location": "L1197"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__on_prepare_return_to_lobby",
@@ -751,7 +751,7 @@
       "file_type": "code",
       "norm_label": "func _on_prepare_return_to_lobby()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1221"
+      "source_location": "L1223"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__on_return_pressed",
@@ -761,7 +761,7 @@
       "file_type": "code",
       "norm_label": "func _on_return_pressed()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1060"
+      "source_location": "L1061"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__on_sync_custom_entities",
@@ -771,7 +771,7 @@
       "file_type": "code",
       "norm_label": "func _on_sync_custom_entities()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1212"
+      "source_location": "L1214"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__on_tutorial_finished",
@@ -781,7 +781,7 @@
       "file_type": "code",
       "norm_label": "func _on_tutorial_finished()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1224"
+      "source_location": "L1226"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__process",
@@ -791,7 +791,7 @@
       "file_type": "code",
       "norm_label": "func _process()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L463"
+      "source_location": "L464"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__show_tutorial_overlay",
@@ -801,7 +801,7 @@
       "file_type": "code",
       "norm_label": "func _show_tutorial_overlay()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L550"
+      "source_location": "L551"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__start_auto_return",
@@ -811,7 +811,7 @@
       "file_type": "code",
       "norm_label": "func _start_auto_return()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L920"
+      "source_location": "L921"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__start_next_minigame_countdown",
@@ -821,7 +821,7 @@
       "file_type": "code",
       "norm_label": "func _start_next_minigame_countdown()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L928"
+      "source_location": "L929"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__update_tutorial_ui",
@@ -831,7 +831,7 @@
       "file_type": "code",
       "norm_label": "func _update_tutorial_ui()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L575"
+      "source_location": "L576"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_apply_knockback_rpc",
@@ -841,7 +841,7 @@
       "file_type": "code",
       "norm_label": "rpc func apply_knockback_rpc()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L759"
+      "source_location": "L760"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_baseminigame",
@@ -861,7 +861,7 @@
       "file_type": "code",
       "norm_label": "rpc func finish_tutorial_rpc()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L532"
+      "source_location": "L533"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_get_alive_player_ids",
@@ -871,7 +871,7 @@
       "file_type": "code",
       "norm_label": "func get_alive_player_ids()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L819"
+      "source_location": "L820"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_get_alive_players",
@@ -881,7 +881,7 @@
       "file_type": "code",
       "norm_label": "func get_alive_players()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L827"
+      "source_location": "L828"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_player_died",
@@ -891,7 +891,7 @@
       "file_type": "code",
       "norm_label": "func player_died()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L772"
+      "source_location": "L773"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_player_died_rpc",
@@ -901,7 +901,7 @@
       "file_type": "code",
       "norm_label": "rpc func player_died_rpc()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L791"
+      "source_location": "L792"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_prepare_return_to_lobby_rpc",
@@ -911,7 +911,7 @@
       "file_type": "code",
       "norm_label": "rpc func prepare_return_to_lobby_rpc()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1101"
+      "source_location": "L1102"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_prepare_switch_minigame_rpc",
@@ -921,7 +921,7 @@
       "file_type": "code",
       "norm_label": "rpc func prepare_switch_minigame_rpc()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1146"
+      "source_location": "L1148"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_remove_dead_player",
@@ -931,7 +931,7 @@
       "file_type": "code",
       "norm_label": "func remove_dead_player()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L799"
+      "source_location": "L800"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_remove_player_rpc",
@@ -941,7 +941,7 @@
       "file_type": "code",
       "norm_label": "rpc func remove_player_rpc()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L810"
+      "source_location": "L811"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_request_push",
@@ -951,7 +951,7 @@
       "file_type": "code",
       "norm_label": "rpc func request_push()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L741"
+      "source_location": "L742"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_request_return_to_lobby",
@@ -961,7 +961,7 @@
       "file_type": "code",
       "norm_label": "rpc func request_return_to_lobby()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1068"
+      "source_location": "L1069"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_return_to_lobby",
@@ -971,17 +971,7 @@
       "file_type": "code",
       "norm_label": "func return_to_lobby()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1073"
-    },
-    {
-      "id": "scripts_minigames_base_minigame_gd_return_to_lobby_rpc",
-      "label": "rpc func return_to_lobby_rpc()",
-      "community": 1,
-      "community_name": "base_minigame.gd",
-      "file_type": "code",
-      "norm_label": "rpc func return_to_lobby_rpc()",
-      "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1113"
+      "source_location": "L1074"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_show_spectator_character_select",
@@ -991,7 +981,7 @@
       "file_type": "code",
       "norm_label": "func show_spectator_character_select()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L353"
+      "source_location": "L354"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_show_winner_banner",
@@ -1001,7 +991,7 @@
       "file_type": "code",
       "norm_label": "rpc func show_winner_banner()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1036"
+      "source_location": "L1037"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_spawn_player",
@@ -1011,7 +1001,7 @@
       "file_type": "code",
       "norm_label": "rpc func spawn_player()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L677"
+      "source_location": "L678"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_start_tutorial_rpc",
@@ -1021,7 +1011,7 @@
       "file_type": "code",
       "norm_label": "rpc func start_tutorial_rpc()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L524"
+      "source_location": "L525"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_switch_minigame_rpc",
@@ -1031,7 +1021,7 @@
       "file_type": "code",
       "norm_label": "rpc func switch_minigame_rpc()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1158"
+      "source_location": "L1160"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_switch_to_next_minigame",
@@ -1041,7 +1031,7 @@
       "file_type": "code",
       "norm_label": "func switch_to_next_minigame()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1118"
+      "source_location": "L1120"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_sync_game_state",
@@ -1051,7 +1041,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_game_state()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L659"
+      "source_location": "L660"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_sync_match_timer",
@@ -1061,7 +1051,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_match_timer()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L732"
+      "source_location": "L733"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_sync_player_state",
@@ -1071,7 +1061,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_player_state()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L718"
+      "source_location": "L719"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_sync_tutorial_timer",
@@ -1081,7 +1071,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_tutorial_timer()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L543"
+      "source_location": "L544"
     },
     {
       "id": "gamesession",
@@ -1191,7 +1181,7 @@
       "file_type": "code",
       "norm_label": "func _on_spectator_character_confirmed()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L364"
+      "source_location": "L365"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__process_round_end",
@@ -1201,7 +1191,7 @@
       "file_type": "code",
       "norm_label": "func _process_round_end()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L885"
+      "source_location": "L886"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__update_spectator_ui",
@@ -1211,7 +1201,7 @@
       "file_type": "code",
       "norm_label": "func _update_spectator_ui()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L343"
+      "source_location": "L344"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_end_game_timeout",
@@ -1221,7 +1211,7 @@
       "file_type": "code",
       "norm_label": "func end_game_timeout()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L851"
+      "source_location": "L852"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_end_game_winner",
@@ -1231,7 +1221,7 @@
       "file_type": "code",
       "norm_label": "func end_game_winner()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L839"
+      "source_location": "L840"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_initialize_game",
@@ -1241,7 +1231,7 @@
       "file_type": "code",
       "norm_label": "func initialize_game()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L406"
+      "source_location": "L407"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_request_game_sync",
@@ -1251,7 +1241,17 @@
       "file_type": "code",
       "norm_label": "rpc func request_game_sync()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L597"
+      "source_location": "L598"
+    },
+    {
+      "id": "scripts_minigames_base_minigame_gd_return_to_lobby_rpc",
+      "label": "rpc func return_to_lobby_rpc()",
+      "community": 10,
+      "community_name": "Gamesession",
+      "file_type": "code",
+      "norm_label": "rpc func return_to_lobby_rpc()",
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L1114"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_show_round_scoreboard_rpc",
@@ -1261,7 +1261,7 @@
       "file_type": "code",
       "norm_label": "rpc func show_round_scoreboard_rpc()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L951"
+      "source_location": "L952"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_sync_campaign_state",
@@ -1271,7 +1271,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_campaign_state()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L667"
+      "source_location": "L668"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_sync_minigame_players",
@@ -1281,7 +1281,7 @@
       "file_type": "code",
       "norm_label": "rpc func sync_minigame_players()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L652"
+      "source_location": "L653"
     },
     {
       "id": "scripts_minigames_base_minigame_gd_update_spectator_character",
@@ -1291,7 +1291,7 @@
       "file_type": "code",
       "norm_label": "rpc func update_spectator_character()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L390"
+      "source_location": "L391"
     },
     {
       "id": "scripts_minigames_mimic_mimic_gd__end_game",
@@ -2171,7 +2171,7 @@
       "file_type": "code",
       "norm_label": "func _on_peer_disconnected()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1163"
+      "source_location": "L1165"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__on_server_disconnected",
@@ -2181,7 +2181,7 @@
       "file_type": "code",
       "norm_label": "func _on_server_disconnected()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1180"
+      "source_location": "L1182"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__on_spectator_character_cancelled",
@@ -2191,7 +2191,7 @@
       "file_type": "code",
       "norm_label": "func _on_spectator_character_cancelled()",
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L379"
+      "source_location": "L380"
     },
     {
       "id": "scripts_minigames_base_minigame_gd__ready",
@@ -7052,17 +7052,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1036",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_minigames_base_minigame_gd",
-      "target": "scripts_minigames_base_minigame_gd__init_base_ui",
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L105",
+      "source_location": "L1037",
       "weight": 1.0
     },
     {
@@ -7072,7 +7062,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1052",
+      "source_location": "L1053",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_base_minigame_gd",
+      "target": "scripts_minigames_base_minigame_gd__init_base_ui",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L106",
       "weight": 1.0
     },
     {
@@ -7082,7 +7082,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1060",
+      "source_location": "L1061",
       "weight": 1.0
     },
     {
@@ -7092,7 +7092,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1068",
+      "source_location": "L1069",
       "weight": 1.0
     },
     {
@@ -7102,7 +7102,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1073",
+      "source_location": "L1074",
       "weight": 1.0
     },
     {
@@ -7112,7 +7112,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1101",
+      "source_location": "L1102",
       "weight": 1.0
     },
     {
@@ -7122,7 +7122,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1113",
+      "source_location": "L1114",
       "weight": 1.0
     },
     {
@@ -7132,7 +7132,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1118",
+      "source_location": "L1120",
       "weight": 1.0
     },
     {
@@ -7142,7 +7142,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1146",
+      "source_location": "L1148",
       "weight": 1.0
     },
     {
@@ -7152,7 +7152,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1158",
+      "source_location": "L1160",
       "weight": 1.0
     },
     {
@@ -7162,7 +7162,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1163",
+      "source_location": "L1165",
       "weight": 1.0
     },
     {
@@ -7172,7 +7172,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L117",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -7182,7 +7182,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1180",
+      "source_location": "L1182",
       "weight": 1.0
     },
     {
@@ -7192,7 +7192,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1189",
+      "source_location": "L1191",
       "weight": 1.0
     },
     {
@@ -7202,7 +7202,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1192",
+      "source_location": "L1194",
       "weight": 1.0
     },
     {
@@ -7212,7 +7212,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1195",
+      "source_location": "L1197",
       "weight": 1.0
     },
     {
@@ -7222,7 +7222,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1206",
+      "source_location": "L1208",
       "weight": 1.0
     },
     {
@@ -7232,7 +7232,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1209",
+      "source_location": "L1211",
       "weight": 1.0
     },
     {
@@ -7242,7 +7242,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1212",
+      "source_location": "L1214",
       "weight": 1.0
     },
     {
@@ -7252,7 +7252,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1215",
+      "source_location": "L1217",
       "weight": 1.0
     },
     {
@@ -7262,7 +7262,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1218",
+      "source_location": "L1220",
       "weight": 1.0
     },
     {
@@ -7272,7 +7272,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1221",
+      "source_location": "L1223",
       "weight": 1.0
     },
     {
@@ -7282,7 +7282,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1224",
+      "source_location": "L1226",
       "weight": 1.0
     },
     {
@@ -7292,7 +7292,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L204",
+      "source_location": "L205",
       "weight": 1.0
     },
     {
@@ -7302,7 +7302,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L289",
+      "source_location": "L290",
       "weight": 1.0
     },
     {
@@ -7312,7 +7312,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L343",
+      "source_location": "L344",
       "weight": 1.0
     },
     {
@@ -7322,7 +7322,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L353",
+      "source_location": "L354",
       "weight": 1.0
     },
     {
@@ -7332,7 +7332,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L364",
+      "source_location": "L365",
       "weight": 1.0
     },
     {
@@ -7342,7 +7342,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L379",
+      "source_location": "L380",
       "weight": 1.0
     },
     {
@@ -7352,7 +7352,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L390",
+      "source_location": "L391",
       "weight": 1.0
     },
     {
@@ -7362,7 +7362,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L406",
+      "source_location": "L407",
       "weight": 1.0
     },
     {
@@ -7372,7 +7372,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L463",
+      "source_location": "L464",
       "weight": 1.0
     },
     {
@@ -7382,7 +7382,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L508",
+      "source_location": "L509",
       "weight": 1.0
     },
     {
@@ -7392,7 +7392,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L524",
+      "source_location": "L525",
       "weight": 1.0
     },
     {
@@ -7402,7 +7402,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L532",
+      "source_location": "L533",
       "weight": 1.0
     },
     {
@@ -7412,7 +7412,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L543",
+      "source_location": "L544",
       "weight": 1.0
     },
     {
@@ -7422,7 +7422,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L550",
+      "source_location": "L551",
       "weight": 1.0
     },
     {
@@ -7432,7 +7432,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L575",
+      "source_location": "L576",
       "weight": 1.0
     },
     {
@@ -7442,7 +7442,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L585",
+      "source_location": "L586",
       "weight": 1.0
     },
     {
@@ -7452,7 +7452,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L597",
+      "source_location": "L598",
       "weight": 1.0
     },
     {
@@ -7462,17 +7462,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L652",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_minigames_base_minigame_gd",
-      "target": "scripts_minigames_base_minigame_gd_sync_game_state",
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L659",
+      "source_location": "L653",
       "weight": 1.0
     },
     {
@@ -7487,12 +7477,22 @@
     },
     {
       "source": "scripts_minigames_base_minigame_gd",
+      "target": "scripts_minigames_base_minigame_gd_sync_game_state",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L660",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_base_minigame_gd",
       "target": "scripts_minigames_base_minigame_gd_sync_campaign_state",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L667",
+      "source_location": "L668",
       "weight": 1.0
     },
     {
@@ -7502,7 +7502,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L677",
+      "source_location": "L678",
       "weight": 1.0
     },
     {
@@ -7512,7 +7512,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L718",
+      "source_location": "L719",
       "weight": 1.0
     },
     {
@@ -7522,7 +7522,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L732",
+      "source_location": "L733",
       "weight": 1.0
     },
     {
@@ -7532,7 +7532,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L741",
+      "source_location": "L742",
       "weight": 1.0
     },
     {
@@ -7542,7 +7542,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L759",
+      "source_location": "L760",
       "weight": 1.0
     },
     {
@@ -7552,7 +7552,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L772",
+      "source_location": "L773",
       "weight": 1.0
     },
     {
@@ -7562,7 +7562,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L791",
+      "source_location": "L792",
       "weight": 1.0
     },
     {
@@ -7572,7 +7572,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L799",
+      "source_location": "L800",
       "weight": 1.0
     },
     {
@@ -7582,7 +7582,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L810",
+      "source_location": "L811",
       "weight": 1.0
     },
     {
@@ -7592,7 +7592,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L819",
+      "source_location": "L820",
       "weight": 1.0
     },
     {
@@ -7602,7 +7602,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L827",
+      "source_location": "L828",
       "weight": 1.0
     },
     {
@@ -7612,7 +7612,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L839",
+      "source_location": "L840",
       "weight": 1.0
     },
     {
@@ -7622,7 +7622,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L851",
+      "source_location": "L852",
       "weight": 1.0
     },
     {
@@ -7632,7 +7632,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L865",
+      "source_location": "L866",
       "weight": 1.0
     },
     {
@@ -7642,7 +7642,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L885",
+      "source_location": "L886",
       "weight": 1.0
     },
     {
@@ -7652,7 +7652,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L89",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -7662,7 +7662,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L920",
+      "source_location": "L921",
       "weight": 1.0
     },
     {
@@ -7672,7 +7672,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L928",
+      "source_location": "L929",
       "weight": 1.0
     },
     {
@@ -7682,7 +7682,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L937",
+      "source_location": "L938",
       "weight": 1.0
     },
     {
@@ -7692,7 +7692,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L951",
+      "source_location": "L952",
       "weight": 1.0
     },
     {
@@ -7702,7 +7702,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L97",
+      "source_location": "L98",
       "weight": 1.0
     },
     {
@@ -12712,7 +12712,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1166",
+      "source_location": "L1168",
       "weight": 1.0
     },
     {
@@ -12722,7 +12722,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1175",
+      "source_location": "L1177",
       "weight": 1.0
     },
     {
@@ -12732,7 +12732,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1182",
+      "source_location": "L1184",
       "weight": 1.0
     },
     {
@@ -12742,7 +12742,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L385",
+      "source_location": "L386",
       "weight": 1.0
     },
     {
@@ -12752,7 +12752,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L386",
+      "source_location": "L387",
       "weight": 1.0
     },
     {
@@ -12762,7 +12762,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L369",
+      "source_location": "L370",
       "weight": 1.0
     },
     {
@@ -12772,7 +12772,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L914",
+      "source_location": "L915",
       "weight": 1.0
     },
     {
@@ -12782,7 +12782,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L81",
+      "source_location": "L82",
       "weight": 1.0
     },
     {
@@ -12792,7 +12792,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L84",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -12802,7 +12802,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L349",
+      "source_location": "L350",
       "weight": 1.0
     },
     {
@@ -12812,7 +12812,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L858",
+      "source_location": "L859",
       "weight": 1.0
     },
     {
@@ -12822,7 +12822,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L844",
+      "source_location": "L845",
       "weight": 1.0
     },
     {
@@ -12832,7 +12832,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L412",
+      "source_location": "L413",
       "weight": 1.0
     },
     {
@@ -12842,7 +12842,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L632",
+      "source_location": "L633",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_minigames_base_minigame_gd_return_to_lobby_rpc",
+      "target": "gamesession",
+      "relation": "uses_singleton",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/minigames/base_minigame.gd",
+      "source_location": "L1115",
       "weight": 1.0
     },
     {
@@ -12852,7 +12862,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L1029",
+      "source_location": "L1030",
       "weight": 1.0
     },
     {
@@ -12862,7 +12872,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L672",
+      "source_location": "L673",
       "weight": 1.0
     },
     {
@@ -12872,7 +12882,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L655",
+      "source_location": "L656",
       "weight": 1.0
     },
     {
@@ -12882,7 +12892,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/minigames/base_minigame.gd",
-      "source_location": "L403",
+      "source_location": "L404",
       "weight": 1.0
     },
     {
@@ -13337,5 +13347,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "3a463842fc4f95a5175cec35a4a88b85ceb16c87"
+  "built_at_commit": "cbcf8cea59477c1e552e9b0507e41723b696a71e"
 }

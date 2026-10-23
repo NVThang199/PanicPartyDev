@@ -71,6 +71,7 @@ func _ready() -> void:
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
 	_on_minigame_ready()
+	GameSession.last_played_map = name
 
 	if multiplayer.is_server():
 		call_deferred("initialize_game")
@@ -1111,6 +1112,7 @@ func prepare_return_to_lobby_rpc() -> void:
 
 @rpc("authority", "call_remote", "reliable")
 func return_to_lobby_rpc() -> void:
+	GameSession.last_played_map = name
 	if is_inside_tree():
 		get_tree().change_scene_to_file("res://scenes/core/main.tscn")
 

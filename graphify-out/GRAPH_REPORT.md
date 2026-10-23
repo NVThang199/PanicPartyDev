@@ -5,7 +5,7 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 646 nodes · 687 edges · 65 communities (7 shown, 58 thin omitted)
+- 646 nodes · 688 edges · 65 communities (7 shown, 58 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -84,8 +84,8 @@ Cohesion: 0.08
 Nodes (4): class WaveformDisplay, signal play_again_requested, signal return_to_menu_requested, signal popup_closed
 
 ### Community 10 - "Gamesession"
-Cohesion: 0.09
-Nodes (22): func _change_to_minigame(), func _on_campaign_play_again(), func _on_campaign_toggled(), func _on_target_score_pressed(), func _sync_all_scores_to_all(), rpc func register_player(), rpc func reset_campaign_wins_rpc(), rpc func sync_all_scores() (+14 more)
+Cohesion: 0.08
+Nodes (23): func _change_to_minigame(), func _on_campaign_play_again(), func _on_campaign_toggled(), func _on_target_score_pressed(), func _sync_all_scores_to_all(), rpc func register_player(), rpc func reset_campaign_wins_rpc(), rpc func sync_all_scores() (+15 more)
 
 ### Community 15 - "Networking"
 Cohesion: 0.15
@@ -97,7 +97,7 @@ Nodes (5): func _ready(), func _exit_tree(), func _ready(), func refresh(), clas
 
 ## Knowledge Gaps
 - **24 isolated node(s):** `class BaseMinigame`, `signal host_created`, `signal host_failed`, `signal client_connected`, `signal avatar_updated` (+19 more)
-  These have ≤1 connection - possible missing edges. (Counts symbols only; 524 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges. (Counts symbols only; 523 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **58 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -112,7 +112,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `func _on_pre_initialize()` connect `gold_miner.gd` to `Gamesession`?**
   _High betweenness centrality (0.042) - this node is a cross-community bridge._
 - **Should `base_minigame.gd` be split into smaller, more focused modules?**
-  _Cohesion score 0.03773584905660377 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.038461538461538464 - nodes in this community are weakly interconnected._
 - **Why does `func _update_scores_ui()` connect `gold_miner.gd` to `Gamesession`?**
   _High betweenness centrality (0.042) - this node is a cross-community bridge._
 - **Should `networking.gd` be split into smaller, more focused modules?**
