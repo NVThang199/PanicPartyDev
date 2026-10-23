@@ -387,7 +387,17 @@ text = "Audio Output Device"
 
 [node name="DeviceOption" type="OptionButton" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/DeviceHBox"]
 layout_mode = 2
+
+[node name="InputDeviceHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent"]
+layout_mode = 2
+
+[node name="InputDeviceLabel" type="Label" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/InputDeviceHBox"]
+layout_mode = 2
 size_flags_horizontal = 3
+text = "Audio Input Device"
+
+[node name="InputDeviceOption" type="OptionButton" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent/InputDeviceHBox"]
+layout_mode = 2
 
 [node name="ModeHBox" type="HBoxContainer" parent="Panel/Margin/VBox/Tabs/Audio/AudioContent"]
 layout_mode = 2

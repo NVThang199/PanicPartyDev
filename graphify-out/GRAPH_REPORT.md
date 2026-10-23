@@ -1,25 +1,26 @@
-# Graph Report - PanicPartyDev  (2026-10-20)
+# Graph Report - PanicPartyDev  (2026-10-21)
 
 ## Corpus Check
-- 191 files · ~15,000 words
+- 195 files · ~15,000 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 479 nodes · 531 edges · 41 communities (6 shown, 35 thin omitted)
+- 551 nodes · 605 edges · 44 communities (7 shown, 37 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
 - base_minigame.gd
 - networking.gd
-- Gamesession
 - settings_manager.gd
 - player.gd
 - stable_footing.gd
+- Gamesession
+- waveform_display.gd
+- character_select.gd
 - settings_menu.gd
 - bomb.gd
 - hot_bomb.gd
-- campaign_victory_popup.gd
 - Networking
 - tab_overlay.gd
 - in_game_menu.gd
@@ -39,70 +40,76 @@
 
 ## Surprising Connections (you probably didn't know these)
 - `func _on_character_confirmed()` --uses_singleton--> `Gamesession`  [EXTRACTED]
-  scripts/core/main.gd → core  _Bridges community 2 → community 12_
-- `func _process_match_result()` --uses_singleton--> `Gamesession`  [EXTRACTED]
-  scripts/core/main.gd → core  _Bridges community 2 → community 1_
+  scripts/core/main.gd → core  _Bridges community 8 → community 14_
 - `func _ready()` --uses_singleton--> `Gamesession`  [EXTRACTED]
-  scripts/core/main.gd → core  _Bridges community 2 → community 13_
+  scripts/core/main.gd → core  _Bridges community 8 → community 15_
 - `func _ready()` --uses_singleton--> `Gamesession`  [EXTRACTED]
-  scripts/players/player.gd → core  _Bridges community 2 → community 6_
+  scripts/players/player.gd → core  _Bridges community 8 → community 6_
+- `func _on_confirm_pressed()` --uses_singleton--> `Gamesession`  [EXTRACTED]
+  scripts/ui/character_select.gd → core  _Bridges community 8 → community 10_
 - `func _ready()` --uses_singleton--> `Gamesession`  [EXTRACTED]
-  scripts/ui/character_switcher.gd → core  _Bridges community 2 → community 16_
-- `func _on_invite_pressed()` --uses_singleton--> `Networking`  [EXTRACTED]
-  scripts/core/main.gd → core  _Bridges community 12 → community 1_
+  scripts/ui/character_switcher.gd → core  _Bridges community 8 → community 18_
+- `func _on_host_pressed()` --uses_singleton--> `Gamesession`  [EXTRACTED]
+  scripts/ui/main_menu.gd → core  _Bridges community 8 → community 2_
 - `func _ready()` --uses_singleton--> `Networking`  [EXTRACTED]
-  scripts/core/main.gd → core  _Bridges community 12 → community 13_
+  scripts/core/main.gd → core  _Bridges community 14 → community 15_
 - `func _on_pause_invite_pressed()` --uses_singleton--> `Networking`  [EXTRACTED]
-  scripts/ui/in_game_menu.gd → core  _Bridges community 12 → community 14_
+  scripts/ui/in_game_menu.gd → core  _Bridges community 14 → community 16_
+- `func _on_join_code_pressed()` --uses_singleton--> `Networking`  [EXTRACTED]
+  scripts/ui/main_menu.gd → core  _Bridges community 14 → community 2_
 
 ## Import Cycles
 - None detected.
 
-## Communities (41 total, 35 thin omitted)
+## Communities (44 total, 37 thin omitted)
 
-### Community 1 - "networking.gd"
-Cohesion: 0.06
-Nodes (26): func _on_host_failed(), func _on_invite_pressed(), func _process_match_result(), func _exit_tree(), func _process(), func _ready(), func disconnect_and_return_to_menu(), func get_avatar_texture() (+18 more)
-
-### Community 2 - "Gamesession"
-Cohesion: 0.06
-Nodes (30): func _change_to_minigame(), func _on_campaign_play_again(), func _on_campaign_toggled(), func _on_target_score_pressed(), func _sync_all_scores_to_all(), rpc func register_player(), rpc func reset_campaign_wins_rpc(), rpc func sync_all_scores() (+22 more)
+### Community 2 - "networking.gd"
+Cohesion: 0.07
+Nodes (23): func _on_host_failed(), func _exit_tree(), func _process(), func _ready(), func get_avatar_texture(), func get_local_player_name(), func get_local_steam_id(), func host_lobby() (+15 more)
 
 ### Community 5 - "settings_manager.gd"
-Cohesion: 0.06
-Nodes (3): signal keybinds_changed, signal settings_changed, class ButtonEffectsModule
+Cohesion: 0.05
+Nodes (4): class VoiceAnalyzer, signal keybinds_changed, signal settings_changed, class ButtonEffectsModule
 
-### Community 11 - "campaign_victory_popup.gd"
-Cohesion: 0.13
-Nodes (3): signal play_again_requested, signal return_to_menu_requested, signal popup_closed
+### Community 8 - "Gamesession"
+Cohesion: 0.08
+Nodes (24): func _change_to_minigame(), func _on_campaign_play_again(), func _on_campaign_toggled(), func _on_target_score_pressed(), func _process_match_result(), func _sync_all_scores_to_all(), rpc func register_player(), rpc func reset_campaign_wins_rpc() (+16 more)
 
-### Community 12 - "Networking"
-Cohesion: 0.15
-Nodes (12): func _on_character_confirmed(), func _on_connected_to_server(), func _on_copy_code_pressed(), func _on_deferred_register_player(), func _on_leave_pressed(), func _on_server_disconnected(), func _restore_lobby_session(), func remove_player() (+4 more)
+### Community 9 - "waveform_display.gd"
+Cohesion: 0.08
+Nodes (4): class WaveformDisplay, signal play_again_requested, signal return_to_menu_requested, signal popup_closed
 
-### Community 13 - "tab_overlay.gd"
+### Community 10 - "character_select.gd"
+Cohesion: 0.10
+Nodes (10): func _on_confirm_pressed(), func _select_character(), func _select_color(), func _select_face(), func _select_hat(), func _setup_color_buttons(), func _setup_face_buttons(), func _setup_hat_buttons() (+2 more)
+
+### Community 14 - "Networking"
+Cohesion: 0.14
+Nodes (13): func _on_character_confirmed(), func _on_connected_to_server(), func _on_copy_code_pressed(), func _on_deferred_register_player(), func _on_invite_pressed(), func _on_leave_pressed(), func _on_server_disconnected(), func _restore_lobby_session() (+5 more)
+
+### Community 15 - "tab_overlay.gd"
 Cohesion: 0.18
 Nodes (5): func _ready(), func _exit_tree(), func _ready(), func refresh(), class TabOverlay
 
 ## Knowledge Gaps
-- **19 isolated node(s):** `class BaseMinigame`, `signal host_created`, `signal host_failed`, `signal client_connected`, `signal avatar_updated` (+14 more)
-  These have ≤1 connection - possible missing edges. (Counts symbols only; 372 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **35 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **21 isolated node(s):** `class BaseMinigame`, `signal host_created`, `signal host_failed`, `signal client_connected`, `signal avatar_updated` (+16 more)
+  These have ≤1 connection - possible missing edges. (Counts symbols only; 439 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **37 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `func _ready()` connect `player.gd` to `Gamesession`?**
-  _High betweenness centrality (0.142) - this node is a cross-community bridge._
+  _High betweenness centrality (0.138) - this node is a cross-community bridge._
 - **What connects `class BaseMinigame`, `signal host_created`, `signal host_failed` to the rest of the system?**
-  _19 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _21 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `mimic.gd` be split into smaller, more focused modules?**
+  _Cohesion score 0.03636363636363636 - nodes in this community are weakly interconnected._
+- **Why does `func disconnect_and_return_to_menu()` connect `Gamesession` to `networking.gd`?**
+  _High betweenness centrality (0.086) - this node is a cross-community bridge._
 - **Should `base_minigame.gd` be split into smaller, more focused modules?**
   _Cohesion score 0.03773584905660377 - nodes in this community are weakly interconnected._
-- **Why does `func disconnect_and_return_to_menu()` connect `networking.gd` to `Gamesession`?**
-  _High betweenness centrality (0.097) - this node is a cross-community bridge._
+- **Why does `func initialize_game()` connect `Gamesession` to `mimic.gd`?**
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
 - **Should `networking.gd` be split into smaller, more focused modules?**
-  _Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected._
-- **Why does `func _on_host_pressed()` connect `networking.gd` to `Gamesession`?**
-  _High betweenness centrality (0.021) - this node is a cross-community bridge._
-- **Should `Gamesession` be split into smaller, more focused modules?**
-  _Cohesion score 0.05574912891986063 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06620209059233449 - nodes in this community are weakly interconnected._

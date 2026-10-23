@@ -40,10 +40,10 @@ size = Vector3(30.89087, 5, 1)
 size = Vector3(16, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ralht"]
-size = Vector3(1, 5, 18)
+size = Vector3(1, 5, 19.000488)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mgwo4"]
-size = Vector3(1, 5, 18)
+size = Vector3(1, 5, 18.621094)
 
 [node name="Main3D" type="Node3D" unique_id=1693924833]
 script = ExtResource("1_main_script")
@@ -55,7 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.667)
 shape = SubResource("BoxShape3D_floor")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1740177398]
-transform = Transform3D(0.99966156, 0, 0, 0, 0.99966156, 0, 0, 0, 0.99966156, -15.204, 0, -70.63)
+transform = Transform3D(0.99966156, 4.7699432e-05, -0.00011929071, -4.7699432e-05, 0.99966156, -4.9925615e-07, 0.00011929071, 4.9925615e-07, 0.99966156, -15.204, 0, -70.63)
 material_override = SubResource("StandardMaterial3D_lwqq7")
 cast_shadow = 0
 lod_bias = 0.001
@@ -73,12 +73,12 @@ shape = SubResource("BoxShape3D_m8j4h")
 debug_color = Color(0.3879037, 0.3935868, 1, 0.41960785)
 
 [node name="Wall_East" type="CollisionShape3D" parent="Floor" unique_id=1924330318]
-transform = Transform3D(0.91372067, 0, -0.40634304, 0, 1, 0, 0.40634304, 0, 0.91372067, 11.7878685, 2.5, 0.38194275)
+transform = Transform3D(0.90630776, 0, -0.42261827, 0, 1, 0, 0.42261827, 0, 0.90630776, 11.227399, 2.5, -0.07143238)
 shape = SubResource("BoxShape3D_ralht")
 debug_color = Color(0.3879037, 0.3935868, 1, 0.41960785)
 
 [node name="Wall_West" type="CollisionShape3D" parent="Floor" unique_id=1698818139]
-transform = Transform3D(0.9154931, 0, 0.4023337, 0, 1, 0, -0.4023337, 0, 0.9154931, -11.24055, 2.5, 0.5799613)
+transform = Transform3D(0.90630776, 0, 0.42261827, 0, 1, 0, -0.42261827, 0, 0.90630776, -10.739964, 2.5, 0.29851025)
 shape = SubResource("BoxShape3D_mgwo4")
 debug_color = Color(0.3879037, 0.3935868, 1, 0.41960785)
 
@@ -95,12 +95,15 @@ transform = Transform3D(2.0420392, 0, 0, 0, 2.0420392, 0, 0, 0, 2.0420392, 0, -0
 transform = Transform3D(2.0420392, 0, 0, 0, 2.0420392, 0, 0, 0, 2.0420392, 0, -0.92, 13.457)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1934731168]
-transform = Transform3D(-0.98510927, 0.15996589, 0.06301223, 0, -0.36650127, 0.93041784, 0.17192906, 0.9165633, 0.3610438, 0, 5, 0)
-light_color = Color(1, 0.9607843, 0.91764706, 1)
-light_energy = 1.2
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 15, 0)
+light_color = Color(1, 0.965, 0.9, 1)
+light_energy = 0.95
 shadow_enabled = true
-shadow_blur = 1.5
+shadow_bias = 0.03
+shadow_normal_bias = 1.2
+shadow_blur = 1.8
 directional_shadow_blend_splits = true
+directional_shadow_max_distance = 120.0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=-2060399406]
 
@@ -312,6 +315,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Stable Footing"
 
+[node name="BtnMimic" type="Button" parent="UI/MapSelectPanel/Margin/VBox" unique_id=1766083624]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Voice Mimic"
+
 [node name="HSeparator2" type="HSeparator" parent="UI/MapSelectPanel/Margin/VBox" unique_id=2142162422]
 layout_mode = 2
 
@@ -428,7 +437,7 @@ theme_override_font_sizes/font_size = 14
 text = "COPY_ROOM_CODE"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=-1294967296]
-transform = Transform3D(1, 0, 0, 0, 0.93124, 0.3644064, 0, -0.3644064, 0.93124, 0, 12.936675, 18.215548)
+transform = Transform3D(1, 0, 0, 0, 0.79124624, 0.61149764, 0, -0.61149764, 0.79124624, 0, 10.236126, 12.127769)
 environment = ExtResource("2_lwqq7")
 current = true
 fov = 57.329388

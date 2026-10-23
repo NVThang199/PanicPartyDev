@@ -931,6 +931,8 @@ func _get_next_minigame_scene() -> String:
 	if "hotbomb" in current_map_name or "bomb" in current_map_name:
 		return "res://scenes/minigames/stable_footing/stable_footing.tscn"
 	elif "stablefooting" in current_map_name or "footing" in current_map_name:
+		return "res://scenes/minigames/mimic/mimic.tscn"
+	elif "mimic" in current_map_name:
 		return "res://scenes/minigames/hot_bomb/hot_bomb.tscn"
 	return "res://scenes/minigames/hot_bomb/hot_bomb.tscn"
 

@@ -30,6 +30,7 @@ signal settings_closed
 @onready var music_slider = $Panel/Margin/VBox/Tabs/Audio/AudioContent/MusicVolHBox/MusicSlider
 @onready var sfx_slider = $Panel/Margin/VBox/Tabs/Audio/AudioContent/SFXVolHBox/SFXSlider
 @onready var device_option = $Panel/Margin/VBox/Tabs/Audio/AudioContent/DeviceHBox/DeviceOption
+@onready var input_device_option = $Panel/Margin/VBox/Tabs/Audio/AudioContent/InputDeviceHBox/InputDeviceOption
 @onready var mode_option = $Panel/Margin/VBox/Tabs/Audio/AudioContent/ModeHBox/ModeOption
 
 # Keybind Nodes
@@ -162,6 +163,19 @@ func populate_audio_devices():
 	if device_option.item_count > 0:
 		device_option.select(selected_idx)
 
+	if input_device_option:
+		input_device_option.clear()
+		var in_devices = AudioServer.get_input_device_list()
+		var cur_in_device = SettingsManager.get_setting("audio", "input_device")
+		var in_selected_idx = 0
+		for i in range(in_devices.size()):
+			var dev_name = in_devices[i]
+			input_device_option.add_item(dev_name)
+			if dev_name == cur_in_device:
+				in_selected_idx = i
+		if input_device_option.item_count > 0:
+			input_device_option.select(in_selected_idx)
+
 func populate_keybinds():
 	if not keybind_list:
 		return
@@ -256,6 +270,7 @@ func load_current_settings():
 	sfx_slider.value = sm.get_setting("audio", "sfx_volume")
 	var cur_mode = sm.get_setting("audio", "speaker_mode")
 	mode_option.select(1 if cur_mode == "Mono" else 0)
+	populate_audio_devices()
 
 func _on_preset_selected(index: int):
 	var presets = ["Low", "Medium", "High", "Ultra", "Custom"]
@@ -296,6 +311,8 @@ func _on_apply_pressed():
 	sm.set_setting("audio", "sfx_volume", sfx_slider.value)
 	if device_option.selected >= 0 and device_option.item_count > 0:
 		sm.set_setting("audio", "output_device", device_option.get_item_text(device_option.selected))
+	if input_device_option and input_device_option.selected >= 0 and input_device_option.item_count > 0:
+		sm.set_setting("audio", "input_device", input_device_option.get_item_text(input_device_option.selected))
 	sm.set_setting("audio", "speaker_mode", mode_option.get_item_text(mode_option.selected))
 
 	sm.apply_settings()

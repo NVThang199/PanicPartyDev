@@ -8,7 +8,9 @@ var gravity = 9.8
 
 @onready var model: Node3D = $Model
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
-@onready var name_label: Label3D = $NameLabel
+
+var name_label: Label = null
+var name_canvas: CanvasLayer = null
 
 var current_anim: String = ""
 var push_cooldown: float = 0.0
@@ -127,11 +129,38 @@ func _apply_color_recursive(node: Node, col: Color) -> void:
 
 func set_player_name(p_name: String) -> void:
 	player_name = p_name
-	if not name_label:
-		name_label = get_node_or_null("NameLabel")
+	_ensure_name_label()
 	if name_label:
 		name_label.text = p_name
-		name_label.modulate = Color(1, 1, 1, 1)
+
+func _ensure_name_label() -> void:
+	if not is_inside_tree():
+		return
+	if not name_canvas or not is_instance_valid(name_canvas):
+		name_canvas = CanvasLayer.new()
+		name_canvas.layer = 0
+		add_child(name_canvas)
+
+		name_label = Label.new()
+		name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		name_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		var font_res = load("res://assets/ui/FSEX300.ttf")
+		if font_res:
+			name_label.add_theme_font_override("font", font_res)
+		name_label.add_theme_font_size_override("font_size", 15)
+		name_label.add_theme_constant_override("outline_size", 3)
+		name_label.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.85))
+		name_label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
+		name_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		name_canvas.add_child(name_label)
+	if name_label and player_name != "":
+		name_label.text = player_name
+
+func _exit_tree() -> void:
+	if name_canvas and is_instance_valid(name_canvas):
+		name_canvas.queue_free()
+		name_canvas = null
+		name_label = null
 
 func _ensure_nodes():
 	if not model:
@@ -153,12 +182,29 @@ func _apply_state(new_pos: Vector3, rot_y: float, anim_name: String) -> void:
 func _process(delta: float) -> void:
 	if not is_inside_tree():
 		return
+	_update_name_label_screen_pos()
 	var has_peer = multiplayer and multiplayer.multiplayer_peer and multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED
 	var has_authority = is_multiplayer_authority() if has_peer else true
 	if not has_authority and has_synced_pos:
 		position = position.lerp(target_pos, 25.0 * delta)
 		if model:
 			model.rotation.y = lerp_angle(model.rotation.y, target_rot_y, 25.0 * delta)
+
+func _update_name_label_screen_pos() -> void:
+	if not name_label or not is_instance_valid(name_label):
+		return
+	var cam = get_viewport().get_camera_3d()
+	if not cam or not is_instance_valid(cam):
+		name_label.visible = false
+		return
+	var head_world_pos = global_position + Vector3(0, 2.25, 0)
+	if cam.is_position_behind(head_world_pos):
+		name_label.visible = false
+		return
+	var screen_pos = cam.unproject_position(head_world_pos)
+	name_label.visible = true
+	var lbl_size = name_label.size
+	name_label.position = Vector2(screen_pos.x - (lbl_size.x * 0.5), screen_pos.y - lbl_size.y)
 
 func _safe_wait_animation(anim_name: String, fallback_duration: float = 0.5) -> void:
 	if not is_inside_tree():
@@ -343,12 +389,7 @@ func _physics_process(delta):
 
 func _ready():
 	_ensure_nodes()
-	if not name_label:
-		name_label = get_node_or_null("NameLabel")
-	if name_label:
-		if player_name != "":
-			name_label.text = player_name
-		name_label.modulate = Color(1, 1, 1, 1)
+	_ensure_name_label()
 	# Camera is managed by main.tscn, not here
 	if anim_player:
 		if not anim_player.has_animation_library("movement"):
