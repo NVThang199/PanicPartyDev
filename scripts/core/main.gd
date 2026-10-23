@@ -902,15 +902,25 @@ func start_game(map_name: String) -> void:
 			p.set_physics_process(false)
 
 	if multiplayer.is_server():
+		var target_pids: Dictionary = {}
+		if multiplayer.multiplayer_peer:
+			for pid in multiplayer.get_peers():
+				if pid != 1:
+					target_pids[pid] = true
 		for pid in player_info:
 			if pid != 1:
-				prepare_start_game_rpc.rpc_id(pid)
-		await get_tree().create_timer(0.1).timeout
+				target_pids[pid] = true
+
+		for pid in target_pids:
+			prepare_start_game_rpc.rpc_id(pid)
+		await get_tree().create_timer(0.15).timeout
 		if not is_inside_tree():
 			return
-		for pid in player_info:
-			if pid != 1:
-				start_game_rpc.rpc_id(pid, actual_map)
+		for pid in target_pids:
+			start_game_rpc.rpc_id(pid, actual_map)
+		await get_tree().process_frame
+		if not is_inside_tree():
+			return
 
 	_change_to_minigame(actual_map)
 

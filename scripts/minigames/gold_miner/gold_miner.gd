@@ -382,9 +382,17 @@ func sync_hook_tick(peer_id: int, p_state: int, p_angle: float, p_length: float,
 		hooks[peer_id] = create_default_hook_data(origin)
 	var h = hooks[peer_id]
 	h["state"] = p_state
-	h["angle"] = p_angle
-	h["length"] = p_length
 	h["target_item_id"] = p_target_item_id
+	if p_state == HookState.SWINGING:
+		h["angle"] = p_angle
+		h["length"] = p_length
+	else:
+		var cur_len: float = h.get("length", p_length)
+		if abs(cur_len - p_length) > 2.0:
+			h["length"] = p_length
+		else:
+			h["length"] = lerp(cur_len, p_length, 0.35)
+		h["angle"] = p_angle
 
 
 func _update_hook_visuals(delta: float = 0.0) -> void:
@@ -393,22 +401,46 @@ func _update_hook_visuals(delta: float = 0.0) -> void:
 	if hooks_container == null:
 		return
 
-	# Cập nhật client local prediction cho swing nếu đang ở client
+	# Cập nhật client local prediction cho chuyển động dây hook mượt mà
 	if not multiplayer.is_server():
 		for pid in hooks:
 			var h = hooks[pid]
-			if h.get("state", HookState.SWINGING) == HookState.SWINGING:
-				var max_rad = deg_to_rad(MAX_SWING_ANGLE)
-				var angle = h.get("angle", 0.0)
-				var s_dir = h.get("swing_dir", 1.0)
-				angle += s_dir * SWING_SPEED * delta
-				if abs(angle) >= max_rad:
-					angle = clamp(angle, -max_rad, max_rad)
-					s_dir = -s_dir
-				h["angle"] = angle
-				h["swing_dir"] = s_dir
-				h["length"] = BASE_SWING_LENGTH
-				h["direction"] = Vector3(sin(angle), -cos(angle), 0.0).normalized()
+			var cur_st: int = h.get("state", HookState.SWINGING)
+			match cur_st:
+				HookState.SWINGING:
+					var max_rad = deg_to_rad(MAX_SWING_ANGLE)
+					var angle = h.get("angle", 0.0)
+					var s_dir = h.get("swing_dir", 1.0)
+					angle += s_dir * SWING_SPEED * delta
+					if abs(angle) >= max_rad:
+						angle = clamp(angle, -max_rad, max_rad)
+						s_dir = -s_dir
+					h["angle"] = angle
+					h["swing_dir"] = s_dir
+					h["length"] = BASE_SWING_LENGTH
+					h["direction"] = Vector3(sin(angle), -cos(angle), 0.0).normalized()
+
+				HookState.EXTENDING:
+					var length: float = h.get("length", BASE_SWING_LENGTH)
+					length = min(length + BASE_EXTEND_SPEED * delta, MAX_HOOK_LENGTH)
+					h["length"] = length
+
+				HookState.RETRACTING:
+					var target_id: int = h.get("target_item_id", -1)
+					var weight: float = 1.0
+					if target_id != -1 and target_id in minerals:
+						var item = minerals[target_id]
+						if item is Dictionary:
+							weight = item.get("weight", 1.0)
+						elif item is Object and is_instance_valid(item):
+							if item.has_method("get_item_weight"):
+								weight = item.get_item_weight()
+							elif "weight" in item:
+								weight = item.weight
+					var r_speed: float = calculate_retract_speed(weight)
+					var length: float = h.get("length", BASE_SWING_LENGTH)
+					length = max(BASE_SWING_LENGTH, length - r_speed * delta)
+					h["length"] = length
 
 	for pid in hooks:
 		var h = hooks[pid]
