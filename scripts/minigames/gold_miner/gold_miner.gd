@@ -140,7 +140,6 @@ func _spawn_default_minerals() -> void:
 		# Tầng trung (Y: 0 đến 3)
 		{"type": GoldMinerItem.Type.GOLD_MEDIUM, "pos": Vector3(-9.0, 2.0, 0.0)},
 		{"type": GoldMinerItem.Type.GOLD_LARGE, "pos": Vector3(-4.0, 1.5, 0.0)},
-		{"type": GoldMinerItem.Type.OBSTACLE, "pos": Vector3(0.0, 2.5, 0.0)},
 		{"type": GoldMinerItem.Type.GOLD_LARGE, "pos": Vector3(4.5, 1.5, 0.0)},
 		{"type": GoldMinerItem.Type.GOLD_MEDIUM, "pos": Vector3(9.0, 2.0, 0.0)},
 
